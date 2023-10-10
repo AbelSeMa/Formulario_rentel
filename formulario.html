@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario de Datos del Cliente</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script> -->
+    <script defer src="validacion.js"></script>
+    <link rel="stylesheet" href="">
+</head>
+
+
+<body>
+    <div id="formulario_Cliente">
+        <form name="formularioCliente" action="shfkludas.html">
+            <fieldset>
+                <legend >Datos de Cliente</legend>
+
+                <div>
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required><br>
+                        <span id="errorNombre"></span>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="apellidos">Apellidos</label>
+                            <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required><br>
+                            <span id="errorApellido"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="dni">DNI</label>
+                        <input minlength="9" maxlength="9" type="text" id="dni" name="dni" placeholder="DNI" required><br>
+                        <span id="errorDni"></span>
+                    </div>
+
+                    <div>
+                        <label for="correo">Correo</label>
+                        <input type="text" id="correo" name="correo" placeholder="correo@correo"><br>
+                        <span id="errorCorreo"></span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <div>
+                        <label for="telefonoFijo">Teléfono Fijo</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoFijo" name="telefonoFijo" required><br>
+                        <span id="errorTlfFijo"></span>
+                    </div>
+
+                    <div>
+                        <label for="telefonoMovil">Teléfono Móvil</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoMovil" name="telefonoMovil" required><br>
+                        <span id="errorTlfMovil"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <labelfor="pais">País</label>
+                        <input type="text" id="pais" name="pais" value="España" readonly><br>
+                    </div>
+
+                    <div>
+                        <label for="provincia">Provincia</label>
+                        <input type="text" id="provincia" name="provincia" value="Cádiz"readonly><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="poblacion">Población</label>
+                        <select id="poblacion" name="poblacion">
+                            <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
+                            <option value="Chipiona">Chipiona</option>
+                        </select><br>
+                    </div>
+                    <div>
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" name="direccion" required><br>
+                        <span id="errorDireccion" class="error text-danger"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="codigoPostal">Código Postal</label>
+                        <input minlength="5" maxlength="5" type="text" id="codigoPostal"
+                            name="codigoPostal" required><br>
+                        <span id="errorCodPost"></span>
+                    </div>
+                </div>
+                
+
+                <div >
+                    <div>
+                        <label for="delanteDNI">DNI por delante</label>
+                        <input type="file" id="delanteDNI" name="delanteDNI" required><br>
+                    </div>
+
+                    <div>
+                        <label for="detrasDNI">DNI por detrás</label>
+                        <input type="file" id="detrasDNI" name="detrasDNI" required><br>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="poblacion">¿Desea utilizar estos datos para la facturacion y notificaciones ?</label>
+                    <div>
+                        <input type="radio" name="flexRadioDefault" id="radioSi" onclick="cambioAction();">
+                        <label for="radioSi">Sí</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="flexRadioDefault" id="radioNo" onclick="cambioAction()">
+                        <label for="radioNo">No</label>
+                    </div><br>
+
+                </div>
+            </fieldset>
+    </div>
+    <input type="submit" id="enviar1" value="Enviar" onclick="validarFormulario(event)">
+    </form>
+</body>
+
+</html>
