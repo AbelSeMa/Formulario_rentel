@@ -171,6 +171,33 @@ function validarFormulario(event) {
 
 }
 
+function validarNotis(event){
+    var nombre = document.getElementById("nombre").value;
+    var apellidos = document.getElementById("apellidos").value;
+    var correo = document.getElementById("correo").value;
+    var telefonoMovil = document.getElementById("telefonoMovil").value;
+    var validacionCorrecta = true;
+
+    if (!validarNombre(nombre)) {
+        validacionCorrecta = false;
+        event.preventDefault();
+    }
+    if (!validarApellidos(apellidos)) {
+        validacionCorrecta = false;
+        event.preventDefault();
+    }
+
+    if (!validarCorreo(correo)) {
+        validacionCorrecta = false;
+        event.preventDefault();
+    }
+
+    if (!validarTelefonoMovil(telefonoMovil)) {
+        validacionCorrecta = false;
+        event.preventDefault();
+    }
+}
+
 function cambioAction() {
     var rsi = document.getElementById("radioSi");
     var rno = document.getElementById("radioNo");
