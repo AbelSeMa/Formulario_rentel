@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <script src="validacion_completa.js"></script>
+    <script src="validacion_campos.js"></script>
+</head>
+
+<body>
+    <form name="formulario_Cliente" action="">
+        <div id="formulario1">
+            <fieldset>
+                <legend>Datos de Cliente</legend>
+                <div>
+                    <div>
+                        <label for="nombre">Nombre*</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre"><br>
+                        <span id="errorNombre" style="color: red;"></span>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="apellidos">Apellidos*</label>
+                            <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos"><br>
+                            <span id="errorApellido" style="color: red;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="dni">DNI*</label>
+                        <input minlength="9" maxlength="9" type="text" id="dni" name="dni" placeholder="DNI"><br>
+                        <span id="errorDni" style="color: red;"></span>
+                    </div>
+
+                    <div>
+                        <label for="correo">Correo electrónico</label>
+                        <input type="text" id="correo" name="correo" placeholder="correo@correo"><br>
+                        <span id="errorCorreo" style="color: red;"></span>
+                    </div>
+                </div>
+
+
+                <div>
+                    <div>
+                        <label for="telefonoFijo">Teléfono Fijo</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoFijo" name="telefonoFijo"><br>
+                        <span id="errorTlfFijo" style="color: red;"></span>
+                    </div>
+
+                    <div>
+                        <label for="telefonoMovil">Teléfono Móvil*</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoMovil" name="telefonoMovil"><br>
+                        <span id="errorTlfMovil" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="poblacion">Población*</label>
+                        <select id="poblacion" name="poblacion">
+                            <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
+                            <option value="Chipiona">Chipiona</option>
+                        </select><br>
+                    </div>
+                    <div>
+                        <label for="direccion">Dirección*</label>
+                        <input type="text" id="direccion" name="direccion"><br>
+                        <span id="errorDireccion" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="codigoPostal">Código Postal*</label>
+                        <input minlength="5" maxlength="5" type="text" id="codigoPostal" name="codigoPostal"><br>
+                        <span id="errorCodPost" style="color: red;"></span>
+                    </div>
+                </div>
+
+
+                <!--                 <div>
+                    <div>
+                        <label for="delanteDNI">DNI por delante</label>
+                        <input type="file" id="delanteDNI" name="delanteDNI"><br>
+                    </div>
+
+                    <div>
+                        <label for="detrasDNI">DNI por detrás</label>
+                        <input type="file" id="detrasDNI" name="detrasDNI"><br>
+                    </div>
+                </div> -->
+            </fieldset>
+            <label>¿Quieres usar los mismos datos para la facturacion?</label> <br>
+            <label for="mismosDatosSi">Sí</label>
+            <input type="radio" name="radioSi" id="mismosDatosSi" />
+            <label for="mismosDatosNo">No</label>
+            <input type="radio" name="radioNo" id="mismosDatosNo" />
+            <br>
+            <button type="button" onclick="mostrarFormulario(2)">Siguiente</button>
+        </div>
+
+        <div id="formulario2" style="display: none">
+
+
+            <fieldset>
+                <legend>Datos de Cliente Facturación</legend>
+
+                <div>
+                    <div>
+                        <div>
+                            <label for="nombreFac">Nombre*</label>
+                            <input type="text" id="nombreFac" name="nombreFac" placeholder="Nombre"><br>
+                            <span id="errorNombreFac" style="color: red;"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="apellidosFac">Apellidos*</label>
+                            <input type="text" id="apellidosFac" name="apellidosFac" placeholder="Apellidos"><br>
+                            <span id="errorApellidoFac" style="color: red;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="dniFac">DNI*</label>
+                        <input minlength="9" maxlength="9" type="text" id="dniFac" name="dniFac" placeholder="DNI"><br>
+                        <span id="errorDniFac" style="color: red;"></span>
+                    </div>
+
+                    <div>
+                        <label for="correoFac">Correo electrónico</label>
+                        <input type="text" id="correoFac" name="correoFac" placeholder="correo@correo"><br>
+                        <span id="errorCorreoFac" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+
+                    <div>
+                        <label for="telefonoFijoFac">Teléfono Fijo</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoFijoFac" name="telefonoFijoFac"><br>
+                        <span id="errorTlfFijoFac" style="color: red;"></span>
+                    </div>
+
+                    <div>
+                        <label for="telefonoMovilFac">Teléfono Móvil*</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoMovilFac"
+                            name="telefonoMovilFac"><br>
+                        <span id="errorTlfMovilFac" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="poblacionFac">Población*</label>
+                        <select class="form-select" id="poblacionFac" name="poblacionFac">
+                            <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
+                            <option value="Chipiona">Chipiona</option>
+                        </select><br>
+                    </div>
+                    <div>
+                        <label for="direccionFac">Dirección*</label>
+                        <input type="text" id="direccionFac" name="direccionFac"><br>
+                        <span id="errorDireccionFac" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="codigoPostalFac">Código Postal*</label>
+                    <input minlength="5" maxlength="5" type="text" id="codigoPostalFac" name="codigoPostalFac"><br>
+                    <span id="errorCodPostFac" style="color: red;"></span>
+                </div>
+
+                <!--                 <div>
+
+                    <div>
+                        <label for="delanteDNI">DNI por delante</label>
+                        <input type="file" id="delanteDNI" name="delanteDNI"><br>
+                    </div>
+
+                    <div>
+                        <label for="detrasDNI">DNI por detrás</label>
+                        <input type="file" id="detrasDNI" name="detrasDNI"><br>
+                    </div>
+                </div> -->
+            </fieldset>
+
+            <button type="button" onclick="mostrarFormulario(1)">Anterior</button>
+            <button type="button" onclick="mostrarFormulario(3)">Siguiente</button>
+        </div>
+
+        <div id="formulario3" style="display: none">
+            <fieldset>
+
+                <legend>Datos de Cliente Notificaciones</legend>
+
+                <div>
+                    <div>
+                        <div>
+                            <label for="nombreNoti">Nombre*</label>
+                            <input type="text" id="nombreNoti" name="nombreNoti" placeholder="Nombre"><br>
+                            <span id="errorNombreNoti" style="color: red;"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="apellidosNoti">Apellidos*</label>
+                            <input type="text" id="apellidosNoti" name="apellidosNoti" placeholder="Apellidos"><br>
+                            <span id="errorApellidoNoti" style="color: red;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="correoNoti">Correo electrónico</label>
+                        <input type="text" id="correoNoti" name="correoNoti" placeholder="correo@correo"><br>
+                        <span id="errorCorreoNoti" style="color: red;"></span>
+                    </div>
+
+
+                    <div>
+                        <label for="telefonoMovilNoti">Teléfono Móvil *</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoMovilNoti"
+                            name="telefonoMovilNoti"><br>
+                        <span id="errorTlfMovilNoti" style="color: red;"></span>
+                    </div>
+                </div>
+            </fieldset>
+            <button type="button" onclick="mostrarFormulario(2)">Anterior</button>
+            <button type="button" onclick="mostrarFormulario(4)">Siguiente</button>
+        </div>
+
+        <div id="formulario4" style="display: none">
+            <label class="form-label">¿Elija que método de pago desea usar?</label> <br> <br>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="efectivo">
+            <label class="form-check-label" for="efectivo">efectivo</label> <br>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Transferencia">
+            <label class="form-check-label" for="Transferencia">Transferencia bancaria</label> <br>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="tpv">
+            <label class="form-check-label" for="tpv">TPC</label> <br>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="domiciliacionBancaria"
+                onclick="mostrarIban()">
+            <label class="form-check-label" for="domiciliacionBancaria">domiciliacion Bancaria</label> <br>
+            <br>
+            <div id="contenedorIban" style="display: none">
+                <input type="text" minlength="4" maxlength="4" name="primero" id="primero" placeholder="XX00">
+                <input type="text" minlength="4" maxlength="4" name="segundo" id="segundo" placeholder="0000">
+                <input type="text" minlength="4" maxlength="4" name="tercero" id="tercero" placeholder="0000">
+                <input type="text" minlength="2" maxlength="2" name="cuarto" id="cuarto" placeholder="00">
+                <input type="text" minlength="10" maxlength="10" name="quinto" id="quinto" placeholder="0000000000"><br>
+                <span id="errorIban" style="color: red;"></span>
+            </div>
+            <br>
+
+            <button id="botonAnterior" type="button" onclick="mostrarFormulario(3)">Anterior</button>
+            <button id="directo1" type="button" onclick="mostrarFormulario(1)" hidden> Volver </button>
+        </div>
+        <br>
+        <input type="submit" id="enviarForm" onclick="validarFormulario(event)" hidden>
+    </form>
+
+    <script>
+        var solo_cliente = false;
+        function mostrarFormulario(numeroFormulario) {
+            var radio = document.getElementById("mismosDatosSi");
+            // Oculta todos los formularios
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`formulario${i}`).style.display = "none";
+            }
+
+            // Muestra el formulario seleccionado
+            if (radio.checked) {
+                document.getElementById("formulario4").style.display = "block";
+                document.getElementById('botonAnterior').setAttribute('hidden', '')
+                document.getElementById('directo1').removeAttribute('hidden');
+                radio.checked = false;
+                solo_cliente = true;
+            } else {
+                document.getElementById('directo1').setAttribute('hidden', '')
+                document.getElementById('botonAnterior').removeAttribute('hidden');
+                document.getElementById(
+                    `formulario${numeroFormulario}`
+                ).style.display = "block";
+                // Configura el botón de atrás para volver al formulario anterior
+                const botonAnterior = document.getElementById("botonAnterior");
+                botonAnterior.onclick = function () {
+                    mostrarFormulario(numeroFormulario - 1);
+                };
+
+                solo_cliente=false;
+
+            }
+            // Verifica el estado de "formulario4" y muestra/oculta el botón de enviar
+            if (document.getElementById("formulario4").style.display === "block") {
+                document.getElementById("enviarForm").removeAttribute("hidden");
+            } else {
+                document.getElementById("enviarForm").setAttribute("hidden", "true");
+            }
+        }
+    </script>
+</body>
+</html>
