@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Formulario cliente facturacion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script> -->
+    <script defer src="validacionFacturacion.js"></script>
+</head>
+
+<body>
+
+    <div id="formulario_Fac">
+
+        <form name = "formulario_fac" action="">
+            <fieldset>
+                <legend>Datos de Cliente Facturación</legend>
+
+                <div>
+                    <div>
+                        <div>
+                            <label for="nombreFac">Nombre *</label>
+                            <input type="text" id="nombreFac" name="nombreFac" placeholder="Nombre" required><br>
+                            <span id="errorNombre" style="color: red;"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="apellidosFac">Apellidos *</label>
+                            <input type="text" id="apellidosFac" name="apellidosFac"
+                                placeholder="Apellidos" required><br>
+                            <span id="errorApellido" style="color: red;"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="dniFac">DNI *</label>
+                        <input minlength="9" maxlength="9" type="text" id="dniFac" name="dniFac" placeholder="DNI" required><br>
+                        <span id="errorDni" style="color: red;"></span>
+                    </div>
+
+                    <div>
+                        <label for="correoFac">Correo </label>
+                        <input type="text" id="correoFac" name="correoFac"
+                            placeholder="correo@correo"><br>
+                        <span id="errorCorreo" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+
+                    <div>
+                        <label for="telefonoFijoFac">Teléfono Fijo</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoFijoFac" name="telefonoFijoFac" required><br>
+                        <span id="errorTlfFijo" style="color: red;"></span>
+                    </div>
+
+                    <div>
+                        <label for="telefonoMovilFac">Teléfono Móvil *</label>
+                        <input minlength="9" maxlength="9" type="text" id="telefonoMovilFac" name="telefonoMovilFac" required><br>
+                        <span id="errorTlfMovil" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+
+                    <div>
+                        <label for="pais">País</label>
+                        <input type="text" id="pais" name="pais" value="España" readonly><br>
+                    </div>
+
+                    <div>
+                        <label for="provincia">Provincia</label>
+                        <input type="text" id="provincia" name="provincia" value="Cádiz"
+                            readonly><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <label for="poblacion">Población</label>
+                        <select class="form-select" id="poblacion" name="poblacion">
+                            <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
+                            <option value="Chipiona">Chipiona</option>
+                        </select><br>
+                    </div>
+                    <div>
+                        <label for="direccionFac">Dirección *</label>
+                        <input type="text" id="direccionFac" name="direccionFac" required><br>
+                        <span id="errorDireccion" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="codigoPostalFac">Código Postal *</label>
+                    <input minlength="5" maxlength="5" type="text" id="codigoPostalFac" name="codigoPostalFac" required><br>
+                    <span id="errorCodPost" style="color: red;"></span>
+                </div>
+
+<!--                 <div>
+
+                    <div>
+                        <label for="delanteDNI">DNI por delante</label>
+                        <input type="file" id="delanteDNI" name="delanteDNI" required><br>
+                    </div>
+
+                    <div>
+                        <label for="detrasDNI">DNI por detrás</label>
+                        <input type="file" id="detrasDNI" name="detrasDNI" required><br>
+                    </div>
+                </div> -->
+
+<!--                  <div class="col-md-2 text-center">
+                    <label for="poblacion">¿Desea utilizar estos datos para las notificaciones?</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioSi"
+                            onclick="cambioAction();">
+                        <label class="form-check-label" for="radioSi">Sí</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioNo"
+                            onclick="cambioAction()">
+                        <label class="form-check-label" for="radioNo">No</label>
+                    </div><br> 
+
+                </div> -->
+            </fieldset>
+    </div>
+    <input type="submit" class="btn btn-primary" id="enviar1" value="Enviar" onclick="validarFormularioFac(event)">
+    </form>
+</body>
+
+</html>
