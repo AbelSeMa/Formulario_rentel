@@ -6,8 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
     <script src="funcional.js" defer></script>
-    <!-- <script src="firma.js" defer></script> -->
-    <!-- Incluye la biblioteca Signature Pad CSS -->
     <link rel="stylesheet" type="text/css" />
   </head>
 
@@ -55,6 +53,7 @@
         class="mi-formulario"
         id="form_fibra"
         data-tipo="fibra"
+        enctype="multipart/form-data"
       >
         <div class="fibra_precio">
           <div class="fibra">
@@ -108,7 +107,13 @@
           Si
         </label>
         <label for="porta_no">
-          <input type="radio" name="portabilidad" id="porta_no" value="ko" />
+          <input
+            type="radio"
+            name="portabilidad"
+            id="porta_no"
+            value="ko"
+            onclick="limpiar()"
+          />
           No
         </label>
         <div id="fijoPortabilidad">
@@ -119,7 +124,6 @@
             placeholder="Nº telefono fijo"
           />
         </div>
-        <h3>¿Deseas que tu linea fija sea virtual?</h3>
         <div id="fijaVirtual"></div>
 
         <h3>¿Desea aceptar permanencia?</h3>
@@ -135,27 +139,79 @@
           No. En caso de no aceptar la permanencia, el coste del montaje de los
           equipos y la fibra serán: 120€
         </label>
-        <div></div>
-        <div id="myModal" class="modal">
-          <div class="modal-content">
-            <span class="close"  id="cerrarModal">&times;</span>
-            <h2>¿Qué desea hacer?</h2>
-            <button type="button" id="contratarProducto" onclick="createJson()">
-              Contratar un nuevo producto
-            </button>
-            <button type="button" id="irAPago" onclick="createJson()">
-              Ir a los datos de pago
-            </button>
-          </div>
-        </div>
       </form>
     </div>
     <!-- Formulario para dar de alta una línea móvil -->
 
-    <div id="opcionesMovil">
-      <form action="#"></form>
+    <div id="opcionesMovil" style="display: none">
+      <form action="#" data-tipo="movil" enctype="multipart/form-data">
+        <h3>Servicio contratado</h3>
+        <input
+          type="radio"
+          name="servicio"
+          id="altaNueva"
+          value="alta"
+          onclick="generarTarifas()"
+        />
+        <label for="altaNueva">Alta nueva</label><br />
+        <input type="radio" name="servicio" value="portabilidad"
+        id="portabilidadMovil" />
+        <label for="portabilidadMovil"> Portabilidad </label><br />
+        <input
+          type="radio"
+          name="servicio"
+          id="cambioTitular"
+          value="cambioTitular"
+        />
+        <label for="cambioTitular"> Cambio de titular </label><br />
+        <div id="fotoSIM">
+          <h3>Número de SIM</h3>
+          <label for="nSIM" style="font-size: large"
+            >Seleciona la foto de la SIM </label
+          ><br />
+          <input type="file" id="nSIM" name="nSIM" /><br />
+        </div>
+        <div id="tipoTarifa" style="display: none">
+          <h3>Elige la tarifa</h3>
+          <input type="radio" name="tarifas" id="tarifaIndividual" onclick="indi()" />
+          <label for="tarifaIndividual">Tarifa individual</label>
+          <input type="radio" name="tarifas" id="pack" onclick="precioPack()">
+          <label for="pack">Pack megas compartidos</label>
+        </div><br>
+        <div id="individual" style="display: none">
+          <select title="tarifa" name="tarifa"></select>
+        </div>
+      </form>
     </div>
-    <button type="button" id="abrirModal">Contratar producto o Datos de pago</button>
+    <button type="button" id="abrirModal">
+      Contratar nuevo producto o ir a Datos de cliente
+    </button>
+    <div></div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="cerrarModal">&times;</span>
+        <h2>¿Qué desea hacer?</h2>
+        <button type="submit" id="contratarProducto" onclick="createJson()">
+          Contratar un nuevo producto
+        </button>
+        <button type="button" id="irAPago" onclick="createJson()">
+          Ir a los datos de pago
+        </button>
+      </div>
+    </div>
     <script src="modal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("contratarProducto").addEventListener("click", function () {
+                // Redirige al usuario al formulario de fibra existente
+                window.location.href = '/index.html';
+            });
+    
+            document.getElementById("irAPago").addEventListener("click", function () {
+                // Redirige al usuario al formulario de fibra existente
+                window.location.href = '/pagos.html';
+            });
+        });
+    </script>      
   </body>
 </html>
