@@ -116,6 +116,24 @@ function validarDireccion(direccion) {
     }
 }
 
+function validarFechaNacimiento(fechaNacimiento) {
+    var inputFecha = new Date(fechaNacimiento);
+    var error = document.getElementById("errorFechaNacimiento");
+
+    if (isNaN(inputFecha)) {
+        error.textContent = "Fecha de nacimiento no válida.";
+        return false;
+    } else {
+        var fechaActual = new Date();
+        if (inputFecha > fechaActual) {
+            error.textContent = "La fecha de nacimiento no puede ser en el futuro.";
+            return false;
+        } else {
+            error.textContent = "";
+            return true;
+        }
+    }
+}
 
 
 //VALIDACION CMAPOS FACTURACION
@@ -236,6 +254,26 @@ function validarDireccionFac(direccion) {
 }
 
 
+function validarFechaNacimientoFac(fechaNacimiento) {
+    var inputFecha = new Date(fechaNacimiento);
+    var error = document.getElementById("errorFechaNacimientoFac");
+
+    if (isNaN(inputFecha)) {
+        error.textContent = "Fecha de nacimiento no válida.";
+        return false;
+    } else {
+        var fechaActual = new Date();
+        if (inputFecha > fechaActual) {
+            error.textContent = "La fecha de nacimiento no puede ser en el futuro.";
+            return false;
+        } else {
+            error.textContent = "";
+            return true;
+        }
+    }
+}
+
+
 //VALIDACION CAMPOS NOTIFICACIONES
 
 function validarNombreNoti(nombre) {
@@ -297,6 +335,8 @@ function validarCorreoNoti(correo) {
 }
 
 
+
+
 //VALIDACION FROMA DE PAGO
 
 
@@ -329,21 +369,3 @@ function validarIBAN(iban) {
         return true;
     }
 }
-
-
-
-function validacionPago() {
-    var domiciliacion = document.getElementById("domiciliacionBancaria");
-
-    if (domiciliacion.checked) {
-        var iban1 = document.getElementById("primero").value;
-        var iban2 = document.getElementById("segundo").value;
-        var iban3 = document.getElementById("tercero").value;
-        var iban4 = document.getElementById("cuarto").value;
-        var iban5 = document.getElementById("quinto").value;
-        var iban = iban1 + iban2 + iban3 + iban4 + iban5;
-        var iban = iban.toUpperCase();
-    }
-
-}
-

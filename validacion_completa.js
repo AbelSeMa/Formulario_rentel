@@ -4,6 +4,7 @@ function validarCliente(event) {
     var nombre = document.getElementById("nombre").value;
     var apellidos = document.getElementById("apellidos").value;
     var dni = document.getElementById("dni").value;
+    var fecha = document.getElementById("fechaNacimiento").value;
     var correo = document.getElementById("correo").value;
     var telefonoFijo = document.getElementById("telefonoFijo").value;
     var telefonoMovil = document.getElementById("telefonoMovil").value;
@@ -50,6 +51,11 @@ function validarCliente(event) {
         event.preventDefault();
 
     }
+
+    if(!validarFechaNacimiento(fecha)){
+        validacionCorrectaCliente = false;
+        event.preventDefault();
+    }
     return validacionCorrectaCliente;
 }
 
@@ -63,7 +69,7 @@ function validarClienteFac(event) {
     var telefonoMovilFac = document.getElementById("telefonoMovilFac").value;
     var codigoPostalFac = document.getElementById("codigoPostalFac").value;
     var direccionFac = document.getElementById("direccionFac").value;
-
+    var fecha = document.getElementById("fechaNacimientoFac").value;
     var validacionCorrectaFac = true;
 
     if (!validarNombreFac(nombreFac)) {
@@ -95,6 +101,11 @@ function validarClienteFac(event) {
         event.preventDefault();
     }
     if (!validarDireccionFac(direccionFac)) {
+        validacionCorrectaFac = false;
+        event.preventDefault();
+    }
+
+    if(!validarFechaNacimientoFac(fecha)){
         validacionCorrectaFac = false;
         event.preventDefault();
     }
@@ -134,8 +145,12 @@ function validarFormNotis(event) {
 }
 
 
+
+
 function validarFormPago(event) {
+
     var domiciliacion = document.getElementById("domiciliacionBancaria");
+
 
     var validacionCorrectaIban = true;
 
@@ -148,15 +163,13 @@ function validarFormPago(event) {
         var iban = iban1 + iban2 + iban3 + iban4 + iban5;
         var iban = iban.toUpperCase();
 
-
-
         if (!validarIBAN(iban)) {
             var validacionCorrectaIban = false;
             event.preventDefault();
         }
 
     }
-    return validacionCorrectaIban;
+    return (validacionCorrectaIban);
 }
 
 
@@ -202,7 +215,7 @@ function validarSinCheck(event) {
 
     if (!validarFormNotis(event)) {
         error_formulario.push(3);
-    }
+    }   
 
     if (!validarFormPago(event)) {
         error_formulario.push(4);
