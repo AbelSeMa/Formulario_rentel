@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="funcional.js" defer></script>
+    <link rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <h2>¿Qué producto desea contratar?</h2>
+    <form action="#">
+      <label for="fibra">
+        <input
+          type="radio"
+          name="producto"
+          id="fibra"
+          value="fibra"
+          onclick="mostrarFibra()"
+        />
+        Fibra óptica </label
+      ><br />
+      <label for="movil">
+        <input
+          type="radio"
+          name="producto"
+          id="movil"
+          value="movil"
+          onclick="mostrarMovil()"
+        />
+        Móvil </label
+      ><br />
+      <label for="asistencia">
+        <input
+          type="radio"
+          name="producto"
+          id="asistencia"
+          value="asistencia"
+          onclick="mostrarAsistencia()"
+        />
+        Teleasisetncia
+      </label>
+    </form>
+
+    <!-- 
+      Formulario para la contratación de fibra óptica
+     -->
+    <div id="opcionesFibra" style="display: none">
+      <form
+        action=""
+        class="mi-formulario"
+        id="form_fibra"
+        data-tipo="fibra"
+        enctype="multipart/form-data"
+      >
+        <div class="fibra_precio">
+          <div class="fibra">
+            <h3>Elige el producto</h3>
+            <label for="cien">
+              <input
+                type="radio"
+                name="velocidad"
+                id="cien"
+                value="100"
+                onclick="precioCien()"
+                required
+              />
+              Fibra 100 Megas </label
+            ><br />
+
+            <label for="trescientos">
+              <input
+                type="radio"
+                name="velocidad"
+                id="trescientos"
+                value="300"
+                onclick="precioTresciento()"
+              />
+              Fibra 300 Megas </label
+            ><br />
+
+            <label for="seiscientos">
+              <input
+                type="radio"
+                name="velocidad"
+                id="seiscientos"
+                value="600"
+                onclick="precioSeiscientos()"
+              />
+              Fibra 600 Megas
+            </label>
+          </div>
+          <div id="precio" class="precio"></div>
+        </div>
+
+        <h3>¿Necesitas portabilidad del número fijo?</h3>
+        <label for="porta_si">
+          <input
+            type="radio"
+            name="portabilidad"
+            id="porta_si"
+            value="ok"
+            onclick="virtual()"
+          />
+          Si
+        </label>
+        <label for="porta_no">
+          <input
+            type="radio"
+            name="portabilidad"
+            id="porta_no"
+            value="ko"
+            onclick="limpiar()"
+          />
+          No
+        </label>
+        <div id="fijoPortabilidad">
+          <input
+            type="tel"
+            name="fijoPortabilidad"
+            id="fijoPorta"
+            placeholder="Nº telefono fijo"
+          />
+        </div>
+        <div id="fijaVirtual"></div>
+
+        <h3>¿Desea aceptar permanencia?</h3>
+
+        <label for="permasi">
+          <input type="radio" name="permanencia" id="permasi" value="si" />
+          Sí. La duración de la permanencia será de 18 meses y el montaje de los
+          equipos y la fibra no tendrá ningún coste adicional. </label
+        ><br /><br />
+
+        <label for="permano">
+          <input type="radio" name="permanencia" id="permano" value="no" />
+          No. En caso de no aceptar la permanencia, el coste del montaje de los
+          equipos y la fibra serán: 120€
+        </label>
+      </form>
+    </div>
+    <!-- Formulario para dar de alta una línea móvil -->
+
+    <div id="opcionesMovil" style="display: none">
+      <form action="#" data-tipo="movil" enctype="multipart/form-data">
+        <h3>Servicio contratado</h3>
+        <input
+          type="radio"
+          name="servicio"
+          id="altaNueva"
+          value="alta"
+          onclick="generarTarifas()"
+        />
+        <label for="altaNueva">Alta nueva</label><br />
+        <input type="radio" name="servicio" value="portabilidad"
+        id="portabilidadMovil" />
+        <label for="portabilidadMovil"> Portabilidad </label><br />
+        <input
+          type="radio"
+          name="servicio"
+          id="cambioTitular"
+          value="cambioTitular"
+        />
+        <label for="cambioTitular"> Cambio de titular </label><br />
+        <div id="fotoSIM">
+          <h3>Número de SIM</h3>
+          <label for="nSIM" style="font-size: large"
+            >Seleciona la foto de la SIM </label
+          ><br />
+          <input type="file" id="nSIM" name="nSIM" /><br />
+        </div>
+        <div id="tipoTarifa" style="display: none">
+          <h3>Elige la tarifa</h3>
+          <input type="radio" name="tarifas" id="tarifaIndividual" onclick="indi()" />
+          <label for="tarifaIndividual">Tarifa individual</label>
+          <input type="radio" name="tarifas" id="pack" onclick="precioPack()">
+          <label for="pack">Pack megas compartidos</label>
+        </div><br>
+        <div id="individual" style="display: none">
+          <select title="tarifa" name="tarifa"></select>
+        </div>
+      </form>
+    </div>
+    <button type="button" id="abrirModal">
+      Contratar nuevo producto o ir a Datos de cliente
+    </button>
+    <div></div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="cerrarModal">&times;</span>
+        <h2>¿Qué desea hacer?</h2>
+        <button type="submit" id="contratarProducto" onclick="createJson()">
+          Contratar un nuevo producto
+        </button>
+        <button type="button" id="irAPago" onclick="createJson()">
+          Firmar
+        </button>
+      </div>
+    </div>
+    <script src="modal.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("contratarProducto").addEventListener("click", function () {
+                // Redirige al usuario al formulario de fibra existente
+                window.location.href = '/productos.html';
+            });
+    
+            document.getElementById("irAPago").addEventListener("click", function () {
+                // Redirige al usuario al formulario de fibra existente
+                window.location.href = '/pagos.html';
+            });
+        });
+    </script>      
+  </body>
+</html>

@@ -108,8 +108,8 @@ function limpiarInput() {
 
 
 
-function limpiar() {
-    var limpi = document.getElementById('fijaVirtual');
+function limpiar(nombre) {
+    var limpi = document.getElementById(nombre);
     limpi.innerHTML = "";
 }
 

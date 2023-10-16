@@ -1,3 +1,6 @@
+if (!sessionStorage.getItem('cliente')) {
+    sessionStorage.setItem('cliente', JSON.stringify({}));
+}
 
 
 function validarCliente(event) {
@@ -52,7 +55,7 @@ function validarCliente(event) {
 
     }
 
-    if(!validarFechaNacimiento(fecha)){
+    if (!validarFechaNacimiento(fecha)) {
         validacionCorrectaCliente = false;
         event.preventDefault();
     }
@@ -105,7 +108,7 @@ function validarClienteFac(event) {
         event.preventDefault();
     }
 
-    if(!validarFechaNacimientoFac(fecha)){
+    if (!validarFechaNacimientoFac(fecha)) {
         validacionCorrectaFac = false;
         event.preventDefault();
     }
@@ -215,7 +218,7 @@ function validarSinCheck(event) {
 
     if (!validarFormNotis(event)) {
         error_formulario.push(3);
-    }   
+    }
 
     if (!validarFormPago(event)) {
         error_formulario.push(4);
@@ -246,4 +249,23 @@ function validarFormulario(event) {
         validarSinCheck(event);
     }
 
+    let activeForm = document.getElementById('formuCliente');
+    const data = new FormData(activeForm);
+
+    // Recupera el objeto 'cliente' actual desde sessionStorage
+    const cliente = JSON.parse(sessionStorage.getItem('cliente'));
+
+    const formJSON = Object.fromEntries(data.entries());
+
+    // Actualiza el objeto 'cliente' con los datos del formulario
+    Object.assign(cliente, formJSON);
+
+    // Actualiza el objeto 'cliente' en sessionStorage
+    sessionStorage.setItem('cliente', JSON.stringify(cliente));
+
+}
+
+function limpiar(nombre) {
+    var limpi = document.getElementById(nombre);
+    limpi.innerHTML = "";
 }

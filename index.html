@@ -1,217 +1,309 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="funcional.js" defer></script>
-    <link rel="stylesheet" type="text/css" />
-  </head>
 
-  <body>
-    <h2>¿Qué producto desea contratar?</h2>
-    <form action="#">
-      <label for="fibra">
-        <input
-          type="radio"
-          name="producto"
-          id="fibra"
-          value="fibra"
-          onclick="mostrarFibra()"
-        />
-        Fibra óptica </label
-      ><br />
-      <label for="movil">
-        <input
-          type="radio"
-          name="producto"
-          id="movil"
-          value="movil"
-          onclick="mostrarMovil()"
-        />
-        Móvil </label
-      ><br />
-      <label for="asistencia">
-        <input
-          type="radio"
-          name="producto"
-          id="asistencia"
-          value="asistencia"
-          onclick="mostrarAsistencia()"
-        />
-        Teleasisetncia
-      </label>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+
+    <script src="validacion_completa.js"></script>
+    <script src="validacion_campos.js"></script>
+</head>
+
+<body>
+    <form name="formulario_Cliente" action="productos.html" id="formuCliente">
+        <div id="formulario1">
+            <fieldset>
+                <legend>Datos de Cliente</legend>
+
+                <div>
+                    <label for="nombre">Nombre*</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre"><br>
+                    <span id="errorNombre" style="color: red;"></span>
+                </div>
+                <div>
+                    <label for="apellidos">Apellidos*</label>
+                    <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos"><br>
+                    <span id="errorApellido" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="sexo">Sexo</label>
+                    <select id="sexo" name="sexo">
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                    </select><br>
+                </div>
+
+                <div>
+                    <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" required> <br>
+                    <span id="errorFechaNacimiento" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="dni">DNI*</label>
+                    <input minlength="9" maxlength="9" type="text" id="dni" name="dni" placeholder="DNI"><br>
+                    <span id="errorDni" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="correo">Correo electrónico</label>
+                    <input type="text" id="correo" name="correo" placeholder="correo@correo"><br>
+                    <span id="errorCorreo" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="telefonoFijo">Teléfono Fijo</label>
+                    <input minlength="9" maxlength="9" type="text" id="telefonoFijo" name="telefonoFijo"><br>
+                    <span id="errorTlfFijo" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="telefonoMovil">Teléfono Móvil*</label>
+                    <input minlength="9" maxlength="9" type="text" id="telefonoMovil" name="telefonoMovil"><br>
+                    <span id="errorTlfMovil" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="poblacion">Población*</label>
+                    <select id="poblacion" name="poblacion">
+                        <option value="Sanlúcar_de_Barrameda">Sanlúcar de Barrameda</option>
+                        <option value="Chipiona">Chipiona</option>
+                    </select><br>
+                </div>
+                <div>
+                    <label for="direccion">Dirección*</label>
+                    <input type="text" id="direccion" name="direccion"><br>
+                    <span id="errorDireccion" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="codigoPostal">Código Postal*</label>
+                    <input minlength="5" maxlength="5" type="text" id="codigoPostal" name="codigoPostal"><br>
+                    <span id="errorCodPost" style="color: red;"></span>
+                </div>
+
+                <!--                 <div>
+                    <div>
+                        <label for="delanteDNI">DNI por delante</label>
+                        <input type="file" id="delanteDNI" name="delanteDNI"><br>
+                    </div>
+
+                    <div>
+                        <label for="detrasDNI">DNI por detrás</label>
+                        <input type="file" id="detrasDNI" name="detrasDNI"><br>
+                    </div>
+                </div> -->
+            </fieldset>
+            <label>¿Quieres usar los mismos datos para la facturacion?</label> <br>
+            <label for="mismosDatosSi">Sí</label>
+            <input type="radio" name="datos" id="mismosDatosSi" />
+            <label for="mismosDatosNo">No</label>
+            <input type="radio" name="datos" id="mismosDatosNo" checked/>
+            <br>
+            <button type="button" onclick="mostrarFormulario(2)">Siguiente</button>
+        </div>
+
+        <div id="formulario2" style="display: none">
+
+            <fieldset>
+                <legend>Datos de Cliente Facturación</legend>
+
+                <div>
+                    <div>
+                        <label for="nombreFac">Nombre*</label>
+                        <input type="text" id="nombreFac" name="nombreFac" placeholder="Nombre"><br>
+                        <span id="errorNombreFac" style="color: red;"></span>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="apellidosFac">Apellidos*</label>
+                    <input type="text" id="apellidosFac" name="apellidosFac" placeholder="Apellidos"><br>
+                    <span id="errorApellidoFac" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="sexoFac">Sexo</label>
+                    <select id="sexoFac" name="sexoFac">
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                    </select><br>
+                </div>
+
+                <div>
+                    <label for="fechaNacimientoFac">Fecha de Nacimiento</label>
+                    <input type="date" id="fechaNacimientoFac" name="fechaNacimientoFac"> <br>
+                    <span id="errorFechaNacimientoFac" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="dniFac">DNI*</label>
+                    <input minlength="9" maxlength="9" type="text" id="dniFac" name="dniFac" placeholder="DNI"><br>
+                    <span id="errorDniFac" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="correoFac">Correo electrónico</label>
+                    <input type="text" id="correoFac" name="correoFac" placeholder="correo@correo"><br>
+                    <span id="errorCorreoFac" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="telefonoFijoFac">Teléfono Fijo</label>
+                    <input minlength="9" maxlength="9" type="text" id="telefonoFijoFac" name="telefonoFijoFac"><br>
+                    <span id="errorTlfFijoFac" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="telefonoMovilFac">Teléfono Móvil*</label>
+                    <input minlength="9" maxlength="9" type="text" id="telefonoMovilFac" name="telefonoMovilFac"><br>
+                    <span id="errorTlfMovilFac" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="poblacionFac">Población*</label>
+                    <select class="form-select" id="poblacionFac" name="poblacionFac">
+                        <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
+                        <option value="Chipiona">Chipiona</option>
+                    </select><br>
+                </div>
+                <div>
+                    <label for="direccionFac">Dirección*</label>
+                    <input type="text" id="direccionFac" name="direccionFac"><br>
+                    <span id="errorDireccionFac" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="codigoPostalFac">Código Postal*</label>
+                    <input minlength="5" maxlength="5" type="text" id="codigoPostalFac" name="codigoPostalFac"><br>
+                    <span id="errorCodPostFac" style="color: red;"></span>
+                </div>
+
+                <!--                 <div>
+
+                    <div>
+                        <label for="delanteDNI">DNI por delante</label>
+                        <input type="file" id="delanteDNI" name="delanteDNI"><br>
+                    </div>
+
+                    <div>
+                        <label for="detrasDNI">DNI por detrás</label>
+                        <input type="file" id="detrasDNI" name="detrasDNI"><br>
+                    </div>
+                </div> -->
+            </fieldset>
+
+            <button type="button" onclick="mostrarFormulario(1)">Anterior</button>
+            <button type="button" onclick="mostrarFormulario(3)">Siguiente</button>
+        </div>
+
+        <div id="formulario3" style="display: none">
+            <fieldset>
+
+                <legend>Datos de Cliente Notificaciones</legend>
+
+                <div>
+                    <label for="nombreNoti">Nombre*</label>
+                    <input type="text" id="nombreNoti" name="nombreNoti" placeholder="Nombre"><br>
+                    <span id="errorNombreNoti" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="apellidosNoti">Apellidos*</label>
+                    <input type="text" id="apellidosNoti" name="apellidosNoti" placeholder="Apellidos"><br>
+                    <span id="errorApellidoNoti" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="correoNoti">Correo electrónico</label>
+                    <input type="text" id="correoNoti" name="correoNoti" placeholder="correo@correo"><br>
+                    <span id="errorCorreoNoti" style="color: red;"></span>
+                </div>
+
+                <div>
+                    <label for="telefonoMovilNoti">Teléfono Móvil *</label>
+                    <input minlength="9" maxlength="9" type="text" id="telefonoMovilNoti" name="telefonoMovilNoti"><br>
+                    <span id="errorTlfMovilNoti" style="color: red;"></span>
+                </div>
+            </fieldset>
+            <button type="button" onclick="mostrarFormulario(2)">Anterior</button>
+            <button type="button" onclick="mostrarFormulario(4)">Siguiente</button>
+        </div>
+
+        <div id="formulario4" style="display: none">
+            <label class="form-label">¿Elija que método de pago desea usar?</label> <br> <br>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="efectivo" onclick="limpiar('contenedorIban')" required>
+            <label class="form-check-label" for="efectivo">efectivo</label> <br>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="Transferencia" onclick="limpiar('contenedorIban')">
+            <label class="form-check-label" for="Transferencia">Transferencia bancaria</label> <br>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="tpv" onclick="limpiar('contenedorIban')">
+            <label class="form-check-label" for="tpv">TPV</label> <br>
+
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="domiciliacionBancaria"
+                onclick="mostrarIban()">
+            <label class="form-check-label" for="domiciliacionBancaria">domiciliacion Bancaria</label> <br>
+            <br>
+            <div id="contenedorIban" style="display: none">
+            </div>
+            <br>
+
+            <button id="botonAnterior" type="button" onclick="mostrarFormulario(3)">Anterior</button>
+            <button id="directo1" type="button" onclick="mostrarFormulario(1)" hidden> Volver </button>
+        </div>
+        <br>
+        <input type="submit" id="enviarForm" onclick="validarFormulario(event)" hidden>
     </form>
 
-    <!-- 
-      Formulario para la contratación de fibra óptica
-     -->
-    <div id="opcionesFibra" style="display: none">
-      <form
-        action="/index.html"
-        class="mi-formulario"
-        id="form_fibra"
-        data-tipo="fibra"
-        enctype="multipart/form-data"
-      >
-        <div class="fibra_precio">
-          <div class="fibra">
-            <h3>Elige el producto</h3>
-            <label for="cien">
-              <input
-                type="radio"
-                name="velocidad"
-                id="cien"
-                value="100"
-                onclick="precioCien()"
-                required
-              />
-              Fibra 100 Megas </label
-            ><br />
-
-            <label for="trescientos">
-              <input
-                type="radio"
-                name="velocidad"
-                id="trescientos"
-                value="300"
-                onclick="precioTresciento()"
-              />
-              Fibra 300 Megas </label
-            ><br />
-
-            <label for="seiscientos">
-              <input
-                type="radio"
-                name="velocidad"
-                id="seiscientos"
-                value="600"
-                onclick="precioSeiscientos()"
-              />
-              Fibra 600 Megas
-            </label>
-          </div>
-          <div id="precio" class="precio"></div>
-        </div>
-
-        <h3>¿Necesitas portabilidad del número fijo?</h3>
-        <label for="porta_si">
-          <input
-            type="radio"
-            name="portabilidad"
-            id="porta_si"
-            value="ok"
-            onclick="virtual()"
-          />
-          Si
-        </label>
-        <label for="porta_no">
-          <input
-            type="radio"
-            name="portabilidad"
-            id="porta_no"
-            value="ko"
-            onclick="limpiar()"
-          />
-          No
-        </label>
-        <div id="fijoPortabilidad">
-          <input
-            type="tel"
-            name="fijoPortabilidad"
-            id="fijoPorta"
-            placeholder="Nº telefono fijo"
-          />
-        </div>
-        <div id="fijaVirtual"></div>
-
-        <h3>¿Desea aceptar permanencia?</h3>
-
-        <label for="permasi">
-          <input type="radio" name="permanencia" id="permasi" value="si" />
-          Sí. La duración de la permanencia será de 18 meses y el montaje de los
-          equipos y la fibra no tendrá ningún coste adicional. </label
-        ><br /><br />
-
-        <label for="permano">
-          <input type="radio" name="permanencia" id="permano" value="no" />
-          No. En caso de no aceptar la permanencia, el coste del montaje de los
-          equipos y la fibra serán: 120€
-        </label>
-      </form>
-    </div>
-    <!-- Formulario para dar de alta una línea móvil -->
-
-    <div id="opcionesMovil" style="display: none">
-      <form action="#" data-tipo="movil" enctype="multipart/form-data">
-        <h3>Servicio contratado</h3>
-        <input
-          type="radio"
-          name="servicio"
-          id="altaNueva"
-          value="alta"
-          onclick="generarTarifas()"
-        />
-        <label for="altaNueva">Alta nueva</label><br />
-        <input type="radio" name="servicio" value="portabilidad"
-        id="portabilidadMovil" />
-        <label for="portabilidadMovil"> Portabilidad </label><br />
-        <input
-          type="radio"
-          name="servicio"
-          id="cambioTitular"
-          value="cambioTitular"
-        />
-        <label for="cambioTitular"> Cambio de titular </label><br />
-        <div id="fotoSIM">
-          <h3>Número de SIM</h3>
-          <label for="nSIM" style="font-size: large"
-            >Seleciona la foto de la SIM </label
-          ><br />
-          <input type="file" id="nSIM" name="nSIM" /><br />
-        </div>
-        <div id="tipoTarifa" style="display: none">
-          <h3>Elige la tarifa</h3>
-          <input type="radio" name="tarifas" id="tarifaIndividual" onclick="indi()" />
-          <label for="tarifaIndividual">Tarifa individual</label>
-          <input type="radio" name="tarifas" id="pack" onclick="precioPack()">
-          <label for="pack">Pack megas compartidos</label>
-        </div><br>
-        <div id="individual" style="display: none">
-          <select title="tarifa" name="tarifa"></select>
-        </div>
-      </form>
-    </div>
-    <button type="button" id="abrirModal">
-      Contratar nuevo producto o ir a Datos de cliente
-    </button>
-    <div></div>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="cerrarModal">&times;</span>
-        <h2>¿Qué desea hacer?</h2>
-        <button type="submit" id="contratarProducto" onclick="createJson()">
-          Contratar un nuevo producto
-        </button>
-        <button type="button" id="irAPago" onclick="createJson()">
-          Ir a los datos de pago
-        </button>
-      </div>
-    </div>
-    <script src="modal.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("contratarProducto").addEventListener("click", function () {
-                // Redirige al usuario al formulario de fibra existente
-                window.location.href = '/index.html';
-            });
-    
-            document.getElementById("irAPago").addEventListener("click", function () {
-                // Redirige al usuario al formulario de fibra existente
-                window.location.href = '/pagos.html';
-            });
-        });
-    </script>      
-  </body>
+        var solo_cliente = false;
+        function mostrarFormulario(numeroFormulario) {
+            var radio = document.getElementById("mismosDatosSi");
+            // Oculta todos los formularios
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`formulario${i}`).style.display = "none";
+            }
+
+            // Muestra el formulario seleccionado
+            if (radio.checked) {
+                document.getElementById("formulario4").style.display = "block";
+                document.getElementById('botonAnterior').setAttribute('hidden', '')
+                document.getElementById('directo1').removeAttribute('hidden');
+                radio.checked = false;
+                solo_cliente = true;
+            } else {
+                document.getElementById('directo1').setAttribute('hidden', '')
+                document.getElementById('botonAnterior').removeAttribute('hidden');
+                document.getElementById(
+                    `formulario${numeroFormulario}`
+                ).style.display = "block";
+                // Configura el botón de atrás para volver al formulario anterior
+                const botonAnterior = document.getElementById("botonAnterior");
+                botonAnterior.onclick = function () {
+                    mostrarFormulario(numeroFormulario - 1);
+                };
+
+                solo_cliente = false;
+
+            }
+            // Verifica el estado de "formulario4" y muestra/oculta el botón de enviar
+            if (document.getElementById("formulario4").style.display === "block") {
+                document.getElementById("enviarForm").removeAttribute("hidden");
+            } else {
+                document.getElementById("enviarForm").setAttribute("hidden", "true");
+            }
+        }
+
+        document.getElementById('domiciliacionBancaria').addEventListener('click', () => {
+            document.getElementById('contenedorIban').innerHTML = '';
+            document.getElementById('contenedorIban').innerHTML = '<input type="text" minlength="4" maxlength="4" name="IBAN" id="primero" placeholder="Iban" value="ES"><input type="text" minlength="4" maxlength="4" name="entidad" id="segundo" placeholder="Entidad"><input type="text" minlength="4" maxlength="4" name="sucursal" id="tercero" placeholder="Sucursal"><input type="text" minlength="2" maxlength="2" name="dc" id="cuarto" placeholder="DC"><input type="text" minlength="10" maxlength="10" name="nCuenta" id="quinto"placeholder="Numero de cuenta"><br><span id="errorIban" style="color: red;"></span>';
+            
+        })
+    </script>
+</body>
+
 </html>
