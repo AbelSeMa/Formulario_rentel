@@ -92,7 +92,11 @@ function virtual() {
     var fija = document.getElementById('fijaVirtual');
     fija.innerHTML = ""; // Limpiar el contenido anterior si lo hubiera
 
-    fija.innerHTML = "<h3>¿Deseas que tu linea fija sea virtual?</h3><label for='virtual'> <input type='radio' name='tipoPortabiliad' id='virtual' value='virtual' onclick='mostrarInput()'> La línea virtual va asociada a un número móvil y tiene un coste de 2€ al mes </label><br> <label for='fisica'> <input type='radio' name='tipoPortabiliad' id='fisica' value='fisico' onclick='limpiarInput()'> Se instalará un dispositivo físico para la línea fija</label> <div id='numAsociado'></div>"
+    fija.innerHTML = "<h3>¿Deseas que tu linea fija sea virtual?</h3><label for='virtual'> <input type='radio' name='tipoPortabiliad' id='virtual' value='virtual' onclick='mostrarInput()'> La línea virtual va asociada a un número móvil y tiene un coste de 2€ al mes </label><br> <label for='fisica'> <input type='radio' name='tipoPortabiliad' id='fisica' value='fisico'> Se instalará un dispositivo físico para la línea fija</label> <div id='numAsociado'></div>"
+
+    document.getElementById('fisica').addEventListener('click', () => {
+        limpiar('numAsociado')
+    })
 
 }
 
@@ -113,10 +117,6 @@ function limpiar(nombre) {
     limpi.innerHTML = "";
 }
 
-function generarTarifas() {
-    var tarifas = document.getElementById('tipoTarifa');
-    tarifas.style.display = 'block';
-}
 
 // función para crear las tarífas dinamicamente
 function indi() {
@@ -141,6 +141,50 @@ function indi() {
         },
         {
             datos: '150 GB',
+            precio: '24.90 €'
+        }
+    ]
+
+    // Elimina opciones anteriores si las hay
+    while (individuales.firstChild) {
+        individuales.removeChild(individuales.firstChild);
+    }
+
+    // Agrega las opciones al select
+    for (var tarifa in tarifas) {
+        if (tarifas.hasOwnProperty(tarifa)) {
+            var option = document.createElement("option");
+            option.value = tarifas[tarifa].precio; // Valor de la opción (precio)
+            option.text = tarifas[tarifa].datos + " - " + tarifas[tarifa].precio; // Texto visible en la opción (datos - precio)
+            individuales.appendChild(option); // Agrega la opción al select
+        }
+    }
+}
+
+
+
+function indiSiFibra() {
+    var individual = document.getElementById("individual");
+    individual.style.display = 'block';
+
+    // Obtén el elemento select en HTML
+    var individuales = document.querySelector('#individual select');
+
+    var tarifas = [
+        {
+            datos: '17 GB',
+            precio: '7.90 €'
+        },
+        {
+            datos: '30 GB',
+            precio: '9.90 €'
+        },
+        {
+            datos: '90 GB',
+            precio: '14.90 €'
+        },
+        {
+            datos: '200 GB',
             precio: '24.90 €'
         }
     ]
@@ -198,4 +242,110 @@ function precioPack() {
         }
     }
 
+}
+
+function packSiFibra() {
+    var individual = document.getElementById("individual");
+    individual.style.display = 'block';
+
+    // Obtén el elemento select en HTML
+    var individuales = document.querySelector('#individual select');
+
+    var tarifas = [
+        {
+            datos: '150 GB',
+            precio: '21.90 €'
+        },
+        {
+            datos: '200 GB',
+            precio: '26.90 €'
+        },
+        {
+            datos: '300 GB',
+            precio: '36.90 €'
+        }
+    ]
+
+    // Elimina opciones anteriores si las hay
+    while (individuales.firstChild) {
+        individuales.removeChild(individuales.firstChild);
+    }
+
+    // Agrega las opciones al select
+    for (var tarifa in tarifas) {
+        if (tarifas.hasOwnProperty(tarifa)) {
+            var option = document.createElement("option");
+            option.value = tarifas[tarifa].precio; // Valor de la opción (precio)
+            option.text = tarifas[tarifa].datos + " - " + tarifas[tarifa].precio; // Texto visible en la opción (datos - precio)
+            individuales.appendChild(option); // Agrega la opción al select
+        }
+    }
+
+}
+
+
+function indiTarifa() {
+    var tieneFibra = "";
+    var productos = JSON.parse(sessionStorage.getItem('productos'));
+    console.log(tieneFibra);
+
+
+    function esArregloVacio(arr) {
+        return arr.length === 0;
+    }
+    for (let i = 0; i < productos.length; i++) {
+        if (productos[i].producto === 'fibra') {
+            tieneFibra = true;
+        }
+
+    }
+    console.log(tieneFibra);
+    if (!esArregloVacio(productos) || tieneFibra) {
+        indiSiFibra()
+    } else {
+        indi();
+    }
+    document.getElementById('movilesTarifa').style.display = 'none'
+}
+
+
+function packTarifa() {
+    var tieneFibra = "";
+    var productos = JSON.parse(sessionStorage.getItem('productos'));
+    console.log(tieneFibra);
+
+
+    function esArregloVacio(arr) {
+        return arr.length === 0;
+    }
+    for (let i = 0; i < productos.length; i++) {
+        if (productos[i].producto === 'fibra') {
+            tieneFibra = true;
+        }
+
+    }
+    console.log(tieneFibra);
+    if (!esArregloVacio(productos) || tieneFibra) {
+        packSiFibra()
+    } else {
+        precioPack();
+        document.getElementById('movilesTarifa').style.display = 'block'
+    }
+}
+
+function portabilidadMovil() {
+    var tarifas = document.getElementById('nuevoMovil');
+    tarifas.style.display = 'none';
+
+    var port = document.getElementById('generar_portabiliad');
+    port.style.display = 'block'
+
+}
+
+function generarTarifas() {
+    var tarifas = document.getElementById('nuevoMovil');
+    tarifas.style.display = 'block';
+
+    var port = document.getElementById('generar_portabiliad');
+    port.style.display = 'none'
 }
