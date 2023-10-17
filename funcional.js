@@ -121,12 +121,15 @@ function limpiar(nombre) {
 
 
 // función para crear las tarífas dinamicamente
-function indi() {
-    var individual = document.getElementById("individual");
-    individual.style.display = 'block';
+function indi(htmlId) {
+    var id = document.getElementById(htmlId)
+    id.style.display = 'block';
+    console.log(id.textContent)
 
     // Obtén el elemento select en HTML
-    var individuales = document.querySelector('#individual select');
+    var selector = "#" + id.id + " select";
+    console.log(selector)
+    var id = document.querySelector(selector);
 
     var tarifas = [
         {
@@ -148,8 +151,8 @@ function indi() {
     ]
 
     // Elimina opciones anteriores si las hay
-    while (individuales.firstChild) {
-        individuales.removeChild(individuales.firstChild);
+    while (id.firstChild) {
+        id.removeChild(id.firstChild);
     }
 
     // Agrega las opciones al select
@@ -158,19 +161,20 @@ function indi() {
             var option = document.createElement("option");
             option.value = tarifas[tarifa].precio; // Valor de la opción (precio)
             option.text = tarifas[tarifa].datos + " - " + tarifas[tarifa].precio; // Texto visible en la opción (datos - precio)
-            individuales.appendChild(option); // Agrega la opción al select
+            id.appendChild(option); // Agrega la opción al select
         }
     }
 }
 
 
 
-function indiSiFibra() {
-    var individual = document.getElementById("individual");
-    individual.style.display = 'block';
+function indiSiFibra(htmlId) {
+    var id = document.getElementById(htmlId);
+    id.style.display = 'block';
 
     // Obtén el elemento select en HTML
-    var individuales = document.querySelector('#individual select');
+    var selector = "#" + id.id + " select";
+    var id = document.querySelector(selector);
 
     var tarifas = [
         {
@@ -192,8 +196,8 @@ function indiSiFibra() {
     ]
 
     // Elimina opciones anteriores si las hay
-    while (individuales.firstChild) {
-        individuales.removeChild(individuales.firstChild);
+    while (id.firstChild) {
+        id.removeChild(id.firstChild);
     }
 
     // Agrega las opciones al select
@@ -202,17 +206,18 @@ function indiSiFibra() {
             var option = document.createElement("option");
             option.value = tarifas[tarifa].precio; // Valor de la opción (precio)
             option.text = tarifas[tarifa].datos + " - " + tarifas[tarifa].precio; // Texto visible en la opción (datos - precio)
-            individuales.appendChild(option); // Agrega la opción al select
+            id.appendChild(option); // Agrega la opción al select
         }
     }
 }
 
-function precioPack() {
-    var individual = document.getElementById("individual");
-    individual.style.display = 'block';
+function precioPack(htmlId) {
+    var id = document.getElementById(htmlId);
+    id.style.display = 'block';
 
     // Obtén el elemento select en HTML
-    var individuales = document.querySelector('#individual select');
+    var selector = "#" + id.id + " select";
+    var id = document.querySelector(selector);
 
     var tarifas = [
         {
@@ -230,8 +235,8 @@ function precioPack() {
     ]
 
     // Elimina opciones anteriores si las hay
-    while (individuales.firstChild) {
-        individuales.removeChild(individuales.firstChild);
+    while (id.firstChild) {
+        id.removeChild(id.firstChild);
     }
 
     // Agrega las opciones al select
@@ -240,18 +245,19 @@ function precioPack() {
             var option = document.createElement("option");
             option.value = tarifas[tarifa].precio; // Valor de la opción (precio)
             option.text = tarifas[tarifa].datos + " - " + tarifas[tarifa].precio; // Texto visible en la opción (datos - precio)
-            individuales.appendChild(option); // Agrega la opción al select
+            id.appendChild(option); // Agrega la opción al select
         }
     }
 
 }
 
-function packSiFibra() {
-    var individual = document.getElementById("individual");
-    individual.style.display = 'block';
+function packSiFibra(htmlId) {
+    var id = document.getElementById(htmlId);
+    id.style.display = 'block';
 
     // Obtén el elemento select en HTML
-    var individuales = document.querySelector('#individual select');
+    var selector = "#" + id.id + " select";
+    var id = document.querySelector(selector);
 
     var tarifas = [
         {
@@ -269,8 +275,8 @@ function packSiFibra() {
     ]
 
     // Elimina opciones anteriores si las hay
-    while (individuales.firstChild) {
-        individuales.removeChild(individuales.firstChild);
+    while (id.firstChild) {
+        id.removeChild(id.firstChild);
     }
 
     // Agrega las opciones al select
@@ -279,40 +285,46 @@ function packSiFibra() {
             var option = document.createElement("option");
             option.value = tarifas[tarifa].precio; // Valor de la opción (precio)
             option.text = tarifas[tarifa].datos + " - " + tarifas[tarifa].precio; // Texto visible en la opción (datos - precio)
-            individuales.appendChild(option); // Agrega la opción al select
+            id.appendChild(option); // Agrega la opción al select
         }
     }
 
 }
 
 
-function indiTarifa() {
+function indiTarifa(htmlId) {
     var tieneFibra = "";
+    var longitud = Object.keys(JSON.parse(sessionStorage.getItem('productos')));
     var productos = JSON.parse(sessionStorage.getItem('productos'));
+
     console.log(tieneFibra);
 
 
     function esArregloVacio(arr) {
         return arr.length === 0;
     }
-    for (let i = 0; i < productos.length; i++) {
+    for (let i = 0; i < longitud.length; i++) {
         if (productos[i].producto === 'fibra') {
             tieneFibra = true;
         }
 
     }
     console.log(tieneFibra);
-    if (!esArregloVacio(productos) || tieneFibra) {
-        indiSiFibra()
+    if (!esArregloVacio(productos)) {
+        indiSiFibra(htmlId)
+        if (esArregloVacio(productos) && tieneFibra) {
+            indiSiFibra(htmlId)
+        }
     } else {
-        indi();
+        indi(htmlId);
     }
     document.getElementById('movilesTarifa').style.display = 'none'
 }
 
 
-function packTarifa() {
+function packTarifa(htmlId) {
     var tieneFibra = "";
+    var longitud = Object.keys(JSON.parse(sessionStorage.getItem('productos')));
     var productos = JSON.parse(sessionStorage.getItem('productos'));
     console.log(tieneFibra);
 
@@ -320,17 +332,19 @@ function packTarifa() {
     function esArregloVacio(arr) {
         return arr.length === 0;
     }
-    for (let i = 0; i < productos.length; i++) {
+    for (let i = 0; i < longitud.length; i++) {
         if (productos[i].producto === 'fibra') {
             tieneFibra = true;
         }
 
     }
     console.log(tieneFibra);
-    if (!esArregloVacio(productos) || tieneFibra) {
-        packSiFibra()
+    if (!esArregloVacio(productos)) {
+        packSiFibra(htmlId)
+        if (esArregloVacio(productos) && tieneFibra) {
+            packSiFibra(htmlId)
+        }
     } else {
-        precioPack();
-        document.getElementById('movilesTarifa').style.display = 'block'
+        precioPack(htmlId);
     }
 }

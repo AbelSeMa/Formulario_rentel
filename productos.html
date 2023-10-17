@@ -138,25 +138,27 @@
 
     <div id="opcionesMovil" style="display: none">
       <form action="#" data-tipo="movil" enctype="multipart/form-data">
-        <h3>Servicio contratado</h3>
-        <input type="radio" name="servicio" id="altaNueva" value="alta" />
-        <label for="altaNueva">Alta nueva</label><br />
+        <div>
+          <h3>Servicio contratado</h3>
+          <input type="radio" name="servicio" id="altaNueva" value="alta" />
+          <label for="altaNueva">Alta nueva</label><br />
 
-        <input
-          type="radio"
-          name="servicio"
-          value="portabilidad"
-          id="portabilidad"
-        />
-        <label for="portabilidad"> Portabilidad </label><br />
+          <input
+            type="radio"
+            name="servicio"
+            value="portabilidad"
+            id="portabilidad"
+          />
+          <label for="portabilidad"> Portabilidad </label><br />
 
-        <input
-          type="radio"
-          name="servicio"
-          id="cambioTitular"
-          value="cambioTitular"
-        />
-        <label for="cambioTitular"> Cambio de titular </label><br />
+          <input
+            type="radio"
+            name="servicio"
+            id="cambioTitular"
+            value="cambioTitular"
+          />
+          <label for="cambioTitular"> Cambio de titular </label><br />
+        </div>
 
         <div id="nuevoMovil" style="display: none">
           <div id="fotoSIM">
@@ -172,7 +174,7 @@
                 type="radio"
                 name="tarifas"
                 id="tarifaIndividual"
-                onclick="indiTarifa()"
+                onclick="indiTarifa('individual')"
                 value="individual"
               />
               <label for="tarifaIndividual">Tarifa individual</label>
@@ -180,7 +182,7 @@
                 type="radio"
                 name="tarifas"
                 id="pack"
-                onclick="packTarifa()"
+                onclick="packTarifa('individual')"
                 value="pack"
               />
               <label for="pack">Pack megas compartidos</label>
@@ -191,14 +193,14 @@
           <div id="individual" style="display: none">
             <select title="tarifa" name="tarifa"></select>
           </div>
-        </div>
 
-        <div id="movilesTarifa" style="display: none">
-          <h5>Cuantas líneas tendrá este pack</h5>
-          <select title="numMoviles" name="moviles" id="moviles">
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
+          <div id="movilesTarifa" style="display: none">
+            <h5>Cuantas líneas tendrá este pack</h5>
+            <select title="numMoviles" name="moviles" id="moviles">
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
         </div>
 
         <div id="generar_portabilidad" style="display: none">
@@ -240,6 +242,51 @@
               id="companyia"
               placeholder="Compañía actual"
             />
+          </div>
+
+          <div>
+            <h3>¿La portabilidad se hará sobre el mismo titular?</h3>
+            <input
+              type="radio"
+              name="mismo_titular"
+              id="mismo_titular"
+              value="si"
+            />
+            <label for="mismo_titular">Si, el mismo titular de la línea.</label
+            ><br />
+
+            <input
+              type="radio"
+              name="mismo_titular"
+              id="otro_titular"
+              value="no"
+            />
+            <label for="otro_titular">No, será un nuevo titular.</label>
+          </div>
+
+          <div id="tipo_tarifa" style="display: none">
+            <h3>Elige la tarifa</h3>
+            <input
+              type="radio"
+              name="tarifas"
+              id="tarifaIndividual"
+              onclick="indiTarifa('tarifasPortabilidad')"
+              value="individual"
+            />
+            <label for="tarifaIndividual">Tarifa individual</label>
+            <input
+              type="radio"
+              name="tarifas"
+              id="pack"
+              onclick="packTarifa('tarifasPortabilidad')"
+              value="pack"
+            />
+            <label for="pack">Pack megas compartidos</label>
+            <br />
+          </div>
+
+          <div id="tarifasPortabilidad" style="display: none">
+            <select title="tarifa" name="tarifa"></select>
           </div>
         </div>
       </form>

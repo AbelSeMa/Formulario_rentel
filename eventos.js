@@ -21,6 +21,7 @@ altaNueva.addEventListener('click', () => {
     limpiar("fijoPortabilidad")
 })
 
+// evento que 'esconde' el formulario de alta nueva de movil y muestra el formulario de portabilidad movil
 var portabilidad = document.getElementById('portabilidad');
 portabilidad.addEventListener('click', () => {
     var port = document.getElementById('generar_portabilidad')
@@ -33,6 +34,7 @@ portabilidad.addEventListener('click', () => {
     }
 })
 
+// evento que 'esconde' el formulario de portabilidad movil y muestra el formulario de alta nueva de movil
 var altaNueva = document.getElementById('altaNueva');
 altaNueva.addEventListener('click', () => {
     var tarifas = document.getElementById('nuevoMovil')
@@ -43,4 +45,15 @@ altaNueva.addEventListener('click', () => {
     if (port.style.display != 'none') {
         port.style.display = 'none'
     }
+})
+
+// evento que muestra el formulario de cambio de titular en el apartado portabilidad
+
+document.getElementById('mismo_titular').addEventListener('click', () => {
+
+})
+
+
+document.getElementById('mismo_titular').addEventListener('click', () => {
+    document.getElementById('tipo_tarifa').style.display = 'block'
 })
