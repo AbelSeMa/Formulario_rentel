@@ -47,6 +47,7 @@
     <!-- 
       Formulario para la contratación de fibra óptica
      -->
+
     <div id="opcionesFibra" style="display: none">
       <form
         action=""
@@ -98,37 +99,22 @@
 
         <h3>¿Necesitas portabilidad del número fijo?</h3>
         <label for="porta_ok">
-          <input
-            type="radio"
-            name="tipo"
-            id="porta_ok"
-            value="ok"
-          />
+          <input type="radio" name="tipo" id="porta_ok" value="ok" />
           OK
         </label>
 
         <label for="porta_ko">
-          <input
-            type="radio"
-            name="tipo"
-            id="porta_ko"
-            value="ko"
-          />
+          <input type="radio" name="tipo" id="porta_ko" value="ko" />
           KO
         </label>
 
         <label for="alta_nueva">
-          <input
-            type="radio"
-            name="tipo"
-            id="alta_nueva"
-            value="nueva"
-          />
+          <input type="radio" name="tipo" id="alta_nueva" value="nueva" />
           Alta nueva
         </label>
 
         <div id="fijoPortabilidad"></div>
-        
+
         <div id="fijaVirtual"></div>
 
         <div>
@@ -146,20 +132,14 @@
             los equipos y la fibra serán: 120€
           </label>
         </div>
-
       </form>
     </div>
     <!-- Formulario para dar de alta una línea móvil -->
 
-    <form action="#" data-tipo="movil" enctype="multipart/form-data">
-      <div id="opcionesMovil" style="display: none">
+    <div id="opcionesMovil" style="display: none">
+      <form action="#" data-tipo="movil" enctype="multipart/form-data">
         <h3>Servicio contratado</h3>
-        <input
-          type="radio"
-          name="servicio"
-          id="altaNueva"
-          value="alta"
-        />
+        <input type="radio" name="servicio" id="altaNueva" value="alta" />
         <label for="altaNueva">Alta nueva</label><br />
 
         <input
@@ -177,88 +157,93 @@
           value="cambioTitular"
         />
         <label for="cambioTitular"> Cambio de titular </label><br />
-      </div>
 
-      <div id="nuevoMovil" style="display: none;">
-        <div id="fotoSIM">
-          <h3>Número de SIM</h3>
-          <label for="nSIM" style="font-size: large"
-            >Seleciona la foto de la SIM </label
-          ><br />
-          <input type="file" id="nSIM" name="nSIM" /><br />
+        <div id="nuevoMovil" style="display: none">
+          <div id="fotoSIM">
+            <h3>Número de SIM</h3>
+            <label for="nSIM" style="font-size: large"
+              >Seleciona la foto de la SIM </label
+            ><br />
+            <input type="file" id="nSIM" name="nSIM" /><br />
+
+            <div id="tipoTarifa" style="display: block">
+              <h3>Elige la tarifa</h3>
+              <input
+                type="radio"
+                name="tarifas"
+                id="tarifaIndividual"
+                onclick="indiTarifa()"
+                value="individual"
+              />
+              <label for="tarifaIndividual">Tarifa individual</label>
+              <input
+                type="radio"
+                name="tarifas"
+                id="pack"
+                onclick="packTarifa()"
+                value="pack"
+              />
+              <label for="pack">Pack megas compartidos</label>
+            </div>
+          </div>
+          <br />
+
+          <div id="individual" style="display: none">
+            <select title="tarifa" name="tarifa"></select>
+          </div>
         </div>
 
-        <div id="tipoTarifa" style="display: block">
-          <h3>Elige la tarifa</h3>
-          <input
-            type="radio"
-            name="tarifas"
-            id="tarifaIndividual"
-            onclick="indiTarifa()"
-            value="individual"
-          />
-          <label for="tarifaIndividual">Tarifa individual</label>
-          <input
-            type="radio"
-            name="tarifas"
-            id="pack"
-            onclick="packTarifa()"
-            value="pack"
-          />
-          <label for="pack">Pack megas compartidos</label>
-        </div>
-        <br />
-
-        <div id="individual" style="display: none">
-          <select title="tarifa" name="tarifa"></select>
-        </div>
-      </div>
-
-      <div id="movilesTarifa" style="display: none;">
-        <h5>Cuantas líneas tendrá este pack</h5>
-        <select title="numMoviles" name="moviles" id="moviles">
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-      </div>
-
-      <div id="generar_portabilidad" style="display: none;">
-        <div>
-          <h3>Número al que se le hace la portabilidad</h3>
-          <input
-            type="tel"
-            name="numPortar"
-            id="numPortado"
-            placeholder="Nº móvil"
-          />
+        <div id="movilesTarifa" style="display: none">
+          <h5>Cuantas líneas tendrá este pack</h5>
+          <select title="numMoviles" name="moviles" id="moviles">
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
         </div>
 
-        <div>
-          <h3>¿Qué tienes acutalmente?</h3>
-          <input type="radio" name="modalidad" id="contrato" value="contrato" />
-          <label for="contrato">Contrato</label>
+        <div id="generar_portabilidad" style="display: none">
+          <div>
+            <h3>Número al que se le hace la portabilidad</h3>
+            <input
+              type="tel"
+              name="numPortar"
+              id="numPortado"
+              placeholder="Nº móvil"
+            />
+          </div>
 
-          <input type="radio" name="modalidad" id="prepago" value="prepago" />
-          <label for="prepago">Prepago</label>
-        </div>
+          <div>
+            <h3>¿Qué tienes acutalmente?</h3>
+            <input
+              type="radio"
+              name="modalidad"
+              id="contrato"
+              value="contrato"
+            />
+            <label for="contrato">Contrato</label>
 
-        <div>
-          <h3>Nº de SIM actual</h3>
-          <label for="nSim">Foto de la SIM</label>
-          <input type="file" name="nSim" id="nSim" hidden />
-        </div>
+            <input type="radio" name="modalidad" id="prepago" value="prepago" />
+            <label for="prepago">Prepago</label>
+          </div>
 
-        <div>
-          <h3>Compañia actual para hacer la portabilidad</h3>
-          <input
-            type="text"
-            name="compañia"
-            id="companyia"
-            placeholder="Compañía actual"
-          />
+          <div>
+            <h3>Nº de SIM actual</h3>
+            <label for="nSim">Foto de la SIM</label>
+            <input type="file" name="nSim" id="nSim" hidden />
+          </div>
+
+          <div>
+            <h3>Compañia actual para hacer la portabilidad</h3>
+            <input
+              type="text"
+              name="compañia"
+              id="companyia"
+              placeholder="Compañía actual"
+            />
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
 
     <button type="button" id="abrirModal">
       Contratar nuevo producto o terminar.

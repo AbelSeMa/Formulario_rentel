@@ -6,7 +6,9 @@ function mostrarFibra() {
     var info = document.createElement("p");
     info.textContent = 'Elige la velocidad de la fibra:';
 
-    document.getElementById('opcionesMovil').style.display = 'none';
+    if (document.getElementById('opcionesMovil').style.display != 'none') {
+        document.getElementById('opcionesMovil').style.display = 'none';
+    }
     document.getElementById('opcionesFibra').style.display = 'block';
 
 }
