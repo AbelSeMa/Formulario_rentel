@@ -1,0 +1,41 @@
+{
+    "nombre":"abel",
+    "apellidos":"sexto martínez",
+    "dni":"898989L",
+    "correo":"",
+    "fijo":956564534,
+    "movil":667545453,
+    "población":"Sanlucar de barrameda",
+    "dirección":"Calla bolsa s/n",
+    "código posta":11540,
+    "productos":[{
+        "tipo":"fibra",
+        "velocidad":100,
+        "precio":"15€",
+        "portabilidad":"no",
+        "permanencia":"si"
+        },
+        {
+            "tipo":"movil",
+            "servicio":"alta",
+            "tarifa":"21.90",
+            "lineas":2
+        },
+        {
+            "tipo":"movil",
+            "servicio":"portabilidad",
+            "numeros portados":[666666, 777777],
+            "tarifa":"21.90",
+            "numeros nuevos":1
+        },
+        {
+            "tipo":"movil",
+            "servicio":"portabilidad",
+            "compañia":"cacafone",
+            "mismo titular":"si",
+            "numeros portados":[666666],
+            "tarifa":"21.90",
+            "numeros nuevos":2
+        }
+    ]
+}

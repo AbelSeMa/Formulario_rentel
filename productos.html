@@ -179,9 +179,7 @@
       <div id="nuevoMovil" style="display: none">
         <div id="fotoSIM">
           <h3>Número de SIM</h3>
-          <label for="nSIM" style="font-size: large"
-            >Seleciona la foto de la SIM </label
-          ><br />
+          <label for="nSIM" style="font-size: large">Seleciona la foto de la SIM </label><br />
           <input type="file" id="nSIM" name="nSIM" /><br />
         </div>
 
@@ -249,14 +247,17 @@
           <h3>Compañia actual para hacer la portabilidad</h3>
           <input type="text" name="compañia" id="companyia" placeholder="Compañía actual"/>
         </div>
+
       </div>
+
     </form>
 
     <button type="button" id="abrirModal">
-      Contratar nuevo producto o ir a Datos de cliente
+      Contratar nuevo producto o terminar.
     </button>
 
     <div id="myModal" class="modal">
+
       <div class="modal-content">
         <span class="close" id="cerrarModal">&times;</span>
         <h2>¿Qué desea hacer?</h2>
@@ -264,10 +265,12 @@
           Contratar un nuevo producto
         </button>
         <button type="button" id="irAPago" onclick="createJson()">
-          Firmar
+          Terminar y firmar
         </button>
       </div>
+
     </div>
+
     <script src="modal.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -286,5 +289,6 @@
           });
       });
     </script>
+
   </body>
 </html>
