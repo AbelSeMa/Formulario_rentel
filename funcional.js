@@ -332,30 +332,3 @@ function packTarifa() {
         document.getElementById('movilesTarifa').style.display = 'block'
     }
 }
-
-/* function portabilidadMovil() {
-    var tarifas = document.getElementById('nuevoMovil');
-    if (tarifas.style.display != 'none') {
-        tarifas.style.display = 'none';
-    }
-
-    var port = document.getElementById('generar_portabiliad');
-    if (port.style.display != 'block') {
-        port.style.display = 'block'
-        
-    }
-
-}
-
-function generarTarifas() {
-    var tarifas = document.getElementById('nuevoMovil');
-    if (tarifas.style.display != 'block') {
-        tarifas.style.display = 'block';
-    }
-
-    var port = document.getElementById('generar_portabiliad');
-    if (port.style.display !== 'none') {
-        port.style.display = 'none'
-
-    }
-} */
