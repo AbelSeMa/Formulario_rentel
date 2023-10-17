@@ -97,51 +97,56 @@
         </div>
 
         <h3>¿Necesitas portabilidad del número fijo?</h3>
-        <label for="porta_si">
+        <label for="porta_ok">
           <input
             type="radio"
-            name="portabilidad"
-            id="porta_si"
+            name="tipo"
+            id="porta_ok"
             value="ok"
-            onclick="virtual()"
           />
-          Si
+          OK
         </label>
 
-        <label for="porta_no">
+        <label for="porta_ko">
           <input
             type="radio"
-            name="portabilidad"
-            id="porta_no"
+            name="tipo"
+            id="porta_ko"
             value="ko"
-            onclick="limpiar()"
           />
-          No
+          KO
         </label>
 
-        <div id="fijoPortabilidad">
+        <label for="alta_nueva">
           <input
-            type="tel"
-            name="fijoPortabilidad"
-            id="fijoPorta"
-            placeholder="Nº telefono fijo"
+            type="radio"
+            name="tipo"
+            id="alta_nueva"
+            value="nueva"
           />
-        </div>
+          Alta nueva
+        </label>
+
+        <div id="fijoPortabilidad"></div>
+        
         <div id="fijaVirtual"></div>
 
-        <h3>¿Desea aceptar permanencia?</h3>
+        <div>
+          <h3>¿Desea aceptar permanencia?</h3>
 
-        <label for="permasi">
-          <input type="radio" name="permanencia" id="permasi" value="si" />
-          Sí. La duración de la permanencia será de 18 meses y el montaje de los
-          equipos y la fibra no tendrá ningún coste adicional. </label
-        ><br /><br />
+          <label for="permasi">
+            <input type="radio" name="permanencia" id="permasi" value="si" />
+            Sí. La duración de la permanencia será de 18 meses y el montaje de
+            los equipos y la fibra no tendrá ningún coste adicional. </label
+          ><br /><br />
 
-        <label for="permano">
-          <input type="radio" name="permanencia" id="permano" value="no" />
-          No. En caso de no aceptar la permanencia, el coste del montaje de los
-          equipos y la fibra serán: 120€
-        </label>
+          <label for="permano">
+            <input type="radio" name="permanencia" id="permano" value="no" />
+            No. En caso de no aceptar la permanencia, el coste del montaje de
+            los equipos y la fibra serán: 120€
+          </label>
+        </div>
+
       </form>
     </div>
     <!-- Formulario para dar de alta una línea móvil -->
@@ -154,7 +159,6 @@
           name="servicio"
           id="altaNueva"
           value="alta"
-          onclick="generarTarifas()"
         />
         <label for="altaNueva">Alta nueva</label><br />
 
@@ -163,7 +167,6 @@
           name="servicio"
           value="portabilidad"
           id="portabilidad"
-          onclick="portabilidadMovil()"
         />
         <label for="portabilidad"> Portabilidad </label><br />
 
@@ -176,10 +179,12 @@
         <label for="cambioTitular"> Cambio de titular </label><br />
       </div>
 
-      <div id="nuevoMovil" style="display: none">
+      <div id="nuevoMovil" style="display: none;">
         <div id="fotoSIM">
           <h3>Número de SIM</h3>
-          <label for="nSIM" style="font-size: large">Seleciona la foto de la SIM </label><br />
+          <label for="nSIM" style="font-size: large"
+            >Seleciona la foto de la SIM </label
+          ><br />
           <input type="file" id="nSIM" name="nSIM" /><br />
         </div>
 
@@ -209,7 +214,7 @@
         </div>
       </div>
 
-      <div id="movilesTarifa" style="display: none">
+      <div id="movilesTarifa" style="display: none;">
         <h5>Cuantas líneas tendrá este pack</h5>
         <select title="numMoviles" name="moviles" id="moviles">
           <option value="2">2</option>
@@ -217,7 +222,7 @@
         </select>
       </div>
 
-      <div id="generar_portabilidad" style="display: none">
+      <div id="generar_portabilidad" style="display: none;">
         <div>
           <h3>Número al que se le hace la portabilidad</h3>
           <input
@@ -245,11 +250,14 @@
 
         <div>
           <h3>Compañia actual para hacer la portabilidad</h3>
-          <input type="text" name="compañia" id="companyia" placeholder="Compañía actual"/>
+          <input
+            type="text"
+            name="compañia"
+            id="companyia"
+            placeholder="Compañía actual"
+          />
         </div>
-
       </div>
-
     </form>
 
     <button type="button" id="abrirModal">
@@ -257,7 +265,6 @@
     </button>
 
     <div id="myModal" class="modal">
-
       <div class="modal-content">
         <span class="close" id="cerrarModal">&times;</span>
         <h2>¿Qué desea hacer?</h2>
@@ -268,9 +275,9 @@
           Terminar y firmar
         </button>
       </div>
-
     </div>
 
+    <script src="eventos.js"></script>
     <script src="modal.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -289,6 +296,5 @@
           });
       });
     </script>
-
   </body>
 </html>

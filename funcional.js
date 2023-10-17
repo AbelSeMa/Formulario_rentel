@@ -92,7 +92,7 @@ function virtual() {
     var fija = document.getElementById('fijaVirtual');
     fija.innerHTML = ""; // Limpiar el contenido anterior si lo hubiera
 
-    fija.innerHTML = "<h3>¿Deseas que tu linea fija sea virtual?</h3><label for='virtual'> <input type='radio' name='tipoPortabiliad' id='virtual' value='virtual' onclick='mostrarInput()'> La línea virtual va asociada a un número móvil y tiene un coste de 2€ al mes </label><br> <label for='fisica'> <input type='radio' name='tipoPortabiliad' id='fisica' value='fisico'> Se instalará un dispositivo físico para la línea fija</label> <div id='numAsociado'></div>"
+    fija.innerHTML = "<h3>¿Deseas que tu linea fija sea virtual?</h3><label for='virtual'> <input type='radio' name='fijo_virtual' id='virtual' value='si' onclick='mostrarInput()'> La línea virtual va asociada a un número móvil y tiene un coste de 2€ al mes </label><br> <label for='fisica'> <input type='radio' name='fijo_virtual' id='fisica' value='no'> Se instalará un dispositivo físico para la línea fija</label> <div id='numAsociado'></div>"
 
     document.getElementById('fisica').addEventListener('click', () => {
         limpiar('numAsociado')
@@ -333,19 +333,29 @@ function packTarifa() {
     }
 }
 
-function portabilidadMovil() {
+/* function portabilidadMovil() {
     var tarifas = document.getElementById('nuevoMovil');
-    tarifas.style.display = 'none';
+    if (tarifas.style.display != 'none') {
+        tarifas.style.display = 'none';
+    }
 
     var port = document.getElementById('generar_portabiliad');
-    port.style.display = 'block'
+    if (port.style.display != 'block') {
+        port.style.display = 'block'
+        
+    }
 
 }
 
 function generarTarifas() {
     var tarifas = document.getElementById('nuevoMovil');
-    tarifas.style.display = 'block';
+    if (tarifas.style.display != 'block') {
+        tarifas.style.display = 'block';
+    }
 
     var port = document.getElementById('generar_portabiliad');
-    port.style.display = 'none'
-}
+    if (port.style.display !== 'none') {
+        port.style.display = 'none'
+
+    }
+} */
