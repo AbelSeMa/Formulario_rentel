@@ -193,14 +193,6 @@
           <div id="individual" style="display: none">
             <select title="tarifa" name="tarifa"></select>
           </div>
-
-          <div id="movilesTarifa" style="display: none">
-            <h5>Cuantas líneas tendrá este pack</h5>
-            <select title="numMoviles" name="moviles" id="moviles">
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-          </div>
         </div>
 
         <div id="generar_portabilidad" style="display: none">
@@ -262,6 +254,34 @@
               value="no"
             />
             <label for="otro_titular">No, será un nuevo titular.</label>
+          </div>
+
+          <div id="antiguo_titular" style="display: none">
+            <h3>Datos del antiguo titular</h3>
+            <label for="nombre_titular">Nombre del antiguo titular</label><br />
+            <input
+              type="text"
+              name="nombre_antiguo_titular"
+              id="nombre_titular"
+              placeholder="Nombre"
+            /><br />
+
+            <label for="apellido_titular">Apellido del antiguo titular</label
+            ><br />
+            <input
+              type="text"
+              name="apellido_antiguo_titular"
+              id="apellido_titular"
+              placeholder="Apellido"
+            /><br />
+
+            <label for="dni_titular"> DNI del antiguo titul</label><br />
+            <input
+              type="number"
+              name="dni_antiguo_titular"
+              id="dni_titular"
+              placeholder="00000000L"
+            />
           </div>
 
           <div id="tipo_tarifa" style="display: none">

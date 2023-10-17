@@ -55,5 +55,21 @@ document.getElementById('mismo_titular').addEventListener('click', () => {
 
 
 document.getElementById('mismo_titular').addEventListener('click', () => {
-    document.getElementById('tipo_tarifa').style.display = 'block'
+    document.getElementById('tipo_tarifa').style.display = 'block';
+
+    if (    document.getElementById('antiguo_titular').style.display != 'none') {
+        document.getElementById('antiguo_titular').style.display = 'none';
+        
+    }
+
+})
+
+
+document.getElementById('otro_titular').addEventListener('click', () => {
+    document.getElementById('antiguo_titular').style.display = 'block';
+
+    if (document.getElementById('tipo_tarifa').style.display != 'block') {
+        document.getElementById('tipo_tarifa').style.display = 'block';
+        
+    }
 })
