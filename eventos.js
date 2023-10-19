@@ -73,3 +73,7 @@ document.getElementById('otro_titular').addEventListener('click', () => {
         
     }
 })
+
+document.getElementById('otro_titular').addEventListener('click', () => {
+    genererDatosAntiguoCliente();
+});

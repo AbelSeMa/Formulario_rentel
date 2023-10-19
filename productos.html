@@ -108,8 +108,8 @@
           KO
         </label>
 
-        <label for="alta_nueva">
-          <input type="radio" name="tipo" id="alta_nueva" value="nueva" />
+        <label for="nuevo_fijo">
+          <input type="radio" name="tipo" id="nuevo_fijo" value="nueva" />
           Alta nueva
         </label>
 
@@ -134,13 +134,20 @@
         </div>
       </form>
     </div>
-    <!-- Formulario para dar de alta una línea móvil -->
 
-    <div id="opcionesMovil" style="display: none">
+    <!-- Formulario movil -->
+
+    <div id="opcionesMovil" style="display: none;">
       <form action="#" data-tipo="movil" enctype="multipart/form-data">
         <div>
           <h3>Servicio contratado</h3>
-          <input type="radio" name="servicio" id="altaNueva" value="alta" />
+          <input
+            type="radio"
+            name="servicio"
+            id="altaNueva"
+            value="alta"
+            onclick="generarCamposTarifaAlta()"
+          />
           <label for="altaNueva">Alta nueva</label><br />
 
           <input
@@ -160,41 +167,23 @@
           <label for="cambioTitular"> Cambio de titular </label><br />
         </div>
 
-        <div id="nuevoMovil" style="display: none">
+        <!-- Formulario para dar de alta una nueva linea movil-->
+        <div id="nuevoMovil" style="display: none;">
           <div id="fotoSIM">
             <h3>Número de SIM</h3>
-            <label for="nSIM" style="font-size: large"
-              >Seleciona la foto de la SIM </label
-            ><br />
+            <label for="nSIM" style="font-size: large">Seleciona la foto de la SIM </labe><br />
             <input type="file" id="nSIM" name="nSIM" /><br />
 
-            <div id="tipoTarifa" style="display: block">
-              <h3>Elige la tarifa</h3>
-              <input
-                type="radio"
-                name="tarifas"
-                id="tarifaIndividual"
-                onclick="indiTarifa('individual')"
-                value="individual"
-              />
-              <label for="tarifaIndividual">Tarifa individual</label>
-              <input
-                type="radio"
-                name="tarifas"
-                id="pack"
-                onclick="packTarifa('individual')"
-                value="pack"
-              />
-              <label for="pack">Pack megas compartidos</label>
-            </div>
+            <div id="tipo_tarifa_individual"></div>
           </div>
           <br />
 
-          <div id="individual" style="display: none">
+          <div id="alta_nueva">
             <select title="tarifa" name="tarifa"></select>
           </div>
         </div>
 
+        <!--formulario para crear una portabilidad -->
         <div id="generar_portabilidad" style="display: none">
           <div>
             <h3>Número al que se le hace la portabilidad</h3>
@@ -243,6 +232,7 @@
               name="mismo_titular"
               id="mismo_titular"
               value="si"
+              onclick="generarCamposTarifaPortabilidad()"
             />
             <label for="mismo_titular">Si, el mismo titular de la línea.</label
             ><br />
@@ -252,60 +242,17 @@
               name="mismo_titular"
               id="otro_titular"
               value="no"
+              onclick="generarCamposTarifaPortabilidad()"
             />
             <label for="otro_titular">No, será un nuevo titular.</label>
           </div>
 
-          <div id="antiguo_titular" style="display: none">
-            <h3>Datos del antiguo titular</h3>
-            <label for="nombre_titular">Nombre del antiguo titular</label><br />
-            <input
-              type="text"
-              name="nombre_antiguo_titular"
-              id="nombre_titular"
-              placeholder="Nombre"
-            /><br />
-
-            <label for="apellido_titular">Apellido del antiguo titular</label
-            ><br />
-            <input
-              type="text"
-              name="apellido_antiguo_titular"
-              id="apellido_titular"
-              placeholder="Apellido"
-            /><br />
-
-            <label for="dni_titular"> DNI del antiguo titul</label><br />
-            <input
-              type="number"
-              name="dni_antiguo_titular"
-              id="dni_titular"
-              placeholder="00000000L"
-            />
+          <div id="antiguo_titular">
           </div>
 
-          <div id="tipo_tarifa" style="display: none">
-            <h3>Elige la tarifa</h3>
-            <input
-              type="radio"
-              name="tarifas"
-              id="tarifaIndividual"
-              onclick="indiTarifa('tarifasPortabilidad')"
-              value="individual"
-            />
-            <label for="tarifaIndividual">Tarifa individual</label>
-            <input
-              type="radio"
-              name="tarifas"
-              id="pack"
-              onclick="packTarifa('tarifasPortabilidad')"
-              value="pack"
-            />
-            <label for="pack">Pack megas compartidos</label>
-            <br />
-          </div>
+          <div id="tipo_tarifa"></div>
 
-          <div id="tarifasPortabilidad" style="display: none">
+          <div id="tarifasPortabilidad">
             <select title="tarifa" name="tarifa"></select>
           </div>
         </div>
@@ -330,6 +277,9 @@
     </div>
 
     <script src="eventos.js"></script>
+    <script src="fibra.js"></script>
+    <script src="movil.js"></script>
+    <script src="tarifas.js"></script>
     <script src="modal.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
