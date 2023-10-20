@@ -11,7 +11,9 @@
 </head>
 
 <body>
-    <div class="container aling-items-center">
+    <div class="card col-md-6 mt-4 text-left mx-auto bg-light">
+        <div class="card-body">
+
         <form name="formulario_Cliente" action="productos.html" id="formuCliente">
             <div id="formulario1">
                 <fieldset>
@@ -61,13 +63,13 @@
                     <div>
                         <label class="form-label" for="telefonoFijo">Teléfono Fijo</label> <br>
                         <span id="errorTlfFijo" class="text-danger"></span>
-                        <input class="form-control" type="text" id="telefonoFijo" name="telefonoFijo" minlength="9"
+                        <input class="form-control" type="tel" id="telefonoFijo" name="telefonoFijo" minlength="9"
                             maxlength="9"><br>
                     </div>
 
                     <div>
                         <label class="form-label" for="telefonoMovil">Teléfono Móvil*</label> <br>
-                        <input class="form-control" type="text" id="telefonoMovil" name="telefonoMovil" minlength="9"
+                        <input class="form-control" type="tel" id="telefonoMovil" name="telefonoMovil" minlength="9"
                             maxlength="9"><br>
                         <span id="errorTlfMovil" class="text-danger"></span>
                     </div>
@@ -112,9 +114,9 @@
                 </fieldset>
                 <label>¿Quieres usar los mismos datos para la facturacion?</label> <br>
                 <label for="mismosDatosSi">Sí</label>
-                <input type="radio" name="datos" id="mismosDatosSi" />
+                <input class="form-check-input" type="radio" name="datos" id="mismosDatosSi" />
                 <label for="mismosDatosNo">No</label>
-                <input type="radio" name="datos" id="mismosDatosNo" checked />
+                <input class="form-check-input" type="radio" name="datos" id="mismosDatosNo" checked />
                 <br>
                 <button class="btn btn-primary btn-sm" type="button" onclick="mostrarFormulario(2)">Siguiente</button>
             </div>
@@ -171,14 +173,14 @@
                     <div>
                         <label class="form-label" for="telefonoFijoFac">Teléfono Fijo</label> <br>
                         <span id="errorTlfFijoFac" class="text-danger"></span>
-                        <input class="form-control" type="text" id="telefonoFijoFac" name="telefonoFijoFac"
+                        <input class="form-control" type="tel" id="telefonoFijoFac" name="telefonoFijoFac"
                             maxlength="9" minlength="9"><br>
                     </div>
 
                     <div>
                         <label class="form-label" for="telefonoMovilFac">Teléfono Móvil*</label> <br>
                         <span id="errorTlfMovilFac" class="text-danger"></span>
-                        <input class="form-control" type="text" id="telefonoMovilFac" name="telefonoMovilFac"
+                        <input class="form-control" type="tel" id="telefonoMovilFac" name="telefonoMovilFac"
                             maxlength="9" minlength="9"><br>
                     </div>
 
@@ -254,7 +256,7 @@
                     <div>
                         <label class="form-label" for="telefonoMovilNoti">Teléfono Móvil *</label> <br>
                         <span id="errorTlfMovilNoti" class="text-danger"></span>
-                        <input class="form-control" type="text" minlength="9" maxlength="9" id="telefonoMovilNoti"
+                        <input class="form-control" type="tel" minlength="9" maxlength="9" id="telefonoMovilNoti"
                             name="telefonoMovilNoti"><br>
                     </div>
                 </fieldset>
@@ -263,7 +265,7 @@
             </div>
 
             <div id="formulario4" style="display: none">
-                <label class="form-label">¿Elija que método de pago desea usar?</label> <br> <br>
+                <label class="form-check-label">¿Elija que método de pago desea usar?</label> <br> <br>
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="efectivo"
                     onclick="limpiar('contenedorIban')" required>
                 <label class="form-check-label" for="efectivo">efectivo</label> <br>
@@ -293,6 +295,7 @@
             <input class="btn btn-primary btn-sm" type="submit" id="enviarForm" onclick="validarFormulario(event)"
                 hidden>
         </form>
+        </div>
     </div>
 
     <script>
