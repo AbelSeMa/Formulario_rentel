@@ -37,7 +37,7 @@ function virtual() {
     var fija = document.getElementById('fijaVirtual');
     fija.innerHTML = ""; // Limpiar el contenido anterior si lo hubiera
 
-    fija.innerHTML = "<h3>¿Deseas que tu linea fija sea virtual?</h3><label class='form-check-label' for='virtual'> <input class='form-check-input' type='radio' name='fijo_virtual' id='virtual' value='si' onclick='mostrarInput()'> La línea virtual va asociada a un número móvil y tiene un coste de 2€ al mes </label><br> <label class='form-check-label' for='fisica'> <input class='form-check-input' type='radio' name='fijo_virtual' id='fisica' value='no'> Se instalará un dispositivo físico para la línea fija</label> <div id='numAsociado'></div>"
+    fija.innerHTML = "<h3>¿Deseas que tu linea fija sea virtual?</h3><label class='form-check-label' for='virtual'> <input class='form-check-input' type='radio' name='fijo_virtual' id='virtual' value='si' onclick='mostrarInput()'> La línea virtual va asociada a un número móvil y tiene un coste de 2€ al mes </label><br> <label class='form-check-label' for='fisica'> <input class='form-check-input mb-3' type='radio' name='fijo_virtual' id='fisica' value='no'> Se instalará un dispositivo físico para la línea fija</label> <div id='numAsociado'></div>"
 
     document.getElementById('fisica').addEventListener('click', () => {
         limpiar('numAsociado')
@@ -47,7 +47,7 @@ function virtual() {
 
 function mostrarInput() {
     var numAsociadoDiv = document.getElementById('numAsociado');
-    numAsociadoDiv.innerHTML = '<h3>Introduce el número movil que será la lína fija</h3><input class="form-control" type="tel" id="numeroMovil" name="numeroVirtual" placeholder="Número móvil">';
+    numAsociadoDiv.innerHTML = '<h3>Introduce el número movil que será la lína fija</h3><input class="form-control mb-3" type="tel" id="numeroMovil" name="numeroVirtual" placeholder="Número móvil">';
 }
 
 function limpiarInput() {

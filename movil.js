@@ -121,18 +121,21 @@ function genererDatosAntiguoCliente() {
 
     let nombreAntiguoTitular = document.createElement("input");
     nombreAntiguoTitular.type = "text";
+    nombreAntiguoTitular.className = "form-control";
     nombreAntiguoTitular.name = "nomber_antiguo_titular";
     nombreAntiguoTitular.id = "antiguo_titular";
     nombreAntiguoTitular.placeholder = "Nombre";
 
     let apellidoAntiguoTitular = document.createElement("input");
     apellidoAntiguoTitular.type = "text";
+    apellidoAntiguoTitular.className = "form-control";
     apellidoAntiguoTitular.name = "apellido_antiguo_titular";
     apellidoAntiguoTitular.id = "apellido_antiguo_titular";
     apellidoAntiguoTitular.placeholder = "Apellido";
 
     let dniAntiguoTitular = document.createElement("input");
     dniAntiguoTitular.type = "text";
+    dniAntiguoTitular.className = "form-control";
     dniAntiguoTitular.name = "dni_antiguo_titular";
     dniAntiguoTitular.id = "dni_antiguo_titular";
     dniAntiguoTitular.placeholder = "DNI";

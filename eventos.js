@@ -8,12 +8,12 @@ var altaNueva = document.getElementById('alta_nueva');
 portaKo.addEventListener('click', () => {
     limpiar("fijaVirtual")
 
-    document.getElementById('fijoPortabilidad').innerHTML = "<input class='form-control' type='tel' name='fijoPortabilidad' id='fijoPorta' placeholder='Nº telefono fijo' />";
+    document.getElementById('fijoPortabilidad').innerHTML = "<input class='form-control mb-4' type='tel' name='fijoPortabilidad' id='fijoPorta' placeholder='Nº telefono fijo' />";
 })
 
 portaOk.addEventListener('click', () => {
     virtual()
-    document.getElementById('fijoPortabilidad').innerHTML = "<input class='form-control' type='tel' name='fijoPortabilidad' id='fijoPorta' placeholder='Nº telefono fijo' />";
+    document.getElementById('fijoPortabilidad').innerHTML = "<input class='form-control mb-4' type='tel' name='fijoPortabilidad' id='fijoPorta' placeholder='Nº telefono fijo' />";
 })
 
 altaNueva.addEventListener('click', () => {
