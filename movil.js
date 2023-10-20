@@ -65,20 +65,20 @@ function generarCamposTarifaAlta() {
     };
 
     let labelIndividual = document.createElement("label");
-    labelIndividual.setAttribute("for", "tarifa_indivi");
+    labelIndividual.setAttribute("for", "tarifa_individual");
     labelIndividual.textContent = "Tarifa individual";
 
     let tarifasPack = document.createElement("input");
     tarifasPack.type = "radio";
     tarifasPack.name = "tarifas";
-    tarifasPack.id = "pack";
+    tarifasPack.id = "pack_alta_nueva";
     tarifasPack.value = "pack";
     tarifasPack.onclick = function () {
         packTarifa('alta_nueva');
     };
 
     let labelPack = document.createElement("label");
-    labelPack.setAttribute("for", "porta_pack");
+    labelPack.setAttribute("for", "pack_alta_nueva");
     labelPack.textContent = "Pack megas compartidos";
 
     if (contenedor !== null) {
@@ -95,6 +95,8 @@ function generarCamposTarifaAlta() {
 
 }
 
+// genera el formulario de antiguo cliente cuando se selecciona
+// la portabilidad con un nuevo titular
 function genererDatosAntiguoCliente() {
     let contenedor = document.getElementById("antiguo_titular");
 
