@@ -14,7 +14,7 @@ function precioCien() {
     opcionesCien.innerHTML = ""; // Limpiar contenido anterior si lo hubiera
 
     // Crear botones de radio adicionales
-    opcionesCien.innerHTML = "<h3> Elige la cuota </h3><label for='4_meses'> <input type='radio' name='precio' id='4_meses' value='50'> 50€ cada 4 meses </label><br> <label for='1_mes'> <input type='radio' name='precio' id='1_mes' value='15'> 15€ cada mes </label><br>"
+    opcionesCien.innerHTML = "<h3> Elige la cuota </h3><label class='form-check-label' for='4_meses'> <input class='form-check-input' type='radio' name='precio' id='4_meses' value='50'> 50€ cada 4 meses </label><br> <label class='form-check-label' for='1_mes'> <input class='form-check-input' type='radio' name='precio' id='1_mes' value='15'> 15€ cada mes </label><br>"
 }
 
 function precioTresciento() {
@@ -22,7 +22,7 @@ function precioTresciento() {
     opcionesCien.innerHTML = ""; // Limpiar contenido anterior si lo hubiera
 
     // Crear botones de radio adicionales
-    opcionesCien.innerHTML = "<h3> Elige la cuota </h3><label for='19.90'> <input type='radio' name='precio' id='19.90' value='19.90'> 19'90€ euros al mes </label><br>"
+    opcionesCien.innerHTML = "<h3> Elige la cuota </h3><label class='form-check-label' for='19.90'> <input class='form-check-input' type='radio' name='precio' id='19.90' value='19.90'> 19'90€ euros al mes </label><br>"
 }
 
 function precioSeiscientos() {
@@ -30,14 +30,14 @@ function precioSeiscientos() {
     opcionesCien.innerHTML = ""; // Limpiar contenido anterior si lo hubiera
 
     // Crear botones de radio adicionales
-    opcionesCien.innerHTML = "<h3> Elige la cuota </h3><label for='4_meses'> <input type='radio' name='precio' id='24'90' value='24'90' > 24'90€ euros al mes </label><br>"
+    opcionesCien.innerHTML = "<h3> Elige la cuota </h3><label class='form-check-label' for='4_meses'> <input class='form-check-input' type='radio' name='precio' id='24'90' value='24'90' > 24'90€ euros al mes </label><br>"
 }
 
 function virtual() {
     var fija = document.getElementById('fijaVirtual');
     fija.innerHTML = ""; // Limpiar el contenido anterior si lo hubiera
 
-    fija.innerHTML = "<h3>¿Deseas que tu linea fija sea virtual?</h3><label for='virtual'> <input type='radio' name='fijo_virtual' id='virtual' value='si' onclick='mostrarInput()'> La línea virtual va asociada a un número móvil y tiene un coste de 2€ al mes </label><br> <label for='fisica'> <input type='radio' name='fijo_virtual' id='fisica' value='no'> Se instalará un dispositivo físico para la línea fija</label> <div id='numAsociado'></div>"
+    fija.innerHTML = "<h3>¿Deseas que tu linea fija sea virtual?</h3><label class='form-check-label' for='virtual'> <input class='form-check-input' type='radio' name='fijo_virtual' id='virtual' value='si' onclick='mostrarInput()'> La línea virtual va asociada a un número móvil y tiene un coste de 2€ al mes </label><br> <label class='form-check-label' for='fisica'> <input class='form-check-input' type='radio' name='fijo_virtual' id='fisica' value='no'> Se instalará un dispositivo físico para la línea fija</label> <div id='numAsociado'></div>"
 
     document.getElementById('fisica').addEventListener('click', () => {
         limpiar('numAsociado')
@@ -47,7 +47,7 @@ function virtual() {
 
 function mostrarInput() {
     var numAsociadoDiv = document.getElementById('numAsociado');
-    numAsociadoDiv.innerHTML = '<h3>Introduce el número movil que será la lína fija</h3><input type="tel" id="numeroMovil" name="numeroVirtual" placeholder="Número móvil">';
+    numAsociadoDiv.innerHTML = '<h3>Introduce el número movil que será la lína fija</h3><input class="form-control" type="tel" id="numeroMovil" name="numeroVirtual" placeholder="Número móvil">';
 }
 
 function limpiarInput() {
