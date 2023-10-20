@@ -20,57 +20,56 @@
                     <legend class="text-center">Datos de Cliente</legend>
 
                     <div>
-                        <label class="form-label" for="nombre">Nombre*</label> <br>
+                        <label class="form-label" for="nombre">Nombre*</label>
                         <span class="text-danger" id="errorNombre"></span>
-                        <input class="form-control" type="text" id="nombre" name="nombre" placeholder="Nombre"><br>
+                        <input class="form-control mb-3" type="text" id="nombre" name="nombre" placeholder="Nombre">
                     </div>
                     <div>
-                        <label class="form-label" for="apellidos">Apellidos*</label> <br>
+                        <label class="form-label" for="apellidos">Apellidos*</label>
                         <span id="errorApellido" class="text-danger"></span>
-                        <input class="form-control" type="text" id="apellidos" name="apellidos"
-                            placeholder="Apellidos"><br>
+                        <input class="form-control mb-3" type="text" id="apellidos" name="apellidos"
+                            placeholder="Apellidos">
                     </div>
 
                     <div>
                         <label class="form-label" for="sexo">Sexo</label>
-                        <select class="form-select" id="sexo" name="sexo">
+                        <select class="form-select mb-3" id="sexo" name="sexo">
                             <option value="Hombre">Hombre</option>
                             <option value="Mujer">Mujer</option>
-                        </select><br>
+                        </select>
                     </div>
 
                     <div>
-                        <label class="form-label" for="fechaNacimiento">Fecha de Nacimiento</label> <br>
+                        <label class="form-label" for="fechaNacimiento">Fecha de Nacimiento</label>
                         <span id="errorFechaNacimiento" class="text-danger"></span>
-                        <input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento" required>
-                        <br>
+                        <input class="form-control mb-3" type="date" id="fechaNacimiento" name="fechaNacimiento" required>
                     </div>
 
                     <div>
-                        <label class="form-label" for="dni">DNI*</label> <br>
+                        <label class="form-label" for="dni">DNI*</label>
                         <span id="errorDni" class="text-danger"></span>
-                        <input class="form-control" type="text" id="dni" name="dni" placeholder="DNI" minlength="9"
-                            maxlength="9"><br>
+                        <input class="form-control mb-3" type="text" id="dni" name="dni" placeholder="DNI" minlength="9"
+                            maxlength="9">
                     </div>
 
                     <div>
-                        <label class="form-label" for="correo">Correo electrónico</label> <br>
+                        <label class="form-label" for="correo">Correo electrónico</label>
                         <span id="errorCorreo" class="text-danger"></span>
-                        <input class="form-control" type="text" id="correo" name="correo"
-                            placeholder="correo@correo"><br>
+                        <input class="form-control mb-3" type="text" id="correo" name="correo"
+                            placeholder="correo@correo">
                     </div>
 
                     <div>
-                        <label class="form-label" for="telefonoFijo">Teléfono Fijo</label> <br>
+                        <label class="form-label" for="telefonoFijo">Teléfono Fijo</label>
                         <span id="errorTlfFijo" class="text-danger"></span>
-                        <input class="form-control" type="tel" id="telefonoFijo" name="telefonoFijo" minlength="9"
-                            maxlength="9"><br>
+                        <input class="form-control mb-3" type="tel" id="telefonoFijo" name="telefonoFijo" minlength="9"
+                            maxlength="9">
                     </div>
 
                     <div>
-                        <label class="form-label" for="telefonoMovil">Teléfono Móvil*</label> <br>
-                        <input class="form-control" type="tel" id="telefonoMovil" name="telefonoMovil" minlength="9"
-                            maxlength="9"><br>
+                        <label class="form-label" for="telefonoMovil">Teléfono Móvil*</label>
+                        <input class="form-control mb-3" type="tel" id="telefonoMovil" name="telefonoMovil" minlength="9"
+                            maxlength="9">
                         <span id="errorTlfMovil" class="text-danger"></span>
                     </div>
 
@@ -81,42 +80,42 @@
 
                     <div>
                         <label class="form-label" for="poblacion">Población*</label>
-                        <select class="form-select" id="poblacion" name="poblacion">
+                        <select class="form-select mb-3" id="poblacion" name="poblacion">
                             <option value="Sanlúcar_de_Barrameda">Sanlúcar de Barrameda</option>
                             <option value="Chipiona">Chipiona</option>
-                        </select><br>
+                        </select>
                     </div>
                     <div>
-                        <label class="form-label" for="direccion">Dirección*</label> <br>
+                        <label class="form-label" for="direccion">Dirección*</label>
                         <span id="errorDireccion" class="text-danger"></span>
-                        <input class="form-control" type="text" id="direccion" name="direccion"><br>
+                        <input class="form-control mb-3" type="text" id="direccion" name="direccion">
                     </div>
 
                     <div>
-                        <label class="form-label" for="codigoPostal">Código Postal*</label> <br>
+                        <label class="form-label" for="codigoPostal">Código Postal*</label> 
                         <span id="errorCodPost" class="text-danger"></span>
-                        <input class="form-control" type="text" id="codigoPostal" name="codigoPostal" minlength="5"
-                            maxlength="5"><br>
+                        <input class="form-control mb-3" type="text" id="codigoPostal" name="codigoPostal" minlength="5"
+                            maxlength="5">
                     </div>
 
                     <div>
-                        <label class="form-label">DNI por delante</label> <br>
                         <label class="btn btn-primary btn-sm" for="delanteDNI">Subir imagen</label>
-                        <input class="form-control" type="file" id="delanteDNI" name="delanteDNI" hidden><br>
+                        <label class="form-label">DNI por delante</label> 
+                        <input class="form-control mb-3" type="file" id="delanteDNI" name="delanteDNI" hidden>
                     </div>
 
                     <div>
-                        <label for="detrasDNI">DNI por detrás</label> <br>
                         <label class="btn btn-primary btn-sm" for="detrasDNI">Subir imagen</label>
-                        <input type="file" id="detrasDNI" name="detrasDNI" hidden><br>
+                        <label for="detrasDNI">DNI por detrás</label>
+                        <input  type="file" id="detrasDNI" name="detrasDNI" hidden><br>
                     </div>
                     <br>
                 </fieldset>
-                <label>¿Quieres usar los mismos datos para la facturacion?</label> <br>
+                <p>¿Quieres usar los mismos datos para la facturacion?</p>
                 <label for="mismosDatosSi">Sí</label>
                 <input class="form-check-input" type="radio" name="datos" id="mismosDatosSi" />
                 <label for="mismosDatosNo">No</label>
-                <input class="form-check-input" type="radio" name="datos" id="mismosDatosNo" checked />
+                <input class="form-check-input mb-3" type="radio" name="datos" id="mismosDatosNo" checked />
                 <br>
                 <button class="btn btn-primary btn-sm" type="button" onclick="mostrarFormulario(2)">Siguiente</button>
             </div>
@@ -136,52 +135,52 @@
 
 
                     <div>
-                        <label class="form-label" for="apellidosFac">Apellidos*</label> <br>
+                        <label class="form-label" for="apellidosFac">Apellidos*</label>
                         <span id="errorApellidoFac" class="text-danger"></span>
-                        <input class="form-control" type="text" id="apellidosFac" name="apellidosFac"
-                            placeholder="Apellidos"><br>
+                        <input class="form-control mb-3" type="text" id="apellidosFac" name="apellidosFac"
+                            placeholder="Apellidos">
                     </div>
 
                     <div>
                         <label class="form-label" for="sexoFac">Sexo</label>
-                        <select class="form-select" id="sexoFac" name="sexoFac">
+                        <select class="form-select mb-3" id="sexoFac" name="sexoFac">
                             <option value="Hombre">Hombre</option>
                             <option value="Mujer">Mujer</option>
-                        </select><br>
+                        </select>
                     </div>
 
                     <div>
-                        <label class="form-label" for="fechaNacimientoFac">Fecha de Nacimiento</label> <br>
+                        <label class="form-label" for="fechaNacimientoFac">Fecha de Nacimiento</label>
                         <span id="errorFechaNacimientoFac" class="text-danger"></span>
-                        <input class="form-control" type="date" id="fechaNacimientoFac" name="fechaNacimientoFac"> <br>
+                        <input class="form-control mb-3" type="date" id="fechaNacimientoFac" name="fechaNacimientoFac">
                     </div>
 
                     <div>
-                        <label class="form-label" for="dniFac">DNI*</label> <br>
+                        <label class="form-label" for="dniFac">DNI*</label>
                         <span id="errorDniFac" class="text-danger"></span>
-                        <input class="form-control" type="text" id="dniFac" name="dniFac" placeholder="DNI"
-                            maxlength="9" minlength="9"><br>
+                        <input class="form-control mb-3" type="text" id="dniFac" name="dniFac" placeholder="DNI"
+                            maxlength="9" minlength="9">
                     </div>
 
                     <div>
-                        <label class="form-label" for="correoFac">Correo electrónico</label> <br>
+                        <label class="form-label" for="correoFac">Correo electrónico</label>
                         <span id="errorCorreoFac" class="text-danger"></span>
-                        <input class="form-control" type="text" id="correoFac" name="correoFac"
-                            placeholder="correo@correo"><br>
+                        <input class="form-control mb-3" type="text" id="correoFac" name="correoFac"
+                            placeholder="correo@correo">
                     </div>
 
                     <div>
-                        <label class="form-label" for="telefonoFijoFac">Teléfono Fijo</label> <br>
+                        <label class="form-label" for="telefonoFijoFac">Teléfono Fijo</label>
                         <span id="errorTlfFijoFac" class="text-danger"></span>
-                        <input class="form-control" type="tel" id="telefonoFijoFac" name="telefonoFijoFac"
-                            maxlength="9" minlength="9"><br>
+                        <input class="form-control mb-3" type="tel" id="telefonoFijoFac" name="telefonoFijoFac"
+                            maxlength="9" minlength="9">
                     </div>
 
                     <div>
-                        <label class="form-label" for="telefonoMovilFac">Teléfono Móvil*</label> <br>
+                        <label class="form-label" for="telefonoMovilFac">Teléfono Móvil*</label>
                         <span id="errorTlfMovilFac" class="text-danger"></span>
-                        <input class="form-control" type="tel" id="telefonoMovilFac" name="telefonoMovilFac"
-                            maxlength="9" minlength="9"><br>
+                        <input class="form-control mb-3" type="tel" id="telefonoMovilFac" name="telefonoMovilFac"
+                            maxlength="9" minlength="9">
                     </div>
 
                     <div>
@@ -191,36 +190,36 @@
 
                     <div>
                         <label class="form-label" for="poblacionFac">Población*</label>
-                        <select class="form-select" id="poblacionFac" name="poblacionFac">
+                        <select class="form-select mb-3" id="poblacionFac" name="poblacionFac">
                             <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
                             <option value="Chipiona">Chipiona</option>
-                        </select><br>
+                        </select>
                     </div>
                     <div>
-                        <label class="form-label" for="direccionFac">Dirección*</label> <br>
+                        <label class="form-label" for="direccionFac">Dirección*</label> 
                         <span id="errorDireccionFac" class="text-danger"></span>
-                        <input class="form-control" type="text" id="direccionFac" name="direccionFac"><br>
+                        <input class="form-control mb-3" type="text" id="direccionFac" name="direccionFac">
                     </div>
 
                     <div>
-                        <label class="form-label" for="codigoPostalFac">Código Postal*</label> <br>
+                        <label class="form-label" for="codigoPostalFac">Código Postal*</label> 
                         <span id="errorCodPostFac" class="text-danger"></span>
-                        <input class="form-control" minlength="5" maxlength="5" type="text" id="codigoPostalFac"
-                            name="codigoPostalFac"><br>
+                        <input class="form-control mb-3" minlength="5" maxlength="5" type="text" id="codigoPostalFac"
+                            name="codigoPostalFac">
                     </div>
 
                     <div>
-                        <label class="form-label">DNI por delante</label> <br>
                         <label class="btn btn-primary btn-sm" for="delanteDNIFac">Subir imagen</label>
-                        <input class="form-control" type="file" id="delanteDNIFac" name="delanteDNIFac" hidden><br>
+                        <label class="form-label mb-3">DNI por delante</label> 
+                        <input class="form-control" type="file" id="delanteDNIFac" name="delanteDNIFac" hidden>
                     </div>
 
                     <div>
-                        <label class="form-label">DNI por detrás</label> <br>
                         <label class="btn btn-primary btn-sm" for="detrasDNIFac">Subir imagen</label>
-                        <input type="file" id="detrasDNIFac" name="detrasDNIFac" hidden><br>
+                        <label class="form-label mb-3">DNI por detrás</label> 
+                        <input type="file" id="detrasDNIFac" name="detrasDNIFac" hidden>
                     </div>
-                    <br>
+                    
                 </fieldset>
 
                 <button class="btn btn-primary btn-sm" type="button" onclick="mostrarFormulario(1)">Anterior</button>
@@ -233,31 +232,31 @@
                     <legend>Datos de Cliente Notificaciones</legend>
 
                     <div>
-                        <label class="form-label" for="nombreNoti">Nombre*</label> <br>
+                        <label class="form-label" for="nombreNoti">Nombre*</label>
                         <span id="errorNombreNoti" class="text-danger"></span>
-                        <input class="form-control" type="text" id="nombreNoti" name="nombreNoti"
-                            placeholder="Nombre"><br>
+                        <input class="form-control mb-3" type="text" id="nombreNoti" name="nombreNoti"
+                            placeholder="Nombre">
                     </div>
 
                     <div>
-                        <label class="form-label" for="apellidosNoti">Apellidos*</label> <br>
+                        <label class="form-label" for="apellidosNoti">Apellidos*</label> 
                         <span id="errorApellidoNoti" class="text-danger"></span>
-                        <input class="form-control" type="text" id="apellidosNoti" name="apellidosNoti"
-                            placeholder="Apellidos"><br>
+                        <input class="form-control mb-3" type="text" id="apellidosNoti" name="apellidosNoti"
+                            placeholder="Apellidos">
                     </div>
 
                     <div>
-                        <label class="form-label" for="correoNoti">Correo electrónico</label> <br>
+                        <label class="form-label" for="correoNoti">Correo electrónico</label> 
                         <span id="errorCorreoNoti" class="text-danger"></span>
-                        <input class="form-control" type="text" id="correoNoti" name="correoNoti"
-                            placeholder="correo@correo"><br>
+                        <input class="form-control mb-3" type="text" id="correoNoti" name="correoNoti"
+                            placeholder="correo@correo">
                     </div>
 
                     <div>
-                        <label class="form-label" for="telefonoMovilNoti">Teléfono Móvil *</label> <br>
+                        <label class="form-label" for="telefonoMovilNoti">Teléfono Móvil *</label> 
                         <span id="errorTlfMovilNoti" class="text-danger"></span>
-                        <input class="form-control" type="tel" minlength="9" maxlength="9" id="telefonoMovilNoti"
-                            name="telefonoMovilNoti"><br>
+                        <input class="form-control mb-3" type="tel" minlength="9" maxlength="9" id="telefonoMovilNoti"
+                            name="telefonoMovilNoti">
                     </div>
                 </fieldset>
                 <button class="btn btn-primary btn-sm" type="button" onclick="mostrarFormulario(2)">Anterior</button>
@@ -265,7 +264,7 @@
             </div>
 
             <div id="formulario4" style="display: none">
-                <label class="form-check-label">¿Elija que método de pago desea usar?</label> <br> <br>
+                <p class="form-check-label mb-3">¿Elija que método de pago desea usar?</p>
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="efectivo"
                     onclick="limpiar('contenedorIban')" required>
                 <label class="form-check-label" for="efectivo">efectivo</label> <br>
