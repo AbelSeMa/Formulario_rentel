@@ -71,6 +71,7 @@ function generarCamposTarifaAlta() {
     tarifasIndividual.name = "tarifas";
     tarifasIndividual.id = "tarifa_individual";
     tarifasIndividual.value = "individual";
+    tarifasIndividual.className = "form-check-input";
     tarifasIndividual.onclick = function () {
         indiTarifa('alta_nueva');
     };
@@ -84,6 +85,7 @@ function generarCamposTarifaAlta() {
     tarifasPack.name = "tarifas";
     tarifasPack.id = "pack_alta_nueva";
     tarifasPack.value = "pack";
+    tarifasPack.className = "form-check-input";
     tarifasPack.onclick = function () {
         packTarifa('alta_nueva');
     };
@@ -98,9 +100,12 @@ function generarCamposTarifaAlta() {
         }
     }
 
+    let br1 = document.createElement("br");
+
     contenedor.appendChild(h3);
     contenedor.appendChild(tarifasIndividual);
     contenedor.appendChild(labelIndividual);
+    contenedor.appendChild(br1);
     contenedor.appendChild(tarifasPack);
     contenedor.appendChild(labelPack);
 
