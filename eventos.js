@@ -40,7 +40,7 @@ altaNueva.addEventListener('click', () => {
     var tarifas = document.getElementById('nuevoMovil')
     if (tarifas.style.display != 'block') {
         tarifas.style.display = 'block';
-    } 
+    }
     var port = document.getElementById('generar_portabilidad')
     if (port.style.display != 'none') {
         port.style.display = 'none'
@@ -57,9 +57,9 @@ document.getElementById('mismo_titular').addEventListener('click', () => {
 document.getElementById('mismo_titular').addEventListener('click', () => {
     document.getElementById('tipo_tarifa').style.display = 'block';
 
-    if (    document.getElementById('antiguo_titular').style.display != 'none') {
+    if (document.getElementById('antiguo_titular').style.display != 'none') {
         document.getElementById('antiguo_titular').style.display = 'none';
-        
+
     }
 
 })
@@ -70,7 +70,7 @@ document.getElementById('otro_titular').addEventListener('click', () => {
 
     if (document.getElementById('tipo_tarifa').style.display != 'block') {
         document.getElementById('tipo_tarifa').style.display = 'block';
-        
+
     }
 })
 

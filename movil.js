@@ -12,6 +12,7 @@ function generarCamposTarifaPortabilidad() {
     tarifasIndividual.name = "tarifas";
     tarifasIndividual.id = "porta_indi";
     tarifasIndividual.value = "individual";
+    tarifasIndividual.className = "form-check-input";
     tarifasIndividual.onclick = function () {
         indiTarifa('tarifasPortabilidad');
     };
@@ -23,6 +24,7 @@ function generarCamposTarifaPortabilidad() {
     let tarifasPack = document.createElement("input");
     tarifasPack.type = "radio";
     tarifasPack.name = "tarifas";
+    tarifasPack.className = "form-check-input";
     tarifasPack.id = "porta_pack";
     tarifasPack.value = "pack";
     tarifasPack.onclick = function () {
@@ -39,11 +41,18 @@ function generarCamposTarifaPortabilidad() {
         }
     }
 
+    let br1 = document.createElement("br");
+
     contenedor.appendChild(h3);
     contenedor.appendChild(tarifasIndividual);
     contenedor.appendChild(labelIndividual);
+    contenedor.appendChild(br1);
     contenedor.appendChild(tarifasPack);
     contenedor.appendChild(labelPack);
+
+    document.getElementById('porta_indi').addEventListener('click', () => {
+        document.getElementById('tarifasPortabilidad').removeAttribute('hidden');
+    });;
 
 }
 
