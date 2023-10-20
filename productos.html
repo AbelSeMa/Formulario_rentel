@@ -13,18 +13,20 @@
 
 <body>
   <div class="card col-md-6 mt-4 text-left mx-auto bg-light">
-    <div class="card-body">
-
+    <div class="card-body ">
       <h2>¿Qué producto desea contratar?</h2>
       <form action="#">
         <label class="form-check-label" for="fibra">
-          <input class="form-check-input" type="radio" name="producto" id="fibra" value="fibra" onclick="mostrarFibra()" />
+          <input class="form-check-input" type="radio" name="producto" id="fibra" value="fibra"
+            onclick="mostrarFibra()" />
           Fibra óptica </label><br />
         <label class="form-check-label" for="movil">
-          <input class="form-check-input" type="radio" name="producto" id="movil" value="movil" onclick="mostrarMovil()" />
+          <input class="form-check-input" type="radio" name="producto" id="movil" value="movil"
+            onclick="mostrarMovil()" />
           Móvil </label><br />
-        <label class="form-check-label" for="asistencia">
-          <input class="form-check-input" type="radio" name="producto" id="asistencia" value="asistencia" onclick="mostrarAsistencia()" />
+        <label class="form-check-label mb-2" for="asistencia">
+          <input class="form-check-input" type="radio" name="producto" id="asistencia" value="asistencia"
+            onclick="mostrarAsistencia()" />
           Teleasisetncia
         </label>
       </form>
@@ -38,38 +40,45 @@
           <div class="fibra_precio">
             <div class="fibra">
               <h2>Elige el producto</h4>
-              <label class="form-check-label" for="cien">
-                <input class="form-check-input" type="radio" name="velocidad" id="cien" value="100" onclick="precioCien()" required />
-                Fibra 100 Megas </label><br />
+                <label class="form-check-label" for="cien">
+                  <input class="form-check-input" type="radio" name="velocidad" id="cien" value="100"
+                    onclick="precioCien()" required />
+                  Fibra 100 Megas </label><br />
 
-              <label class="form-check-label" for="trescientos">
-                <input class="form-check-input" type="radio" name="velocidad" id="trescientos" value="300" onclick="precioTresciento()" />
-                Fibra 300 Megas </label><br />
+                <label class="form-check-label" for="trescientos">
+                  <input class="form-check-input" type="radio" name="velocidad" id="trescientos" value="300"
+                    onclick="precioTresciento()" />
+                  Fibra 300 Megas </label><br />
 
-              <label class="form-check-label" for="seiscientos">
-                <input class="form-check-input" type="radio" name="velocidad" id="seiscientos" value="600" onclick="precioSeiscientos()" />
-                Fibra 600 Megas
-              </label>
+                <label class="form-check-label mb-2" for="seiscientos">
+                  <input class="form-check-input" type="radio" name="velocidad" id="seiscientos" value="600"
+                    onclick="precioSeiscientos()" />
+                  Fibra 600 Megas
+                </label>
             </div>
-
             <div id="precio" class="precio"></div>
           </div>
 
           <h4>¿Necesitas portabilidad del número fijo?</h4>
-          <label class="form-check-label" for="porta_ok">
-            <input class="form-check-input" type="radio" name="tipo" id="porta_ok" value="ok" />
-            OK
-          </label>
+          <div>
 
-          <label class="form-check-label" for="porta_ko">
-            <input class="form-check-input" type="radio" name="tipo" id="porta_ko" value="ko" />
-            KO
-          </label>
+            <label class="form-check-label" for="porta_ok">
+              <input class="form-check-input" type="radio" name="tipo" id="porta_ok" value="ok" />
+              OK
+            </label>
 
-          <label class="form-check-label" for="nuevo_fijo">
-            <input class="form-check-input" type="radio" name="tipo" id="nuevo_fijo" value="nueva" />
-            Alta nueva
-          </label>
+            <label class="form-check-label" for="porta_ko">
+              <input class="form-check-input" type="radio" name="tipo" id="porta_ko" value="ko" />
+              KO
+            </label>
+
+            <label class="form-check-label mb-2" for="nuevo_fijo">
+              <input class="form-check-input" type="radio" name="tipo" id="nuevo_fijo" value="nueva" />
+              Alta nueva
+            </label>
+          </div>
+
+
 
           <div id="fijoPortabilidad"></div>
 
@@ -78,10 +87,10 @@
           <div>
             <h4>¿Desea aceptar permanencia?</h4>
 
-            <label class="form-check-label" for="permasi">
+            <label class="form-check-label mb-2" for="permasi">
               <input class="form-check-input" type="radio" name="permanencia" id="permasi" value="si" />
               Sí. La duración de la permanencia será de 18 meses y el montaje de
-              los equipos y la fibra no tendrá ningún coste adicional. </label><br /><br />
+              los equipos y la fibra no tendrá ningún coste adicional. </label>
 
             <label class="form-check-label" for="permano">
               <input class="form-check-input" type="radio" name="permanencia" id="permano" value="no" />
@@ -98,30 +107,31 @@
         <form action="#" data-tipo="movil" enctype="multipart/form-data">
           <div>
             <h4>Servicio contratado</h4>
-            <input class="form-check-input" type="radio" name="servicio" id="altaNueva" value="alta" onclick="generarCamposTarifaAlta()" />
+            <input class="form-check-input" type="radio" name="servicio" id="altaNueva" value="alta"
+              onclick="generarCamposTarifaAlta()" />
             <label class="form-check-label" for="altaNueva">Alta nueva</label><br />
 
             <input class="form-check-input" type="radio" name="servicio" value="portabilidad" id="portabilidad" />
             <label class="form-check-label" for="portabilidad"> Portabilidad </label><br />
 
             <input class="form-check-input" type="radio" name="servicio" id="cambioTitular" value="cambioTitular" />
-            <label class="form-check-label" for="cambioTitular"> Cambio de titular </label><br />
+            <label class="form-check-label mb-2" for="cambioTitular"> Cambio de titular </label><br />
           </div>
 
           <!-- Formulario para dar de alta una nueva linea movil-->
           <div id="nuevoMovil" style="display: none;">
             <div id="fotoSIM">
               <h4>Número de SIM</h4>
-              <input class="form-control" type="number" id="num_sim" placeholder="Número de la SIM de rentel"><br><br>
-              <label class="form-label" for="" style="font-size: large">Seleciona la foto de la SIM </labe><br />
-              <label class="btn btn-primary btn-sm" for="nSIM">Subir imagen</label> <br>
-                <input  type="file" id="nSIM" name="nSIM" hidden /><br />
-                <div id="tipo_tarifa_individual"></div>
+              <input class="form-control mb-2" type="number" id="num_sim" placeholder="Número de la SIM de rentel">
+
+              <label class="btn btn-primary btn-sm mb-2" for="nSIM">Subir imagen</label>
+              <label class="form-label mb-2" style="font-size: large">Seleciona la foto de la SIM </label>
+              <input type="file" id="nSIM" name="nSIM" hidden />
+              <div id="tipo_tarifa_individual"></div>
             </div>
-            <br/>
 
             <div id="alta_nueva">
-              <select class="form-select" title="tarifa" name="tarifa"></select>
+              <select class="form-select" title="tarifa" name="tarifa" ></select>
             </div>
           </div>
 
@@ -149,7 +159,7 @@
 
             <div>
               <h4>Compañia actual para hacer la portabilidad</h4>
-              <input class="form-control type="text" name="compañia" id="companyia" placeholder="Compañía actual" />
+              <input class="form-control type=" text" name="compañia" id="companyia" placeholder="Compañía actual" />
             </div>
 
             <div>
@@ -175,11 +185,29 @@
         </form>
       </div>
       <br>
-      <button class="btn btn-primary btn-sm" type="button" id="abrirModal">
+      <button class="btn btn-primary btn-sm mb-2" type="button" id="abrirModal">
         Contratar nuevo producto o terminar.
       </button>
 
-      <div class="" id="myModal" class="modal">
+      <div class="modal" id="myModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">¿Qué desea hacer?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" id="contratarProducto" onclick="createJson()" >Contratar un nuevo producto</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="irAPago" onclick="createJson()">Terminar y firmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<!--       <div class="" id="myModal" class="modal">
         <div class="modal-sm">
           <span class="close" id="cerrarModal">&times;</span>
           <div class="modal-header">
@@ -192,7 +220,9 @@
             Terminar y firmar
           </button>
         </div>
-      </div>
+      </div> -->
+
+
     </div>
   </div>
 
@@ -219,9 +249,9 @@
     });
   </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
