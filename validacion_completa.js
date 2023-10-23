@@ -177,6 +177,8 @@ function validarFormPago(event) {
 
 
 function validarFormCheck(event) {
+    var valores = [ "nombre", "apellidos", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
+
     alert("hola entre en validarFormCheck")
     var error_formulario = [];
 
@@ -184,9 +186,12 @@ function validarFormCheck(event) {
         error_formulario.push(1);
     }
 
-    document.getElementById("nombreFac").value = document.getElementById("nombre").value
-    alert(document.getElementById("nombreFac").value)
 
+    valores.forEach(function(e){
+        document.getElementById(e+"Fac").value = document.getElementById(e).value;
+        alert(document.getElementById(e+"Fac").value)
+    });
+    
 
 
     if (error_formulario.length === 0) {
