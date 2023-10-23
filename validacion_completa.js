@@ -177,8 +177,9 @@ function validarFormPago(event) {
 
 
 function validarFormCheck(event) {
-    var valores = [ "nombre", "apellidos", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
+    var valoresFac = [ "nombre", "apellidos", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
 
+    let valoresNoti = ["nombre", "apellidos", "correo", "telefonoMovil"];
     alert("hola entre en validarFormCheck")
     var error_formulario = [];
 
@@ -187,12 +188,13 @@ function validarFormCheck(event) {
     }
 
 
-    valores.forEach(function(e){
+    valoresFac.forEach(function(e){
         document.getElementById(e+"Fac").value = document.getElementById(e).value;
-        alert(document.getElementById(e+"Fac").value)
     });
     
-
+    valoresNoti.forEach(function(e){
+        document.getElementById(e+"Noti").value = document.getElementById(e).value;
+    });
 
     if (error_formulario.length === 0) {
         alert("Validación correcta");
