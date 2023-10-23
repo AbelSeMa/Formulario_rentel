@@ -4,17 +4,17 @@ if (!sessionStorage.getItem('cliente')) {
 
 
 function validarCliente(event) {
-    var nombre = document.getElementById("nombre").value;
-    var apellidos = document.getElementById("apellidos").value;
-    var dni = document.getElementById("dni").value;
-    var fecha = document.getElementById("fechaNacimiento").value;
-    var correo = document.getElementById("correo").value;
-    var telefonoFijo = document.getElementById("telefonoFijo").value;
-    var telefonoMovil = document.getElementById("telefonoMovil").value;
-    var codigoPostal = document.getElementById("codigoPostal").value;
-    var direccion = document.getElementById("direccion").value;
+    let nombre = document.getElementById("nombre").value;
+    let apellidos = document.getElementById("apellidos").value;
+    let dni = document.getElementById("dni").value;
+    let fecha = document.getElementById("fechaNacimiento").value;
+    let correo = document.getElementById("correo").value;
+    let telefonoFijo = document.getElementById("telefonoFijo").value;
+    let telefonoMovil = document.getElementById("telefonoMovil").value;
+    let codigoPostal = document.getElementById("codigoPostal").value;
+    let direccion = document.getElementById("direccion").value;
 
-    var validacionCorrectaCliente = true;
+    let validacionCorrectaCliente = true;
 
     if (!validarNombre(nombre)) {
         validacionCorrectaCliente = false;
@@ -64,16 +64,16 @@ function validarCliente(event) {
 
 function validarClienteFac(event) {
 
-    var nombreFac = document.getElementById("nombreFac").value;
-    var apellidosFac = document.getElementById("apellidosFac").value;
-    var dniFac = document.getElementById("dniFac").value;
-    var correoFac = document.getElementById("correoFac").value;
-    var telefonoFijoFac = document.getElementById("telefonoFijoFac").value;
-    var telefonoMovilFac = document.getElementById("telefonoMovilFac").value;
-    var codigoPostalFac = document.getElementById("codigoPostalFac").value;
-    var direccionFac = document.getElementById("direccionFac").value;
-    var fecha = document.getElementById("fechaNacimientoFac").value;
-    var validacionCorrectaFac = true;
+    let nombreFac = document.getElementById("nombreFac").value;
+    let apellidosFac = document.getElementById("apellidosFac").value;
+    let dniFac = document.getElementById("dniFac").value;
+    let correoFac = document.getElementById("correoFac").value;
+    let telefonoFijoFac = document.getElementById("telefonoFijoFac").value;
+    let telefonoMovilFac = document.getElementById("telefonoMovilFac").value;
+    let codigoPostalFac = document.getElementById("codigoPostalFac").value;
+    let direccionFac = document.getElementById("direccionFac").value;
+    let fecha = document.getElementById("fechaNacimientoFac").value;
+    let validacionCorrectaFac = true;
 
     if (!validarNombreFac(nombreFac)) {
         validacionCorrectaFac = false;
@@ -118,11 +118,11 @@ function validarClienteFac(event) {
 
 function validarFormNotis(event) {
 
-    var nombreNoti = document.getElementById("nombreNoti").value;
-    var apellidosNoti = document.getElementById("apellidosNoti").value;
-    var correoNoti = document.getElementById("correoNoti").value;
-    var telefonoMovilNoti = document.getElementById("telefonoMovilNoti").value;
-    var validacionCorrectaNoti = true;
+    let nombreNoti = document.getElementById("nombreNoti").value;
+    let apellidosNoti = document.getElementById("apellidosNoti").value;
+    let correoNoti = document.getElementById("correoNoti").value;
+    let telefonoMovilNoti = document.getElementById("telefonoMovilNoti").value;
+    let validacionCorrectaNoti = true;
 
     if (!validarNombreNoti(nombreNoti)) {
         validacionCorrectaNoti = false;
@@ -152,22 +152,22 @@ function validarFormNotis(event) {
 
 function validarFormPago(event) {
 
-    var domiciliacion = document.getElementById("domiciliacionBancaria");
+    let domiciliacion = document.getElementById("domiciliacionBancaria");
 
 
-    var validacionCorrectaIban = true;
+    let validacionCorrectaIban = true;
 
     if (domiciliacion.checked) {
-        var iban1 = document.getElementById("primero").value;
-        var iban2 = document.getElementById("segundo").value;
-        var iban3 = document.getElementById("tercero").value;
-        var iban4 = document.getElementById("cuarto").value;
-        var iban5 = document.getElementById("quinto").value;
-        var iban = iban1 + iban2 + iban3 + iban4 + iban5;
-        var iban = iban.toUpperCase();
+        let iban1 = document.getElementById("primero").value;
+        let iban2 = document.getElementById("segundo").value;
+        let iban3 = document.getElementById("tercero").value;
+        let iban4 = document.getElementById("cuarto").value;
+        let iban5 = document.getElementById("quinto").value;
+        let iban = iban1 + iban2 + iban3 + iban4 + iban5;
+        iban.toUpperCase();
 
         if (!validarIBAN(iban)) {
-            var validacionCorrectaIban = false;
+            let validacionCorrectaIban = false;
             event.preventDefault();
         }
 
@@ -177,11 +177,11 @@ function validarFormPago(event) {
 
 
 function validarFormCheck(event) {
-    var valoresFac = [ "nombre", "apellidos", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
+    let valoresFac = [ "nombre", "apellidos", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
 
     let valoresNoti = ["nombre", "apellidos", "correo", "telefonoMovil"];
     alert("hola entre en validarFormCheck")
-    var error_formulario = [];
+    let error_formulario = [];
 
     if (!validarCliente(event)) {
         error_formulario.push(1);
@@ -205,7 +205,7 @@ function validarFormCheck(event) {
             return a - b
         });
 
-        var numero = error_formulario[0];
+        let numero = error_formulario[0];
         mostrarFormulario(numero);
     }
 
@@ -213,7 +213,7 @@ function validarFormCheck(event) {
 
 function validarSinCheck(event) {
 
-    var error_formulario = [];
+    let error_formulario = [];
 
     if (!validarCliente(event)) {
         error_formulario.push(1);
@@ -240,7 +240,7 @@ function validarSinCheck(event) {
             return a - b
         });
 
-        var numero = error_formulario[0];
+        let numero = error_formulario[0];
         mostrarFormulario(numero);
     }
 
@@ -273,6 +273,6 @@ function validarFormulario(event) {
 }
 
 function limpiar(nombre) {
-    var limpi = document.getElementById(nombre);
+    let limpi = document.getElementById(nombre);
     limpi.innerHTML = "";
 }
