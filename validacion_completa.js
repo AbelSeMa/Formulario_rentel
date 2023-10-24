@@ -5,7 +5,8 @@ if (!sessionStorage.getItem('cliente')) {
 
 function validarCliente(event) {
     let nombre = document.getElementById("nombre").value;
-    let apellidos = document.getElementById("apellidos").value;
+    let apellido1 = document.getElementById("apellido1").value;
+    let apellido2 = document.getElementById("apellido2").value;
     let dni = document.getElementById("dni").value;
     let fecha = document.getElementById("fechaNacimiento").value;
     let correo = document.getElementById("correo").value;
@@ -21,7 +22,11 @@ function validarCliente(event) {
         event.preventDefault();
 
     }
-    if (!validarApellidos(apellidos)) {
+    if (!validarApellido1(apellido1)) {
+        validacionCorrectaCliente = false;
+        event.preventDefault();
+    }
+    if (!validarApellido2(apellido2)) {
         validacionCorrectaCliente = false;
         event.preventDefault();
     }
@@ -65,7 +70,8 @@ function validarCliente(event) {
 function validarClienteFac(event) {
 
     let nombreFac = document.getElementById("nombreFac").value;
-    let apellidosFac = document.getElementById("apellidosFac").value;
+    let apellido1Fac = document.getElementById("apellido1Fac").value;
+    let apellido2Fac = document.getElementById("apellido2Fac").value;
     let dniFac = document.getElementById("dniFac").value;
     let correoFac = document.getElementById("correoFac").value;
     let telefonoFijoFac = document.getElementById("telefonoFijoFac").value;
@@ -79,7 +85,11 @@ function validarClienteFac(event) {
         validacionCorrectaFac = false;
         event.preventDefault();
     }
-    if (!validarApellidosFac(apellidosFac)) {
+    if (!validarApellido1Fac(apellido1Fac)) {
+        validacionCorrectaFac = false;
+        event.preventDefault();
+    }
+    if (!validarApellido2Fac(apellido2Fac)) {
         validacionCorrectaFac = false;
         event.preventDefault();
     }
@@ -119,7 +129,8 @@ function validarClienteFac(event) {
 function validarFormNotis(event) {
 
     let nombreNoti = document.getElementById("nombreNoti").value;
-    let apellidosNoti = document.getElementById("apellidosNoti").value;
+    let apellido1Noti = document.getElementById("apellido1Noti").value;
+    let apellido2Noti = document.getElementById("apellido2Noti").value;
     let correoNoti = document.getElementById("correoNoti").value;
     let telefonoMovilNoti = document.getElementById("telefonoMovilNoti").value;
     let validacionCorrectaNoti = true;
@@ -128,11 +139,14 @@ function validarFormNotis(event) {
         validacionCorrectaNoti = false;
         event.preventDefault();
     }
-    if (!validarApellidosNoti(apellidosNoti)) {
+    if (!validarApellido1Noti(apellido1Noti)) {
         validacionCorrectaNoti = false;
         event.preventDefault();
     }
-
+    if (!validarApellido2Noti(apellido2Noti)) {
+        validacionCorrectaNoti = false;
+        event.preventDefault();
+    }
     if (!validarCorreoNoti(correoNoti)) {
         validacionCorrectaNoti = false;
         event.preventDefault();
@@ -177,9 +191,9 @@ function validarFormPago(event) {
 
 
 function validarFormCheck(event) {
-    let valoresFac = [ "nombre", "apellidos", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
+    let valoresFac = [ "nombre", "apellido1","apellido2", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
 
-    let valoresNoti = ["nombre", "apellidos", "correo", "telefonoMovil"];
+    let valoresNoti = ["nombre", "apellido1","apellido2", "correo", "telefonoMovil"];
     alert("hola entre en validarFormCheck")
     let error_formulario = [];
 

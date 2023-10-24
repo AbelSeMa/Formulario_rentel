@@ -1,8 +1,8 @@
 //VALIDACION CAMPOS DE CLIENTE
 
 function validarNombre(nombre) {
-    var regexCaracteres = /^[A-Za-z]+$/;
-    var error = document.getElementById("errorNombre");
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorNombre");
 
     if (!regexCaracteres.test(nombre)) {
         error.textContent = "Nombre debe contener solo letras.";
@@ -14,13 +14,28 @@ function validarNombre(nombre) {
     }
 }
 
-function validarApellidos(apellidos) {
-    var regexCaracteres = /^[A-Za-z]+$/;
-    var error = document.getElementById("errorApellido");
+function validarApellido1(apellidos) {
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorApellido1");
 
     if (!regexCaracteres.test(apellidos)) {
         error.textContent = "Apellidos deben contener solo letras.";
-        document.getElementById("apellidos").value = ''; // Establecer el valor a vacío
+        document.getElementById("apellido1").value = ''; // Establecer el valor a vacío
+        return false;
+    } else {
+        error.textContent = "";
+        return true;
+    }
+}
+
+
+function validarApellido2(apellidos) {
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorApellido2");
+
+    if (!regexCaracteres.test(apellidos)) {
+        error.textContent = "Apellidos deben contener solo letras.";
+        document.getElementById("apellido2").value = ''; // Establecer el valor a vacío
         return false;
     } else {
         error.textContent = "";
@@ -30,8 +45,8 @@ function validarApellidos(apellidos) {
 
 
 function validarDNI(dni) {
-    var regexDNI = /^\d{8}[A-Za-z]$/;
-    var error = document.getElementById("errorDni");
+    let regexDNI = /^\d{8}[A-Za-z]$/;
+    let error = document.getElementById("errorDni");
     if (!regexDNI.test(dni)) {
         error.textContent = "DNI no válido. Debe tener 8 dígitos seguidos de una letra.";
         document.getElementById("dni").value = ''; // Establecer el valor a vacío
@@ -44,8 +59,8 @@ function validarDNI(dni) {
 }
 
 function validarCorreo(correo) {
-    var regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    var error = document.getElementById("errorCorreo");
+    let regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    let error = document.getElementById("errorCorreo");
 
     if (correo != "") {
 
@@ -61,8 +76,8 @@ function validarCorreo(correo) {
 }
 
 function validarTelefonoFijo(telefonoFijo) {
-    var regexTelefono = /^\d{9}$/;
-    var error = document.getElementById("errorTlfFijo");
+    let regexTelefono = /^\d{9}$/;
+    let error = document.getElementById("errorTlfFijo");
 
     if (telefonoFijo != "") {
 
@@ -79,8 +94,8 @@ function validarTelefonoFijo(telefonoFijo) {
 
 
 function validarTelefonoMovil(telefonoMovil) {
-    var regexTelefono = /^\d{9}$/;
-    var error = document.getElementById("errorTlfMovil");
+    let regexTelefono = /^\d{9}$/;
+    let error = document.getElementById("errorTlfMovil");
     if (!regexTelefono.test(telefonoMovil)) {
         error.textContent = "Teléfono móvil debe tener 9 números.";
         document.getElementById("telefonoMovil").value = ''; // Establecer el valor a vacío
@@ -92,8 +107,8 @@ function validarTelefonoMovil(telefonoMovil) {
 }
 
 function validarCodigoPostal(codigoPostal) {
-    var regexCodigoPostal = /^\d{5}$/;
-    var error = document.getElementById("errorCodPost");
+    let regexCodigoPostal = /^\d{5}$/;
+    let error = document.getElementById("errorCodPost");
     if (!regexCodigoPostal.test(codigoPostal)) {
         error.textContent = "Código postal no válido. Debe tener al menos 5 dígitos.";
         document.getElementById("codigoPostal").value = ''; // Establecer el valor a vacío
@@ -105,7 +120,7 @@ function validarCodigoPostal(codigoPostal) {
 }
 
 function validarDireccion(direccion) {
-    var error = document.getElementById("errorDireccion");
+    let error = document.getElementById("errorDireccion");
     if (direccion.length < 5) {
         error.textContent = "La dirección debe tener al menos 5 caracteres.";
         document.getElementById("direccion").value = ''; // Establecer el valor a vacío
@@ -117,14 +132,14 @@ function validarDireccion(direccion) {
 }
 
 function validarFechaNacimiento(fechaNacimiento) {
-    var inputFecha = new Date(fechaNacimiento);
-    var error = document.getElementById("errorFechaNacimiento");
+    let inputFecha = new Date(fechaNacimiento);
+    let error = document.getElementById("errorFechaNacimiento");
 
     if (isNaN(inputFecha)) {
         error.textContent = "Fecha de nacimiento no válida.";
         return false;
     } else {
-        var fechaActual = new Date();
+        let fechaActual = new Date();
         if (inputFecha > fechaActual) {
             error.textContent = "La fecha de nacimiento no puede ser en el futuro.";
             return false;
@@ -139,8 +154,8 @@ function validarFechaNacimiento(fechaNacimiento) {
 //VALIDACION CMAPOS FACTURACION
 
 function validarNombreFac(nombre) {
-    var regexCaracteres = /^[A-Za-z]+$/;
-    var error = document.getElementById("errorNombreFac");
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorNombreFac");
 
     if (!regexCaracteres.test(nombre)) {
         error.textContent = "Nombre debe contener solo letras.";
@@ -152,13 +167,27 @@ function validarNombreFac(nombre) {
     }
 }
 
-function validarApellidosFac(apellidos) {
-    var regexCaracteres = /^[A-Za-z]+$/;
-    var error = document.getElementById("errorApellidoFac");
+function validarApellido1Fac(apellidos) {
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorApellido1Fac");
 
     if (!regexCaracteres.test(apellidos)) {
         error.textContent = "Apellidos deben contener solo letras.";
-        document.getElementById("apellidosFac").value = ''; // Establecer el valor a vacío
+        document.getElementById("apellido1Fac").value = ''; // Establecer el valor a vacío
+        return false;
+    } else {
+        error.textContent = "";
+        return true;
+    }
+}
+
+function validarApellido2Fac(apellidos) {
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorApellido2Fac");
+
+    if (!regexCaracteres.test(apellidos)) {
+        error.textContent = "Apellidos deben contener solo letras.";
+        document.getElementById("apellido2Fac").value = ''; // Establecer el valor a vacío
         return false;
     } else {
         error.textContent = "";
@@ -167,8 +196,8 @@ function validarApellidosFac(apellidos) {
 }
 
 function validarDNIFac(dni) {
-    var regexDNI = /^\d{8}[A-Za-z]$/;
-    var error = document.getElementById("errorDniFac");
+    let regexDNI = /^\d{8}[A-Za-z]$/;
+    let error = document.getElementById("errorDniFac");
 
     if (!regexDNI.test(dni)) {
         error.textContent = "DNI no válido. Debe tener 8 dígitos seguidos de una letra.";
@@ -181,8 +210,8 @@ function validarDNIFac(dni) {
 }
 
 function validarCorreoFac(correo) {
-    var regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    var error = document.getElementById("errorCorreoFac");
+    let regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    let error = document.getElementById("errorCorreoFac");
 
     if (correo != "") {
         if (!regexCorreo.test(correo)) {
@@ -197,8 +226,8 @@ function validarCorreoFac(correo) {
 }
 
 function validarTelefonoFijoFac(telefonoFijo) {
-    var regexTelefono = /^\d{9}$/;
-    var error = document.getElementById("errorTlfFijoFac");
+    let regexTelefono = /^\d{9}$/;
+    let error = document.getElementById("errorTlfFijoFac");
 
     if (telefonoFijo != "") {
         if (!regexTelefono.test(telefonoFijo)) {
@@ -213,8 +242,8 @@ function validarTelefonoFijoFac(telefonoFijo) {
 }
 
 function validarTelefonoMovilFac(telefonoMovil) {
-    var regexTelefono = /^\d{9}$/;
-    var error = document.getElementById("errorTlfMovilFac");
+    let regexTelefono = /^\d{9}$/;
+    let error = document.getElementById("errorTlfMovilFac");
 
     if (!regexTelefono.test(telefonoMovil)) {
         error.textContent = "Teléfono móvil debe tener 9 números.";
@@ -227,8 +256,8 @@ function validarTelefonoMovilFac(telefonoMovil) {
 }
 
 function validarCodigoPostalFac(codigoPostal) {
-    var regexCodigoPostal = /^\d{5}$/;
-    var error = document.getElementById("errorCodPostFac");
+    let regexCodigoPostal = /^\d{5}$/;
+    let error = document.getElementById("errorCodPostFac");
 
     if (!regexCodigoPostal.test(codigoPostal)) {
         error.textContent = "Código postal no válido. Debe tener al menos 5 dígitos.";
@@ -241,7 +270,7 @@ function validarCodigoPostalFac(codigoPostal) {
 }
 
 function validarDireccionFac(direccion) {
-    var error = document.getElementById("errorDireccionFac");
+    let error = document.getElementById("errorDireccionFac");
 
     if (direccion.length < 5) {
         error.textContent = "La dirección debe tener al menos 5 caracteres.";
@@ -255,14 +284,14 @@ function validarDireccionFac(direccion) {
 
 
 function validarFechaNacimientoFac(fechaNacimiento) {
-    var inputFecha = new Date(fechaNacimiento);
-    var error = document.getElementById("errorFechaNacimientoFac");
+    let inputFecha = new Date(fechaNacimiento);
+    let error = document.getElementById("errorFechaNacimientoFac");
 
     if (isNaN(inputFecha)) {
         error.textContent = "Fecha de nacimiento no válida.";
         return false;
     } else {
-        var fechaActual = new Date();
+        let fechaActual = new Date();
         if (inputFecha > fechaActual) {
             error.textContent = "La fecha de nacimiento no puede ser en el futuro.";
             return false;
@@ -277,8 +306,8 @@ function validarFechaNacimientoFac(fechaNacimiento) {
 //VALIDACION CAMPOS NOTIFICACIONES
 
 function validarNombreNoti(nombre) {
-    var regexCaracteres = /^[A-Za-z]+$/;
-    var error = document.getElementById("errorNombreNoti");
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorNombreNoti");
 
     if (!regexCaracteres.test(nombre)) {
         error.textContent = "Nombre debe contener solo letras.";
@@ -290,13 +319,13 @@ function validarNombreNoti(nombre) {
     }
 }
 
-function validarApellidosNoti(apellidos) {
-    var regexCaracteres = /^[A-Za-z]+$/;
-    var error = document.getElementById("errorApellidoNoti");
+function validarApellido1Noti(apellidos) {
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorApellido1Noti");
 
     if (!regexCaracteres.test(apellidos)) {
         error.textContent = "Apellidos deben contener solo letras.";
-        document.getElementById("apellidos").value = ''; // Establecer el valor a vacío
+        document.getElementById("apellido1Noti").value = ''; // Establecer el valor a vacío
         return false;
     } else {
         error.textContent = "";
@@ -304,9 +333,24 @@ function validarApellidosNoti(apellidos) {
     }
 }
 
+function validarApellido2Noti(apellidos) {
+    let regexCaracteres = /^[A-Za-z]+$/;
+    let error = document.getElementById("errorApellido2Noti");
+
+    if (!regexCaracteres.test(apellidos)) {
+        error.textContent = "Apellidos deben contener solo letras.";
+        document.getElementById("apellido2Noti").value = ''; // Establecer el valor a vacío
+        return false;
+    } else {
+        error.textContent = "";
+        return true;
+    }
+}
+
+
 function validarTelefonoMovilNoti(telefonoMovil) {
-    var regexTelefono = /^\d{9}$/;
-    var error = document.getElementById("errorTlfMovilNoti");
+    let regexTelefono = /^\d{9}$/;
+    let error = document.getElementById("errorTlfMovilNoti");
     if (!regexTelefono.test(telefonoMovil)) {
         error.textContent = "Teléfono móvil debe tener 9 números.";
         document.getElementById("telefonoMovil").value = ''; // Establecer el valor a vacío
@@ -319,8 +363,8 @@ function validarTelefonoMovilNoti(telefonoMovil) {
 
 
 function validarCorreoNoti(correo) {
-    var regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    var error = document.getElementById("errorCorreoNoti");
+    let regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    let error = document.getElementById("errorCorreoNoti");
 
     if (correo != "") {
         if (!regexCorreo.test(correo)) {
@@ -342,8 +386,8 @@ function validarCorreoNoti(correo) {
 
 
 function mostrarIban() {
-    var contenedorIban = document.getElementById("contenedorIban");
-    var domiciliacionBancaria = document.getElementById("domiciliacionBancaria");
+    let contenedorIban = document.getElementById("contenedorIban");
+    let domiciliacionBancaria = document.getElementById("domiciliacionBancaria");
 
     if (domiciliacionBancaria.checked) {
         contenedorIban.style.display = "block"; // Mostrar el div
@@ -353,8 +397,8 @@ function mostrarIban() {
 }
 
 function validarIBAN(iban) {
-    var regexIBAN = /^ES\d{22}$/;
-    var error = document.getElementById("errorIban");
+    let regexIBAN = /^ES\d{22}$/;
+    let error = document.getElementById("errorIban");
 
     if (!regexIBAN.test(iban)) {
         error.textContent = "Formato de IBAN incorrecto";
