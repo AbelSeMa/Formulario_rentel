@@ -19,6 +19,7 @@ function generarCamposTarifaPortabilidad() {
 
     let labelIndividual = document.createElement("label");
     labelIndividual.setAttribute("for", "porta_indi");
+    labelIndividual.className = "form-check-label";
     labelIndividual.textContent = "Tarifa individual";
 
     let tarifasPack = document.createElement("input");
@@ -34,7 +35,7 @@ function generarCamposTarifaPortabilidad() {
     let labelPack = document.createElement("label");
     labelPack.setAttribute("for", "porta_pack");
     labelPack.textContent = "Pack megas compartidos";
-
+    labelPack.className = "form-check-label";
     if (contenedor !== null) {
         while (contenedor.firstChild) {
             contenedor.removeChild(contenedor.firstChild);
@@ -77,6 +78,7 @@ function generarCamposTarifaAlta() {
     };
 
     let labelIndividual = document.createElement("label");
+    labelIndividual.className = "form-check-label";
     labelIndividual.setAttribute("for", "tarifa_individual");
     labelIndividual.textContent = "Tarifa individual";
 
@@ -91,6 +93,7 @@ function generarCamposTarifaAlta() {
     };
 
     let labelPack = document.createElement("label");
+    labelPack.className = "form-check-label";
     labelPack.setAttribute("for", "pack_alta_nueva");
     labelPack.textContent = "Pack megas compartidos";
 
