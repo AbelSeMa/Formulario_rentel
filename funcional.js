@@ -2,14 +2,6 @@ if (!sessionStorage.getItem('productos')) {
     sessionStorage.setItem('productos', JSON.stringify([]));
 }
 
-function mostrarMovil() {
-    var info = document.createElement("p");
-    info.textContent = 'Has elegido la opción móvil';
-    document.getElementById('opcionesFibra').style.display = 'none';
-    document.getElementById('opcionesMovil').style.display = 'block';
-
-}
-
 function mostrarAsistencia() {
     var info = document.createElement("p");
     info.textContent = 'Has elegido teleasistencia';
@@ -22,7 +14,10 @@ function createJson(event) {
         activeForm = document.querySelector('#opcionesFibra form');
     } else if (document.getElementById('opcionesMovil').style.display !== 'none') {
         activeForm = document.querySelector('#opcionesMovil form');
+    } else if (document.getElementById('opciones_fijo').style.display!== 'none') {
+        activeForm = document.querySelector('#opciones_fijo form');
     }
+
     const data = new FormData(activeForm);
     const dataTipe = activeForm.getAttribute('data-tipo');
     data.append('producto', dataTipe);

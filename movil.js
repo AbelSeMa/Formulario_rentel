@@ -1,3 +1,13 @@
+function mostrarMovil() {
+    var info = document.createElement("p");
+    info.textContent = 'Has elegido la opción móvil';
+    document.getElementById('opcionesInternet').style.display = 'none';
+    document.getElementById('opciones_fijo').style.display = 'none';
+
+    document.getElementById('opcionesMovil').style.display = 'block';
+
+}
+
 // genera el formulario de tarifas cuando selecciona portabilidad
 // como producto contratado.
 

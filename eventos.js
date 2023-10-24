@@ -1,7 +1,7 @@
 // evento para mostrar el campo telefono cunado el cliente interactura
 // con los radio de portabiliad.
 
-var portaOk = document.getElementById('porta_ok');
+/* ar portaOk = document.getElementById('porta_ok');
 var portaKo = document.getElementById('porta_ko');
 var altaNueva = document.getElementById('alta_nueva');
 
@@ -19,7 +19,7 @@ portaOk.addEventListener('click', () => {
 altaNueva.addEventListener('click', () => {
     virtual()
     limpiar("fijoPortabilidad")
-})
+}) */
 
 // evento que 'esconde' el formulario de alta nueva de movil y muestra el formulario de portabilidad movil
 var portabilidad = document.getElementById('portabilidad');
@@ -76,4 +76,13 @@ document.getElementById('otro_titular').addEventListener('click', () => {
 
 document.getElementById('otro_titular').addEventListener('click', () => {
     genererDatosAntiguoCliente();
+});
+
+
+document.getElementById('alta_nueva_internet').addEventListener('click', () => {
+    mostrarProductosInternet('opcionesInternet');
+});
+
+document.getElementById('alta_fijo').addEventListener('click', () => {
+    tarifasFijo('tarifa_fijo');
 });
