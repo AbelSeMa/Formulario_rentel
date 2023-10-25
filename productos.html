@@ -12,59 +12,68 @@
 
   <body>
     <div class="card col-md-4 mt-4 text-left mx-auto bg-white shadow">
-    <img src="Logo-Rentel-grande.jpg"  class="img-fluid" alt="Responsive image">
+      <img
+        src="Logo-Rentel-grande.jpg"
+        class="img-fluid"
+        alt="Responsive image"
+      />
       <div class="card-body">
-        <h2>¿Qué producto desea contratar?</h2>
-        <form action="#">
-          <!-- input opción telefono fijo-->
-          <input
-            class="form-check-input"
-            type="radio"
-            name="producto"
-            id="telefono_fijo"
-            value="telefono_fijo"
-            onclick="mostrarFijo()"
-          />
-          <label class="form-check-label" for="telefono_fijo">
-            Telefonía fija </label><br />
-
-          <!-- input opción móvil-->
-          <input
-            class="form-check-input"
-            type="radio"
-            name="producto"
-            id="internet"
-            value="fibra"
-            onclick="mostrarFibra()"
-          />
-          <label class="form-check-label" for="internet">Internet</label><br />
-
-          <!-- input opción móvil-->
-          <input
-            class="form-check-input"
-            type="radio"
-            name="producto"
-            id="movil"
-            value="movil"
-            onclick="mostrarMovil()"
-          />
-          <label class="form-check-label" for="movil"> Móvil </label><br />
-
-          <!-- input opción otros-->
-          <label class="form-check-label mb-2" for="otros">
+        <div>
+          <h2>¿Qué producto desea contratar?</h2>
+          <form action="#">
+            <!-- input opción telefono fijo-->
             <input
               class="form-check-input"
               type="radio"
               name="producto"
-              id="otros"
-              value="otros"
-              onclick="mostrarAsistencia()"
+              id="telefono_fijo"
+              value="telefono_fijo"
+              onclick="mostrarFijo()"
             />
-            Otros
-          </label>
-        </form>
+            <label class="form-check-label" for="telefono_fijo">
+              Telefonía fija </label
+            ><br />
 
-        <div id="opciones_fijo" style="display: none;">
+            <!-- input opción móvil-->
+            <input
+              class="form-check-input"
+              type="radio"
+              name="producto"
+              id="internet"
+              value="fibra"
+              onclick="mostrarFibra()"
+            />
+            <label class="form-check-label" for="internet">Internet</label
+            ><br />
+
+            <!-- input opción móvil-->
+            <input
+              class="form-check-input"
+              type="radio"
+              name="producto"
+              id="movil"
+              value="movil"
+              onclick="mostrarMovil()"
+            />
+            <label class="form-check-label" for="movil"> Móvil </label><br />
+
+            <!-- input opción otros-->
+            <label class="form-check-label mb-2" for="otros">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="producto"
+                id="otros"
+                value="otros"
+                onclick="mostrarAsistencia()"
+              />
+              Otros
+            </label>
+          </form>
+        </div>
+
+        <!--Formulario para la contratación de línea fija-->
+        <div id="opciones_fijo" style="display: none">
           <div>
             <h4>Servicio contratado</h4>
             <input
@@ -73,6 +82,7 @@
               name="servicio"
               id="alta_fijo"
               value="alta_fijo"
+              onclick="tarifasFijo('tarifa_linea_fija');"
             />
             <label class="form-check-label" for="alta_fijo">Alta nueva</label
             ><br />
@@ -100,16 +110,10 @@
             ><br />
           </div>
 
-          <h3>Elige la tarifa del teléfono fijo</h3>
-          <div id="tarifa_fijo" style="display: none;">
-
-          </div>
+          <div id="datos_fijo"></div>
         </div>
 
-        <!-- 
-      Formulario para la contratación de fibra óptica
-     -->
-
+        <!--Formulario para la contratación de fibra óptica-->
         <div id="opcionesInternet" style="display: none">
           <form
             action=""
@@ -118,41 +122,6 @@
             data-tipo="fibra"
             enctype="multipart/form-data"
           >
-            <div>
-              <h4>Servicio contratado</h4>
-              <input
-                class="form-check-input"
-                type="radio"
-                name="servicio"
-                id="alta_nueva_internet"
-                value="alta_internet"
-              />
-              <label class="form-check-label" for="alta_nueva_internet">Alta nueva</label
-              ><br />
-
-              <input
-                class="form-check-input"
-                type="radio"
-                name="servicio"
-                id="portabilidad_internet"
-                value="portabilidad_internet"
-              />
-              <label class="form-check-label" for="portabilidad_internet">
-                Portabilidad </label
-              ><br />
-
-              <input
-                class="form-check-input"
-                type="radio"
-                name="servicio"
-                id="cambio_titular_internet"
-                value="cambio_titular_internet"
-              />
-              <label class="form-check-label mb-2" for="cambio_titular_internet">
-                Cambio de titular </label
-              ><br />
-            </div>
-
             <h3>Elige el producto</h3>
             <div id="productos_internet"></div>
             <div id="precio" class="precio"></div>
@@ -187,8 +156,7 @@
           </form>
         </div>
 
-        <!-- Formulario movil -->
-
+        <!-- Formulario para la contratación de línea movil -->
         <div id="opcionesMovil" style="display: none">
           <form action="#" data-tipo="movil" enctype="multipart/form-data">
             <div>
@@ -256,7 +224,7 @@
               </div>
             </div>
 
-            <!--formulario para crear una portabilidad -->
+            <!--formulario para crear una portabilidad de linea movil -->
             <div id="generar_portabilidad" style="display: none">
               <div>
                 <h4>Número al que se le hace la portabilidad</h4>
@@ -352,54 +320,50 @@
             </div>
           </form>
         </div>
-        <br />
-        <button
-          class="btn btn-primary btn-sm mb-2"
-          type="button"
-          id="abrirModal"
-        >
-          Contratar nuevo producto o terminar.
-        </button>
+      </div>
+      <br />
 
-        <div class="modal" id="myModal">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">¿Qué desea hacer?</h5>
-                <button
-                  id="cerrarModal"
-                  git
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true"></span>
-                </button>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  id="contratarProducto"
-                  onclick="createJson()"
-                >
-                  Contratar un nuevo producto
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                  id="irAPago"
-                  onclick="createJson()"
-                >
-                  Terminar y firmar
-                </button>
-              </div>
+      <button class="btn btn-primary btn-sm mb-2" type="button" id="abrirModal">
+        Contratar nuevo producto o terminar.
+      </button>
+
+      <div class="modal" id="myModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">¿Qué desea hacer?</h5>
+              <button
+                id="cerrarModal"
+                git
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="contratarProducto"
+                onclick="createJson()"
+              >
+                Contratar un nuevo producto
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                id="irAPago"
+                onclick="createJson()"
+              >
+                Terminar y firmar
+              </button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
 

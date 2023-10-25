@@ -79,10 +79,24 @@ document.getElementById('otro_titular').addEventListener('click', () => {
 });
 
 
-document.getElementById('alta_nueva_internet').addEventListener('click', () => {
+document.getElementById('internet').addEventListener('click', () => {
     mostrarProductosInternet('opcionesInternet');
 });
 
+
+document.getElementById('portabilidad_fijo').addEventListener('click', () => {
+    if (document.getElementById("datos_portabilidad_fijo").childElementCount > 0) {
+        limpiar("datos_portabilidad_fijo");
+    }
+    donanteFijo();
+    titularPortabilidadFijo();
+    tarifasFijo();
+});
+
 document.getElementById('alta_fijo').addEventListener('click', () => {
-    tarifasFijo('tarifa_fijo');
+    if (document.getElementById("datos_portabilidad_fijo").childElementCount > 0) {
+        limpiar("datos_portabilidad_fijo");
+    }
+
+    tarifasFijo();
 });

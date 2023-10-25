@@ -82,13 +82,13 @@ function generarCamposTarifaAlta() {
     tarifasIndividual.name = "tarifas";
     tarifasIndividual.id = "tarifa_individual";
     tarifasIndividual.value = "individual";
-    tarifasIndividual.className = "form-check-input";
+    tarifasIndividual.classList.add("form-check-input");
     tarifasIndividual.onclick = function () {
         indiTarifa('alta_nueva');
     };
 
     let labelIndividual = document.createElement("label");
-    labelIndividual.className = "form-check-label";
+    labelIndividual.classList.add("form-check-label");
     labelIndividual.setAttribute("for", "tarifa_individual");
     labelIndividual.textContent = "Tarifa individual";
 
@@ -97,13 +97,13 @@ function generarCamposTarifaAlta() {
     tarifasPack.name = "tarifas";
     tarifasPack.id = "pack_alta_nueva";
     tarifasPack.value = "pack";
-    tarifasPack.className = "form-check-input";
+    tarifasPack.classList.add("form-check-input");
     tarifasPack.onclick = function () {
         packTarifa('alta_nueva');
     };
 
     let labelPack = document.createElement("label");
-    labelPack.className = "form-check-label";
+    labelPack.classList.add("form-check-label");
     labelPack.setAttribute("for", "pack_alta_nueva");
     labelPack.textContent = "Pack megas compartidos";
 
@@ -148,7 +148,7 @@ function genererDatosAntiguoCliente() {
 
     let dniAntiguoTitular = document.createElement("input");
     dniAntiguoTitular.type = "text";
-    dniAntiguoTitular.className = "form-control mb-2";
+    dniAntiguoTitular.classList.add("form-control", "mb-2");
     dniAntiguoTitular.name = "dni_antiguo_titular";
     dniAntiguoTitular.id = "dni_antiguo_titular";
     dniAntiguoTitular.placeholder = "DNI";
