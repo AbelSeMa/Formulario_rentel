@@ -85,8 +85,8 @@ document.getElementById('internet').addEventListener('click', () => {
 
 
 document.getElementById('portabilidad_fijo').addEventListener('click', () => {
-    if (document.getElementById("datos_portabilidad_fijo").childElementCount > 0) {
-        limpiar("datos_portabilidad_fijo");
+    if (document.getElementById("datos_fijo").childElementCount > 0) {
+        limpiar("datos_fijo");
     }
     donanteFijo();
     titularPortabilidadFijo();
@@ -94,8 +94,8 @@ document.getElementById('portabilidad_fijo').addEventListener('click', () => {
 });
 
 document.getElementById('alta_fijo').addEventListener('click', () => {
-    if (document.getElementById("datos_portabilidad_fijo").childElementCount > 0) {
-        limpiar("datos_portabilidad_fijo");
+    if (document.getElementById("datos_fijo").childElementCount > 0) {
+        limpiar("datos_fijo");
     }
 
     tarifasFijo();
