@@ -10,8 +10,8 @@ function mostrarAsistencia() {
 
 function createJson(event) {
     let activeForm;
-    if (document.getElementById('opcionesFibra').style.display !== 'none') {
-        activeForm = document.querySelector('#opcionesFibra form');
+    if (document.getElementById('opcionesInternet').style.display !== 'none') {
+        activeForm = document.querySelector('#opcionesInternet form');
     } else if (document.getElementById('opcionesMovil').style.display !== 'none') {
         activeForm = document.querySelector('#opcionesMovil form');
     } else if (document.getElementById('opciones_fijo').style.display!== 'none') {

@@ -44,7 +44,7 @@ function tarifasFijo() {
         let radio = document.createElement("input");
         radio.type = "radio";
         radio.name = "tarifa"; // Nombre del grupo de radio buttons
-        radio.value = tarifas[i].precio; // Valor del radio button (precio)
+        radio.value = tarifas[i].tarifa; // Valor del radio button (precio)
         radio.id = "radio_" + i; // ID único para el radio button
         radio.className = "form-check-input"; // Clase CSS para el radio button
         radio.onclick = () => {
