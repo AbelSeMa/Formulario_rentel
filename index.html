@@ -11,13 +11,14 @@
 </head>
 
 <body>
-    <div class="card col-md-6 mt-4 text-left mx-auto bg-light">
+    <div class="card col-md-4 mt-4 text-left mx-auto bg-white shadow">
         <div class="card-body">
+        <img src="Logo-Rentel-grande.jpg" class="img-fluid" alt="Responsive image">
 
         <form name="formulario_Cliente" action="productos.html" id="formuCliente" enctype="multipart/formdata">
             <div id="formulario1">
                 <fieldset>
-                    <legend class="text-center">Datos de Cliente</legend>
+                    <h2 class="text-center font-weight-bold">Datos de Cliente</h2>
 
                     <div>
                         <label class="form-label" for="nombre">Nombre*</label>
@@ -119,10 +120,10 @@
                     <br>
                 </fieldset>
                 <p>¿Quieres usar los mismos datos para la facturacion?</p>
-                <label for="mismosDatosSi">Sí</label>
                 <input class="form-check-input" type="radio" name="datos" id="mismosDatosSi" />
-                <label for="mismosDatosNo">No</label>
+                <label for="mismosDatosSi">Sí</label> <br> 
                 <input class="form-check-input mb-3" type="radio" name="datos" id="mismosDatosNo" checked />
+                <label for="mismosDatosNo">No</label>
                 <br>
                 <button class="btn btn-primary btn-sm" type="button" onclick="mostrarFormulario(2)">Siguiente</button>
             </div>
@@ -130,7 +131,7 @@
             <div id="formulario2" style="display: none">
 
                 <fieldset>
-                    <legend>Datos de Cliente Facturación</legend>
+                    <h2 class="text-center font-weight-bold">Datos de Cliente Facturación</h2>
 
 
                     <div>
@@ -243,7 +244,7 @@
             <div id="formulario3" style="display: none">
                 <fieldset>
 
-                    <legend>Datos de Cliente Notificaciones</legend>
+                    <h2 class="text-center font-weight-bold">Notificaciones del cliente</h2>
 
                     <div>
                         <label class="form-label" for="nombreNoti">Nombre*</label>
@@ -285,6 +286,7 @@
             </div>
 
             <div id="formulario4" style="display: none">
+                <h2 class="text-center font-weight-bold">Forma de pago</h2>
                 <p class="form-check-label mb-3">¿Elija que método de pago desea usar?</p>
                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="efectivo"
                     onclick="limpiar('contenedorIban')" required>
