@@ -27,6 +27,7 @@ function tarifasFijo() {
 
     // Elimina opciones anteriores si las hay
     // Limpiar el div con id "mismo_titular_fijo"
+
     if (tarifaFijo.childElementCount > 0) {
         while (tarifaFijo.firstChild) {
             tarifaFijo.removeChild(tarifaFijo.firstChild);
@@ -66,10 +67,17 @@ function tarifasFijo() {
 }
 
 function antiguoTitularFijo() {
-
-    // Obtener el div con id "antiguo_titular_fijo"
+    var vaciar = document.getElementById('antiguo_titular_fijo');
+    if (vaciar !== null && vaciar.hasChildNodes()) {
+        while (vaciar.firstChild) {
+            vaciar.removeChild(vaciar.firstChild);
+        }
+    }
+    // crear el div con id "antiguo_titular_fijo"
     var antiguoTitularDiv = document.createElement("div");
     antiguoTitularDiv.id = "antiguo_titular_fijo";
+
+    /* antiguoTitularDiv.parentNode.removeChild(divAEliminar); */
 
     // Crear un elemento h6 para "Nombre del antiguo titular"
     var nombreH6 = document.createElement("h6");
@@ -77,7 +85,7 @@ function antiguoTitularFijo() {
 
     // Crear un input para el nombre del antiguo titular
     var nombreInput = document.createElement("input");
-    nombreInput.className = "form-control";
+    nombreInput.classList.add("form-control", "mb-2");
     nombreInput.type = "text";
     nombreInput.name = "nombre_antiguo_titular_fijo";
     nombreInput.id = "nombre_antiguo_titular_fijo";
@@ -89,7 +97,7 @@ function antiguoTitularFijo() {
 
     // Crear un input para los apellidos del antiguo titular
     var apellidosInput = document.createElement("input");
-    apellidosInput.className = "form-control";
+    apellidosInput.classList.add("form-control", "mb-2");
     apellidosInput.type = "text";
     apellidosInput.name = "apellidos_antiguo_titular_fijo";
     apellidosInput.id = "apellidos_antiguo_titular_fijo";
@@ -107,12 +115,6 @@ function antiguoTitularFijo() {
     dniInput.id = "DNI_antiguo_titular_fijo";
     dniInput.placeholder = "DNI antiguo titular";
 
-    if (antiguoTitularDiv.childElementCount > 0) {
-        while (antiguoTitularDiv.firstChild) {
-            antiguoTitularDiv.removeChild(antiguoTitularDiv.firstChild);
-        }
-    }
-
 
     // Añadir los elementos creados al div
     antiguoTitularDiv.appendChild(nombreH6);
@@ -122,12 +124,16 @@ function antiguoTitularFijo() {
     antiguoTitularDiv.appendChild(dniH6);
     antiguoTitularDiv.appendChild(dniInput);
 
+    let parentElement = document.getElementById('datos_fijo');
+    parentElement.appendChild(antiguoTitularDiv);
+
 }
 
 function titularPortabilidadFijo() {
     // Crear un elemento h4 para la pregunta
     var preguntaH4 = document.createElement("h4");
     preguntaH4.textContent = "¿La portabilidad se hará sobre el mismo titular?";
+    preguntaH4.classList.add("mt-2");
 
     // Crear el primer radio button "Si"
     var siRadio = document.createElement("input");
@@ -136,6 +142,14 @@ function titularPortabilidadFijo() {
     siRadio.name = "mismo_titular_fijo";
     siRadio.id = "si_mismo_titular_fijo";
     siRadio.value = "si";
+    siRadio.onclick = () => {
+        var divExistente = document.getElementById("antiguo_titular_fijo"); // Reemplaza "miDiv" con el ID del div que deseas comprobar
+
+        if (divExistente !== null) {
+            // El div con el ID especificado existe en el DOM
+            divExistente.parentNode.removeChild(divExistente);
+        }
+    }    
 
     // Crear la etiqueta para el radio button "Si"
     var siLabel = document.createElement("label");
@@ -155,7 +169,16 @@ function titularPortabilidadFijo() {
     noRadio.id = "otro_titular_fijo";
     noRadio.value = "no";
     noRadio.onclick = () => {
-        antiguoTitularFijo();
+        var divExistente = document.getElementById("antiguo_titular_fijo"); // Reemplaza "miDiv" con el ID del div que deseas comprobar
+
+        if (divExistente !== null) {
+            // El div con el ID especificado existe en el DOM
+            divExistente.parentNode.removeChild(divExistente);
+            antiguoTitularFijo();
+        } else {
+            // El div no existe en el DOM
+            antiguoTitularFijo();
+        }
     };
 
     // Crear la etiqueta para el radio button "No"
@@ -199,6 +222,7 @@ function donanteFijo() {
     // Crear un elemento h4 para "Compañia donante"
     var h4Element = document.createElement("h4");
     h4Element.textContent = "Compañia donante";
+    h4Element.className = "mt-2";
 
     // Crear un input para la compañía
     var inputElement = document.createElement("input");

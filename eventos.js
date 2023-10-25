@@ -47,13 +47,8 @@ altaNueva.addEventListener('click', () => {
     }
 })
 
-// evento que muestra el formulario de cambio de titular en el apartado portabilidad
-
-document.getElementById('mismo_titular').addEventListener('click', () => {
-
-})
-
-
+// evento que muestra el formulario de cambio de titular
+// en el apartado de movil
 document.getElementById('mismo_titular').addEventListener('click', () => {
     document.getElementById('tipo_tarifa').style.display = 'block';
 
@@ -74,9 +69,6 @@ document.getElementById('otro_titular').addEventListener('click', () => {
     }
 })
 
-document.getElementById('otro_titular').addEventListener('click', () => {
-    genererDatosAntiguoCliente();
-});
 
 
 document.getElementById('internet').addEventListener('click', () => {
@@ -88,15 +80,15 @@ document.getElementById('portabilidad_fijo').addEventListener('click', () => {
     if (document.getElementById("datos_fijo").childElementCount > 0) {
         limpiar("datos_fijo");
     }
+    tarifasFijo();
     donanteFijo();
     titularPortabilidadFijo();
-    tarifasFijo();
 });
 
 document.getElementById('alta_fijo').addEventListener('click', () => {
     if (document.getElementById("datos_fijo").childElementCount > 0) {
         limpiar("datos_fijo");
     }
-
+    
     tarifasFijo();
 });
