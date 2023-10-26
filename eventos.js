@@ -92,3 +92,26 @@ document.getElementById('alta_fijo').addEventListener('click', () => {
     
     tarifasFijo();
 });
+
+
+document.getElementById('otro_titular').addEventListener('click', () => {
+    genererDatosAntiguoCliente();
+    generarCamposTarifaPortabilidad();
+});
+
+
+document.getElementById('cambio_titular_fijo').addEventListener('click', () => {
+    if (document.getElementById("datos_fijo").childElementCount > 0) {
+        limpiar("datos_fijo");
+    }
+    cambioTitularFijo();
+});
+
+document.getElementById('cambio_titular_mov').addEventListener('click', () => {
+    if (document.getElementById("cambio_titular_movil").childElementCount > 0) {
+        limpiar("cambio_titular_movil");
+    }
+    document.getElementById('generar_portabilidad').style.display = 'none';
+    document.getElementById('nuevoMovil').style.display = 'none';
+    cambioTitularMovil();
+});

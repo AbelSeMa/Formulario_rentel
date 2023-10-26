@@ -149,7 +149,7 @@ function titularPortabilidadFijo() {
             // El div con el ID especificado existe en el DOM
             divExistente.parentNode.removeChild(divExistente);
         }
-    }    
+    }
 
     // Crear la etiqueta para el radio button "Si"
     var siLabel = document.createElement("label");
@@ -255,3 +255,45 @@ function donanteFijo() {
     titularPortabilidadFijo();
     tarifasFijo();
 } */
+
+function cambioTitularFijo() {
+    let parentElement = document.getElementById('datos_fijo');
+
+    let cambioTitular = document.createElement('div');
+    cambioTitular.id = 'cambio_titular_fijo';
+
+    //crea el h4 que será el titulo del div
+    let h4 = document.createElement('h4');
+    h4.textContent = 'Datos del antiguo titular';
+
+    // crea el input:text para tomar el  nombre antiguo del titular
+    let nombreAntiguo = document.createElement('input');
+    nombreAntiguo.className = 'form-control';
+    nombreAntiguo.type = 'text';
+    nombreAntiguo.name = 'nombre_antiguo_titular_fijo';
+    nombreAntiguo.id = 'nombre_antiguo_titular_fijo';
+    nombreAntiguo.placeholder = 'Nombre antiguo titular';
+
+    // crea el input:text para tomar el  apellido del antiguo titular
+    let apellidoAntiguo = document.createElement('input');
+    apellidoAntiguo.className = 'form-control';
+    apellidoAntiguo.type = 'text';
+    apellidoAntiguo.name = 'apellido_antiguo_titular_fijo';
+    apellidoAntiguo.id = 'apellido_antiguo_titular_fijo';
+    apellidoAntiguo.placeholder = 'Apellido antiguo titular';
+
+    // crea el input:text para tomar el  DNI del antiguo titular
+    let dniAntiguo = document.createElement('input');
+    dniAntiguo.className = 'form-control';
+    dniAntiguo.type = 'text';
+    dniAntiguo.name = 'DNI_antiguo_titular_fijo';
+    dniAntiguo.id = 'DNI_antiguo_titular_fijo';
+    dniAntiguo.placeholder = 'DNI antiguo titular';
+
+    cambioTitular.appendChild(h4);
+    cambioTitular.appendChild(nombreAntiguo);
+    cambioTitular.appendChild(apellidoAntiguo);
+    cambioTitular.appendChild(dniAntiguo);
+
+    parentElement.appendChild(cambioTitular);
+}
