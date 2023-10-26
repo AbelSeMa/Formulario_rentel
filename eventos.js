@@ -94,3 +94,17 @@ document.getElementById('cambio_titular_mov').addEventListener('click', () => {
     document.getElementById('nuevoMovil').style.display = 'none';
     cambioTitularMovil();
 });
+
+document.getElementById('otros').addEventListener('click', () => {
+    document.getElementById('opcionesInternet').style.display = 'none';
+    document.getElementById('opciones_fijo').style.display = 'none';
+    document.getElementById('opcionesMovil').style.display = 'none';
+
+    document.getElementById('otros_productos').style.display = 'block';
+
+
+
+
+
+
+});

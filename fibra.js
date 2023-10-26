@@ -3,6 +3,8 @@ function mostrarFibra() {
     info.textContent = 'Elige la velocidad de la fibra:';
     document.getElementById('opcionesMovil').style.display = 'none';
     document.getElementById('opciones_fijo').style.display = 'none';
+    document.getElementById('otros_productos').style.display = 'none';
+
 
     document.getElementById('opcionesInternet').style.display = 'block';
 

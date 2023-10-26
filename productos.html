@@ -60,17 +60,16 @@
             <label class="form-check-label" for="movil"> Móvil </label><br />
 
             <!-- input opción otros-->
-            <label class="form-check-label mb-2" for="otros">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="producto"
-                id="otros"
-                value="otros"
-                onclick="mostrarAsistencia()"
-              />
-              Otros
-            </label>
+
+            <input
+              class="form-check-input"
+              type="radio"
+              name="producto"
+              id="otros"
+              value="otros"
+              onclick="mostrarAsistencia()"
+            />
+            <label class="form-check-label mb-2" for="otros">Otros</label>
           </form>
         </div>
 
@@ -141,9 +140,21 @@
 
             <div>
               <h4 class="mt-3">Tipo de servicio</h4>
-              <input type="radio" name="tipo_servicio" id="fibra" class="form-check-input" value="fibra">
+              <input
+                type="radio"
+                name="tipo_servicio"
+                id="fibra"
+                class="form-check-input"
+                value="fibra"
+              />
               <label for="fibra" class="form-check-label mb-2">Wifi</label>
-              <input type="radio" name="tipo_servicio" id="wifi" class="form-check-input" value="wifi">
+              <input
+                type="radio"
+                name="tipo_servicio"
+                id="wifi"
+                class="form-check-input"
+                value="wifi"
+              />
               <label for="wifi" class="form-check-label mb-2">Fibra</label>
             </div>
 
@@ -338,7 +349,7 @@
                 >
               </div>
 
-              <div id="antiguo_titular" ></div>
+              <div id="antiguo_titular"></div>
 
               <div id="tipo_tarifa"></div>
 
@@ -351,9 +362,40 @@
               </div>
             </div>
 
-            <div id="cambio_titular_movil">
+            <div id="cambio_titular_movil"></div>
+          </form>
+        </div>
 
-            </div>
+        <!-- Formulario para otros productos -->
+        <div id="otros_productos" style="display: none">
+          <form action="">
+            <h4>Otros productos</h4>
+            <input
+              type="radio"
+              class="form-check-input"
+              name="otros_productos"
+              id="ip_fija"
+            />
+            <label for="ip_fija" class="form-check-label">IP fija</label
+            ><br />
+
+            <input
+              type="radio"
+              class="form-check-input"
+              name="otros_productos"
+              id="ZAPI"
+            />
+            <label for="ZAPI" class="form-check-label">ZAPI</label><br />
+
+            <input
+              type="radio"
+              class="form-check-input"
+              name="otros_productos"
+              id="teleasistencia"
+            />
+            <label for="teleasistencia" class="form-check-label"
+              >Teleasistencia</label
+            ><br />
           </form>
         </div>
       </div>
@@ -362,7 +404,6 @@
       <button class="btn btn-primary btn-sm mb-2" type="button" id="abrirModal">
         Contratar nuevo producto o terminar.
       </button>
-      
 
       <div class="modal" id="myModal">
         <div class="modal-dialog" role="document">

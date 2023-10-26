@@ -3,6 +3,8 @@ function mostrarMovil() {
     info.textContent = 'Has elegido la opción móvil';
     document.getElementById('opcionesInternet').style.display = 'none';
     document.getElementById('opciones_fijo').style.display = 'none';
+    document.getElementById('otros_productos').style.display = 'none';
+
 
     document.getElementById('opcionesMovil').style.display = 'block';
 
