@@ -404,13 +404,13 @@ function validarCorreoNoti(correo) {
 
 
 
-
 //VALIDACION FROMA DE PAGO
 
 
 
 function mostrarIban() {
     let contenedorIban = document.getElementById("contenedorIban");
+
     let domiciliacionBancaria = document.getElementById("domiciliacionBancaria");
 
     if (domiciliacionBancaria.checked) {
@@ -422,10 +422,10 @@ function mostrarIban() {
 
 function validarIBAN(iban) {
     let regexIBAN = /^ES\d{22}$/;
-    let error = document.getElementById("errorIban");
+    let contenedorIban = document.getElementById("contenedorIban");
 
     if (!regexIBAN.test(iban)) {
-        error.textContent = "Formato de IBAN incorrecto";
+        contenedorIban.classList.add("has-danger");
         document.getElementById("primero").value = "";
         document.getElementById("segundo").value = "";
         document.getElementById("tercero").value = "";
