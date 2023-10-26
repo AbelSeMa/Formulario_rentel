@@ -68,6 +68,32 @@ function tarifasFijo() {
 }
 
 
+function numTlfnFijo() {
+    var elementParent = document.getElementById('datos_fijo');
+
+    // crear el div contenedor del campo telefono
+    var telefonoDiv = document.createElement("div");
+    telefonoDiv.id = "telefono_fijo";
+
+    // crear el h5 para el titulo
+    let h5 = document.createElement("h5");
+    h5.textContent = "Numero de telefono fijo";
+
+    // Crear un input para el numero de telefono fijo
+    var telefonoInput = document.createElement("input");
+    telefonoInput.classList.add("form-control", "mb-2");
+    telefonoInput.type = "text";
+    telefonoInput.name = "numero_tlfn_fijo";
+    telefonoInput.id = "numero_tlfn_fijo";
+    telefonoInput.placeholder = "Numero de telefono fijo";
+
+    telefonoDiv.appendChild(h5);
+    telefonoDiv.appendChild(telefonoInput);
+
+    elementParent.appendChild(telefonoDiv);
+}
+
+
 function antiguoTitularFijo() {
     var vaciar = document.getElementById('antiguo_titular_fijo');
     if (vaciar !== null && vaciar.hasChildNodes()) {
@@ -263,34 +289,63 @@ function cambioTitularFijo() {
     let h4 = document.createElement('h4');
     h4.textContent = 'Datos del antiguo titular';
 
+    // Crear un elemento h6 para "Nombre del antiguo titular"
+    var nombreH6 = document.createElement("h6");
+    nombreH6.textContent = "Nombre del antiguo titular";
+
     // crea el input:text para tomar el  nombre antiguo del titular
     let nombreAntiguo = document.createElement('input');
-    nombreAntiguo.className = 'form-control';
+    nombreAntiguo.className = 'form-control  mb-3';
     nombreAntiguo.type = 'text';
     nombreAntiguo.name = 'nombre_antiguo_titular_fijo';
     nombreAntiguo.id = 'nombre_antiguo_titular_fijo';
     nombreAntiguo.placeholder = 'Nombre antiguo titular';
 
+    //crear un elemento h6 para "Apellido del antiguo titular"
+    var apellidoH6 = document.createElement("h6");
+    apellidoH6.textContent = "Apellido del antiguo titular";
+
     // crea el input:text para tomar el  apellido del antiguo titular
     let apellidoAntiguo = document.createElement('input');
-    apellidoAntiguo.className = 'form-control';
+    apellidoAntiguo.className = 'form-control  mb-3';
     apellidoAntiguo.type = 'text';
     apellidoAntiguo.name = 'apellido_antiguo_titular_fijo';
     apellidoAntiguo.id = 'apellido_antiguo_titular_fijo';
     apellidoAntiguo.placeholder = 'Apellido antiguo titular';
 
+    // crear un elemento h6 para "DNI del antiguo titular"
+    var dniH6 = document.createElement("h6");
+    dniH6.textContent = "DNI del antiguo titular";
+
     // crea el input:text para tomar el  DNI del antiguo titular
     let dniAntiguo = document.createElement('input');
-    dniAntiguo.className = 'form-control';
+    dniAntiguo.className = 'form-control mb-3';
     dniAntiguo.type = 'text';
     dniAntiguo.name = 'DNI_antiguo_titular_fijo';
     dniAntiguo.id = 'DNI_antiguo_titular_fijo';
     dniAntiguo.placeholder = 'DNI antiguo titular';
 
+    //crear un elemento h6 para el numero de telefono del antiguo titular
+    var telefonoh6 = document.createElement("h6");
+    telefonoh6.textContent = "Numero de telefono del antiguo titular";
+
+    // crea el input:text para el numero de telefono del antiguo titular
+    let telefonoAntiguo = document.createElement('input');
+    telefonoAntiguo.className = 'form-control  mb-3';
+    telefonoAntiguo.type = 'text';
+    telefonoAntiguo.name = 'telefono_antiguo_titular_fijo';
+    telefonoAntiguo.id = 'telefono_antiguo_titular_fijo';
+    telefonoAntiguo.placeholder = 'Telefono antiguo titular';
+
     cambioTitular.appendChild(h4);
+    cambioTitular.appendChild(nombreH6);
     cambioTitular.appendChild(nombreAntiguo);
+    cambioTitular.appendChild(apellidoH6);
     cambioTitular.appendChild(apellidoAntiguo);
+    cambioTitular.appendChild(dniH6);
     cambioTitular.appendChild(dniAntiguo);
+    cambioTitular.appendChild(telefonoh6);
+    cambioTitular.appendChild(telefonoAntiguo);
 
     parentElement.appendChild(cambioTitular);
 }
@@ -298,7 +353,7 @@ function cambioTitularFijo() {
 
 function numeroPortabilidadFijo() {
     let parentElement = document.getElementById('datos_fijo');
-    
+
     // Crear un div con id "numero_portabilidad_fijo"
     var numeroPortabilidadDiv = document.createElement("div");
     numeroPortabilidadDiv.id = "numero_portabilidad_fijo";
@@ -325,7 +380,7 @@ function numeroPortabilidadFijo() {
     // Añadir los elementos al div
     numeroPortabilidadDiv.appendChild(h4Element);
     numeroPortabilidadDiv.appendChild(inputElement);
-    
+
     // Obtener el elemento padre donde deseas agregar el div
     parentElement.appendChild(numeroPortabilidadDiv);
 }

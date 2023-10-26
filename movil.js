@@ -202,33 +202,63 @@ function cambioTitularMovil() {
     let h4 = document.createElement('h4');
     h4.textContent = 'Datos del antiguo titular';
 
+    // Crear un elemento h6 para "Nombre del antiguo titular"
+    var nombreH6 = document.createElement("h6");
+    nombreH6.textContent = "Nombre del antiguo titular";
+
     // crea el input:text para tomar el  nombre antiguo del titular
     let nombreAntiguo = document.createElement('input');
-    nombreAntiguo.className = 'form-control';
+    nombreAntiguo.className = 'form-control mb-3';
     nombreAntiguo.type = 'text';
     nombreAntiguo.name = 'nombre_antiguo_titular_fijo';
     nombreAntiguo.id = 'nombre_antiguo_titular_fijo';
     nombreAntiguo.placeholder = 'Nombre antiguo titular';
 
+    //crear un elemento h6 para "Apellido del antiguo titular"
+    var apellidoH6 = document.createElement("h6");
+    apellidoH6.textContent = "Apellido del antiguo titular";
+
     // crea el input:text para tomar el  apellido del antiguo titular
     let apellidoAntiguo = document.createElement('input');
-    apellidoAntiguo.className = 'form-control';
+    apellidoAntiguo.className = 'form-control mb-3';
     apellidoAntiguo.type = 'text';
     apellidoAntiguo.name = 'apellido_antiguo_titular_fijo';
     apellidoAntiguo.id = 'apellido_antiguo_titular_fijo';
     apellidoAntiguo.placeholder = 'Apellido antiguo titular';
 
+    // crear un elemento h6 para "DNI del antiguo titular"
+    var dniH6 = document.createElement("h6");
+    dniH6.textContent = "DNI del antiguo titular";
+
     // crea el input:text para tomar el  DNI del antiguo titular
     let dniAntiguo = document.createElement('input');
-    dniAntiguo.className = 'form-control';
+    dniAntiguo.className = 'form-control mb-3';
     dniAntiguo.type = 'text';
     dniAntiguo.name = 'DNI_antiguo_titular_fijo';
     dniAntiguo.id = 'DNI_antiguo_titular_fijo';
     dniAntiguo.placeholder = 'DNI antiguo titular';
 
+
+    //crear un elemento h6 para el numero de telefono del antiguo titular
+    var telefonoh6 = document.createElement("h6");
+    telefonoh6.textContent = "Numero de movil del antiguo titular";
+
+    //crear el input:text para el movil del antiguo titular
+    let movilAntiguo = document.createElement('input');
+    movilAntiguo.className = 'form-control mb-3';
+    movilAntiguo.type = 'text';
+    movilAntiguo.name = 'movil_antiguo_titular_fijo';
+    movilAntiguo.id = 'movil_antiguo_titular_fijo';
+    movilAntiguo.placeholder = 'Movil antiguo titular';
+
     parentElement.appendChild(h4);
+    parentElement.appendChild(nombreH6);
     parentElement.appendChild(nombreAntiguo);
+    parentElement.appendChild(apellidoH6);
     parentElement.appendChild(apellidoAntiguo);
+    parentElement.appendChild(dniH6);
     parentElement.appendChild(dniAntiguo);
+    parentElement.appendChild(telefonoh6);
+    parentElement.appendChild(movilAntiguo);
 
 }

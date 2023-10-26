@@ -69,6 +69,7 @@ document.getElementById('alta_fijo').addEventListener('click', () => {
     }
     
     tarifasFijo();
+    numTlfnFijo();
 });
 
 

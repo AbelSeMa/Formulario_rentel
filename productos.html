@@ -29,6 +29,7 @@
               id="telefono_fijo"
               value="telefono_fijo"
               onclick="mostrarFijo()"
+              required
             />
             <label class="form-check-label" for="telefono_fijo">
               Telefonía fija </label
@@ -41,7 +42,7 @@
               name="producto"
               id="internet"
               value="fibra"
-              onclick="mostrarFibra()"
+              required
             />
             <label class="form-check-label" for="internet">Internet</label
             ><br />
@@ -54,6 +55,7 @@
               id="movil"
               value="movil"
               onclick="mostrarMovil()"
+              required
             />
             <label class="form-check-label" for="movil"> Móvil </label><br />
 
@@ -90,6 +92,7 @@
                 id="alta_fijo"
                 value="alta_fijo"
                 onclick="tarifasFijo('tarifa_linea_fija');"
+                required
               />
               <label class="form-check-label" for="alta_fijo">Alta nueva</label
               ><br />
@@ -100,6 +103,7 @@
                 name="servicio"
                 id="portabilidad_fijo"
                 value="portabilidad_fijo"
+                required="required"
               />
               <label class="form-check-label" for="portabilidad_fijo">
                 Portabilidad </label
@@ -111,6 +115,7 @@
                 name="servicio"
                 id="cambio_titular_fijo"
                 value="cambio_titular_fijo"
+                required
               />
               <label class="form-check-label mb-2" for="cambio_titular_fijo">
                 Cambio de titular </label
@@ -127,7 +132,7 @@
             action=""
             class="mi-formulario"
             id="form_fibra"
-            data-tipo="fibra"
+            data-tipo="internet"
             enctype="multipart/form-data"
           >
             <h3>Elige el producto</h3>
@@ -135,18 +140,26 @@
             <div id="precio" class="precio"></div>
 
             <div>
-              <h4>Dirección de la instalación</h4>
+              <h4 class="mt-3">Tipo de servicio</h4>
+              <input type="radio" name="tipo_servicio" id="fibra" class="form-check-input" value="fibra">
+              <label for="fibra" class="form-check-label mb-2">Wifi</label>
+              <input type="radio" name="tipo_servicio" id="wifi" class="form-check-input" value="wifi">
+              <label for="wifi" class="form-check-label mb-2">Fibra</label>
+            </div>
+
+            <div>
+              <h4 class="mt-3">Dirección de la instalación</h4>
               <input
                 type="text"
                 name="direccion_instalacion"
                 id="dir_instalacion"
                 placeholder="Dirección de instalación"
-                class="form-control mb-2"
+                class="form-control"
               />
             </div>
 
             <div>
-              <h4>¿Desea aceptar permanencia?</h4>
+              <h4 class="mt-3">¿Desea aceptar permanencia?</h4>
 
               <label class="form-check-label mb-2" for="permasi">
                 <input
@@ -349,6 +362,7 @@
       <button class="btn btn-primary btn-sm mb-2" type="button" id="abrirModal">
         Contratar nuevo producto o terminar.
       </button>
+      
 
       <div class="modal" id="myModal">
         <div class="modal-dialog" role="document">
@@ -357,7 +371,6 @@
               <h5 class="modal-title">¿Qué desea hacer?</h5>
               <button
                 id="cerrarModal"
-                git
                 type="button"
                 class="btn-close"
                 data-bs-dismiss="modal"
