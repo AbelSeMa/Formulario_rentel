@@ -133,6 +133,7 @@ function validarFormNotis(event) {
     let apellido2Noti = document.getElementById("apellido2Noti").value;
     let correoNoti = document.getElementById("correoNoti").value;
     let telefonoMovilNoti = document.getElementById("telefonoMovilNoti").value;
+    let telefonoFijoNoti = document.getElementById("telefonoFijoNoti").value;
     let validacionCorrectaNoti = true;
 
     if (!validarNombreNoti(nombreNoti)) {
@@ -153,6 +154,10 @@ function validarFormNotis(event) {
     }
 
     if (!validarTelefonoMovilNoti(telefonoMovilNoti)) {
+        validacionCorrectaNoti = false;
+        event.preventDefault();
+    }
+    if (!validarTelefonoFijoNoti(telefonoFijoNoti)) {
         validacionCorrectaNoti = false;
         event.preventDefault();
     }
@@ -194,7 +199,6 @@ function validarFormCheck(event) {
     let valoresFac = [ "nombre", "apellido1","apellido2", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
 
     let valoresNoti = ["nombre", "apellido1","apellido2", "correo", "telefonoMovil"];
-    alert("hola entre en validarFormCheck")
     let error_formulario = [];
 
     if (!validarCliente(event)) {
