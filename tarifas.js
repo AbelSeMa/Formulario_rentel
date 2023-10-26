@@ -10,19 +10,23 @@ function indiSinFibra(htmlId) {
     var tarifas = [
         {
             datos: '12 GB',
-            precio: '7.90 €'
+            precio: '7.90 €',
+            llamadas: 'Llamadas ilimitadas'
         },
         {
             datos: '20 GB',
-            precio: '9.90 €'
+            precio: '9.90 €',
+            llamadas: 'Llamadas ilimitadas'
         },
         {
             datos: '70 GB',
-            precio: '14.90 €'
+            precio: '14.90 €',
+            llamadas: 'Llamadas ilimitadas'
         },
         {
             datos: '150 GB',
-            precio: '24.90 €'
+            precio: '24.90 €',
+            llamadas: 'Llamadas ilimitadas'
         }
     ]
 
@@ -36,7 +40,7 @@ function indiSinFibra(htmlId) {
         if (tarifas.hasOwnProperty(tarifa)) {
             var option = document.createElement("option");
             option.value = tarifas[tarifa].precio; // Valor de la opción (precio)
-            option.text = tarifas[tarifa].datos + " - " + tarifas[tarifa].precio; // Texto visible en la opción (datos - precio)
+            option.text = tarifas[tarifa].datos + " y " + tarifas[tarifa].llamadas + " - " + tarifas[tarifa].precio; // Texto visible en la opción (datos - precio)
             id.appendChild(option); // Agrega la opción al select
         }
     }

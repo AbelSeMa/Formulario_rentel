@@ -194,3 +194,41 @@ function genererDatosAntiguoCliente() {
     contenedor.appendChild(br6);
 
 }
+
+function cambioTitularMovil() {
+    let parentElement = document.getElementById('cambio_titular_movil');
+
+    //crea el h4 que será el titulo del div
+    let h4 = document.createElement('h4');
+    h4.textContent = 'Datos del antiguo titular';
+
+    // crea el input:text para tomar el  nombre antiguo del titular
+    let nombreAntiguo = document.createElement('input');
+    nombreAntiguo.className = 'form-control';
+    nombreAntiguo.type = 'text';
+    nombreAntiguo.name = 'nombre_antiguo_titular_fijo';
+    nombreAntiguo.id = 'nombre_antiguo_titular_fijo';
+    nombreAntiguo.placeholder = 'Nombre antiguo titular';
+
+    // crea el input:text para tomar el  apellido del antiguo titular
+    let apellidoAntiguo = document.createElement('input');
+    apellidoAntiguo.className = 'form-control';
+    apellidoAntiguo.type = 'text';
+    apellidoAntiguo.name = 'apellido_antiguo_titular_fijo';
+    apellidoAntiguo.id = 'apellido_antiguo_titular_fijo';
+    apellidoAntiguo.placeholder = 'Apellido antiguo titular';
+
+    // crea el input:text para tomar el  DNI del antiguo titular
+    let dniAntiguo = document.createElement('input');
+    dniAntiguo.className = 'form-control';
+    dniAntiguo.type = 'text';
+    dniAntiguo.name = 'DNI_antiguo_titular_fijo';
+    dniAntiguo.id = 'DNI_antiguo_titular_fijo';
+    dniAntiguo.placeholder = 'DNI antiguo titular';
+
+    parentElement.appendChild(h4);
+    parentElement.appendChild(nombreAntiguo);
+    parentElement.appendChild(apellidoAntiguo);
+    parentElement.appendChild(dniAntiguo);
+
+}

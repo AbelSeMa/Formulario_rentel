@@ -8,6 +8,7 @@ function mostrarFijo() {
 
 }
 
+
 function tarifasFijo() {
     var elementParent = document.getElementById('datos_fijo');
     var tarifaFijo = document.createElement("div");
@@ -65,6 +66,7 @@ function tarifasFijo() {
     }
     elementParent.appendChild(tarifaFijo);
 }
+
 
 function antiguoTitularFijo() {
     var vaciar = document.getElementById('antiguo_titular_fijo');
@@ -129,6 +131,7 @@ function antiguoTitularFijo() {
 
 }
 
+
 function titularPortabilidadFijo() {
     // Crear un elemento h4 para la pregunta
     var preguntaH4 = document.createElement("h4");
@@ -149,7 +152,7 @@ function titularPortabilidadFijo() {
             // El div con el ID especificado existe en el DOM
             divExistente.parentNode.removeChild(divExistente);
         }
-    }    
+    }
 
     // Crear la etiqueta para el radio button "Si"
     var siLabel = document.createElement("label");
@@ -249,9 +252,80 @@ function donanteFijo() {
     parentElement.appendChild(donanteDiv);
 }
 
-/* function crearPortabilidad() {
 
-    donanteFijo();
-    titularPortabilidadFijo();
-    tarifasFijo();
-} */
+function cambioTitularFijo() {
+    let parentElement = document.getElementById('datos_fijo');
+
+    let cambioTitular = document.createElement('div');
+    cambioTitular.id = 'cambio_titular_fijo';
+
+    //crea el h4 que será el titulo del div
+    let h4 = document.createElement('h4');
+    h4.textContent = 'Datos del antiguo titular';
+
+    // crea el input:text para tomar el  nombre antiguo del titular
+    let nombreAntiguo = document.createElement('input');
+    nombreAntiguo.className = 'form-control';
+    nombreAntiguo.type = 'text';
+    nombreAntiguo.name = 'nombre_antiguo_titular_fijo';
+    nombreAntiguo.id = 'nombre_antiguo_titular_fijo';
+    nombreAntiguo.placeholder = 'Nombre antiguo titular';
+
+    // crea el input:text para tomar el  apellido del antiguo titular
+    let apellidoAntiguo = document.createElement('input');
+    apellidoAntiguo.className = 'form-control';
+    apellidoAntiguo.type = 'text';
+    apellidoAntiguo.name = 'apellido_antiguo_titular_fijo';
+    apellidoAntiguo.id = 'apellido_antiguo_titular_fijo';
+    apellidoAntiguo.placeholder = 'Apellido antiguo titular';
+
+    // crea el input:text para tomar el  DNI del antiguo titular
+    let dniAntiguo = document.createElement('input');
+    dniAntiguo.className = 'form-control';
+    dniAntiguo.type = 'text';
+    dniAntiguo.name = 'DNI_antiguo_titular_fijo';
+    dniAntiguo.id = 'DNI_antiguo_titular_fijo';
+    dniAntiguo.placeholder = 'DNI antiguo titular';
+
+    cambioTitular.appendChild(h4);
+    cambioTitular.appendChild(nombreAntiguo);
+    cambioTitular.appendChild(apellidoAntiguo);
+    cambioTitular.appendChild(dniAntiguo);
+
+    parentElement.appendChild(cambioTitular);
+}
+
+
+function numeroPortabilidadFijo() {
+    let parentElement = document.getElementById('datos_fijo');
+    
+    // Crear un div con id "numero_portabilidad_fijo"
+    var numeroPortabilidadDiv = document.createElement("div");
+    numeroPortabilidadDiv.id = "numero_portabilidad_fijo";
+
+    // Crear un elemento h4 para la pregunta
+    var h4Element = document.createElement("h4");
+    h4Element.textContent = "Numero de telefono a portar";
+    h4Element.className = "mt-2";
+
+    // Crear un input para el numero de telefono
+    var inputElement = document.createElement("input");
+    inputElement.className = "form-control mb-2";
+    inputElement.type = "text";
+    inputElement.name = "numero_portabilidad_fijo";
+    inputElement.id = "numero_portabilidad_fijo_input"; // Cambiamos el id para evitar duplicados
+    inputElement.placeholder = "Numero de telefono a portar";
+
+    if (numeroPortabilidadDiv.childElementCount > 0) {
+        while (numeroPortabilidadDiv.firstChild) {
+            numeroPortabilidadDiv.removeChild(numeroPortabilidadDiv.firstChild);
+        }
+    }
+
+    // Añadir los elementos al div
+    numeroPortabilidadDiv.appendChild(h4Element);
+    numeroPortabilidadDiv.appendChild(inputElement);
+    
+    // Obtener el elemento padre donde deseas agregar el div
+    parentElement.appendChild(numeroPortabilidadDiv);
+}
