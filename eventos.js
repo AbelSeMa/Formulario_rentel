@@ -1,26 +1,3 @@
-// evento para mostrar el campo telefono cunado el cliente interactura
-// con los radio de portabiliad.
-
-/* ar portaOk = document.getElementById('porta_ok');
-var portaKo = document.getElementById('porta_ko');
-var altaNueva = document.getElementById('alta_nueva');
-
-portaKo.addEventListener('click', () => {
-    limpiar("fijaVirtual")
-
-    document.getElementById('fijoPortabilidad').innerHTML = "<input class='form-control mb-4' type='tel' name='fijoPortabilidad' id='fijoPorta' placeholder='Nº telefono fijo' />";
-})
-
-portaOk.addEventListener('click', () => {
-    virtual()
-    document.getElementById('fijoPortabilidad').innerHTML = "<input class='form-control mb-4' type='tel' name='fijoPortabilidad' id='fijoPorta' placeholder='Nº telefono fijo' />";
-})
-
-altaNueva.addEventListener('click', () => {
-    virtual()
-    limpiar("fijoPortabilidad")
-}) */
-
 // evento que 'esconde' el formulario de alta nueva de movil y muestra el formulario de portabilidad movil
 var portabilidad = document.getElementById('portabilidad');
 portabilidad.addEventListener('click', () => {
@@ -80,6 +57,7 @@ document.getElementById('portabilidad_fijo').addEventListener('click', () => {
     if (document.getElementById("datos_fijo").childElementCount > 0) {
         limpiar("datos_fijo");
     }
+    numeroPortabilidadFijo();
     tarifasFijo();
     donanteFijo();
     titularPortabilidadFijo();
