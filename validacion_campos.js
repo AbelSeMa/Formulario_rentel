@@ -9,8 +9,9 @@ function validarNombre(nombre) {
         input.value = ''; // Establecer el valor a vacío
         input.classList.add("is-invalid");
         div.classList.add("has-danger");
-        return false
+        return false;
     }
+    return true;
 }
 
 function validarApellido1(apellidos) {
@@ -24,6 +25,7 @@ function validarApellido1(apellidos) {
         div.classList.add("has-danger");
         return false
     }
+    return true;
 }
 
 
@@ -39,6 +41,8 @@ function validarApellido2(apellidos) {
         div.classList.add("has-danger");
         return false
     }
+    return true;
+
 }
 
 
@@ -59,6 +63,8 @@ function validarFechaNacimiento(fechaNacimiento) {
             return false;
         }
     }
+    return true;
+
 }
 
 function validarDNI(dni) {
@@ -72,6 +78,8 @@ function validarDNI(dni) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 function validarCorreo(correo) {
@@ -86,6 +94,8 @@ function validarCorreo(correo) {
             return false;
         } 
     }
+    return true;
+
 }
 
 function validarTelefonoFijo(telefonoFijo) {
@@ -101,6 +111,8 @@ function validarTelefonoFijo(telefonoFijo) {
             return false;
         } 
     }
+    return true;
+
 }
 
 
@@ -114,6 +126,8 @@ function validarTelefonoMovil(telefonoMovil) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 function validarCodigoPostal(codigoPostal) {
@@ -126,6 +140,8 @@ function validarCodigoPostal(codigoPostal) {
         div.classList.add("has-danger");
         return false;
     } 
+    return true;
+
 }
 
 function validarDireccion(direccion) {
@@ -137,6 +153,8 @@ function validarDireccion(direccion) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 
@@ -153,6 +171,8 @@ function validarNombreFac(nombre) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 function validarApellido1Fac(apellidos) {
@@ -166,6 +186,8 @@ function validarApellido1Fac(apellidos) {
         div.classList.add("has-danger");
         return false;
     } 
+    return true;
+
 }
 
 function validarApellido2Fac(apellidos) {
@@ -179,6 +201,7 @@ function validarApellido2Fac(apellidos) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
 }
 
 function validarDNIFac(dni) {
@@ -192,6 +215,8 @@ function validarDNIFac(dni) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 function validarCorreoFac(correo) {
@@ -207,6 +232,8 @@ function validarCorreoFac(correo) {
             return false;
         } 
     }
+    return true;
+
 }
 
 function validarTelefonoFijoFac(telefonoFijo) {
@@ -221,6 +248,7 @@ function validarTelefonoFijoFac(telefonoFijo) {
             return false;
         }
     }
+    return true;
 }
 
 function validarTelefonoMovilFac(telefonoMovil) {
@@ -233,6 +261,8 @@ function validarTelefonoMovilFac(telefonoMovil) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 function validarCodigoPostalFac(codigoPostal) {
@@ -246,6 +276,8 @@ function validarCodigoPostalFac(codigoPostal) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 function validarDireccionFac(direccion) {
@@ -257,6 +289,8 @@ function validarDireccionFac(direccion) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 
@@ -276,6 +310,8 @@ function validarFechaNacimientoFac(fechaNacimiento) {
             return false;
         }
     }
+    return true;
+
 }
 
 
@@ -292,6 +328,8 @@ function validarNombreNoti(nombre) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 function validarApellido1Noti(apellidos) {
@@ -304,7 +342,7 @@ function validarApellido1Noti(apellidos) {
         div.classList.add("has-danger");
         return false;
     }
-
+    return true;
 }
 
 function validarApellido2Noti(apellidos) {
@@ -317,6 +355,7 @@ function validarApellido2Noti(apellidos) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
 }
 
 function validarTelefonoFijoNoti(telefonoMovil) {
@@ -329,6 +368,8 @@ function validarTelefonoFijoNoti(telefonoMovil) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
+
 }
 
 function validarTelefonoMovilNoti(telefonoMovil) {
@@ -341,6 +382,7 @@ function validarTelefonoMovilNoti(telefonoMovil) {
         div.classList.add("has-danger");
         return false;
     }
+    return true;
 }
 
 
@@ -357,6 +399,7 @@ function validarCorreoNoti(correo) {
             return false;
         }
     }
+    return true;
 }
 
 
