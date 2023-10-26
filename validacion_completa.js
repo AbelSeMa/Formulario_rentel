@@ -186,12 +186,12 @@ function validarFormPago(event) {
         iban.toUpperCase();
 
         if (!validarIBAN(iban)) {
-            let validacionCorrectaIban = false;
+            validacionCorrectaIban = false;
             event.preventDefault();
         }
 
     }
-    return (validacionCorrectaIban);
+    return validacionCorrectaIban;
 }
 
 
@@ -205,6 +205,9 @@ function validarFormCheck(event) {
         error_formulario.push(1);
     }
 
+    if (!validarFormPago(event)) {
+        error_formulario.push(4);
+    }
 
     valoresFac.forEach(function(e){
         document.getElementById(e+"Fac").value = document.getElementById(e).value;

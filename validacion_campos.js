@@ -400,7 +400,7 @@ function validarIBAN(iban) {
 
   if (!regexIBAN.test(iban)) {
     contenedorIban.classList.add("has-danger");
-    document.getElementById("primero").value = "";
+    document.getElementById("primero").value = "ES";
     document.getElementById("segundo").value = "";
     document.getElementById("tercero").value = "";
     document.getElementById("cuarto").value = "";
