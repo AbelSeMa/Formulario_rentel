@@ -102,9 +102,4 @@ document.getElementById('otros').addEventListener('click', () => {
 
     document.getElementById('otros_productos').style.display = 'block';
 
-
-
-
-
-
 });

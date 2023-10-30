@@ -196,7 +196,7 @@ function validarFormPago(event) {
 
 
 function validarFormCheck(event) {
-    let valoresFac = [ "nombre", "apellido1","apellido2", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
+    let valoresFac = [ "nombre", "apellido1","apellido2", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "pais", "provincia", "poblacion", "direccion", "codigoPostal"];
 
     let valoresNoti = ["nombre", "apellido1","apellido2", "correo", "telefonoMovil"];
     let error_formulario = [];
