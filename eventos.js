@@ -68,7 +68,7 @@ document.getElementById('alta_fijo').addEventListener('click', () => {
     if (document.getElementById("datos_fijo").childElementCount > 0) {
         limpiar("datos_fijo");
     }
-    
+
     tarifasFijo();
     numTlfnFijo();
 });

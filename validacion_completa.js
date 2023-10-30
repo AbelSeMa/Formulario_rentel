@@ -196,7 +196,7 @@ function validarFormPago(event) {
 
 
 function validarFormCheck(event) {
-    let valoresFac = [ "nombre", "apellido1","apellido2", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "poblacion", "direccion", "codigoPostal"];
+    let valoresFac = [ "nombre", "apellido1","apellido2", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "pais", "provincia", "poblacion", "direccion", "codigoPostal"];
 
     let valoresNoti = ["nombre", "apellido1","apellido2", "correo", "telefonoMovil"];
     let error_formulario = [];
@@ -290,6 +290,12 @@ function validarFormulario(event) {
 
     // Actualiza el objeto 'cliente' en sessionStorage
     sessionStorage.setItem('cliente', JSON.stringify(cliente));
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby4BsgMgHTXL6tVcuO7Ozt-qgDq3-fKpVwmDnI6wxZ2KObK6gaknL2-XNLlBtUU0BbdZA/exec'
+    const form = document.forms['formulario_Cliente']
+    fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
 
 }
 
