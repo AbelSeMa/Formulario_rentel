@@ -49,6 +49,7 @@ document.getElementById('otro_titular').addEventListener('click', () => {
 
 
 document.getElementById('internet').addEventListener('click', () => {
+    mostrarFibra()
     mostrarProductosInternet('opcionesInternet');
 });
 
