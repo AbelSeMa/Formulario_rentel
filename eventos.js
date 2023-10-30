@@ -49,6 +49,7 @@ document.getElementById('otro_titular').addEventListener('click', () => {
 
 
 document.getElementById('internet').addEventListener('click', () => {
+    mostrarFibra()
     mostrarProductosInternet('opcionesInternet');
 });
 
@@ -67,7 +68,7 @@ document.getElementById('alta_fijo').addEventListener('click', () => {
     if (document.getElementById("datos_fijo").childElementCount > 0) {
         limpiar("datos_fijo");
     }
-    
+
     tarifasFijo();
     numTlfnFijo();
 });

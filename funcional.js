@@ -24,6 +24,16 @@ function createJson(event) {
     const dataTipe = activeForm.getAttribute('data-tipo');
     data.append('producto', dataTipe);
 
+   let jsonCliente = JSON.parse(sessionStorage.getItem('cliente'));
+   let claves = Object.keys(jsonCliente);
+   let valor = Object.values(jsonCliente);
+
+   for (let i = 0; i < claves.length; i++) {
+    data.append(claves[i], valor[i]);    
+   }
+
+   
+
     // Recupera el array 'productos' actual desde sessionStorage
     const productosExistentes = JSON.parse(sessionStorage.getItem('productos'));
 
@@ -35,7 +45,7 @@ function createJson(event) {
     // Actualiza el array 'productos' en sessionStorage
     sessionStorage.setItem('productos', JSON.stringify(productosExistentes));
 
-
+   console.log(JSON.parse(sessionStorage.getItem('productos')))
 }
 
 
