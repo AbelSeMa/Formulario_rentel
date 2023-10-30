@@ -66,6 +66,12 @@ function tarifasFijo() {
 
 
     }
+
+    // elimina el ultimo <br> del div
+    tarifaFijo.lastChild.remove();
+    // añade la clase mb-2 al elemento label
+    tarifaFijo.lastChild.classList.add("mb-2")
+    
     elementParent.appendChild(tarifaFijo);
 }
 
