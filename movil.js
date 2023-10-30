@@ -264,3 +264,71 @@ function cambioTitularMovil() {
     parentElement.appendChild(movilAntiguo);
 
 }
+
+
+function prepago() {
+
+    // Obtener el div por su ID
+    let contenedor = document.getElementById("num_sim_portabilidad");
+
+    // Crear el elemento h6 para "Nº de SIM actual"
+    let h6Actual = document.createElement("h6");
+    h6Actual.textContent = "Nº de SIM actual";
+
+    // Crear el input para "simActualPrepago"
+    let inputActual = document.createElement("input");
+    inputActual.type = "num";
+    inputActual.name = "simActualPrepago";
+    inputActual.id = "simActual";
+    inputActual.className = "form-control mb-2";
+
+    // Crear el elemento h6 para "Nº de SIM rentel"
+    let h6Rentel = document.createElement("h6");
+    h6Rentel.textContent = "Nº de SIM rentel";
+
+    // Crear el input para "simNuev"
+    let inputNuev = document.createElement("input");
+    inputNuev.type = "num";
+    inputNuev.name = "simNuev";
+    inputNuev.id = "";
+    inputNuev.className = "form-control mb-3";
+
+    if (contenedor !== null) {
+        while (contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
+        }
+    }
+
+    // Agregar los elementos creados al contenedor
+    contenedor.appendChild(h6Actual);
+    contenedor.appendChild(inputActual);
+    contenedor.appendChild(h6Rentel);
+    contenedor.appendChild(inputNuev);
+
+}
+
+function contrato() {
+    // Obtener el div por su ID
+    let contenedor = document.getElementById("num_sim_portabilidad");
+
+    // Crear el elemento h6 para "Nº de SIM rentel"
+    let h6Rentel = document.createElement("h6");
+    h6Rentel.textContent = "Nº de SIM rentel";
+
+    // Crear el input para "simNuev"
+    let inputNuev = document.createElement("input");
+    inputNuev.type = "num";
+    inputNuev.name = "simNuev";
+    inputNuev.id = "";
+    inputNuev.className = "form-control mb-3";
+
+    if (contenedor !== null) {
+        while (contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
+        }
+    }
+
+    // Agregar los elementos creados al div
+    contenedor.appendChild(h6Rentel);
+    contenedor.appendChild(inputNuev);
+}

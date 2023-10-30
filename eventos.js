@@ -47,7 +47,6 @@ document.getElementById('otro_titular').addEventListener('click', () => {
 })
 
 
-
 document.getElementById('internet').addEventListener('click', () => {
     mostrarFibra()
     mostrarProductosInternet('opcionesInternet');
@@ -63,6 +62,7 @@ document.getElementById('portabilidad_fijo').addEventListener('click', () => {
     donanteFijo();
     titularPortabilidadFijo();
 });
+
 
 document.getElementById('alta_fijo').addEventListener('click', () => {
     if (document.getElementById("datos_fijo").childElementCount > 0) {
@@ -87,6 +87,7 @@ document.getElementById('cambio_titular_fijo').addEventListener('click', () => {
     cambioTitularFijo();
 });
 
+
 document.getElementById('cambio_titular_mov').addEventListener('click', () => {
     if (document.getElementById("cambio_titular_movil").childElementCount > 0) {
         limpiar("cambio_titular_movil");
@@ -96,6 +97,7 @@ document.getElementById('cambio_titular_mov').addEventListener('click', () => {
     cambioTitularMovil();
 });
 
+
 document.getElementById('otros').addEventListener('click', () => {
     document.getElementById('opcionesInternet').style.display = 'none';
     document.getElementById('opciones_fijo').style.display = 'none';
@@ -103,4 +105,14 @@ document.getElementById('otros').addEventListener('click', () => {
 
     document.getElementById('otros_productos').style.display = 'block';
 
+});
+
+
+document.getElementById('prepago').addEventListener('click', () => {
+    prepago();
+});
+
+
+document.getElementById('contrato').addEventListener('click', () => {
+    contrato();
 });
