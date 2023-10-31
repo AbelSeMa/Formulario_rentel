@@ -395,10 +395,13 @@ function mostrarIban() {
 }
 
 function validarIBAN(iban) {
+
   let regexIBAN = /^ES\d{22}$/;
+
   let contenedorIban = document.getElementById("contenedorIban");
 
   if (!regexIBAN.test(iban)) {
+
     contenedorIban.classList.add("has-danger");
     document.getElementById("primero").value = "ES";
     document.getElementById("segundo").value = "";
@@ -406,8 +409,6 @@ function validarIBAN(iban) {
     document.getElementById("cuarto").value = "";
     document.getElementById("quinto").value = "";
     return false;
-  } else {
-    error.textContent = "";
-    return true;
-  }
+  } 
+  return true;
 }

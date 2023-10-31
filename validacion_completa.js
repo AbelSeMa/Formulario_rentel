@@ -196,7 +196,7 @@ function validarFormPago(event) {
 
 
 function validarFormCheck(event) {
-    let valoresFac = [ "nombre", "apellido1","apellido2", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "pais", "provincia", "poblacion", "direccion", "codigoPostal"];
+    let valoresFac = [ "nombre", "apellido1","apellido2", "sexo", "fechaNacimiento", "dni", "correo", "telefonoFijo", "telefonoMovil", "pais", "provincia", "direccion", "codigoPostal"];
 
     let valoresNoti = ["nombre", "apellido1","apellido2", "correo", "telefonoMovil"];
     let error_formulario = [];
@@ -216,6 +216,10 @@ function validarFormCheck(event) {
     valoresNoti.forEach(function(e){
         document.getElementById(e+"Noti").value = document.getElementById(e).value;
     });
+
+
+    let valor_Poblacion = document.getElementById("poblacion").value 
+    document.getElementById("poblacionFac").value = valor_Poblacion;
 
     if (error_formulario.length === 0) {
         alert("Validación correcta");
@@ -257,6 +261,10 @@ function validarSinCheck(event) {
         error_formulario.push(4);
     }
 
+
+    let valor_Poblacion = document.getElementById("poblacionFacFalsa").value 
+    document.getElementById("poblacionFac").value = valor_Poblacion;
+
     if (error_formulario.length === 0) {
         alert("Validación correcta");
         const scriptURL = 'https://script.google.com/macros/s/AKfycby4BsgMgHTXL6tVcuO7Ozt-qgDq3-fKpVwmDnI6wxZ2KObK6gaknL2-XNLlBtUU0BbdZA/exec'
@@ -280,10 +288,8 @@ function validarSinCheck(event) {
 function validarFormulario(event) {
 
     if (solo_cliente) {
-        alert("he entrado en validar CON check")
         validarFormCheck(event);
     } else {
-        alert("he entrado en validar sin check")
         validarSinCheck(event);
     }
 

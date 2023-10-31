@@ -219,12 +219,14 @@
                     </div>
 
                     <div>
-                        <label class="form-label" for="poblacionFac">Población*</label>
-                        <select class="form-select mb-3" id="poblacionFac" name="poblacionFac">
+                        <label class="form-label" for="poblacionFacFalsa">Población*</label>
+                        <select class="form-select mb-3" id="poblacionFacFalsa">
                             <option value="Sanlúcar de Barrameda" selected="selected">Sanlúcar de Barrameda</option>
                             <option value="Chipiona">Chipiona</option>
                         </select>
                     </div>
+
+                            <input type="text" id="poblacionFac" name="poblacionFac" hidden>
 
                     <div id="divDireccionFac" class="">
                         <label class="form-label" for="direccionFac">Dirección*</label> 
@@ -311,19 +313,19 @@
             <div id="formulario4" style="display: none">
                 <h2 class="text-center font-weight-bold">Forma de pago</h2>
                 <p class="form-check-label mb-3">¿Elija que método de pago desea usar?</p>
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="efectivo"
+                <input class="form-check-input" type="radio" name="pago" value="efectivo" id="efectivo"
                     onclick="limpiar('contenedorIban')" required>
                 <label class="form-check-label" for="efectivo">efectivo</label> <br>
 
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="Transferencia"
+                <input class="form-check-input" type="radio" name="pago" value="Transferencia_bancaria" id="Transferencia"
                     onclick="limpiar('contenedorIban')">
                 <label class="form-check-label" for="Transferencia">Transferencia bancaria</label> <br>
 
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="tpv"
+                <input class="form-check-input" type="radio" value="TPV" name="pago" id="tpv"
                     onclick="limpiar('contenedorIban')">
                 <label class="form-check-label" for="tpv">TPV</label> <br>
 
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="domiciliacionBancaria"
+                <input class="form-check-input" type="radio" name="pago" value="Iban" id="domiciliacionBancaria"
                     onclick="mostrarIban()">
                 <label class="form-check-label" for="domiciliacionBancaria">domiciliacion Bancaria</label> <br>
                 <br>
@@ -386,7 +388,7 @@
 
         document.getElementById('domiciliacionBancaria').addEventListener('click', () => {
             document.getElementById('contenedorIban').innerHTML = '';
-            document.getElementById('contenedorIban').innerHTML = '<input class="form-control" type="text" minlength="4" maxlength="4" name="IBAN" id="primero" placeholder="Iban" value="ES"><input class="form-control" type="text" minlength="4" maxlength="4" name="entidad" id="segundo" placeholder="Entidad"><input class="form-control" type="text" minlength="4" maxlength="4" name="sucursal" id="tercero" placeholder="Sucursal"><input class="form-control" type="text" minlength="2" maxlength="2" name="dc" id="cuarto" placeholder="DC"><input class="form-control" type="text" minlength="10" maxlength="10" name="nCuenta" id="quinto"placeholder="Numero de cuenta"><br><span id="errorIban" class="text-danger"></span>';
+            document.getElementById('contenedorIban').innerHTML = '<input class="form-control" type="text" minlength="4" maxlength="4" name="IBAN" id="primero" placeholder="Iban" value="ES"><input class="form-control" type="text" minlength="4" maxlength="4" name="entidad" id="segundo" placeholder="Entidad"><input class="form-control" type="text" minlength="4" maxlength="4" name="sucursal" id="tercero" placeholder="Sucursal"><input class="form-control" type="text" minlength="2" maxlength="2" name="dc" id="cuarto" placeholder="DC"><input class="form-control" type="text" minlength="10" maxlength="10" name="nCuenta" id="quinto"placeholder="Numero de cuenta"><br></span>';
 
         }) 
     </script>
