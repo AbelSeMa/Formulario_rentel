@@ -189,7 +189,7 @@ function validarFormPago(event) {
             validacionCorrectaIban = false;
             event.preventDefault();
         }
-
+        document.getElementById("IbanOculto").value = iban;
     }
     return validacionCorrectaIban;
 }
@@ -223,7 +223,7 @@ function validarFormCheck(event) {
 
     if (error_formulario.length === 0) {
         alert("Validación correcta");
-        const scriptURL = 'https://script.google.com/macros/s/AKfycby4BsgMgHTXL6tVcuO7Ozt-qgDq3-fKpVwmDnI6wxZ2KObK6gaknL2-XNLlBtUU0BbdZA/exec'
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxlXcu515B9qUdj25-Ua5euRVMwHs-avtb7m6IzyBfdiAuIVQkpTa7XcVoo12kkKTH3rg/exec'
         const form = document.forms['formulario_Cliente']
         fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
             .then(response => console.log('Success!', response))
@@ -267,7 +267,7 @@ function validarSinCheck(event) {
 
     if (error_formulario.length === 0) {
         alert("Validación correcta");
-        const scriptURL = 'https://script.google.com/macros/s/AKfycby4BsgMgHTXL6tVcuO7Ozt-qgDq3-fKpVwmDnI6wxZ2KObK6gaknL2-XNLlBtUU0BbdZA/exec'
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxlXcu515B9qUdj25-Ua5euRVMwHs-avtb7m6IzyBfdiAuIVQkpTa7XcVoo12kkKTH3rg/exec'
         const form = document.forms['formulario_Cliente']
         fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
             .then(response => console.log('Success!', response))

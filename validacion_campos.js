@@ -1,7 +1,7 @@
 //VALIDACION CAMPOS DE CLIENTE
 
 function validarNombre(nombre) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("nombre");
   let div = document.getElementById("divNombre");
 
@@ -15,7 +15,7 @@ function validarNombre(nombre) {
 }
 
 function validarApellido1(apellidos) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("apellido1");
   let div = document.getElementById("divApellido1");
 
@@ -29,7 +29,7 @@ function validarApellido1(apellidos) {
 }
 
 function validarApellido2(apellidos) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("apellido2");
   let div = document.getElementById("divApellido2");
 
@@ -149,7 +149,7 @@ function validarDireccion(direccion) {
 //VALIDACION CMAPOS FACTURACION
 
 function validarNombreFac(nombre) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("nombreFac");
   let div = document.getElementById("divNombreFac");
 
@@ -163,7 +163,7 @@ function validarNombreFac(nombre) {
 }
 
 function validarApellido1Fac(apellidos) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("apellido1Fac");
   let div = document.getElementById("divApellido1Fac");
 
@@ -177,7 +177,7 @@ function validarApellido1Fac(apellidos) {
 }
 
 function validarApellido2Fac(apellidos) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("apellido2Fac");
   let div = document.getElementById("divApellido2Fac");
 
@@ -296,7 +296,7 @@ function validarFechaNacimientoFac(fechaNacimiento) {
 //VALIDACION CAMPOS NOTIFICACIONES
 
 function validarNombreNoti(nombre) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("nombreNoti");
   let div = document.getElementById("divNombreNoti");
 
@@ -310,7 +310,7 @@ function validarNombreNoti(nombre) {
 }
 
 function validarApellido1Noti(apellidos) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("apellido1Noti");
   let div = document.getElementById("divApellido1Noti");
   if (!regexCaracteres.test(apellidos)) {
@@ -323,7 +323,7 @@ function validarApellido1Noti(apellidos) {
 }
 
 function validarApellido2Noti(apellidos) {
-  let regexCaracteres = /^[A-Za-z]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
   let input = document.getElementById("apellido2Noti");
   let div = document.getElementById("divApellido2Noti");
   if (!regexCaracteres.test(apellidos)) {
