@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="card col-md-4 mt-4 text-left mx-auto bg-white shadow">
+    <div class="card col-md-6 text-left mx-auto bg-white shadow">
         <div class="card-body">
             <img src="Logo-Rentel-grande.jpg" class="img-fluid" alt="Responsive image">
 
@@ -34,43 +34,48 @@
                             </select>
                         </div>
 
-                        <h2 class="text-center font-weight-bold">Datos de Cliente</h2>
-
-                        <div id="divNombre" class="">
-                            <label class="form-label" for="nombre">Nombre*</label>
-                            <input class="form-control mb-3" type="text" id="nombre" name="nombre" placeholder="Nombre">
-                            <div class="invalid-feedback mb-3">Formato del nombre erróneo.</div>
-                        </div>
-
-                        <div id="divApellido1" class="">
-                            <label class="form-label" for="apellido1" id="labelApellido1">Primer apellido*</label>
-                            <input class="form-control mb-3" type="text" id="apellido1" name="apellido1"
+                        <h2 class="text-center font-weight-bold">Datos de Cliente</h2>                    
+                          
+                        <div class="row">
+                            <div id="divNombre" class="col-sm-4">
+                                <label class="form-label" for="nombre">Nombre*</label>
+                                <input class="form-control mb-3" type="text" id="nombre" name="nombre" placeholder="Nombre">
+                                <div class="invalid-feedback mb-3">Formato del nombre erróneo.</div>
+                            </div>
+                            
+                            <div id="divApellido1" class="col-sm-4">
+                                <label class="form-label" for="apellido1" id="labelApellido1">Primer apellido*</label>
+                                <input class="form-control mb-3" type="text" id="apellido1" name="apellido1"
                                 placeholder="Primer apellido">
-                            <div class="invalid-feedback mb-3">Formato del apellido erróneo.</div>
-                        </div>
-
-                        <div id="divApellido2" class="">
-                            <label class="form-label" for="apellido2">Segundo apellido*</label>
-                            <input class="form-control mb-3" type="text" id="apellido2" name="apellido2"
+                                <div class="invalid-feedback mb-3">Formato del apellido erróneo.</div>
+                            </div>
+                            
+                            <div id="divApellido2" class="col-sm-4">
+                                <label class="form-label" for="apellido2">Segundo apellido*</label>
+                                <input class="form-control mb-3" type="text" id="apellido2" name="apellido2"
                                 placeholder="Segundo apellido">
-                            <div class="invalid-feedback mb-3">Formato del apellido erróneo.</div>
+                                <div class="invalid-feedback mb-3">Formato del apellido erróneo.</div>
+                            </div>
                         </div>
 
-                        <div>
-                            <label class="form-label" for="sexo">Sexo</label>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="form-label" for="sexo">Sexo</label>
                             <select class="form-select mb-3" id="sexo" name="sexo">
                                 <option value="Hombre">Hombre</option>
                                 <option value="Mujer">Mujer</option>
                             </select>
                         </div>
 
-                        <div id="divFechaNacimiento" class="">
+                        <div id="divFechaNacimiento" class="col-sm-6">
                             <label class="form-label" for="fechaNacimiento" id="labelFechaNacimiento">Fecha de
                                 Nacimiento</label>
                             <input class="form-control mb-3" type="date" id="fechaNacimiento" name="fechaNacimiento"
                                 required>
                             <div class="invalid-feedback mb-3">Fecha errónea.</div>
                         </div>
+                    </div>
 
                         <div id="divDni" class="">
                             <label class="form-label" for="dni"">DNI*</label>
