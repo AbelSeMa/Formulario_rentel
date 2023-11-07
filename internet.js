@@ -58,6 +58,7 @@ function opcionesInternet() {
                 mostrarProductosInternet();
                 titularPortabilidadInternet();
             };
+            input.classList.add('mb-3');
         }
 
         div.appendChild(input);
@@ -83,7 +84,7 @@ function mostrarProductosInternet() {
     divPrecios.id = 'precios_internet'
 
 
-    let titulo = document.createElement('h2');
+    let titulo = document.createElement('h4');
     titulo.textContent = 'Elige un producto'
     div.appendChild(titulo);
 
@@ -96,7 +97,7 @@ function mostrarProductosInternet() {
     // Crea el elemento select
     let select = document.createElement("select");
     select.name = "producto_internet";
-    select.className = "form-select";
+    select.className = "form-select mb-3";
 
     // Crea los elementos de entrada
     tarifas.forEach(function (dato, i) {
@@ -159,7 +160,8 @@ function direccionInstalacion() {
     // Crea un nuevo input de texto
     let input = document.createElement('input');
     input.type = 'text';
-    input.placeholder = 'dirección de instalación'
+    input.placeholder = 'Dirección de instalación'
+    input.classList.add('form-control');
 
     // Inserta el nuevo input en el div
     div2.appendChild(titulo)

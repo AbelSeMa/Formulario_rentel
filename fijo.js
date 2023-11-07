@@ -44,6 +44,8 @@ function opcionesFijo() {
             };
         }
 
+
+
         if (servicios[i] === 'portabilidad_fijo') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_fijo');
@@ -59,12 +61,15 @@ function opcionesFijo() {
                 tarifasFijo();
                 titularPortabilidadFijo();
             };
+            input.classList.add('mb-3');
+
         }
 
         div.appendChild(input);
         div.appendChild(label);
         div.appendChild(document.createElement('br'));
     }
+
 
     // Añadir div al elemento padre
     document.body.appendChild(div);
@@ -100,7 +105,7 @@ function tarifasFijo() {
     // Crea el elemento select
     let select = document.createElement("select");
     select.name = "tarifa";
-    select.className = "form-select";
+    select.className = "form-select mb-3";
 
     // Crea los elementos de entrada
     tarifas.forEach(function (dato, i) {
@@ -189,7 +194,7 @@ function donanteFijo() {
 
     // Crear un input para la compañía
     var inputElement = document.createElement("input");
-    inputElement.className = "form-control mb-2";
+    inputElement.className = "form-control mb-3";
     inputElement.type = "text";
     inputElement.name = "donante_fijo";
     inputElement.id = "donante_fijo_input"; // Cambiamos el id para evitar duplicados
@@ -266,7 +271,7 @@ function numeroPortabilidadFijo() {
 
     // Crear un input para el numero de telefono
     var inputElement = document.createElement("input");
-    inputElement.className = "form-control mb-2";
+    inputElement.className = "form-control mb-3";
     inputElement.type = "text";
     inputElement.name = "numero_portabilidad_fijo";
     inputElement.id = "numero_portabilidad_fijo_input"; // Cambiamos el id para evitar duplicados
