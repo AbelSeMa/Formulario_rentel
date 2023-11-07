@@ -11,7 +11,7 @@ function opcionesInternet() {
 
     // Array para crear los servicios, cada elemento 
     // del array será un radio
-    let servicios = ['alta_internet', 'portabilida_internet'];
+    let servicios = ['alta internet', 'portabilida internet'];
     let labels = ['Alta nueva', 'Portabilidad'];
 
     for (let i = 0; i < servicios.length; i++) {
@@ -28,7 +28,7 @@ function opcionesInternet() {
         label.htmlFor = servicios[i];
         label.textContent = labels[i];
 
-        if (servicios[i] === 'alta_internet') {
+        if (servicios[i] === 'alta internet') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_internet');
                 // Comprueba si el div padre tiene hijos
@@ -44,7 +44,7 @@ function opcionesInternet() {
             };
         }
 
-        if (servicios[i] === 'portabilida_internet') {
+        if (servicios[i] === 'portabilida internet') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_internet');
                 // Comprueba si el div padre tiene hijos
@@ -102,7 +102,7 @@ function mostrarProductosInternet() {
     // Crea los elementos de entrada
     tarifas.forEach(function (dato, i) {
         let option = document.createElement("option");
-        option.value = dato.tipo;
+        option.value = dato.tarifa;
         option.textContent = dato.tarifa;
         select.appendChild(option);
 
@@ -115,21 +115,6 @@ function mostrarProductosInternet() {
                     divPrecios.removeChild(divPrecios.firstChild);
                 }
             }
-
-            let h4 = document.createElement('h4');
-            h4.textContent = "Elige la cuota"
-            divPrecios.appendChild(h4)
-
-            let input = document.createElement('input');
-            input.type = 'radio';
-            input.name = 'tarifa_internet';
-            input.value = dato.precio;
-            input.id = "radio_precio_" + i;
-
-            var label2 = document.createElement("label");
-            label2.setAttribute("for", "radio_precio_" + i);
-            label2.className = "form-check-label label_fibras";
-            label2.textContent = dato.precio;
 
             divPrecios.appendChild(input);
             divPrecios.appendChild(label2);

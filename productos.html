@@ -21,7 +21,7 @@
       <div class="card-body">
         <p>
           <a
-            class="btn btn-primary"
+            class="btn btn-sm btn-primary"
             data-toggle="collapse"
             href="#multiCollapseExample1"
             role="button"
@@ -30,7 +30,7 @@
             >Datos cliente</a
           >
           <button
-            class="btn btn-primary"
+            class="btn btn-sm btn-primary"
             type="button"
             data-toggle="collapse"
             data-target="#multiCollapseExample2"
@@ -40,7 +40,7 @@
             Productos contratados
           </button>
           <button
-            class="btn btn-primary"
+            class="btn btn-sm btn-primary"
             type="button"
             data-toggle="collapse"
             data-target=".multi-collapse"
@@ -58,7 +58,14 @@
           </div>
           <div class="col">
             <div class="collapse multi-collapse" id="multiCollapseExample2">
-              <div class="card card-body" id="datos_productos"></div>
+              <div class="card card-body">
+                <table id="datos_productos">
+                  <tr>
+                    <th>Producto</th>
+                    <th colspan="2" style="text-align: center;">Acciones</th>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
@@ -71,7 +78,7 @@
               type="radio"
               name="producto"
               id="telefono_fijo"
-              value="telefono_fijo"
+              value="telefono fijo"
               required="true"
             />
             <label class="form-check-label" for="telefono_fijo"
@@ -85,7 +92,7 @@
               type="radio"
               name="producto"
               id="internet"
-              value="fibra"
+              value="internet"
               required="true"
             />
             <label class="form-check-label" for="internet">Internet</label>

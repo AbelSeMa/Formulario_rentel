@@ -20,12 +20,14 @@ productos.forEach((producto, index) => {
             // Crea un elemento <a> para editar
             let aEditar = document.createElement('button');
             aEditar.textContent = 'Editar';
+            aEditar.classList.add('btn', 'btn-sm', 'btn-primary',)
             td1.appendChild(aEditar);
 
             // Crea un elemento <a> para borrar
             let aBorrar = document.createElement('a');
             aBorrar.href = '/borrar.html?id=' + index;  // Añade el índice al final de la URL
             aBorrar.textContent = 'Borrar';
+            aBorrar.classList.add('btn', 'btn-sm', 'btn-danger')
             td2.appendChild(aBorrar);
 
             tr.append(td);
