@@ -67,34 +67,19 @@ function mostrarProductosInternet(htmlId) {
 
     var tarifas = [
         {
-            tarifa: ' Wifi básico - 15 megas',
+            tarifa: 'Básico',
             precio: '50€ - 4 meses',
             activador: 'precioWifi()'
         },
         {
-            tarifa: ' Básico LTU - 50 megas',
+            tarifa: ' Avanzado',
             precio: '19.90 €',
             activador: 'precioBasico()'
         },
         {
-            tarifa: ' Avanzado LTU - 100 megas',
+            tarifa: ' Premiun',
             precio: '24.00 €',
             activador: 'precioAvanzado()'
-        },
-        {
-            tarifa: ' Fibra óptica - 100 megas',
-            precio: '15€',
-            activador: 'precioCien()'
-        },
-        {
-            tarifa: ' Fibra óptica - 300 megas',
-            precio: '19.90€',
-            activador: 'precioTresciento()'
-        },
-        {
-            tarifa: ' Fibra óptica - 600 megas',
-            precio: '24.90 €',
-            activador: 'precioSeiscientos()'
         }
     ]
 
@@ -103,32 +88,22 @@ function mostrarProductosInternet(htmlId) {
         productosInternet.removeChild(productosInternet.firstChild);
     }
 
-    // Agrega las opciones como radio buttons
-    for (let i = 0; i < tarifas.length; i++) {
-        let radio = document.createElement("input");
-        radio.type = "radio";
-        radio.name = "tarifa"; // Nombre del grupo de radio buttons
-        radio.value = tarifas[i].precio; // Valor del radio button (precio)
-        radio.id = "radio_" + i; // ID único para el radio button
-        radio.className = "form-check-input"; // Clase CSS para el radio button
-        radio.onclick = () => {
-            eval(tarifas[i].activador);
-        };
-        productosInternet.appendChild(radio); // Agrega el radio button
+       // Crea el elemento select
+       let select = document.createElement("select");
+       select.name = "tarifa"; // Nombre del grupo de options
+       select.className = "form-select"; // Clase CSS para el select
+   
+       // Agrega las opciones
+       for (let i = 0; i < tarifas.length; i++) {
+           let option = document.createElement("option");
+           option.value = tarifas[i].precio; // Valor del option (precio)
+           option.innerHTML = tarifas[i].tarifa; // Texto visible para la tarifa
+           option.setAttribute("onclick", tarifas[i].activador); // Función al seleccionar el option
+           select.appendChild(option); // Agrega el option al select
+       }
+       productosInternet.appendChild(select); // Agrega el select
 
-        let label = document.createElement("label");
-        label.setAttribute("for", "radio_" + i);
-        label.className = "form-check-label label_fibras"; // Clase CSS para el radio button
-        label.innerHTML = tarifas[i].tarifa; // Texto visible para la tarifa
-        productosInternet.appendChild(label);
-
-        let br = document.createElement("br"); // Crea un elemento <br>
-        productosInternet.appendChild(br); // Agrega el <br> después de la etiqueta
-
-
-    }
-
-    productosInternet.className = "mb-2";
+       productosInternet.className = "mb-2";
 }
 
 function virtual() {
