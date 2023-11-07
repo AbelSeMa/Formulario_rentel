@@ -56,6 +56,7 @@ function opcionesMovil() {
                 }
                 crearPortabilidad()
             };
+            input.classList.add('mb-3');
         }
 
         div.appendChild(input);
@@ -89,9 +90,9 @@ function numSim() {
     // Crea el input text
     let input = document.createElement('input');
     input.type = 'text';
-    input.name = 'numero_sim_alta'
-    input.placeholder = 'Introduce el número de la SIM nueva'
-    input.classList.add('form-control')
+    input.name = 'numero_sim_alta';
+    input.placeholder = 'Introduce el número de la SIM nueva';
+    input.classList.add('form-control', 'mb-3');
     div.appendChild(input);
 
 
@@ -151,11 +152,13 @@ function tarifaMovil() {
 
     let labelIndividual = document.createElement("label");
     labelIndividual.setAttribute("for", "radio_individual");
-    labelIndividual.className = "form-check-label label_fibras";
+    labelIndividual.className = "form-check-label";
     labelIndividual.textContent = "Tarifa individual";
+    let br = document.createElement('br');
 
     parentElement.appendChild(radioIndividual);
     parentElement.appendChild(labelIndividual);
+    parentElement.appendChild(br);
 
     let radioPack = document.createElement("input");
     radioPack.className = "form-check-input";
@@ -170,6 +173,7 @@ function tarifaMovil() {
     labelPack.setAttribute("for", "radio_pack");
     labelPack.className = "form-check-label label_fibras";
     labelPack.textContent = "Pack megas compartidos";
+
 
     parentElement.appendChild(radioPack);
     parentElement.appendChild(labelPack);
@@ -209,6 +213,7 @@ function crearPortabilidad() {
 
     let inputMovil = document.createElement('input');
     inputMovil.type = 'text';
+    inputMovil.classList.add('form-control', 'mb-3');
     inputMovil.placeholder = 'nº de movil';
     parentElement.appendChild(inputMovil);
 
@@ -221,6 +226,7 @@ function crearPortabilidad() {
     radioContrato.type = 'radio';
     radioContrato.name = 'tipo';
     radioContrato.id = 'contrato';
+    radioContrato.className = 'form-check-input';
     radioContrato.onclick = function() {
         eliminarInputsSim();
         crearInputSim('Nº de SIM rentel');
@@ -232,10 +238,14 @@ function crearPortabilidad() {
     labelContrato.textContent = 'Contrato';
     parentElement.appendChild(labelContrato);
 
+    let br = document.createElement('br');
+    parentElement.appendChild(br);
+
     let radioPrepago = document.createElement('input');
     radioPrepago.type = 'radio';
     radioPrepago.name = 'tipo';
     radioPrepago.id = 'prepago';
+    radioPrepago.className = 'form-check-input mb-3';
     radioPrepago.onclick = () => {
         eliminarInputsSim();
         crearInputSim('Nº de SIM rentel');
@@ -243,10 +253,13 @@ function crearPortabilidad() {
     };
     parentElement.appendChild(radioPrepago);
 
+
     let labelPrepago = document.createElement('label');
     labelPrepago.setAttribute('for', 'prepago');
     labelPrepago.textContent = 'Prepago';
     parentElement.appendChild(labelPrepago);
+
+
 
     function eliminarInputsSim() {
         let oldInputs = document.querySelectorAll('.input_sim');
@@ -264,7 +277,7 @@ function crearPortabilidad() {
 
         let inputSim = document.createElement('input');
         inputSim.type = 'text';
-        inputSim.className = 'input_sim';
+        inputSim.className = 'input_sim form-control mb-3';
         parentElement.appendChild(inputSim);
     }
 }
