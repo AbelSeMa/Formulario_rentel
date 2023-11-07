@@ -59,7 +59,7 @@
                         </div>
 
 
-                        <div class="row">
+                     <div class="row">
                             <div class="col-sm-6">
                                 <label class="form-label" for="sexo">Sexo</label>
                             <select class="form-select mb-3" id="sexo" name="sexo">
@@ -77,40 +77,45 @@
                         </div>
                     </div>
 
-                        <div id="divDni" class="">
+                    <div class="row">
+                        <div id="divDni" class="col-sm-6">
                             <label class="form-label" for="dni"">DNI*</label>
                         <input class=" form-control mb-3" type="text" id="dni" name="dni" placeholder="DNI"
                                 minlength="9" maxlength="9">
                                 <div class="invalid-feedback mb-3">Formato del DNI erróneo.</div>
                         </div>
 
-                        <div id="divCorreo" class="">
+                        <div id="divCorreo" class="col-sm-6">
                             <label class="form-label" for="correo">Correo electrónico</label>
                             <input class="form-control mb-3" type="text" id="correo" name="correo"
                                 placeholder="correo@correo">
                             <div class="invalid-feedback mb-3">Formato del correo electrónico erróneo.</div>
                         </div>
+                    </div>
 
-                        <div id="divTlfFijo" class="">
+                    <div class="row">
+                        <div id="divTlfFijo" class="col-sm-6">
                             <label class="form-label" for="telefonoFijo">Teléfono Fijo</label>
                             <input class="form-control mb-3" type="tel" id="telefonoFijo" name="telefonoFijo"
-                                minlength="9" maxlength="9">
+                            minlength="9" maxlength="9">
                             <div class="invalid-feedback mb-3">Formato del Tlf fijo erróneo.</div>
                         </div>
 
-                        <div id="divTlfMovil" class="">
+                        <div id="divTlfMovil" class="col-sm-6">
                             <label class="form-label" for="telefonoMovil">Teléfono Móvil*</label>
                             <input class="form-control mb-3" type="tel" id="telefonoMovil" name="telefonoMovil"
-                                minlength="9" maxlength="9">
+                            minlength="9" maxlength="9">
                             <div class="invalid-feedback mb-3">Formato del Tlf móvil erróneo.</div>
                         </div>
+                    </div>
 
                         <div>
                             <input type="text" name="pais" id="pais" value="españa" hidden>
                             <input type="text" name="provincia" id="provincia" value="Cadiz" hidden>
                         </div>
 
-                        <div>
+                        <div class="row">
+                        <div class="col-sm-4">
                             <label class="form-label" for="poblacion">Población*</label>
                             <select class="form-select mb-3" id="poblacion" name="poblacion">
                                 <option value="Sanlúcar de Barrameda">Sanlúcar de Barrameda</option>
@@ -118,20 +123,21 @@
                             </select>
                         </div>
 
-                        <div id="divDireccion" class="">
-                            <label class="form-label" for="direccion">Dirección*</label>
-                            <input class="form-control mb-3" type="text" id="direccion" name="direccion">
-                            <div class="invalid-feedback mb-3">Formato de la dirección erróneo.</div>
-
-                        </div>
-
-                        <div id="divCodPostal" class="">
-                            <label class="form-label" for="codigoPostal">Código Postal*</label>
-                            <input class="form-control mb-3" type="text" id="codigoPostal" name="codigoPostal"
+                            <div id="divDireccion" class="col-sm-4">
+                                <label class="form-label" for="direccion">Dirección*</label>
+                                <input class="form-control mb-3" type="text" id="direccion" name="direccion">
+                                <div class="invalid-feedback mb-3">Formato de la dirección erróneo.</div>
+                                
+                            </div>
+                            
+                            <div id="divCodPostal" class="col-sm-4">
+                                <label class="form-label" for="codigoPostal">Código Postal*</label>
+                                <input class="form-control mb-3" type="text" id="codigoPostal" name="codigoPostal"
                                 minlength="5" maxlength="5">
-                            <div class="invalid-feedback mb-3">Formato del código postal erróneo.</div>
+                                <div class="invalid-feedback mb-3">Formato del código postal erróneo.</div>
+                            </div>
                         </div>
-
+                            
                         <div>
                             <label class="btn btn-primary btn-sm" for="delanteDNI">Subir imagen</label>
                             <label class="form-label">DNI por delante</label>

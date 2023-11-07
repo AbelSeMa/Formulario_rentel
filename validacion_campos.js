@@ -96,7 +96,6 @@ function validarTelefonoFijo(telefonoFijo) {
   let regexTelefono = /^\d{9}$/;
   let input = document.getElementById("telefonoFijo");
   var div = document.getElementById("divTlfFijo");
-  telefonoFijo.toString();
 
   if (telefonoFijo != "") {
     if (!regexTelefono.test(telefonoFijo)) {
