@@ -1,334 +1,270 @@
-function mostrarMovil() {
-    var info = document.createElement("p");
-    info.textContent = 'Has elegido la opción móvil';
-    document.getElementById('opcionesInternet').style.display = 'none';
-    document.getElementById('opciones_fijo').style.display = 'none';
-    document.getElementById('otros_productos').style.display = 'none';
+function opcionesMovil() {
+    // Crear un elemento div
+    let div = document.createElement('div');
+    let div2 = document.createElement('div');
+    div2.id = "contenido_movil";
 
-
-    document.getElementById('opcionesMovil').style.display = 'block';
-
-}
-
-// genera el formulario de tarifas cuando selecciona portabilidad
-// como producto contratado.
-
-function generarCamposTarifaPortabilidad() {
-    let contenedor = document.getElementById("tipo_tarifa");
-
-    let h3 = document.createElement("h3");
-    h3.textContent = "Elige la tarifa";
-
-    let tarifasIndividual = document.createElement("input");
-    tarifasIndividual.type = "radio";
-    tarifasIndividual.name = "tarifas";
-    tarifasIndividual.id = "porta_indi";
-    tarifasIndividual.value = "individual";
-    tarifasIndividual.className = "form-check-input";
-    tarifasIndividual.onclick = function () {
-        indiTarifa('tarifasPortabilidad');
-    };
-
-    let labelIndividual = document.createElement("label");
-    labelIndividual.setAttribute("for", "porta_indi");
-    labelIndividual.className = "form-check-label";
-    labelIndividual.textContent = "Tarifa individual";
-
-    let tarifasPack = document.createElement("input");
-    tarifasPack.type = "radio";
-    tarifasPack.name = "tarifas";
-    tarifasPack.className = "form-check-input";
-    tarifasPack.id = "porta_pack";
-    tarifasPack.value = "pack";
-    tarifasPack.onclick = function () {
-        packTarifa('tarifasPortabilidad');
-    };
-
-    let labelPack = document.createElement("label");
-    labelPack.setAttribute("for", "porta_pack");
-    labelPack.textContent = "Pack megas compartidos";
-    labelPack.className = "form-check-label";
-    if (contenedor !== null) {
-        while (contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
-        }
-    }
-
-    let br1 = document.createElement("br");
-
-    contenedor.appendChild(h3);
-    contenedor.appendChild(tarifasIndividual);
-    contenedor.appendChild(labelIndividual);
-    contenedor.appendChild(br1);
-    contenedor.appendChild(tarifasPack);
-    contenedor.appendChild(labelPack);
-
-    document.getElementById('porta_indi').addEventListener('click', () => {
-        document.getElementById('tarifasPortabilidad').removeAttribute('hidden');
-    });;
-
-}
-
-// genera el formulario de tarifas cuando selecciona alta nueva
-// como producto contratado.
-
-function generarCamposTarifaAlta() {
-    let contenedor = document.getElementById("tipo_tarifa_individual");
-    console.log(contenedor);
-
-    let h3 = document.createElement("h3");
-    h3.textContent = "Elige la tarifa";
-
-    let tarifasIndividual = document.createElement("input");
-    tarifasIndividual.type = "radio";
-    tarifasIndividual.name = "tarifas";
-    tarifasIndividual.id = "tarifa_individual";
-    tarifasIndividual.value = "individual";
-    tarifasIndividual.classList.add("form-check-input");
-    tarifasIndividual.onclick = function () {
-        indiTarifa('alta_nueva');
-    };
-
-    let labelIndividual = document.createElement("label");
-    labelIndividual.classList.add("form-check-label");
-    labelIndividual.setAttribute("for", "tarifa_individual");
-    labelIndividual.textContent = "Tarifa individual";
-
-    let tarifasPack = document.createElement("input");
-    tarifasPack.type = "radio";
-    tarifasPack.name = "tarifas";
-    tarifasPack.id = "pack_alta_nueva";
-    tarifasPack.value = "pack";
-    tarifasPack.classList.add("form-check-input");
-    tarifasPack.onclick = function () {
-        packTarifa('alta_nueva');
-    };
-
-    let labelPack = document.createElement("label");
-    labelPack.classList.add("form-check-label");
-    labelPack.setAttribute("for", "pack_alta_nueva");
-    labelPack.textContent = "Pack megas compartidos";
-
-    if (contenedor !== null) {
-        while (contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
-        }
-    }
-
-    let br1 = document.createElement("br");
-
-    contenedor.appendChild(h3);
-    contenedor.appendChild(tarifasIndividual);
-    contenedor.appendChild(labelIndividual);
-    contenedor.appendChild(br1);
-    contenedor.appendChild(tarifasPack);
-    contenedor.appendChild(labelPack);
-
-}
-
-// genera el formulario de antiguo cliente cuando se selecciona
-// la portabilidad con un nuevo titular
-function genererDatosAntiguoCliente() {
-    let contenedor = document.getElementById("antiguo_titular");
-
-    let h3 = document.createElement("h3");
-    h3.textContent = "Elige el titular";
-
-    let nombreAntiguoTitular = document.createElement("input");
-    nombreAntiguoTitular.type = "text";
-    nombreAntiguoTitular.className = "form-control mb-2";
-    nombreAntiguoTitular.name = "nomber_antiguo_titular";
-    nombreAntiguoTitular.id = "antiguo_titular";
-    nombreAntiguoTitular.placeholder = "Nombre";
-
-    let apellidoAntiguoTitular = document.createElement("input");
-    apellidoAntiguoTitular.type = "text";
-    apellidoAntiguoTitular.className = "form-control mb-2";
-    apellidoAntiguoTitular.name = "apellido_antiguo_titular";
-    apellidoAntiguoTitular.id = "apellido_antiguo_titular";
-    apellidoAntiguoTitular.placeholder = "Apellido";
-
-    let dniAntiguoTitular = document.createElement("input");
-    dniAntiguoTitular.type = "text";
-    dniAntiguoTitular.classList.add("form-control", "mb-2");
-    dniAntiguoTitular.name = "dni_antiguo_titular";
-    dniAntiguoTitular.id = "dni_antiguo_titular";
-    dniAntiguoTitular.placeholder = "DNI";
-
-    let labelNombre = document.createElement("label");
-    labelNombre.setAttribute("for", "nombre_titular");
-    labelNombre.textContent = "Nombre antiguo titular";
-
-    let labelApellido = document.createElement("label");
-    labelApellido.setAttribute("for", "apellido_titular");
-    labelApellido.textContent = "Apellido antiguo titular";
-
-    let labelDni = document.createElement("label");
-    labelDni.setAttribute("for", "dni_titular");
-    labelDni.textContent = "DNI antiguo titular";
-
-    // Crear elementos <br> para los espacios entre los elementos
-    let br1 = document.createElement("br");
-    let br2 = document.createElement("br");
-    let br3 = document.createElement("br");
-    let br4 = document.createElement("br");
-    let br5 = document.createElement("br");
-    let br6 = document.createElement("br");
-
-    if (contenedor !== null) {
-        while (contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
-        }
-    }
-
-    contenedor.appendChild(h3);
-    contenedor.appendChild(labelNombre);
-    contenedor.appendChild(br1);  // Agregar <br> después del primer par de elementos
-    contenedor.appendChild(nombreAntiguoTitular);
-    contenedor.appendChild(br2);  // Agregar <br> después del segundo par de elementos
-    contenedor.appendChild(labelApellido);
-    contenedor.appendChild(br3);
-    contenedor.appendChild(apellidoAntiguoTitular);
-    contenedor.appendChild(br4);
-    contenedor.appendChild(labelDni);
-    contenedor.appendChild(br5);
-    contenedor.appendChild(dniAntiguoTitular);
-    contenedor.appendChild(br6);
-
-}
-
-function cambioTitularMovil() {
-    let parentElement = document.getElementById('cambio_titular_movil');
-
-    //crea el h4 que será el titulo del div
+    // Crear un elemento h4
     let h4 = document.createElement('h4');
-    h4.textContent = 'Datos del antiguo titular';
+    h4.textContent = 'Servicio contratado';
+    div.appendChild(h4);
 
-    // Crear un elemento h6 para "Nombre del antiguo titular"
-    var nombreH6 = document.createElement("h6");
-    nombreH6.textContent = "Nombre del antiguo titular";
+    // Array para crear los servicios, cada elemento 
+    // del array será un radio
+    let servicios = ['alta_movil', 'portabilidad_movil'];
+    let labels = ['Alta nueva', 'Portabilidad'];
 
-    // crea el input:text para tomar el  nombre antiguo del titular
-    let nombreAntiguo = document.createElement('input');
-    nombreAntiguo.className = 'form-control mb-3';
-    nombreAntiguo.type = 'text';
-    nombreAntiguo.name = 'nombre_antiguo_titular_fijo';
-    nombreAntiguo.id = 'nombre_antiguo_titular_fijo';
-    nombreAntiguo.placeholder = 'Nombre antiguo titular';
+    for (let i = 0; i < servicios.length; i++) {
+        let input = document.createElement('input');
+        input.className = 'form-check-input';
+        input.type = 'radio';
+        input.name = 'servicio_movil';
+        input.id = servicios[i];
+        input.value = servicios[i];
+        input.required = true;
 
-    //crear un elemento h6 para "Apellido del antiguo titular"
-    var apellidoH6 = document.createElement("h6");
-    apellidoH6.textContent = "Apellido del antiguo titular";
+        let label = document.createElement('label');
+        label.className = 'form-check-label';
+        label.htmlFor = servicios[i];
+        label.textContent = labels[i];
 
-    // crea el input:text para tomar el  apellido del antiguo titular
-    let apellidoAntiguo = document.createElement('input');
-    apellidoAntiguo.className = 'form-control mb-3';
-    apellidoAntiguo.type = 'text';
-    apellidoAntiguo.name = 'apellido_antiguo_titular_fijo';
-    apellidoAntiguo.id = 'apellido_antiguo_titular_fijo';
-    apellidoAntiguo.placeholder = 'Apellido antiguo titular';
+        if (servicios[i] === 'alta_movil') {
+            input.onclick = function () {
+                let divPadre = document.getElementById('contenido_movil');
+                // Comprueba si el div padre tiene hijos
+                if (divPadre.hasChildNodes()) {
+                    // Si tiene hijos, elimínalos todos
+                    while (divPadre.firstChild) {
+                        divPadre.removeChild(divPadre.firstChild);
+                    }
+                }
+                numSim();
+                tarifaMovil()
 
-    // crear un elemento h6 para "DNI del antiguo titular"
-    var dniH6 = document.createElement("h6");
-    dniH6.textContent = "DNI del antiguo titular";
+            };
+        }
 
-    // crea el input:text para tomar el  DNI del antiguo titular
-    let dniAntiguo = document.createElement('input');
-    dniAntiguo.className = 'form-control mb-3';
-    dniAntiguo.type = 'text';
-    dniAntiguo.name = 'DNI_antiguo_titular_fijo';
-    dniAntiguo.id = 'DNI_antiguo_titular_fijo';
-    dniAntiguo.placeholder = 'DNI antiguo titular';
+        if (servicios[i] === 'portabilidad_movil') {
+            input.onclick = function () {
+                let divPadre = document.getElementById('contenido_movil');
+                // Comprueba si el div padre tiene hijos
+                if (divPadre.hasChildNodes()) {
+                    // Si tiene hijos, elimínalos todos
+                    while (divPadre.firstChild) {
+                        divPadre.removeChild(divPadre.firstChild);
+                    }
+                }
+                crearPortabilidad()
+            };
+        }
 
+        div.appendChild(input);
+        div.appendChild(label);
+        div.appendChild(document.createElement('br'));
+    }
 
-    //crear un elemento h6 para el numero de telefono del antiguo titular
-    var telefonoh6 = document.createElement("h6");
-    telefonoh6.textContent = "Numero de movil del antiguo titular";
+    // Añadir div al elemento padre
+    document.body.appendChild(div);
+    let contenedor = document.getElementById('contenedor');
 
-    //crear el input:text para el movil del antiguo titular
-    let movilAntiguo = document.createElement('input');
-    movilAntiguo.className = 'form-control mb-3';
-    movilAntiguo.type = 'text';
-    movilAntiguo.name = 'movil_antiguo_titular_fijo';
-    movilAntiguo.id = 'movil_antiguo_titular_fijo';
-    movilAntiguo.placeholder = 'Movil antiguo titular';
+    contenedor.appendChild(div)
+    contenedor.appendChild(div2)
+}
 
-    parentElement.appendChild(h4);
-    parentElement.appendChild(nombreH6);
-    parentElement.appendChild(nombreAntiguo);
-    parentElement.appendChild(apellidoH6);
-    parentElement.appendChild(apellidoAntiguo);
-    parentElement.appendChild(dniH6);
-    parentElement.appendChild(dniAntiguo);
-    parentElement.appendChild(telefonoh6);
-    parentElement.appendChild(movilAntiguo);
+function numSim() {
+
+    // Obtén el elemento div
+    let div = document.getElementById('contenido_movil');
+
+    // Comprueba si el div está vacío, si no lo está, límpialo
+    while (div.firstChild) {
+        div.removeChild(div.firstChild);
+    }
+
+    // Crea el título h4
+    let h4 = document.createElement('h4');
+    h4.textContent = 'Número de la SIM';
+    div.appendChild(h4);
+
+    // Crea el input text
+    let input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'numero_sim_alta'
+    input.placeholder = 'Introduce el número de la SIM nueva'
+    input.classList.add('form-control')
+    div.appendChild(input);
+
 
 }
 
 
-function prepago() {
+function tarifaMovil() {
+    let parentElement = document.getElementById('contenido_movil');
 
-    // Obtener el div por su ID
-    let contenedor = document.getElementById("num_sim_portabilidad");
-
-    // Crear el elemento h6 para "Nº de SIM actual"
-    let h6Actual = document.createElement("h6");
-    h6Actual.textContent = "Nº de SIM actual";
-
-    // Crear el input para "simActualPrepago"
-    let inputActual = document.createElement("input");
-    inputActual.type = "num";
-    inputActual.name = "simActualPrepago";
-    inputActual.id = "simActual";
-    inputActual.className = "form-control mb-2";
-
-    // Crear el elemento h6 para "Nº de SIM rentel"
-    let h6Rentel = document.createElement("h6");
-    h6Rentel.textContent = "Nº de SIM rentel";
-
-    // Crear el input para "simNuev"
-    let inputNuev = document.createElement("input");
-    inputNuev.type = "num";
-    inputNuev.name = "simNuev";
-    inputNuev.id = "";
-    inputNuev.className = "form-control mb-3";
-
-    if (contenedor !== null) {
-        while (contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
+    let individual = [
+        {
+            datos: '12 GB',
+            precio: '7.90 €',
+            llamadas: 'Llamadas ilimitadas'
+        },
+        {
+            datos: '20 GB',
+            precio: '9.90 €',
+            llamadas: 'Llamadas ilimitadas'
+        },
+        {
+            datos: '70 GB',
+            precio: '14.90 €',
+            llamadas: 'Llamadas ilimitadas'
+        },
+        {
+            datos: '150 GB',
+            precio: '24.90 €',
+            llamadas: 'Llamadas ilimitadas'
         }
+    ]
+
+    let pack = [
+        {
+            datos: '100 GB',
+            precio: '21.90 €'
+        },
+        {
+            datos: '150 GB',
+            precio: '26.90 €'
+        },
+        {
+            datos: '200 GB',
+            precio: '36.90 €'
+        }
+    ]
+
+    // Crea los elementos de entrada
+    let radioIndividual = document.createElement("input");
+    radioIndividual.className = "form-check-input";
+    radioIndividual.type = "radio";
+    radioIndividual.name = "tarifa";
+    radioIndividual.id = "radio_individual";
+    radioIndividual.onclick = function () {
+        crearSelect(individual);
+    };
+
+    let labelIndividual = document.createElement("label");
+    labelIndividual.setAttribute("for", "radio_individual");
+    labelIndividual.className = "form-check-label label_fibras";
+    labelIndividual.textContent = "Tarifa individual";
+
+    parentElement.appendChild(radioIndividual);
+    parentElement.appendChild(labelIndividual);
+
+    let radioPack = document.createElement("input");
+    radioPack.className = "form-check-input";
+    radioPack.type = "radio";
+    radioPack.name = "tarifa";
+    radioPack.id = "radio_pack";
+    radioPack.onclick = function () {
+        crearSelect(pack);
+    };
+
+    let labelPack = document.createElement("label");
+    labelPack.setAttribute("for", "radio_pack");
+    labelPack.className = "form-check-label label_fibras";
+    labelPack.textContent = "Pack megas compartidos";
+
+    parentElement.appendChild(radioPack);
+    parentElement.appendChild(labelPack);
+
+    function crearSelect(datos) {
+        // Elimina el select anterior si existe
+        let oldSelect = document.getElementById('select_tarifa');
+        if (oldSelect) {
+            parentElement.removeChild(oldSelect);
+        }
+
+        // Crea el elemento select
+        let select = document.createElement("select");
+        select.id = "select_tarifa";
+        select.name = "tarifa";
+        select.className = "form-select";
+
+        // Crea los options
+        datos.forEach(function (dato) {
+            let option = document.createElement("option");
+            option.value = dato.datos;
+            option.textContent = dato.datos + ' - ' + dato.precio;
+            select.appendChild(option);
+        });
+
+        parentElement.appendChild(select);
     }
-
-    // Agregar los elementos creados al contenedor
-    contenedor.appendChild(h6Actual);
-    contenedor.appendChild(inputActual);
-    contenedor.appendChild(h6Rentel);
-    contenedor.appendChild(inputNuev);
-
 }
 
-function contrato() {
-    // Obtener el div por su ID
-    let contenedor = document.getElementById("num_sim_portabilidad");
+function crearPortabilidad() {
+    let parentElement = document.getElementById('contenido_movil');
 
-    // Crear el elemento h6 para "Nº de SIM rentel"
-    let h6Rentel = document.createElement("h6");
-    h6Rentel.textContent = "Nº de SIM rentel";
+    // Crea el título y el input para el número de móvil
+    let h4Movil = document.createElement('h4');
+    h4Movil.textContent = 'Número al que se le hace la portabilidad';
+    parentElement.appendChild(h4Movil);
 
-    // Crear el input para "simNuev"
-    let inputNuev = document.createElement("input");
-    inputNuev.type = "num";
-    inputNuev.name = "simNuev";
-    inputNuev.id = "";
-    inputNuev.className = "form-control mb-3";
+    let inputMovil = document.createElement('input');
+    inputMovil.type = 'text';
+    inputMovil.placeholder = 'nº de movil';
+    parentElement.appendChild(inputMovil);
 
-    if (contenedor !== null) {
-        while (contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
-        }
+    // Crea el título y los radio buttons para el tipo actual
+    let h4Tipo = document.createElement('h4');
+    h4Tipo.textContent = 'Tipo actual';
+    parentElement.appendChild(h4Tipo);
+
+    let radioContrato = document.createElement('input');
+    radioContrato.type = 'radio';
+    radioContrato.name = 'tipo';
+    radioContrato.id = 'contrato';
+    radioContrato.onclick = function() {
+        eliminarInputsSim();
+        crearInputSim('Nº de SIM rentel');
+    };
+    parentElement.appendChild(radioContrato);
+
+    let labelContrato = document.createElement('label');
+    labelContrato.setAttribute('for', 'contrato');
+    labelContrato.textContent = 'Contrato';
+    parentElement.appendChild(labelContrato);
+
+    let radioPrepago = document.createElement('input');
+    radioPrepago.type = 'radio';
+    radioPrepago.name = 'tipo';
+    radioPrepago.id = 'prepago';
+    radioPrepago.onclick = () => {
+        eliminarInputsSim();
+        crearInputSim('Nº de SIM rentel');
+        crearInputSim('Nº de SIM antigua');
+    };
+    parentElement.appendChild(radioPrepago);
+
+    let labelPrepago = document.createElement('label');
+    labelPrepago.setAttribute('for', 'prepago');
+    labelPrepago.textContent = 'Prepago';
+    parentElement.appendChild(labelPrepago);
+
+    function eliminarInputsSim() {
+        let oldInputs = document.querySelectorAll('.input_sim');
+        oldInputs.forEach(input => {
+            parentElement.removeChild(input.previousSibling);  // Elimina el título
+            parentElement.removeChild(input);  // Elimina el input
+        });
     }
 
-    // Agregar los elementos creados al div
-    contenedor.appendChild(h6Rentel);
-    contenedor.appendChild(inputNuev);
+    function crearInputSim(titulo) {
+        // Crea el título y el input para el número de SIM
+        let h4Sim = document.createElement('h4');
+        h4Sim.textContent = titulo;
+        parentElement.appendChild(h4Sim);
+
+        let inputSim = document.createElement('input');
+        inputSim.type = 'text';
+        inputSim.className = 'input_sim';
+        parentElement.appendChild(inputSim);
+    }
 }
