@@ -49,5 +49,19 @@ elegirProducto.forEach((producto) => {
 });
 }
 
+function limpiarContenedor() {
+    // Obtén el div por su id
+    let contenedor = document.getElementById('contenedor');
+
+    // Comprueba si el div tiene hijos
+    if (contenedor.hasChildNodes()) {
+        // Si tiene hijos, elimínalos todos
+        while (contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
+        }
+    }
+}
+
+
 
 
