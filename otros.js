@@ -18,7 +18,7 @@ function opcionesOtros() {
            let input = document.createElement('input');
            input.className = 'form-check-input';
            input.type = 'radio';
-           input.name = 'servicio_otros';
+           input.name = 'servicio';
            input.id = servicios[i];
            input.value = servicios[i];
            input.required = true;

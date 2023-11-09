@@ -18,7 +18,7 @@ function opcionesInternet() {
         let input = document.createElement('input');
         input.className = 'form-check-input';
         input.type = 'radio';
-        input.name = 'servicio_internet';
+        input.name = 'servicio';
         input.id = servicios[i];
         input.value = servicios[i];
         input.required = true;

@@ -11,14 +11,14 @@ function opcionesMovil() {
 
     // Array para crear los servicios, cada elemento 
     // del array será un radio
-    let servicios = ['alta_movil', 'portabilidad_movil'];
+    let servicios = ['Alta movil', 'Portabilidad movil'];
     let labels = ['Alta nueva', 'Portabilidad'];
 
     for (let i = 0; i < servicios.length; i++) {
         let input = document.createElement('input');
         input.className = 'form-check-input';
         input.type = 'radio';
-        input.name = 'servicio_movil';
+        input.name = 'servicio';
         input.id = servicios[i];
         input.value = servicios[i];
         input.required = true;
@@ -28,7 +28,7 @@ function opcionesMovil() {
         label.htmlFor = servicios[i];
         label.textContent = labels[i];
 
-        if (servicios[i] === 'alta_movil') {
+        if (servicios[i] === 'Alta movil') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_movil');
                 // Comprueba si el div padre tiene hijos
@@ -44,7 +44,7 @@ function opcionesMovil() {
             };
         }
 
-        if (servicios[i] === 'portabilidad_movil') {
+        if (servicios[i] === 'Portabilidad movil') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_movil');
                 // Comprueba si el div padre tiene hijos
@@ -90,7 +90,7 @@ function numSim() {
     // Crea el input text
     let input = document.createElement('input');
     input.type = 'text';
-    input.name = 'numero_sim_alta';
+    input.name = 'numero_sim';
     input.placeholder = 'Introduce el número de la SIM nueva';
     input.classList.add('form-control', 'mb-3');
     div.appendChild(input);
@@ -213,6 +213,7 @@ function crearPortabilidad() {
 
     let inputMovil = document.createElement('input');
     inputMovil.type = 'text';
+    inputMovil.name = 'numero_telefono'
     inputMovil.classList.add('form-control', 'mb-3');
     inputMovil.placeholder = 'nº de movil';
     parentElement.appendChild(inputMovil);
@@ -225,6 +226,7 @@ function crearPortabilidad() {
     let radioContrato = document.createElement('input');
     radioContrato.type = 'radio';
     radioContrato.name = 'tipo';
+    radioContrato.value = 'Contrato'
     radioContrato.id = 'contrato';
     radioContrato.className = 'form-check-input';
     radioContrato.onclick = function() {
@@ -244,6 +246,7 @@ function crearPortabilidad() {
     let radioPrepago = document.createElement('input');
     radioPrepago.type = 'radio';
     radioPrepago.name = 'tipo';
+    radioPrepago.value = 'Prepago'
     radioPrepago.id = 'prepago';
     radioPrepago.className = 'form-check-input mb-3';
     radioPrepago.onclick = () => {
@@ -277,6 +280,7 @@ function crearPortabilidad() {
 
         let inputSim = document.createElement('input');
         inputSim.type = 'text';
+        inputSim.name = 'numero_sim'
         inputSim.className = 'input_sim form-control mb-3';
         parentElement.appendChild(inputSim);
     }

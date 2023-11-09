@@ -7,7 +7,7 @@ function createJson(event) {
 
     const data = new FormData(activeForm);
 
-      // Recupera el array 'productos' actual desde sessionStorage
+    // Recupera el array 'productos' actual desde sessionStorage
     const productosExistentes = JSON.parse(sessionStorage.getItem('productos'));
 
     const formJSON = Object.fromEntries(data.entries());
@@ -18,7 +18,7 @@ function createJson(event) {
     // Actualiza el array 'productos' en sessionStorage
     sessionStorage.setItem('productos', JSON.stringify(productosExistentes));
 
-   console.log(JSON.parse(sessionStorage.getItem('productos')))
+    console.log(JSON.parse(sessionStorage.getItem('productos')))
 }
 
 
@@ -35,6 +35,19 @@ function obtenerJson() {
     document.body.appendChild(enlaceDescarga);
 }
 
+
+// rellena el select de productos
+window.onload = function() {
+let elegirProducto = ['Elija producto','Telefonía fija', 'Internet', 'Movil', 'Otros']
+
+// Rellena el select
+elegirProducto.forEach((producto) => {
+    let opcion = document.createElement('option');
+    opcion.value = producto;
+    opcion.text = producto;
+    document.getElementById('productSelect').appendChild(opcion);
+});
+}
 
 
 

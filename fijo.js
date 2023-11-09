@@ -11,14 +11,14 @@ function opcionesFijo() {
 
     // Array para crear los servicios, cada elemento 
     // del array será un radio
-    let servicios = ['alta_fijo', 'portabilidad_fijo'];
+    let servicios = ['Alta fijo', 'Portabilidad fijo'];
     let labels = ['Alta nueva', 'Portabilidad'];
 
     for (let i = 0; i < servicios.length; i++) {
         let input = document.createElement('input');
         input.className = 'form-check-input';
         input.type = 'radio';
-        input.name = 'servicio_fijo';
+        input.name = 'servicio';
         input.id = servicios[i];
         input.value = servicios[i];
         input.required = true;
@@ -28,7 +28,7 @@ function opcionesFijo() {
         label.htmlFor = servicios[i];
         label.textContent = labels[i];
 
-        if (servicios[i] === 'alta_fijo') {
+        if (servicios[i] === 'Alta fijo') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_fijo');
                 // Comprueba si el div padre tiene hijos
@@ -46,7 +46,7 @@ function opcionesFijo() {
 
 
 
-        if (servicios[i] === 'portabilidad_fijo') {
+        if (servicios[i] === 'Portabilidad fijo') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_fijo');
                 // Comprueba si el div padre tiene hijos
@@ -135,7 +135,7 @@ function numTlfnFijo() {
     var telefonoInput = document.createElement("input");
     telefonoInput.classList.add("form-control", "mb-2");
     telefonoInput.type = "text";
-    telefonoInput.name = "numero_tlfn_fijo";
+    telefonoInput.name = "numero_telefono";
     telefonoInput.id = "numero_tlfn_fijo";
     telefonoInput.placeholder = "Numero de telefono fijo";
 

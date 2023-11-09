@@ -1,11 +1,11 @@
 // Carga los datos del sessionStorage
-let productos = JSON.parse(sessionStorage.getItem('productos'));
+let jsonProductos = JSON.parse(sessionStorage.getItem('productos'));
 
 // Obtiene el elemento div para contener los datos
 let divProductos = document.getElementById('datos_productos')
 
 // Recorre cada producto en el array
-productos.forEach((producto, index) => {
+jsonProductos.forEach((producto, index) => {
     // Recorre cada propiedad del producto
     for (let propiedad in producto) {
         // Crea un elemento p para cada propiedad

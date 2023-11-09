@@ -12,7 +12,7 @@ function limpiarContenedor() {
 }
 
 
-// evento que crea el formulario de telefono fijo
+/* // evento que crea el formulario de telefono fijo
 document.getElementById('telefono_fijo').addEventListener('click', () => {
     limpiarContenedor();
     opcionesFijo();
@@ -38,4 +38,4 @@ document.getElementById('movil').addEventListener('click', () => {
 document.getElementById('otros').addEventListener('click', () => {
     limpiarContenedor();
     opcionesOtros();
-})
+}) */
