@@ -380,6 +380,18 @@ function validarCorreoNoti(correo) {
   return true;
 }
 
+function validarComercial(){
+  let input = document.getElementById("comercial");
+  let error = document.getElementById("errorComercial");
+  if (input.value === "") {
+    error.removeAttribute("hidden");
+    return false;
+  } else{
+    error.setAttribute("hidden", "");
+    return true;
+  }
+}
+
 //VALIDACION FROMA DE PAGO
 
 function mostrarIban() {
@@ -412,3 +424,9 @@ function validarIBAN(iban) {
   } 
   return true;
 }
+
+
+const select = document.getElementById("comercial");
+select.onchange =  function() {
+  document.getElementById("formulario1").removeAttribute("hidden");
+};

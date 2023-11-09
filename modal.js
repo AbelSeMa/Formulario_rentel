@@ -1,5 +1,5 @@
 // Función para mostrar el modal
-document.getElementById('abrirModal').addEventListener('click', function() {
+document.getElementById('enviarForm').addEventListener('click', function() {
     document.getElementById('myModal').style.display = 'block';
   });
   
@@ -9,15 +9,12 @@ document.getElementById('abrirModal').addEventListener('click', function() {
   });
   
   // Función para contratar un nuevo producto
-  document.getElementById('contratarProducto').addEventListener('click', function() {
-    document.getElementById('opcionesFibra').style.display = 'block';
+/*   document.getElementById('siDatos').addEventListener('click', function() {
     document.getElementById('myModal').style.display = 'none';
-  });
+  }); */
   
   // Función para ir a los datos de pago
-  document.getElementById('irAPago').addEventListener('click', function() {
-    window.location.href = '/datos-de-pago.html';
-    alert('Redireccionando a los datos de pago...');
+  document.getElementById('noDatos').addEventListener('click', function() {
     document.getElementById('myModal').style.display = 'none';
   });
   

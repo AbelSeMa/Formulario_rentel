@@ -205,6 +205,10 @@ function validarFormCheck(event) {
   ];
   let error_formulario = [];
 
+  if (!validarComercial()){
+    error_formulario.push(1);
+  }
+
   if (!validarCliente(event)) {
     error_formulario.push(1);
   }
@@ -242,6 +246,10 @@ function validarFormCheck(event) {
 
 function validarSinCheck(event) {
   let error_formulario = [];
+
+  if (!validarComercial()){
+    error_formulario.push(1);
+  }
 
   if (!validarCliente(event)) {
     error_formulario.push(1);
@@ -284,6 +292,8 @@ function validarFormulario(event) {
     validarSinCheck(event);
   }
 
+  document.getElementById('myModal').style.display = 'none';
+
   let activeForm = document.getElementById("myForm");
   const data = new FormData(activeForm);
 
@@ -304,60 +314,6 @@ function limpiar(nombre) {
   limpi.innerHTML = "";
 }
 
-
-/* 
-function doPost(e) {
-  try {
-    var comercial = e.parameter.comercial;
-    var nombre = e.parameter.nombre;
-    var apellido1 = e.parameter.apellido1;
-    var apellido2 = e.parameter.apellido2;
-    var sexo = e.parameter.sexo;
-    var fechaNacimiento = e.parameter.fechaNacimiento;
-    var dni = e.parameter.dni;
-    var correo = e.parameter.correo;
-    var telefonoFijo = e.parameter.telefonoFijo;
-    var telefonoMovil = e.parameter.telefonoMovil;
-    var pais = e.parameter.pais;
-    var poblacion = e.parameter.poblacion;
-    var direccion = e.parameter.direccion;
-    var codigoPostal = e.parameter.codigoPostal;
-    var nombreFac = e.parameter.nombreFac;
-    var apellido1Fac = e.parameter.apellido1Fac;
-    var apellido2Fac = e.parameter.apellido2Fac;
-    var sexoFac = e.parameter.sexoFac;
-    var fechaNacimientoFac = e.parameter.fechaNacimientoFac;
-    var dniFac = e.parameter.dniFac;
-    var correoFac = e.parameter.correoFac;
-    var telefonoFijoFac = e.parameter.telefonoFijoFac;
-    var telefonoMovilFac = e.parameter.telefonoMovilFac;
-    var paisFac = e.parameter.paisFac;
-    var provinciaFac = e.parameter.provinciaFac;
-    var poblacionFac = e.parameter.poblacionFac;
-    var direccionFac = e.parameter.direccionFac;
-    var codigoPostalFac = e.parameter.codigoPostalFac;
-    var nombreNoti = e.parameter.nombreNoti;
-    var apellido1Noti = e.parameter.apellido1Noti;
-    var apellido2Noti = e.parameter.apellido2Noti;
-    var correoNoti = e.parameter.correoNoti;
-    var telefonoFijoNoti = e.parameter.telefonoFijoNoti;
-    var telefonoMovilNoti = e.parameter.telefonoMovilNoti;
-    var pago = e.parameter.pago;
-
-    var spreadsheet = SpreadsheetApp.openById("1-Zyj55dn6YIgdmPOfIY6vvyvWrHvZY4xabhYBKKEJpg");
-    var sheet = spreadsheet.getSheetByName("Sheet1");
-    sheet.appendRow([new Date(),comercial, nombre, apellido1, apellido2, sexo, fechaNacimiento, dni, correo, telefonoFijo, telefonoMovil, pais, poblacion,
-         direccion, codigoPostal, nombreFac, apellido1Fac, apellido2Fac, sexoFac, fechaNacimientoFac, dniFac, correoFac, telefonoFijoFac, telefonoMovilFac,
-          paisFac, provinciaFac, poblacionFac, direccionFac, codigoPostalFac, nombreNoti, apellido1Noti, apellido2Noti, correoNoti, telefonoFijoNoti, telefonoMovilNoti,
-           pago]);
-
-    // Procesa los datos como sea necesario. Puedes guardarlos en Google Sheets u otra ubicación.
-
-    return ContentService.createTextOutput("Datos enviados con éxito");
-  } catch (error) {
-    return ContentService.createTextOutput("Error: " + error.toString());
-  }
-} */
 
 
 function excel(){
