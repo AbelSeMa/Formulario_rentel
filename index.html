@@ -12,13 +12,6 @@
     <link rel="stylesheet" href="bootstrap.min.css" />
     <script src="validacion_completa.js" defer></script>
     <script src="validacion_campos.js" defer></script>
-    <style>
-      /*         body {
-            background: rgb(254,137,58);
-            background: linear-gradient(90deg, rgba(254,137,58,1) 0%, rgba(128,128,187,1) 46%, rgba(6,120,204,1) 100%);
-        }  */
-    </style>
-
     <script src="modal.js" defer></script>
   </head>
 
@@ -30,804 +23,854 @@
           class="img-fluid"
           alt="Responsive image"
         />
-        <form name="formulario_Cliente" id="myForm" action="productos.html">
-          <h2 class="text-center font-weight-bold">Comercial</h2>
-          <div id="divComercial">
-            <select class="form-select mb-3" id="comercial" name="comercial">
-              <option value="">Seleccione un comercial</option>
-              <option value="Manuel Suarez">Manuel Suárez</option>
-              <option value="Manuel Perez">Antonio Perez</option>
-            </select>
-          </div>
+        <div id="pintar_cliente">
+          <form name="formulario_Cliente" id="myForm" action="productos.html">
+            <h2 class="text-center font-weight-bold">Comercial</h2>
+            <div id="divComercial">
+              <select class="form-select mb-3" id="comercial" name="comercial">
+                <option value="">Seleccione un comercial</option>
+                <option value="Manuel Suarez">Manuel Suárez</option>
+                <option value="Manuel Perez">Antonio Perez</option>
+              </select>
+            </div>
 
-          <div
-            id="errorComercial"
-            class="text-danger"
-            style="font-size: 14px"
-            hidden
-          >
-            Seleccione un comercial.
-          </div>
-          <div id="formulario1" hidden>
-            <fieldset>
-              <h2 class="text-center font-weight-bold mb-4">
-                Datos de Cliente
-              </h2>
-              <div class="row">
-                <div id="divNombre" class="col-sm-4">
-                  <label class="form-label" for="nombre">Nombre*</label>
+            <div
+              id="errorComercial"
+              class="text-danger"
+              style="font-size: 14px"
+              hidden
+            >
+              Seleccione un comercial.
+            </div>
+            <div id="formulario1" hidden>
+              <fieldset>
+                <h2 class="text-center font-weight-bold mb-4">
+                  Datos de Cliente
+                </h2>
+                <div class="row">
+                  <div id="divNombre" class="col-sm-4">
+                    <label class="form-label" for="nombre">Nombre*</label>
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      placeholder="Nombre"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del nombre erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divApellido1" class="col-sm-4">
+                    <label
+                      class="form-label"
+                      for="apellido1"
+                      id="labelApellido1"
+                      >Primer apellido*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="apellido1"
+                      name="apellido1"
+                      placeholder="Primer apellido"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del apellido erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divApellido2" class="col-sm-4">
+                    <label class="form-label" for="apellido2"
+                      >Segundo apellido*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="apellido2"
+                      name="apellido2"
+                      placeholder="Segundo apellido"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del apellido erróneo.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label class="form-label" for="sexo">Sexo</label>
+                    <select class="form-select mb-3" id="sexo" name="sexo">
+                      <option value="Hombre">Hombre</option>
+                      <option value="Mujer">Mujer</option>
+                    </select>
+                  </div>
+
+                  <div id="divFechaNacimiento" class="col-sm-6">
+                    <label
+                      class="form-label"
+                      for="fechaNacimiento"
+                      id="labelFechaNacimiento"
+                      >Fecha de Nacimiento</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="date"
+                      id="fechaNacimiento"
+                      name="fechaNacimiento"
+                      required
+                    />
+                    <div class="invalid-feedback mb-3">Fecha errónea.</div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div id="divDni" class="col-sm-6">
+                    <label class="form-label" for="dni">DNI*</label>
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="dni"
+                      name="dni"
+                      placeholder="DNI"
+                      minlength="9"
+                      maxlength="9"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del DNI erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divCorreo" class="col-sm-6">
+                    <label class="form-label" for="correo"
+                      >Correo electrónico</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="correo"
+                      name="correo"
+                      placeholder="correo@correo"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del correo electrónico erróneo.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div id="divTlfFijo" class="col-sm-6">
+                    <label class="form-label" for="telefonoFijo"
+                      >Teléfono Fijo</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="tel"
+                      id="telefonoFijo"
+                      name="telefonoFijo"
+                      minlength="9"
+                      maxlength="9"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del Tlf fijo erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divTlfMovil" class="col-sm-6">
+                    <label class="form-label" for="telefonoMovil"
+                      >Teléfono Móvil*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="tel"
+                      id="telefonoMovil"
+                      name="telefonoMovil"
+                      minlength="9"
+                      maxlength="9"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del Tlf móvil erróneo.
+                    </div>
+                  </div>
+                </div>
+
+                <div>
                   <input
-                    class="form-control mb-3"
                     type="text"
-                    id="nombre"
-                    name="nombre"
-                    placeholder="Nombre"
+                    name="pais"
+                    id="pais"
+                    value="españa"
+                    hidden
                   />
-                  <div class="invalid-feedback mb-3">
-                    Formato del nombre erróneo.
-                  </div>
-                </div>
-
-                <div id="divApellido1" class="col-sm-4">
-                  <label class="form-label" for="apellido1" id="labelApellido1"
-                    >Primer apellido*</label
-                  >
                   <input
-                    class="form-control mb-3"
                     type="text"
-                    id="apellido1"
-                    name="apellido1"
-                    placeholder="Primer apellido"
+                    name="provincia"
+                    id="provincia"
+                    value="Cadiz"
+                    hidden
                   />
-                  <div class="invalid-feedback mb-3">
-                    Formato del apellido erróneo.
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-4">
+                    <label class="form-label" for="poblacion">Población*</label>
+                    <select
+                      class="form-select mb-3"
+                      id="poblacion"
+                      name="poblacion"
+                    >
+                      <option value="Sanlúcar de Barrameda">
+                        Sanlúcar de Barrameda
+                      </option>
+                      <option value="Chipiona">Chipiona</option>
+                    </select>
+                  </div>
+
+                  <div id="divDireccion" class="col-sm-4">
+                    <label class="form-label" for="direccion">Dirección*</label>
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="direccion"
+                      name="direccion"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato de la dirección erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divCodPostal" class="col-sm-4">
+                    <label class="form-label" for="codigoPostal"
+                      >Código Postal*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="codigoPostal"
+                      name="codigoPostal"
+                      minlength="5"
+                      maxlength="5"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del código postal erróneo.
+                    </div>
                   </div>
                 </div>
 
-                <div id="divApellido2" class="col-sm-4">
-                  <label class="form-label" for="apellido2"
-                    >Segundo apellido*</label
+                <div>
+                  <label class="btn btn-primary btn-sm" for="delanteDNI"
+                    >Subir imagen</label
                   >
+                  <label class="form-label">DNI por delante</label>
                   <input
                     class="form-control mb-3"
-                    type="text"
-                    id="apellido2"
-                    name="apellido2"
-                    placeholder="Segundo apellido"
+                    type="file"
+                    id="delanteDNI"
+                    name="delanteDNI"
+                    hidden
                   />
-                  <div class="invalid-feedback mb-3">
-                    Formato del apellido erróneo.
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-6">
-                  <label class="form-label" for="sexo">Sexo</label>
-                  <select class="form-select mb-3" id="sexo" name="sexo">
-                    <option value="Hombre">Hombre</option>
-                    <option value="Mujer">Mujer</option>
-                  </select>
                 </div>
 
-                <div id="divFechaNacimiento" class="col-sm-6">
-                  <label
-                    class="form-label"
-                    for="fechaNacimiento"
-                    id="labelFechaNacimiento"
-                    >Fecha de Nacimiento</label
+                <div>
+                  <label class="btn btn-primary btn-sm" for="detrasDNI"
+                    >Subir imagen</label
                   >
+                  <label for="detrasDNI">DNI por detrás</label>
                   <input
-                    class="form-control mb-3"
-                    type="date"
-                    id="fechaNacimiento"
-                    name="fechaNacimiento"
-                    required
-                  />
-                  <div class="invalid-feedback mb-3">Fecha errónea.</div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div id="divDni" class="col-sm-6">
-                  <label class="form-label" for="dni">DNI*</label>
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="dni"
-                    name="dni"
-                    placeholder="DNI"
-                    minlength="9"
-                    maxlength="9"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del DNI erróneo.
-                  </div>
+                    type="file"
+                    id="detrasDNI"
+                    name="detrasDNI"
+                    hidden
+                  /><br />
                 </div>
 
-                <div id="divCorreo" class="col-sm-6">
-                  <label class="form-label" for="correo"
-                    >Correo electrónico</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="correo"
-                    name="correo"
-                    placeholder="correo@correo"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del correo electrónico erróneo.
-                  </div>
-                </div>
-              </div>
+                <br />
 
-              <div class="row">
-                <div id="divTlfFijo" class="col-sm-6">
-                  <label class="form-label" for="telefonoFijo"
-                    >Teléfono Fijo</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="tel"
-                    id="telefonoFijo"
-                    name="telefonoFijo"
-                    minlength="9"
-                    maxlength="9"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del Tlf fijo erróneo.
-                  </div>
-                </div>
-
-                <div id="divTlfMovil" class="col-sm-6">
-                  <label class="form-label" for="telefonoMovil"
-                    >Teléfono Móvil*</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="tel"
-                    id="telefonoMovil"
-                    name="telefonoMovil"
-                    minlength="9"
-                    maxlength="9"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del Tlf móvil erróneo.
-                  </div>
-                </div>
-              </div>
-
-              <div>
+                <p>¿Quieres usar los mismos datos para la facturacion?</p>
                 <input
-                  type="text"
-                  name="pais"
-                  id="pais"
-                  value="españa"
-                  hidden
+                  class="form-check-input"
+                  type="radio"
+                  name="datos"
+                  id="mismosDatosSi"
+                  checked
                 />
+                <label for="mismosDatosSi">Sí</label> <br />
                 <input
-                  type="text"
-                  name="provincia"
-                  id="provincia"
-                  value="Cadiz"
-                  hidden
+                  class="form-check-input mb-3"
+                  type="radio"
+                  name="datos"
+                  id="mismosDatosNo"
                 />
-              </div>
-
-              <div class="row">
-                <div class="col-sm-4">
-                  <label class="form-label" for="poblacion">Población*</label>
-                  <select
-                    class="form-select mb-3"
-                    id="poblacion"
-                    name="poblacion"
-                  >
-                    <option value="Sanlúcar de Barrameda">
-                      Sanlúcar de Barrameda
-                    </option>
-                    <option value="Chipiona">Chipiona</option>
-                  </select>
-                </div>
-
-                <div id="divDireccion" class="col-sm-4">
-                  <label class="form-label" for="direccion">Dirección*</label>
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="direccion"
-                    name="direccion"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato de la dirección erróneo.
-                  </div>
-                </div>
-
-                <div id="divCodPostal" class="col-sm-4">
-                  <label class="form-label" for="codigoPostal"
-                    >Código Postal*</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="codigoPostal"
-                    name="codigoPostal"
-                    minlength="5"
-                    maxlength="5"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del código postal erróneo.
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <label class="btn btn-primary btn-sm" for="delanteDNI"
-                  >Subir imagen</label
+                <label for="mismosDatosNo">No</label>
+                <br />
+                <button
+                  class="btn btn-primary btn-sm"
+                  type="button"
+                  onclick="mostrarFormulario(2)"
                 >
-                <label class="form-label">DNI por delante</label>
-                <input
-                  class="form-control mb-3"
-                  type="file"
-                  id="delanteDNI"
-                  name="delanteDNI"
-                  hidden
-                />
-              </div>
+                  Siguiente
+                </button>
+              </fieldset>
+            </div>
 
-              <div>
-                <label class="btn btn-primary btn-sm" for="detrasDNI"
-                  >Subir imagen</label
-                >
-                <label for="detrasDNI">DNI por detrás</label>
-                <input
-                  type="file"
-                  id="detrasDNI"
-                  name="detrasDNI"
-                  hidden
-                /><br />
-              </div>
+            <div id="formulario2" style="display: none">
+              <fieldset>
+                <h2 class="text-center font-weight-bold mb-4">
+                  Datos de Cliente Facturación
+                </h2>
 
-              <br />
+                <div class="row">
+                  <div id="divNombreFac" class="col-sm-4">
+                    <label class="form-label" for="nombreFac">Nombre*</label>
+                    <br />
+                    <span id="errorNombreFac" class="text-danger"></span>
+                    <input
+                      class="form-control"
+                      type="text"
+                      id="nombreFac"
+                      name="nombreFac"
+                      placeholder="Nombre"
+                    /><br />
+                    <div class="invalid-feedback mb-3">
+                      Formato del nombre erróneo.
+                    </div>
+                  </div>
 
-              <p>¿Quieres usar los mismos datos para la facturacion?</p>
-              <input
-                class="form-check-input"
-                type="radio"
-                name="datos"
-                id="mismosDatosSi"
-                checked
-              />
-              <label for="mismosDatosSi">Sí</label> <br />
-              <input
-                class="form-check-input mb-3"
-                type="radio"
-                name="datos"
-                id="mismosDatosNo"
-              />
-              <label for="mismosDatosNo">No</label>
-              <br />
+                  <div id="divApellido1Fac" class="col-sm-4">
+                    <label class="form-label" for="apellido1Fac"
+                      >Primer apellido*</label
+                    >
+                    <span id="errorApellido1Fac" class="text-danger"></span>
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="apellido1Fac"
+                      name="apellido1Fac"
+                      placeholder="Primer apellido"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del nombre erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divApellido2Fac" class="col-sm-4">
+                    <label class="form-label" for="apellido2Fac"
+                      >Segundo apellido*</label
+                    >
+                    <span id="errorApellido2Fac" class="text-danger"></span>
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="apellido2Fac"
+                      name="apellido2Fac"
+                      placeholder="Segundo apellido"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del nombre erróneo.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <label class="form-label" for="sexoFac">Sexo</label>
+                    <select
+                      class="form-select mb-3"
+                      id="sexoFac"
+                      name="sexoFac"
+                    >
+                      <option value="Hombre">Hombre</option>
+                      <option value="Mujer">Mujer</option>
+                    </select>
+                  </div>
+
+                  <div id="divFechaNacimientoFac" class="col-sm-6">
+                    <label class="form-label" for="fechaNacimientoFac"
+                      >Fecha de Nacimiento</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="date"
+                      id="fechaNacimientoFac"
+                      name="fechaNacimientoFac"
+                    />
+                    <div class="invalid-feedback mb-3">Fecha errónea.</div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div id="divDniFac" class="col-sm-6">
+                    <label class="form-label" for="dniFac">DNI*</label>
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="dniFac"
+                      name="dniFac"
+                      placeholder="DNI"
+                      maxlength="9"
+                      minlength="9"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del DNI erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divCorreoFac" class="col-sm-6">
+                    <label class="form-label" for="correoFac"
+                      >Correo electrónico</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="correoFac"
+                      name="correoFac"
+                      placeholder="correo@correo"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del correo erróneo.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div id="divTelefonoFijoFac" class="col-sm-6">
+                    <label class="form-label" for="telefonoFijoFac"
+                      >Teléfono Fijo</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="tel"
+                      id="telefonoFijoFac"
+                      name="telefonoFijoFac"
+                      maxlength="9"
+                      minlength="9"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del telefono fijo erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divTelefonoMovilFac" class="col-sm-6">
+                    <label class="form-label" for="telefonoMovilFac"
+                      >Teléfono Móvil*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="tel"
+                      id="telefonoMovilFac"
+                      name="telefonoMovilFac"
+                      maxlength="9"
+                      minlength="9"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del telefono móvil erróneo.
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <input
+                    type="text"
+                    name="paisFac"
+                    id="paisFac"
+                    value="españa"
+                    hidden
+                  />
+                  <input
+                    type="text"
+                    name="provinciaFac"
+                    id="provinciaFac"
+                    value="Cadiz"
+                    hidden
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-4">
+                    <label class="form-label" for="poblacionFacFalsa"
+                      >Población*</label
+                    >
+                    <select class="form-select mb-3" id="poblacionFacFalsa">
+                      <option value="Sanlúcar de Barrameda" selected="selected">
+                        Sanlúcar de Barrameda
+                      </option>
+                      <option value="Chipiona">Chipiona</option>
+                    </select>
+                  </div>
+
+                  <input
+                    type="text"
+                    id="poblacionFac"
+                    name="poblacionFac"
+                    hidden
+                  />
+
+                  <div id="divDireccionFac" class="col-sm-4">
+                    <label class="form-label" for="direccionFac"
+                      >Dirección*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="direccionFac"
+                      name="direccionFac"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato de la dirección erróna.
+                    </div>
+                  </div>
+
+                  <div id="divCodigoPostalFac" class="col-sm-4">
+                    <label class="form-label" for="codigoPostalFac"
+                      >Código Postal*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      minlength="5"
+                      maxlength="5"
+                      type="text"
+                      id="codigoPostalFac"
+                      name="codigoPostalFac"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del código postal erróneo.
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="btn btn-primary btn-sm" for="delanteDNIFac"
+                    >Subir imagen</label
+                  >
+                  <label class="form-label mb-3">DNI por delante</label>
+                  <input
+                    class="form-control"
+                    type="file"
+                    id="delanteDNIFac"
+                    name="delanteDNIFac"
+                    hidden
+                  />
+                </div>
+
+                <div>
+                  <label class="btn btn-primary btn-sm" for="detrasDNIFac"
+                    >Subir imagen</label
+                  >
+                  <label class="form-label mb-3">DNI por detrás</label>
+                  <input
+                    type="file"
+                    id="detrasDNIFac"
+                    name="detrasDNIFac"
+                    hidden
+                  />
+                </div>
+              </fieldset>
+
+              <button
+                class="btn btn-primary btn-sm"
+                type="button"
+                onclick="mostrarFormulario(1)"
+              >
+                Anterior
+              </button>
+              <button
+                class="btn btn-primary btn-sm"
+                type="button"
+                onclick="mostrarFormulario(3)"
+              >
+                Siguiente
+              </button>
+            </div>
+
+            <div id="formulario3" style="display: none">
+              <fieldset>
+                <h2 class="text-center font-weight-bold mb-4">
+                  Notificaciones del cliente
+                </h2>
+
+                <div class="row">
+                  <div id="divNombreNoti" class="col-sm-4">
+                    <label class="form-label" for="nombreNoti">Nombre*</label>
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="nombreNoti"
+                      name="nombreNoti"
+                      placeholder="Nombre"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del nombre erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divApellido1Noti" class="col-sm-4">
+                    <label class="form-label" for="apellido1Noti"
+                      >Primer pellido*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="apellido1Noti"
+                      name="apellido1Noti"
+                      placeholder="Primer pellido"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del apellido erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divApellido2Noti" class="col-sm-4">
+                    <label class="form-label" for="apellido2Noti"
+                      >Segundo pellido*</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="apellido2Noti"
+                      name="apellido2Noti"
+                      placeholder="Segundo pellido"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del apellido erróneo.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div id="divCorreoNoti" class="col-sm-4">
+                    <label class="form-label" for="correoNoti"
+                      >Correo electrónico</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      id="correoNoti"
+                      name="correoNoti"
+                      placeholder="correo@correo"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del correo erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divTelefonoFijoNoti" class="col-sm-4">
+                    <label class="form-label" for="telefonoFijoNoti"
+                      >Teléfono Fijo</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="tel"
+                      minlength="9"
+                      maxlength="9"
+                      id="telefonoFijoNoti"
+                      name="telefonoFijoNoti"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del teléfono fijo erróneo.
+                    </div>
+                  </div>
+
+                  <div id="divTelefonoMovilNoti" class="col-sm-4">
+                    <label class="form-label" for="telefonoMovilNoti"
+                      >Teléfono Móvil *</label
+                    >
+                    <input
+                      class="form-control mb-3"
+                      type="tel"
+                      minlength="9"
+                      maxlength="9"
+                      id="telefonoMovilNoti"
+                      name="telefonoMovilNoti"
+                    />
+                    <div class="invalid-feedback mb-3">
+                      Formato del teléfono móvil erróneo.
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
               <button
                 class="btn btn-primary btn-sm"
                 type="button"
                 onclick="mostrarFormulario(2)"
               >
+                Anterior
+              </button>
+              <button
+                class="btn btn-primary btn-sm"
+                type="button"
+                onclick="mostrarFormulario(4)"
+              >
                 Siguiente
               </button>
-            </fieldset>
-          </div>
+            </div>
 
-          <div id="formulario2" style="display: none">
-            <fieldset>
-              <h2 class="text-center font-weight-bold mb-4">
-                Datos de Cliente Facturación
-              </h2>
+            <div id="formulario4" style="display: none">
+              <h2 class="text-center font-weight-bold mb-4">Forma de pago</h2>
+              <p class="form-check-label mb-3">
+                ¿Elija que método de pago desea usar?
+              </p>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="pago"
+                value="efectivo"
+                id="efectivo"
+                onclick="limpiar('contenedorIban')"
+                required
+              />
+              <label class="form-check-label" for="efectivo">efectivo</label>
+              <br />
 
-              <div class="row">
-                <div id="divNombreFac" class="col-sm-4">
-                  <label class="form-label" for="nombreFac">Nombre*</label>
-                  <br />
-                  <span id="errorNombreFac" class="text-danger"></span>
-                  <input
-                    class="form-control"
-                    type="text"
-                    id="nombreFac"
-                    name="nombreFac"
-                    placeholder="Nombre"
-                  /><br />
-                  <div class="invalid-feedback mb-3">
-                    Formato del nombre erróneo.
-                  </div>
-                </div>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="pago"
+                value="Transferencia_bancaria"
+                id="Transferencia"
+                onclick="limpiar('contenedorIban')"
+              />
+              <label class="form-check-label" for="Transferencia"
+                >Transferencia bancaria</label
+              >
+              <br />
 
-                <div id="divApellido1Fac" class="col-sm-4">
-                  <label class="form-label" for="apellido1Fac"
-                    >Primer apellido*</label
-                  >
-                  <span id="errorApellido1Fac" class="text-danger"></span>
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="apellido1Fac"
-                    name="apellido1Fac"
-                    placeholder="Primer apellido"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del nombre erróneo.
-                  </div>
-                </div>
+              <input
+                class="form-check-input"
+                type="radio"
+                value="TPV"
+                name="pago"
+                id="tpv"
+                onclick="limpiar('contenedorIban')"
+              />
+              <label class="form-check-label" for="tpv">TPV</label> <br />
 
-                <div id="divApellido2Fac" class="col-sm-4">
-                  <label class="form-label" for="apellido2Fac"
-                    >Segundo apellido*</label
-                  >
-                  <span id="errorApellido2Fac" class="text-danger"></span>
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="apellido2Fac"
-                    name="apellido2Fac"
-                    placeholder="Segundo apellido"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del nombre erróneo.
-                  </div>
-                </div>
-              </div>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="pago"
+                value="Iban"
+                id="domiciliacionBancaria"
+                onclick="mostrarIban()"
+              />
+              <label class="form-check-label" for="domiciliacionBancaria"
+                >domiciliacion Bancaria</label
+              >
+              <br />
+              <br />
+              <div id="contenedorIban" class="" style="display: none"></div>
 
-              <div class="row">
-                <div class="col-sm-6">
-                  <label class="form-label" for="sexoFac">Sexo</label>
-                  <select class="form-select mb-3" id="sexoFac" name="sexoFac">
-                    <option value="Hombre">Hombre</option>
-                    <option value="Mujer">Mujer</option>
-                  </select>
-                </div>
+              <div id="inputIban"></div>
+              <br />
 
-                <div id="divFechaNacimientoFac" class="col-sm-6">
-                  <label class="form-label" for="fechaNacimientoFac"
-                    >Fecha de Nacimiento</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="date"
-                    id="fechaNacimientoFac"
-                    name="fechaNacimientoFac"
-                  />
-                  <div class="invalid-feedback mb-3">Fecha errónea.</div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div id="divDniFac" class="col-sm-6">
-                  <label class="form-label" for="dniFac">DNI*</label>
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="dniFac"
-                    name="dniFac"
-                    placeholder="DNI"
-                    maxlength="9"
-                    minlength="9"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del DNI erróneo.
-                  </div>
-                </div>
-
-                <div id="divCorreoFac" class="col-sm-6">
-                  <label class="form-label" for="correoFac"
-                    >Correo electrónico</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="correoFac"
-                    name="correoFac"
-                    placeholder="correo@correo"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del correo erróneo.
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div id="divTelefonoFijoFac" class="col-sm-6">
-                  <label class="form-label" for="telefonoFijoFac"
-                    >Teléfono Fijo</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="tel"
-                    id="telefonoFijoFac"
-                    name="telefonoFijoFac"
-                    maxlength="9"
-                    minlength="9"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del telefono fijo erróneo.
-                  </div>
-                </div>
-
-                <div id="divTelefonoMovilFac" class="col-sm-6">
-                  <label class="form-label" for="telefonoMovilFac"
-                    >Teléfono Móvil*</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="tel"
-                    id="telefonoMovilFac"
-                    name="telefonoMovilFac"
-                    maxlength="9"
-                    minlength="9"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del telefono móvil erróneo.
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <input
-                  type="text"
-                  name="paisFac"
-                  id="paisFac"
-                  value="españa"
-                  hidden
-                />
-                <input
-                  type="text"
-                  name="provinciaFac"
-                  id="provinciaFac"
-                  value="Cadiz"
-                  hidden
-                />
-              </div>
-
-              <div class="row">
-                <div class="col-sm-4">
-                  <label class="form-label" for="poblacionFacFalsa"
-                    >Población*</label
-                  >
-                  <select class="form-select mb-3" id="poblacionFacFalsa">
-                    <option value="Sanlúcar de Barrameda" selected="selected">
-                      Sanlúcar de Barrameda
-                    </option>
-                    <option value="Chipiona">Chipiona</option>
-                  </select>
-                </div>
-
-                <input
-                  type="text"
-                  id="poblacionFac"
-                  name="poblacionFac"
-                  hidden
-                />
-
-                <div id="divDireccionFac" class="col-sm-4">
-                  <label class="form-label" for="direccionFac"
-                    >Dirección*</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="direccionFac"
-                    name="direccionFac"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato de la dirección erróna.
-                  </div>
-                </div>
-
-                <div id="divCodigoPostalFac" class="col-sm-4">
-                  <label class="form-label" for="codigoPostalFac"
-                    >Código Postal*</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    minlength="5"
-                    maxlength="5"
-                    type="text"
-                    id="codigoPostalFac"
-                    name="codigoPostalFac"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del código postal erróneo.
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <label class="btn btn-primary btn-sm" for="delanteDNIFac"
-                  >Subir imagen</label
-                >
-                <label class="form-label mb-3">DNI por delante</label>
-                <input
-                  class="form-control"
-                  type="file"
-                  id="delanteDNIFac"
-                  name="delanteDNIFac"
-                  hidden
-                />
-              </div>
-
-              <div>
-                <label class="btn btn-primary btn-sm" for="detrasDNIFac"
-                  >Subir imagen</label
-                >
-                <label class="form-label mb-3">DNI por detrás</label>
-                <input
-                  type="file"
-                  id="detrasDNIFac"
-                  name="detrasDNIFac"
-                  hidden
-                />
-              </div>
-            </fieldset>
-
-            <button
-              class="btn btn-primary btn-sm"
-              type="button"
-              onclick="mostrarFormulario(1)"
-            >
-              Anterior
-            </button>
-            <button
-              class="btn btn-primary btn-sm"
-              type="button"
-              onclick="mostrarFormulario(3)"
-            >
-              Siguiente
-            </button>
-          </div>
-
-          <div id="formulario3" style="display: none">
-            <fieldset>
-              <h2 class="text-center font-weight-bold mb-4">
-                Notificaciones del cliente
-              </h2>
-
-              <div class="row">
-                <div id="divNombreNoti" class="col-sm-4">
-                  <label class="form-label" for="nombreNoti">Nombre*</label>
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="nombreNoti"
-                    name="nombreNoti"
-                    placeholder="Nombre"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del nombre erróneo.
-                  </div>
-                </div>
-
-                <div id="divApellido1Noti" class="col-sm-4">
-                  <label class="form-label" for="apellido1Noti"
-                    >Primer pellido*</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="apellido1Noti"
-                    name="apellido1Noti"
-                    placeholder="Primer pellido"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del apellido erróneo.
-                  </div>
-                </div>
-
-                <div id="divApellido2Noti" class="col-sm-4">
-                  <label class="form-label" for="apellido2Noti"
-                    >Segundo pellido*</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="apellido2Noti"
-                    name="apellido2Noti"
-                    placeholder="Segundo pellido"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del apellido erróneo.
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div id="divCorreoNoti" class="col-sm-4">
-                  <label class="form-label" for="correoNoti"
-                    >Correo electrónico</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="text"
-                    id="correoNoti"
-                    name="correoNoti"
-                    placeholder="correo@correo"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del correo erróneo.
-                  </div>
-                </div>
-
-                <div id="divTelefonoFijoNoti" class="col-sm-4">
-                  <label class="form-label" for="telefonoFijoNoti"
-                    >Teléfono Fijo</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="tel"
-                    minlength="9"
-                    maxlength="9"
-                    id="telefonoFijoNoti"
-                    name="telefonoFijoNoti"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del teléfono fijo erróneo.
-                  </div>
-                </div>
-
-                <div id="divTelefonoMovilNoti" class="col-sm-4">
-                  <label class="form-label" for="telefonoMovilNoti"
-                    >Teléfono Móvil *</label
-                  >
-                  <input
-                    class="form-control mb-3"
-                    type="tel"
-                    minlength="9"
-                    maxlength="9"
-                    id="telefonoMovilNoti"
-                    name="telefonoMovilNoti"
-                  />
-                  <div class="invalid-feedback mb-3">
-                    Formato del teléfono móvil erróneo.
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-            <button
-              class="btn btn-primary btn-sm"
-              type="button"
-              onclick="mostrarFormulario(2)"
-            >
-              Anterior
-            </button>
-            <button
-              class="btn btn-primary btn-sm"
-              type="button"
-              onclick="mostrarFormulario(4)"
-            >
-              Siguiente
-            </button>
-          </div>
-
-          <div id="formulario4" style="display: none">
-            <h2 class="text-center font-weight-bold mb-4">Forma de pago</h2>
-            <p class="form-check-label mb-3">
-              ¿Elija que método de pago desea usar?
-            </p>
+              <button
+                class="btn btn-primary btn-sm"
+                id="botonAnterior"
+                type="button"
+                onclick="mostrarFormulario(3)"
+              >
+                Anterior
+              </button>
+              <button
+                class="btn btn-primary btn-sm"
+                id="directo1"
+                type="button"
+                onclick="mostrarFormulario(1)"
+                hidden
+              >
+                Volver
+              </button>
+            </div>
+            <br />
             <input
-              class="form-check-input"
-              type="radio"
-              name="pago"
-              value="efectivo"
-              id="efectivo"
-              onclick="limpiar('contenedorIban')"
-              required
-            />
-            <label class="form-check-label" for="efectivo">efectivo</label>
-            <br />
-
-            <input
-              class="form-check-input"
-              type="radio"
-              name="pago"
-              value="Transferencia_bancaria"
-              id="Transferencia"
-              onclick="limpiar('contenedorIban')"
-            />
-            <label class="form-check-label" for="Transferencia"
-              >Transferencia bancaria</label
-            >
-            <br />
-
-            <input
-              class="form-check-input"
-              type="radio"
-              value="TPV"
-              name="pago"
-              id="tpv"
-              onclick="limpiar('contenedorIban')"
-            />
-            <label class="form-check-label" for="tpv">TPV</label> <br />
-
-            <input
-              class="form-check-input"
-              type="radio"
-              name="pago"
-              value="Iban"
-              id="domiciliacionBancaria"
-              onclick="mostrarIban()"
-            />
-            <label class="form-check-label" for="domiciliacionBancaria"
-              >domiciliacion Bancaria</label
-            >
-            <br />
-            <br />
-            <div id="contenedorIban" class="" style="display: none"></div>
-
-            <div id="inputIban"></div>
-            <br />
-
-            <button
               class="btn btn-primary btn-sm"
-              id="botonAnterior"
               type="button"
-              onclick="mostrarFormulario(3)"
-            >
-              Anterior
-            </button>
-            <button
-              class="btn btn-primary btn-sm"
-              id="directo1"
-              type="button"
-              onclick="mostrarFormulario(1)"
+              id="enviarForm"
+              value="Contratar"
               hidden
-            >
-              Volver
-            </button>
-          </div>
-          <br />
-          <input
-            class="btn btn-primary btn-sm"
-            type="button"
-            id="enviarForm"
-            value="Contratar"
-            hidden
-          />
+            />
 
-          <div class="modal" id="myModal">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">¿Está seguro de que estos son los datos correctos?</h5>
-                  <button
-                    id="cerrarModal"
+            <div class="modal" id="myModal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">
+                      ¿Está seguro de que estos son los datos correctos?
+                    </h5>
+                    <button
+                      id="cerrarModal"
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true"></span>
+                    </button>
+                  </div>
+                  <div class="modal-footer">
+                    <button
                     type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true"></span>
-                  </button>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="submit"
-                    class="btn btn-primary btn-sm"
-                    id=""
-                    onclick="validarFormulario(event)"
-                  >
-                    Si
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-danger btn-sm"
-                    data-bs-dismiss="modal"
-                    id="noDatos"
-                  >
-                    No
-                  </button>
+                      class="btn btn-primary btn-sm"
+                      id=""
+                      onclick="validarFormulario(event)"
+                    >
+                      Si
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger btn-sm"
+                      data-bs-dismiss="modal"
+                      id="noDatos"
+                    >
+                      No
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
+          </form>
+        </div>
+
+        <div id="pintar_tablas" hidden>
+          <table id="tabla_cliente" class="table table-striped">
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">DNI</th>
+              <th scope="col">Dirección</th>
+            </tr>
+          </table>
+          <br />
+          <h4>Selecciona un nuevo producto:</h4>
+
+          <select id="productSelect"></select>
+
+          <div class="table-responsive-sm">
+            <table id="tabla_productos" class="table">
+              <tr>
+                <th scope="col">Servicio</th>
+                <th scope="col">Número móvil/fijo</th>
+                <th scope="col" colspan="2">Acciones</th>
+              </tr>
+            </table>
           </div>
 
-          <!-- onclick="validarFormulario(event)" -->
-        </form>
+          <div id="modalTablas" class="modal">
+            <div class="modal-content">
+              <span class="close">×</span>
+              <form action="#" id="form_product">
+                <input type="text" name="producto" id="productoModal" hidden />
+                <div id="contenedor"></div>
+                <button onclick="createJson()">Guardar Producto</button>
+              </form>
+            </div>
+          </div>
+
+          <br />
+          <table>
+            <tr></tr>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -879,29 +922,76 @@
             '<input type="text" name="Iban" id="IbanOculto" hidden>';
         });
 
-      /* 
-        const form = document.getElementById("myForm");
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-            const formData = new FormData(form);
-            fetch("https://script.google.com/macros/s/AKfycbyJP6B3zQRY65zTWTa_Vo_w7sBhwhUgfev--dDcK48fkZXOxkWwlsl9GJkOTqPqVBqBug/exec", {
-                method: "POST",
-                body: formData,
-            })
-                .then(response => response.text())
-                .then(data => {
-                    console.log(data);
-                    // You can show a success message or redirect the user after processing the data in the Google Apps Script.
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                });
-        }); */
+      // Obtén el modal
+      var modal = document.getElementById("modalTablas");
+
+      // Obtén el select
+      var select = document.getElementById("productSelect");
+
+      // Cuando el usuario selecciona un producto, abre el modal
+      select.onchange = function () {
+        let info = document.getElementById("productSelect").value;
+        switch (info) {
+          case "Telefonía fija":
+            document.getElementById("productoModal").value = info;
+            limpiarContenedor();
+            opcionesFijo();
+            modal.style.display = "block";
+            break;
+
+          case "Internet":
+            document.getElementById("productoModal").value = info;
+            limpiarContenedor();
+            opcionesInternet();
+            modal.style.display = "block";
+            break;
+
+          case "Movil":
+            document.getElementById("productoModal").value = info;
+            limpiarContenedor();
+            opcionesMovil();
+            modal.style.display = "block";
+            break;
+
+          case "Otros":
+            document.getElementById("productoModal").value = info;
+            limpiarContenedor();
+            opcionesOtros();
+            modal.style.display = "block";
+            break;
+
+          case "Elija producto":
+            limpiarContenedor();
+            break;
+        }
+      };
+
+      // Obtén el elemento <span> que cierra el modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // Cuando el usuario hace clic en <span> (x), cierra el modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // Cuando el usuario hace clic en cualquier lugar fuera del modal, cierra el modal
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="funcional.js"></script>
+    <script src="fijo.js"></script>
+    <script src="internet.js"></script>
+    <script src="movil.js"></script>
+    <script src="otros.js"></script>
+    <script src="eventos_nuevos.js"></script>
+    <script src="tablas.js"></script>
   </body>
 </html>

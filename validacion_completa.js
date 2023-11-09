@@ -231,8 +231,8 @@ function validarFormCheck(event) {
 
   if (error_formulario.length === 0) {
     alert("Validación correcta");
-    excel();
-  } else {
+/*     excel();
+ */  } else {
     alert("Error en la validacion de datos compruebe los campos");
 
     error_formulario.sort(function (a, b) {
@@ -272,7 +272,7 @@ function validarSinCheck(event) {
 
   if (error_formulario.length === 0) {
     alert("Validación correcta");
-    excel();
+/*     excel(); */
   } else {
     alert("Error en la validacion de datos compruebe los campos");
 
@@ -288,9 +288,13 @@ function validarSinCheck(event) {
 function validarFormulario(event) {
   if (solo_cliente) {
     validarFormCheck(event);
+
   } else {
     validarSinCheck(event);
   }
+
+  document.getElementById('pintar_cliente').setAttribute('hidden', 'hidden')
+  document.getElementById('pintar_tablas').removeAttribute('hidden')
 
   document.getElementById('myModal').style.display = 'none';
 
@@ -316,7 +320,7 @@ function limpiar(nombre) {
 
 
 
-function excel(){
+/* function excel(){
     const form = document.getElementById("myForm");
         form.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -335,4 +339,4 @@ function excel(){
                     console.error("Error:", error);
                 });
         });
-}
+} */

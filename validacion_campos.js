@@ -426,7 +426,7 @@ function validarIBAN(iban) {
 }
 
 
-const select = document.getElementById("comercial");
-select.onchange =  function() {
+const selectComerial = document.getElementById("comercial");
+selectComerial.onchange =  function() {
   document.getElementById("formulario1").removeAttribute("hidden");
 };
