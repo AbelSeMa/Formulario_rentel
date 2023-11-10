@@ -1,0 +1,25 @@
+{
+    "productos": {
+        "linea movil": {
+            "linea1": {
+                "producto": "movil",
+                "servicio": "Alta movil",
+                "numero sim": "8746889565",
+                "tarifa": "12 GB"
+            },
+            "linea2": {
+                "producto": "movil",
+                "servicio": "Alta movil",
+                "numero sim": "8746889565",
+                "tarifa": "12 GB"
+            }
+        },
+        "Internet":{
+            "wifi":{
+                "producto": "wifi",
+                "servicio": "Alta internet",
+                "tarifa": "Básico"
+            }
+        }
+    }
+}

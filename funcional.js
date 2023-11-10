@@ -23,16 +23,38 @@ function createJson(event) {
 
 
 function obtenerJson() {
-    const datosJSON = sessionStorage.getItem('contrato')
-    const enlaceDescarga = document.createElement('a');
+// Recupera tus datos del sessionStorage
+let misDatos = JSON.parse(sessionStorage.getItem("misDatos"));
 
-    // Paso 4: Configurar el enlace de descarga
-    enlaceDescarga.setAttribute('href', 'data:text/json;charset=utf-8,' + encodeURIComponent(datosJSON));
-    enlaceDescarga.setAttribute('Download', 'datos.json');
-    enlaceDescarga.innerText = 'Descargar Datos JSON';
+// Inicializa tu nuevo objeto
+let nuevoJson = {
+  "productos": {
+    "linea movil": {},
+    "Internet": {},
+    "linea fija": {}
+  }
+};
 
-    // Agregar el enlace de descarga a la página
-    document.body.appendChild(enlaceDescarga);
+// Itera sobre tus datos
+for (let i = 0; i < misDatos.length; i++) {
+  let dato = misDatos[i];
+
+  // Decide a qué categoría pertenece cada producto
+  let categoria;
+  if (dato.producto === "Movil") {
+    categoria = "linea movil";
+  } else if (dato.producto === "wifi") {
+    categoria = "Internet";
+  } else if (dato.producto === "Telefonía fija") {
+    categoria = "linea fija";
+  }
+
+  // Añade el producto a la categoría correspondiente
+  nuevoJson.productos[categoria]["producto" + (i+1)] = dato;
+}
+
+// Ahora, nuevoJson tiene la estructura que deseas
+console.log(nuevoJson);
 }
 
 
@@ -64,12 +86,10 @@ function limpiarContenedor() {
 
 function enviarProducto() {
     createJson();
-    limpiarContenedor();
-    generarTablaProducto();
-
      // Obtén el modal
      var modal = document.getElementById("modalTablas");
     modal.style.display = "none";
+    window.location.href = '/productos.html'
 
   }
 
