@@ -18,3 +18,15 @@ document.getElementById('enviarForm').addEventListener('click', function() {
     document.getElementById('myModal').style.display = 'none';
   });
   
+
+
+  function enviarProducto() {
+    createJson();
+    limpiarContenedor();
+    generarTablaProducto();
+
+     // Obtén el modal
+     var modal = document.getElementById("modalTablas");
+    modal.style.display = "none";
+
+  }

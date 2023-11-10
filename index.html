@@ -10,6 +10,7 @@
       href="/rentelfavicon-removebg-preview.png"
     />
     <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css">
     <script src="validacion_completa.js" defer></script>
     <script src="validacion_campos.js" defer></script>
     <script src="modal.js" defer></script>
@@ -861,7 +862,7 @@
               <form action="#" id="form_product">
                 <input type="text" name="producto" id="productoModal" hidden />
                 <div id="contenedor"></div>
-                <button onclick="createJson()">Guardar Producto</button>
+                <button type="button" onclick="enviarProducto()">Guardar Producto</button>
               </form>
             </div>
           </div>
@@ -977,6 +978,7 @@
       // Cuando el usuario hace clic en cualquier lugar fuera del modal, cierra el modal
       window.onclick = function (event) {
         if (event.target == modal) {
+          limpiarContenedor();
           modal.style.display = "none";
         }
       };

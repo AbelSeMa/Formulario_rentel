@@ -1,21 +1,25 @@
-// Obtén los datos del sessionStorage
-let datosCliente = JSON.parse(sessionStorage.getItem('cliente'));
+function generarTablaCliente() {
+    
+    // Obtén los datos del sessionStorage
+    let datosCliente = JSON.parse(sessionStorage.getItem('cliente'));
+    
+    // Rellena la tabla de clientes
+    let tablaClientes = document.getElementById('tabla_cliente');
+    let fila = tablaClientes.insertRow(-1);
+    let celdaNombre = fila.insertCell(0);
+    let celdaApellido = fila.insertCell(1);
+    let celdaDNI = fila.insertCell(2);
+    let celdaDire = fila.insertCell(3)
+    celdaNombre.textContent = datosCliente.nombre;
+    celdaApellido.textContent = datosCliente.apellido1;
+    celdaDNI.textContent = datosCliente.dni;
+    celdaDire.textContent = datosCliente.direccion
+}
+
+
+function generarTablaProducto() {
+    
 let datosProducto = JSON.parse(sessionStorage.getItem('productos'));
-console.log(datosProducto[0])
-
-// Rellena la tabla de clientes
-let tablaClientes = document.getElementById('tabla_cliente');
-let fila = tablaClientes.insertRow(-1);
-let celdaNombre = fila.insertCell(0);
-let celdaApellido = fila.insertCell(1);
-let celdaDNI = fila.insertCell(2);
-let celdaDire = fila.insertCell(3)
-celdaNombre.textContent = datosCliente.nombre;
-celdaApellido.textContent = datosCliente.apellido1;
-celdaDNI.textContent = datosCliente.dni;
-celdaDire.textContent = datosCliente.direccion
-
-
 // Rellena la tabla de productos
 let tablaProductos = document.getElementById('tabla_productos');
 datosProducto.forEach((producto) => {
@@ -51,3 +55,5 @@ datosProducto.forEach((producto) => {
     celdaOpciones.appendChild(iconoModificar);
     celdaOpciones.appendChild(iconoBorrar);
 });
+
+}

@@ -231,6 +231,25 @@ function validarFormCheck(event) {
 
   if (error_formulario.length === 0) {
     alert("Validación correcta");
+    document.getElementById('myModal').style.display = 'none';
+
+    let activeForm = document.getElementById("myForm");
+    const data = new FormData(activeForm);
+  
+    // Recupera el objeto 'cliente' actual desde sessionStorage
+    const cliente = JSON.parse(sessionStorage.getItem("cliente"));
+  
+    const formJSON = Object.fromEntries(data.entries());
+  
+    // Actualiza el objeto 'cliente' con los datos del formulario
+    Object.assign(cliente, formJSON);
+  
+    // Actualiza el objeto 'cliente' en sessionStorage
+    sessionStorage.setItem("cliente", JSON.stringify(cliente));
+
+    generarTablaCliente();
+    document.getElementById('pintar_cliente').setAttribute('hidden', 'hidden')
+    document.getElementById('pintar_tablas').removeAttribute('hidden')
 /*     excel();
  */  } else {
     alert("Error en la validacion de datos compruebe los campos");
@@ -272,6 +291,25 @@ function validarSinCheck(event) {
 
   if (error_formulario.length === 0) {
     alert("Validación correcta");
+    document.getElementById('myModal').style.display = 'none';
+
+    let activeForm = document.getElementById("myForm");
+    const data = new FormData(activeForm);
+  
+    // Recupera el objeto 'cliente' actual desde sessionStorage
+    const cliente = JSON.parse(sessionStorage.getItem("cliente"));
+  
+    const formJSON = Object.fromEntries(data.entries());
+  
+    // Actualiza el objeto 'cliente' con los datos del formulario
+    Object.assign(cliente, formJSON);
+
+    generarTablaCliente();
+  
+    // Actualiza el objeto 'cliente' en sessionStorage
+    sessionStorage.setItem("cliente", JSON.stringify(cliente));
+    document.getElementById('pintar_cliente').setAttribute('hidden', 'hidden')
+    document.getElementById('pintar_tablas').removeAttribute('hidden')
 /*     excel(); */
   } else {
     alert("Error en la validacion de datos compruebe los campos");
@@ -293,11 +331,11 @@ function validarFormulario(event) {
     validarSinCheck(event);
   }
 
-  document.getElementById('pintar_cliente').setAttribute('hidden', 'hidden')
-  document.getElementById('pintar_tablas').removeAttribute('hidden')
+
 
   document.getElementById('myModal').style.display = 'none';
 
+  /*   
   let activeForm = document.getElementById("myForm");
   const data = new FormData(activeForm);
 
@@ -310,7 +348,7 @@ function validarFormulario(event) {
   Object.assign(cliente, formJSON);
 
   // Actualiza el objeto 'cliente' en sessionStorage
-  sessionStorage.setItem("cliente", JSON.stringify(cliente));
+  sessionStorage.setItem("cliente", JSON.stringify(cliente)); */
 }
 
 function limpiar(nombre) {
