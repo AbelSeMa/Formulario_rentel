@@ -10,7 +10,7 @@
       href="/rentelfavicon-removebg-preview.png"
     />
     <link rel="stylesheet" href="bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <script src="validacion_completa.js" defer></script>
     <script src="validacion_campos.js" defer></script>
     <script src="modal.js" defer></script>
@@ -857,13 +857,20 @@
           </div>
 
           <div id="modalTablas" class="modal">
-            <div class="modal-content">
-              <span class="close">×</span>
-              <form action="#" id="form_product">
-                <input type="text" name="producto" id="productoModal" hidden />
-                <div id="contenedor"></div>
-                <button type="button" onclick="enviarProducto()">Guardar Producto</button>
-              </form>
+            <div class="modal-dialog">              
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4>Titulo</h4>
+                  <span class="btn-close">X</span>
+                </div>
+                <div class="modal-body">
+                  <form action="#" id="form_product">
+                    <input type="text" name="producto" id="productoModal" hidden />
+                    <div id="contenedor"></div>
+                    <button type="button" onclick="enviarProducto()">Guardar Producto</button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
 
