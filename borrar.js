@@ -11,7 +11,4 @@ let productos = JSON.parse(sessionStorage.getItem('productos'));
 
 productos.splice(miParametro, 1);
 
-// Guarda el array actualizado de nuevo en el sessionStorage
-sessionStorage.setItem('productos', JSON.stringify(productos));
-
 window.location.href = '/productos.html'

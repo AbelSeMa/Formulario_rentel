@@ -246,10 +246,6 @@ function validarFormCheck(event) {
   
     // Actualiza el objeto 'cliente' en sessionStorage
     sessionStorage.setItem("cliente", JSON.stringify(cliente));
-
-    generarTablaCliente();
-    document.getElementById('pintar_cliente').setAttribute('hidden', 'hidden')
-    document.getElementById('pintar_tablas').removeAttribute('hidden')
 /*     excel();
  */  } else {
     alert("Error en la validacion de datos compruebe los campos");
@@ -304,12 +300,6 @@ function validarSinCheck(event) {
     // Actualiza el objeto 'cliente' con los datos del formulario
     Object.assign(cliente, formJSON);
 
-    generarTablaCliente();
-  
-    // Actualiza el objeto 'cliente' en sessionStorage
-    sessionStorage.setItem("cliente", JSON.stringify(cliente));
-    document.getElementById('pintar_cliente').setAttribute('hidden', 'hidden')
-    document.getElementById('pintar_tablas').removeAttribute('hidden')
 /*     excel(); */
   } else {
     alert("Error en la validacion de datos compruebe los campos");

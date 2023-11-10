@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+  </head>
+  <body>
+    <div id="pintar_tablas">
+      <table id="tabla_cliente" class="table table-striped">
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Dirección</th>
+        </tr>
+      </table>
+      <br />
+      <h4>Selecciona un nuevo producto:</h4>
+
+      <select id="productSelect"></select>
+
+      <div class="table-responsive-sm">
+        <table id="tabla_productos" class="table">
+          <tr id="titulos_columnas">
+            <th scope="col">Servicio</th>
+            <th scope="col">Número móvil/fijo</th>
+            <th scope="col" colspan="2">Acciones</th>
+          </tr>
+        </table>
+      </div>
+
+      <div id="modalTablas" class="modal">
+        <div class="modal-content">
+          <span class="close">×</span>
+          <form action="#" id="form_product">
+            <input type="text" name="producto" id="productoModal" hidden />
+            <div id="contenedor"></div>
+            <button type="button" onclick="enviarProducto()">
+              Guardar Producto
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <br />
+      <table>
+        <tr></tr>
+      </table>
+    </div>
+    <script>
+      // Obtén el modal
+      var modal = document.getElementById("modalTablas");
+      // Obtén el select
+      var select = document.getElementById("productSelect");
+      // Cuando el usuario selecciona un producto, abre el modal
+      select.onchange = function () {
+        let info = document.getElementById("productSelect").value;
+        switch (info) {
+          case "Telefonía fija":
+            document.getElementById("productoModal").value = info;
+            limpiarContenedor();
+            opcionesFijo();
+            modal.style.display = "block";
+            break;
+
+          case "Internet":
+            document.getElementById("productoModal").value = info;
+            limpiarContenedor();
+            opcionesInternet();
+            modal.style.display = "block";
+            break;
+
+          case "Movil":
+            document.getElementById("productoModal").value = info;
+            limpiarContenedor();
+            opcionesMovil();
+            modal.style.display = "block";
+            break;
+
+          case "Otros":
+            document.getElementById("productoModal").value = info;
+            limpiarContenedor();
+            opcionesOtros();
+            modal.style.display = "block";
+            break;
+
+          case "Elija producto":
+            limpiarContenedor();
+            break;
+        }
+      };
+
+      // Obtén el elemento <span> que cierra el modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // Cuando el usuario hace clic en <span> (x), cierra el modal
+      span.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // Cuando el usuario hace clic en cualquier lugar fuera del modal, cierra el modal
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          limpiarContenedor();
+          modal.style.display = "none";
+        }
+      };
+    </script>
+    <script src="funcional.js"></script>
+    <script src="fijo.js"></script>
+    <script src="internet.js"></script>
+    <script src="movil.js"></script>
+    <script src="otros.js"></script>
+    <script src="eventos_nuevos.js"></script>
+    <script src="tablas.js"></script>
+    <script src="modal.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

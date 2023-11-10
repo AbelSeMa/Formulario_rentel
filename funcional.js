@@ -62,6 +62,16 @@ function limpiarContenedor() {
     }
 }
 
+function enviarProducto() {
+    createJson();
+    limpiarContenedor();
+    generarTablaProducto();
+
+     // Obtén el modal
+     var modal = document.getElementById("modalTablas");
+    modal.style.display = "none";
+
+  }
 
 
 
