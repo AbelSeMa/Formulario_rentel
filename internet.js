@@ -310,9 +310,9 @@ function antiguoTitularInternet() {
 
     // Define los datos para los elementos de entrada
     var datos = [
-        { titulo: 'Nombre del antiguo titular', nombre: 'nombre_antiguo_titular_fijo', placeholder: 'Nombre del antiguo titular' },
-        { titulo: 'Apellidos del antiguo titular', nombre: 'apellidos_antiguo_titular_fijo', placeholder: 'Apellidos antiguo titular' },
-        { titulo: 'DNI del antiguo titular', nombre: 'DNI_antiguo_titular_fijo', placeholder: 'DNI antiguo titular' }
+        { titulo: 'Nombre del antiguo titular', nombre: 'nombre_antiguo_titular_internet', placeholder: 'Nombre del antiguo titular' },
+        { titulo: 'Apellidos del antiguo titular', nombre: 'apellidos_antiguo_titular_internet', placeholder: 'Apellidos antiguo titular' },
+        { titulo: 'DNI del antiguo titular', nombre: 'DNI_antiguo_titular_internet', placeholder: 'DNI antiguo titular' }
     ];
 
     // Crea los elementos de entrada
