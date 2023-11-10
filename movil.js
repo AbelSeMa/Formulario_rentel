@@ -1,8 +1,11 @@
 function opcionesMovil() {
     // Crear un elemento div
     let div = document.createElement('div');
+    div.id = "contenedor_estilo_movil";
+    div.className = "text-start p-3";
     let div2 = document.createElement('div');
     div2.id = "contenido_movil";
+    div2.className = "mx-4"
 
     // Crear un elemento h4
     let h4 = document.createElement('h4');
@@ -162,7 +165,7 @@ function tarifaMovil() {
     parentElement.appendChild(br);
 
     let radioPack = document.createElement("input");
-    radioPack.className = "form-check-input";
+    radioPack.className = "form-check-input mb-3";
     radioPack.type = "radio";
     radioPack.name = "tarifa";
     radioPack.id = "radio_pack";

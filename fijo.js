@@ -1,8 +1,11 @@
 function opcionesFijo() {
     // Crear un elemento div
     let div = document.createElement('div');
+    div.id = "contenedor_estilo_fijo";
+    div.className = "text-start p-3";
     let div2 = document.createElement('div');
     div2.id = "contenido_fijo";
+    div2.className = "mx-4";
 
     // Crear un elemento h4
     let h4 = document.createElement('h4');
@@ -106,7 +109,7 @@ function tarifasFijo() {
     // Crea el elemento select
     let select = document.createElement("select");
     select.name = "tarifa";
-    select.className = "form-select mb-3 mr-5";
+    select.className = "form-select mb-3";
 
     // Crea los elementos de entrada
     tarifas.forEach(function (dato, i) {
@@ -123,7 +126,6 @@ function tarifasFijo() {
 
 function numTlfnFijo() {
     var elementParent = document.getElementById('contenido_fijo');
-    elementParent.className = "mx-4";
     // crear el div contenedor del campo telefono
     var telefonoDiv = document.createElement("div");
     telefonoDiv.id = "telefono_fijo";
@@ -320,7 +322,7 @@ function titularPortabilidadFijo() {
     // Obtén el div con id "mismo_titular_fijo"
     var mismoTitularDiv = document.createElement('div');
     mismoTitularDiv.id = 'mismo_titular'
-
+    mismoTitularDiv.className = "text-start p-3"
     // Crear un elemento h4 para la pregunta
     var preguntaH4 = document.createElement("h4");
     preguntaH4.textContent = "¿La portabilidad se hará sobre el mismo titular?";

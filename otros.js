@@ -1,8 +1,11 @@
 function opcionesOtros() {
        // Crear un elemento div
        let div = document.createElement('div');
+       div.id = "contenedor_estilo_otros";
+       div.className = "text-start p-3";
        let div2 = document.createElement('div');
        div2.id = "contenido_otros";
+       div2.className = "mx-4"
    
        // Crear un elemento h4
        let h4 = document.createElement('h4');
