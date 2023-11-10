@@ -16,7 +16,7 @@ function opcionesInternet() {
 
     // Array para crear los servicios, cada elemento 
     // del array será un radio
-    let servicios = ['alta internet', 'portabilida internet'];
+    let servicios = ['Alta internet', 'Portabilida internet'];
     let labels = ['Alta nueva', 'Portabilidad'];
 
     for (let i = 0; i < servicios.length; i++) {
@@ -33,7 +33,7 @@ function opcionesInternet() {
         label.htmlFor = servicios[i];
         label.textContent = labels[i];
 
-        if (servicios[i] === 'alta internet') {
+        if (servicios[i] === 'Alta internet') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_internet');
                 // Comprueba si el div padre tiene hijos
@@ -49,7 +49,7 @@ function opcionesInternet() {
             };
         }
 
-        if (servicios[i] === 'portabilida internet') {
+        if (servicios[i] === 'Portabilida internet') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_internet');
                 // Comprueba si el div padre tiene hijos
@@ -152,6 +152,7 @@ function direccionInstalacion() {
     input.type = 'text';
     input.placeholder = 'Dirección de instalación'
     input.classList.add('form-control');
+    input.name = 'direccion_instalacion'
 
     // Inserta el nuevo input en el div
     div2.appendChild(titulo)
