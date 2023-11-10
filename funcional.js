@@ -45,6 +45,7 @@ elegirProducto.forEach((producto) => {
     let opcion = document.createElement('option');
     opcion.value = producto;
     opcion.text = producto;
+    opcion.classList.add('font-weight-bold');
     document.getElementById('productSelect').appendChild(opcion);
 });
 }
