@@ -85,6 +85,7 @@ function tarifasFijo() {
     let tarifaFijo = document.createElement("div");
     tarifaFijo.id = 'tarifa_fijo';
 
+
     // Define los datos para los elementos de entrada
     var tarifas = [
         { tarifa: ' Estándar - prepago' },
@@ -105,7 +106,7 @@ function tarifasFijo() {
     // Crea el elemento select
     let select = document.createElement("select");
     select.name = "tarifa";
-    select.className = "form-select mb-3";
+    select.className = "form-select mb-3 mr-5";
 
     // Crea los elementos de entrada
     tarifas.forEach(function (dato, i) {
@@ -122,7 +123,7 @@ function tarifasFijo() {
 
 function numTlfnFijo() {
     var elementParent = document.getElementById('contenido_fijo');
-
+    elementParent.className = "mx-4";
     // crear el div contenedor del campo telefono
     var telefonoDiv = document.createElement("div");
     telefonoDiv.id = "telefono_fijo";

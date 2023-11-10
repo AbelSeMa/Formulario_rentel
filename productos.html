@@ -7,48 +7,69 @@
     <link rel="stylesheet" href="bootstrap.min.css" />
   </head>
   <body>
-    <div id="pintar_tablas">
-      <table id="tabla_cliente" class="table table-striped">
-        <tr>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellidos</th>
-          <th scope="col">DNI</th>
-          <th scope="col">Dirección</th>
-        </tr>
-      </table>
-      <br />
-      <h4>Selecciona un nuevo producto:</h4>
+    <div class="card col-md-6 text-left mx-auto bg-white shadow">
+      <div class="card-body">
+        <div class="col-md-7 mx-auto">
+          <img
+            src="Logo-Rentel-grande.jpg"
+            class="img-fluid"
+            alt="Responsive image"
+          />
+        </div>
+        <div id="pintar_tablas">
+          <table id="tabla_cliente" class="table table-striped">
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">DNI</th>
+              <th scope="col">Dirección</th>
+            </tr>
+          </table>
+          <br />
+<!--           <h4>Selecciona un nuevo producto:</h4> -->
 
-      <select id="productSelect"></select>
+          <div class="row">
+            <div class="col-sm-4 d-inline">
+              <select id="productSelect" class="form-select mb-3"></select>
+            </div>
+          </div>
 
-      <div class="table-responsive-sm">
-        <table id="tabla_productos" class="table">
-          <tr id="titulos_columnas">
-            <th scope="col">Servicio</th>
-            <th scope="col">Detalles</th>
-            <th scope="col" colspan="2">Acciones</th>
-          </tr>
-        </table>
-      </div>
+          <div class="table-responsive-sm">
+            <table id="tabla_productos" class="table">
+              <tr id="titulos_columnas">
+                <th scope="col">Servicio</th>
+                <th scope="col">Número móvil/fijo</th>
+                <th scope="col" colspan="2">Acciones</th>
+              </tr>
+            </table>
+          </div>
 
-      <div id="modalTablas" class="modal">
-        <div class="modal-content">
-          <span class="close">×</span>
-          <form action="#" id="form_product">
-            <input type="text" name="producto" id="productoModal" hidden />
-            <div id="contenedor"></div>
-            <button type="button" onclick="enviarProducto()">
-              Guardar Producto
-            </button>
-          </form>
+          <div id="modalTablas" class="modal">
+            <div class="modal-dialog">
+
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button class="close btn-close"></button>
+                </div>
+                <form action="#" id="form_product" class="text-center">
+                  <input type="text" name="producto" id="productoModal" hidden />
+                  <div id="contenedor"  >
+
+                  </div>
+                  <button type="button" onclick="enviarProducto()" class="mb-3">
+                    Guardar Producto
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <br />
+          <table>
+            <tr></tr>
+          </table>
         </div>
       </div>
-
-      <br />
-      <table>
-        <tr></tr>
-      </table>
-      <button onclick="obtenerJson()"> JSON </button>
     </div>
 
 

@@ -13,6 +13,7 @@ function opcionesMovil() {
     // del array será un radio
     let servicios = ['Alta movil', 'Portabilidad movil'];
     let labels = ['Alta nueva', 'Portabilidad'];
+    var br = document.createElement("br");
 
     for (let i = 0; i < servicios.length; i++) {
         let input = document.createElement('input');
@@ -60,7 +61,7 @@ function opcionesMovil() {
         }
 
         div.appendChild(input);
-        div.appendChild(label);
+        div.appendChild(label);;
         div.appendChild(document.createElement('br'));
     }
 
