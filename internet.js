@@ -1,8 +1,11 @@
 function opcionesInternet() {
     // Crear un elemento div
     let div = document.createElement('div');
+    div.id = "contenedor_estilo_internet";
+    div.className = "text-start p-3";
     let div2 = document.createElement('div');
     div2.id = "contenido_internet";
+    div2.className = "mx-4"
 
     let titulo = document.getElementById('titulo_modal').textContent = 'Internet'
 
@@ -133,8 +136,8 @@ function direccionInstalacion() {
     // Obtén el div en el que quieres insertar el input
     let div = document.getElementById('contenido_internet');
     let div2 = document.createElement('div');
-    div2.id = 'direccion_instalacion' // Reemplaza 'tuDiv' con el id de tu div
-
+    div2.id = 'direccion_instalacion'  // Reemplaza 'tuDiv' con el id de tu div
+    div2.className ="mb-3"
     // Verifica si el div ya tiene contenido y, si es así, lo borra
     while (div2.firstChild) {
         div2.removeChild(div2.firstChild);
