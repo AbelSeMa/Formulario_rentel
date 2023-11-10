@@ -3,6 +3,8 @@ function opcionesOtros() {
        let div = document.createElement('div');
        let div2 = document.createElement('div');
        div2.id = "contenido_otros";
+
+       let titulo = document.getElementById('titulo_modal').textContent = 'Otros productos'
    
        // Crear un elemento h4
        let h4 = document.createElement('h4');

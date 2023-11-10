@@ -4,6 +4,8 @@ function opcionesInternet() {
     let div2 = document.createElement('div');
     div2.id = "contenido_internet";
 
+    let titulo = document.getElementById('titulo_modal').textContent = 'Internet'
+
     // Crear un elemento h4
     let h4 = document.createElement('h4');
     h4.textContent = 'Servicio contratado';

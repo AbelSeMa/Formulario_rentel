@@ -30,7 +30,7 @@
 
           <div class="row">
             <div class="col-sm-4 d-inline">
-              <select id="productSelect" class="form-select mb-3"></select>
+              <select id="productSelect" class="form-select mb-3" title="seleccion_producto"></select>
             </div>
           </div>
 
@@ -42,6 +42,7 @@
                 <th scope="col" colspan="2">Acciones</th>
               </tr>
             </table>
+            <button type="button" onclick="obtenerJson()">JSON</button>
           </div>
 
           <div id="modalTablas" class="modal">
@@ -49,7 +50,8 @@
 
               <div class="modal-content">
                 <div class="modal-header">
-                  <button class="close btn-close"></button>
+                  <h5 class="modal-title" id="titulo_modal"></h5>
+                  <button type="button" title="cerrar" class="close btn-close"></button>
                 </div>
                 <form action="#" id="form_product" class="text-center">
                   <input type="text" name="producto" id="productoModal" hidden />
@@ -139,7 +141,6 @@
     <script src="internet.js"></script>
     <script src="movil.js"></script>
     <script src="otros.js"></script>
-    <script src="eventos_nuevos.js"></script>
     <script src="tablas.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

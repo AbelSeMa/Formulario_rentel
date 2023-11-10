@@ -1,8 +1,11 @@
 function opcionesFijo() {
     // Crear un elemento div
     let div = document.createElement('div');
+    div.style.textAlign = 'left'
     let div2 = document.createElement('div');
     div2.id = "contenido_fijo";
+
+    let titulo = document.getElementById('titulo_modal').textContent = 'Línea fija'
 
     // Crear un elemento h4
     let h4 = document.createElement('h4');

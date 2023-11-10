@@ -24,7 +24,7 @@ function createJson(event) {
 
 function obtenerJson() {
 // Recupera tus datos del sessionStorage
-let misDatos = JSON.parse(sessionStorage.getItem("misDatos"));
+let misDatos = JSON.parse(sessionStorage.getItem("productos"));
 
 // Inicializa tu nuevo objeto
 let nuevoJson = {
@@ -34,23 +34,37 @@ let nuevoJson = {
     "linea fija": {}
   }
 };
+let contadorMovil = 0;
+let contadorInternet = 0;
+let contadorFijo = 0;
+let contadorOtros = 0;
 
 // Itera sobre tus datos
 for (let i = 0; i < misDatos.length; i++) {
   let dato = misDatos[i];
+  
 
   // Decide a qué categoría pertenece cada producto
   let categoria;
   if (dato.producto === "Movil") {
     categoria = "linea movil";
-  } else if (dato.producto === "wifi") {
+    contadorMovil += 1;
+     // Añade el producto a la categoría correspondiente
+  nuevoJson.productos[categoria][categoria + contadorMovil] = dato;
+  } else if (dato.producto === "Internet") {
     categoria = "Internet";
+    contadorInternet += 1
+
+     // Añade el producto a la categoría correspondiente
+  nuevoJson.productos[categoria][categoria + contadorInternet] = dato;
   } else if (dato.producto === "Telefonía fija") {
     categoria = "linea fija";
+    contadorFijo += 1
+
+     // Añade el producto a la categoría correspondiente
+  nuevoJson.productos[categoria][categoria + contadorFijo] = dato;
   }
 
-  // Añade el producto a la categoría correspondiente
-  nuevoJson.productos[categoria]["producto" + (i+1)] = dato;
 }
 
 // Ahora, nuevoJson tiene la estructura que deseas
