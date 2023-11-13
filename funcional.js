@@ -38,6 +38,8 @@ function obtenerJson() {
       "linea fija": {}
     }
   };
+    
+  
   let contadorMovil = 0;
   let contadorInternet = 0;
   let contadorFijo = 0;
@@ -75,21 +77,6 @@ function obtenerJson() {
   console.log(nuevoJson);
 }
 
-
-// rellena el select de productos
-window.onload = function () {
-  let elegirProducto = ['Elija producto', 'Telefonía fija', 'Internet', 'Movil', 'Otros']
-
-  // Rellena el select
-  elegirProducto.forEach((producto) => {
-    let opcion = document.createElement('option');
-    opcion.value = producto;
-    opcion.text = producto;
-    opcion.classList.add('font-weight-bold');
-    document.getElementById('productSelect').appendChild(opcion);
-  });
-}
-
 function limpiarContenedor() {
   // Obtén el div por su id
   let contenedor = document.getElementById('contenedor');
@@ -121,7 +108,7 @@ function actualizarCliente(numIban) {
 function firmar() {
   let domiciliacionBancaria = document.getElementById("domiciliacionBancaria");
   if (domiciliacionBancaria.checked) {
-    if (validarFormPago(event)) {
+    if (validarFormPago()) {
       let numIban = document.getElementById('ibanOculto').value;
       actualizarCliente(numIban);
     } else {
@@ -136,7 +123,6 @@ function validarIBAN(iban) {
   if (!regexIBAN.test(iban)) {
     contenedorIban.classList.add("has-danger");
     ["primero", "segundo", "tercero", "cuarto", "quinto"].forEach(id => document.getElementById(id).value = "");
-    document.getElementById("primero").value = "ES";
     return false;
   }
   return true;
@@ -156,5 +142,20 @@ function validarFormPago(event) {
   }
   return validacionCorrectaIban;
 }
+
+// rellena el select de productos
+window.onload = function () {
+  let elegirProducto = ['Elija producto', 'Telefonía fija', 'Internet', 'Movil', 'Otros']
+
+  // Rellena el select
+  elegirProducto.forEach((producto) => {
+    let opcion = document.createElement('option');
+    opcion.value = producto;
+    opcion.text = producto;
+    opcion.classList.add('font-weight-bold');
+    document.getElementById('productSelect').appendChild(opcion);
+  });
+}
+
 
 

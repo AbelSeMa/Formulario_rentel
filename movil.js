@@ -60,7 +60,9 @@ function opcionesMovil() {
                         divPadre.removeChild(divPadre.firstChild);
                     }
                 }
-                crearPortabilidad()
+                donanteMovil()
+                crearPortabilidad();
+                
             };
             input.classList.add('mb-3');
         }
@@ -238,6 +240,7 @@ function crearPortabilidad() {
     radioContrato.onclick = function() {
         eliminarInputsSim();
         crearInputSim('Nº de SIM rentel', 'sim_rentel');
+        tarifaMovil();
     };
     parentElement.appendChild(radioContrato);
 
@@ -259,6 +262,7 @@ function crearPortabilidad() {
         eliminarInputsSim();
         crearInputSim('Nº de SIM rentel', 'sim_rentel');
         crearInputSim('Nº de SIM antigua', 'sim_antigua');
+        tarifaMovil();
     };
     parentElement.appendChild(radioPrepago);
 
@@ -267,6 +271,7 @@ function crearPortabilidad() {
     labelPrepago.setAttribute('for', 'prepago');
     labelPrepago.textContent = 'Prepago';
     parentElement.appendChild(labelPrepago);
+    parentElement.appendChild(document.createElement('br'))
 
 
 
@@ -290,4 +295,39 @@ function crearPortabilidad() {
         inputSim.className = 'input_sim form-control mb-3';
         parentElement.appendChild(inputSim);
     }
+}
+
+function donanteMovil() {
+    // Crear un div con id "donante_fijo"
+    var donanteDiv = document.createElement("div");
+    donanteDiv.id = "donante_movil";
+
+    // Crear un elemento h4 para "Compañia donante"
+    var h4Element = document.createElement("h4");
+    h4Element.textContent = "Compañia donante";
+    h4Element.className = "mt-2";
+
+    // Crear un input para la compañía
+    var inputElement = document.createElement("input");
+    inputElement.className = "form-control mb-3";
+    inputElement.type = "text";
+    inputElement.name = "donante_movil";
+    inputElement.id = "donante_movil_input"; // Cambiamos el id para evitar duplicados
+    inputElement.placeholder = "Compañía actual";
+
+    if (donanteDiv.childElementCount > 0) {
+        while (donanteDiv.firstChild) {
+            donanteDiv.removeChild(donanteDiv.firstChild);
+        }
+    }
+
+    // Añadir los elementos al div
+    donanteDiv.appendChild(h4Element);
+    donanteDiv.appendChild(inputElement);
+
+    // Obtener el elemento padre donde deseas agregar el div
+    var parentElement = document.getElementById("contenido_movil"); // Cambia "antiguo_titular_fijo" al elemento padre deseado
+
+    // Añadir el div con id "donante_fijo" al elemento padre
+    parentElement.appendChild(donanteDiv);
 }

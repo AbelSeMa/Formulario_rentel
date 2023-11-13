@@ -91,6 +91,7 @@
                     type="button"
                     title="cerrar"
                     class="close btn-close"
+                    id="cerrarPagos"
                   ></button>
                 </div>
                 <p class="form-check-label mb-3">
@@ -264,18 +265,26 @@
 
       // Cuando el usuario hace clic en cualquier lugar fuera del modal, cierra el modal
       window.onclick = function (event) {
-        if (event.target == modal) {
+        if (event.target == modal || event.target == modalPagos) {
           limpiarContenedor();
           modal.style.display = "none";
+          modalPagos.style.display = 'none'
         }
       };
 
       // modal de pagos
-      document
-        .getElementById("botonPagos")
-        .addEventListener("click", function () {
-          document.getElementById("modalPagos").style.display = "block";
+      let modalPagos = document.getElementById('modalPagos')
+
+      document.getElementById("botonPagos").addEventListener("click", function () {
+          modalPagos.style.display = "block";
         });
+
+      let cerrarPagos = document.getElementById('cerrarPagos')
+
+      cerrarPagos.onclick = function () {
+        modalPagos.style.display = "none";
+      }
+
 
       function mostrarIban() {
         let contenedorIban = document.getElementById("contenedorIban");

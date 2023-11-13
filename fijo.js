@@ -60,8 +60,8 @@ function opcionesFijo() {
                         divPadre.removeChild(divPadre.firstChild);
                     }
                 }
-                numeroPortabilidadFijo();
                 donanteFijo();
+                numeroPortabilidadFijo();
                 tarifasFijo();
                 titularPortabilidadFijo();
             };
