@@ -237,7 +237,7 @@ function crearPortabilidad() {
     radioContrato.className = 'form-check-input';
     radioContrato.onclick = function() {
         eliminarInputsSim();
-        crearInputSim('Nº de SIM rentel');
+        crearInputSim('Nº de SIM rentel', 'sim_rentel');
     };
     parentElement.appendChild(radioContrato);
 
@@ -257,8 +257,8 @@ function crearPortabilidad() {
     radioPrepago.className = 'form-check-input mb-3';
     radioPrepago.onclick = () => {
         eliminarInputsSim();
-        crearInputSim('Nº de SIM rentel');
-        crearInputSim('Nº de SIM antigua');
+        crearInputSim('Nº de SIM rentel', 'sim_rentel');
+        crearInputSim('Nº de SIM antigua', 'sim_antigua');
     };
     parentElement.appendChild(radioPrepago);
 
@@ -278,7 +278,7 @@ function crearPortabilidad() {
         });
     }
 
-    function crearInputSim(titulo) {
+    function crearInputSim(titulo, name) {
         // Crea el título y el input para el número de SIM
         let h4Sim = document.createElement('h4');
         h4Sim.textContent = titulo;
@@ -286,7 +286,7 @@ function crearPortabilidad() {
 
         let inputSim = document.createElement('input');
         inputSim.type = 'text';
-        inputSim.name = 'numero_sim'
+        inputSim.name = name;
         inputSim.className = 'input_sim form-control mb-3';
         parentElement.appendChild(inputSim);
     }
