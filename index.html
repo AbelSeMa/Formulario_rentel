@@ -79,6 +79,7 @@
                       name="apellido1"
                       placeholder="Primer apellido"
                     />
+
                     <div class="invalid-feedback mb-3">
                       Formato del apellido erróneo.
                     </div>
@@ -135,7 +136,7 @@
                       class="form-control mb-3"
                       type="text"
                       id="dni"
-                      name="dni"
+                      name="dnicif"
                       placeholder="DNI"
                       minlength="9"
                       maxlength="9"
@@ -153,7 +154,7 @@
                       class="form-control mb-3"
                       type="text"
                       id="correo"
-                      name="correo"
+                      name="correoElectronico"
                       placeholder="correo@correo"
                     />
                     <div class="invalid-feedback mb-3">
@@ -171,7 +172,7 @@
                       class="form-control mb-3"
                       type="tel"
                       id="telefonoFijo"
-                      name="telefonoFijo"
+                      name="telefonofijo"
                       minlength="9"
                       maxlength="9"
                     />
@@ -188,7 +189,7 @@
                       class="form-control mb-3"
                       type="tel"
                       id="telefonoMovil"
-                      name="telefonoMovil"
+                      name="telefonomovil"
                       minlength="9"
                       maxlength="9"
                     />
@@ -251,7 +252,7 @@
                       class="form-control mb-3"
                       type="text"
                       id="codigoPostal"
-                      name="codigoPostal"
+                      name="codigopostal"
                       minlength="5"
                       maxlength="5"
                     />
@@ -270,7 +271,7 @@
                     class="form-control mb-3"
                     type="file"
                     id="delanteDNI"
-                    name="delanteDNI"
+                    name="fotoDNIcaraprincipal"
                     hidden
                   />
                 </div>
@@ -283,7 +284,7 @@
                   <input
                     type="file"
                     id="detrasDNI"
-                    name="detrasDNI"
+                    name="fotoDNIreverso"
                     hidden
                   /><br />
                 </div>
@@ -409,7 +410,7 @@
                       class="form-control mb-3"
                       type="text"
                       id="dniFac"
-                      name="dniFac"
+                      name="dnicifFac"
                       placeholder="DNI"
                       maxlength="9"
                       minlength="9"
@@ -427,7 +428,7 @@
                       class="form-control mb-3"
                       type="text"
                       id="correoFac"
-                      name="correoFac"
+                      name="correoElectronicoFac"
                       placeholder="correo@correo"
                     />
                     <div class="invalid-feedback mb-3">
@@ -445,7 +446,7 @@
                       class="form-control mb-3"
                       type="tel"
                       id="telefonoFijoFac"
-                      name="telefonoFijoFac"
+                      name="telefonofijoFac"
                       maxlength="9"
                       minlength="9"
                     />
@@ -462,7 +463,7 @@
                       class="form-control mb-3"
                       type="tel"
                       id="telefonoMovilFac"
-                      name="telefonoMovilFac"
+                      name="telefonomovilFac"
                       maxlength="9"
                       minlength="9"
                     />
@@ -534,7 +535,7 @@
                       maxlength="5"
                       type="text"
                       id="codigoPostalFac"
-                      name="codigoPostalFac"
+                      name="codigopostalFac"
                     />
                     <div class="invalid-feedback mb-3">
                       Formato del código postal erróneo.
@@ -599,7 +600,7 @@
                       class="form-control mb-3"
                       type="text"
                       id="nombreNoti"
-                      name="nombreNoti"
+                      name="nombrecontaco"
                       placeholder="Nombre"
                     />
                     <div class="invalid-feedback mb-3">
@@ -649,7 +650,7 @@
                       class="form-control mb-3"
                       type="text"
                       id="correoNoti"
-                      name="correoNoti"
+                      name="correoElectronicoContacto"
                       placeholder="correo@correo"
                     />
                     <div class="invalid-feedback mb-3">
@@ -666,7 +667,7 @@
                       type="tel"
                       minlength="9"
                       maxlength="9"
-                      id="telefonoFijoNoti"
+                      id="telefonofijoContacto"
                       name="telefonoFijoNoti"
                     />
                     <div class="invalid-feedback mb-3">
@@ -683,7 +684,7 @@
                       type="tel"
                       minlength="9"
                       maxlength="9"
-                      id="telefonoMovilNoti"
+                      id="telefonomovilContacto"
                       name="telefonoMovilNoti"
                     />
                     <div class="invalid-feedback mb-3">
@@ -708,7 +709,7 @@
               </button>
             </div>
 
-            <div id="formulario4" style="display: none">
+<!--             <div id="formulario4" style="display: none">
               <h2 class="text-center font-weight-bold mb-4">Forma de pago</h2>
               <p class="form-check-label mb-3">
                 ¿Elija que método de pago desea usar?
@@ -716,10 +717,10 @@
               <input
                 class="form-check-input"
                 type="radio"
-                name="pago"
+                name="formaPago"
                 value="efectivo"
                 id="efectivo"
-                onclick="limpiar('contenedorIban')"
+                onclick="mostrarIban()"
                 required
               />
               <label class="form-check-label" for="efectivo">efectivo</label>
@@ -728,10 +729,10 @@
               <input
                 class="form-check-input"
                 type="radio"
-                name="pago"
+                name="formaPago"
                 value="Transferencia_bancaria"
                 id="Transferencia"
-                onclick="limpiar('contenedorIban')"
+                onclick="mostrarIban()"
               />
               <label class="form-check-label" for="Transferencia"
                 >Transferencia bancaria</label
@@ -742,16 +743,16 @@
                 class="form-check-input"
                 type="radio"
                 value="TPV"
-                name="pago"
+                name="formaPago"
                 id="tpv"
-                onclick="limpiar('contenedorIban')"
+                onclick="mostrarIban()"
               />
               <label class="form-check-label" for="tpv">TPV</label> <br />
 
               <input
                 class="form-check-input"
                 type="radio"
-                name="pago"
+                name="formaPago"
                 value="Iban"
                 id="domiciliacionBancaria"
                 onclick="mostrarIban()"
@@ -761,7 +762,13 @@
               >
               <br />
               <br />
-              <div id="contenedorIban" class="" style="display: none"></div>
+              <div id="contenedorIban" class="" style ="display: none;">              
+                <input class="form-control" type="text" minlength="4" maxlength="4" name="primero" id="primero" placeholder="ES" >
+                <input class="form-control" type="text" minlength="4" maxlength="4" name="entidad" id="segundo" placeholder="Entidad">
+                <input class="form-control" type="text" minlength="4" maxlength="4" name="sucursal" id="tercero" placeholder="Sucursal">
+                <input class="form-control" type="text" minlength="2" maxlength="2" name="dc" id="cuarto" placeholder="DC">
+                <input class="form-control" type="text" minlength="10" maxlength="10" name="nCuenta" id="quinto"placeholder="Numero de cuenta">
+              </div>
 
               <div id="inputIban"></div>
               <br />
@@ -783,8 +790,9 @@
               >
                 Volver
               </button>
-            </div>
+            </div> -->
             <br />
+            
             <input
               class="btn btn-primary btn-sm"
               type="button"
@@ -841,13 +849,13 @@
       function mostrarFormulario(numeroFormulario) {
         var radio = document.getElementById("mismosDatosSi");
         // Oculta todos los formularios
-        for (let i = 1; i <= 4; i++) {
+        for (let i = 1; i <= 3; i++) {
           document.getElementById(`formulario${i}`).style.display = "none";
         }
 
         // Muestra el formulario seleccionado
         if (radio.checked) {
-          document.getElementById("formulario4").style.display = "block";
+          document.getElementById("formulario3").style.display = "block";
           document.getElementById("botonAnterior").setAttribute("hidden", "");
           document.getElementById("directo1").removeAttribute("hidden");
           radio.checked = false;
@@ -867,14 +875,14 @@
           solo_cliente = false;
         }
         // Verifica el estado de "formulario4" y muestra/oculta el botón de enviar
-        if (document.getElementById("formulario4").style.display === "block") {
+        if (document.getElementById("formulario3").style.display === "block") {
           document.getElementById("enviarForm").removeAttribute("hidden");
         } else {
           document.getElementById("enviarForm").setAttribute("hidden", "true");
         }
       }
 
-      document
+/*       document
         .getElementById("domiciliacionBancaria")
         .addEventListener("click", () => {
           document.getElementById("contenedorIban").innerHTML = "";
@@ -882,7 +890,7 @@
             '<input class="form-control" type="text" minlength="4" maxlength="4" name="primero" id="primero" placeholder="Iban" value="ES"><input class="form-control" type="text" minlength="4" maxlength="4" name="entidad" id="segundo" placeholder="Entidad"><input class="form-control" type="text" minlength="4" maxlength="4" name="sucursal" id="tercero" placeholder="Sucursal"><input class="form-control" type="text" minlength="2" maxlength="2" name="dc" id="cuarto" placeholder="DC"><input class="form-control" type="text" minlength="10" maxlength="10" name="nCuenta" id="quinto"placeholder="Numero de cuenta"><br></span>';
           document.getElementById("inputIban").innerHTML =
             '<input type="text" name="Iban" id="IbanOculto" hidden>';
-        });
+        }); */
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

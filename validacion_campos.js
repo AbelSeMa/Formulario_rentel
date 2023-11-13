@@ -395,16 +395,18 @@ function validarComercial(){
 //VALIDACION FROMA DE PAGO
 
 function mostrarIban() {
-  let contenedorIban = document.getElementById("contenedorIban");
+   let contenedorIban = document.getElementById("contenedorIban");
 
   let domiciliacionBancaria = document.getElementById("domiciliacionBancaria");
 
   if (domiciliacionBancaria.checked) {
     contenedorIban.style.display = "block"; // Mostrar el div
   } else {
-    contenedorIban.style.display = "none"; // Ocultar el div
+    contenedorIban.style.display = "none"; // Ocultar el 
   }
 }
+
+
 
 function validarIBAN(iban) {
 
@@ -424,6 +426,7 @@ function validarIBAN(iban) {
   } 
   return true;
 }
+
 
 
 const selectComerial = document.getElementById("comercial");
