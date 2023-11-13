@@ -29,34 +29,51 @@
           <br />
           <div class="row">
             <div class="col-sm-4 d-inline">
-              <select id="productSelect" class="form-select mb-3" title="seleccion_producto"></select>
+              <select
+                id="productSelect"
+                class="form-select mb-3"
+                title="seleccion_producto"
+              ></select>
             </div>
           </div>
           <div class="table-responsive-sm">
-            <table id="tabla_productos" class="table" >
+            <table id="tabla_productos" class="table">
               <tr id="titulos_columnas">
                 <th scope="col">Servicios</th>
                 <th scope="col" colspan="2"></th>
               </tr>
             </table>
+
             <button type="button" onclick="obtenerJson()">JSON</button>
+            <button type="button" id="botonPagos">Contratar</button>
           </div>
 
           <div id="modalTablas" class="modal">
             <div class="modal-dialog">
-
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="titulo_modal"></h5>
-                  <button type="button" title="cerrar" class="close btn-close"></button>
+                  <button
+                    type="button"
+                    title="cerrar"
+                    class="close btn-close"
+                  ></button>
                 </div>
                 <form action="#" id="form_product" class="">
-                  <input type="text" name="producto" id="productoModal" hidden />
-                  <div id="contenedor"  >
-
-                  </div>
+                  <input
+                    type="text"
+                    name="producto"
+                    id="productoModal"
+                    hidden
+                  />
+                  <div id="contenedor"></div>
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary btn-sm mb-3" onclick="enviarProducto()" class="mb-3">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-sm mb-3"
+                      onclick="enviarProducto()"
+                      class="mb-3"
+                    >
                       Guardar Producto
                     </button>
                   </div>
@@ -65,14 +82,16 @@
             </div>
           </div>
 
-
           <div id="modalPagos" class="modal">
             <div class="modal-dialog">
-
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="titulo_modal">Forma de pago</h5>
-                  <button type="button" title="cerrar" class="close btn-close"></button>
+                  <button
+                    type="button"
+                    title="cerrar"
+                    class="close btn-close"
+                  ></button>
                 </div>
                 <p class="form-check-label mb-3">
                   ¿Elija que método de pago desea usar?
@@ -88,7 +107,7 @@
                 />
                 <label class="form-check-label" for="efectivo">efectivo</label>
                 <br />
-  
+
                 <input
                   class="form-check-input"
                   type="radio"
@@ -101,7 +120,7 @@
                   >Transferencia bancaria</label
                 >
                 <br />
-  
+
                 <input
                   class="form-check-input"
                   type="radio"
@@ -111,7 +130,7 @@
                   onclick="mostrarIban()"
                 />
                 <label class="form-check-label" for="tpv">TPV</label> <br />
-  
+
                 <input
                   class="form-check-input"
                   type="radio"
@@ -125,16 +144,61 @@
                 >
                 <br />
                 <br />
-                <div id="contenedorIban" class="" style ="display: none;">              
-                  <input class="form-control" type="text" minlength="4" maxlength="4" name="primero" id="primero" placeholder="ES" >
-                  <input class="form-control" type="text" minlength="4" maxlength="4" name="entidad" id="segundo" placeholder="Entidad">
-                  <input class="form-control" type="text" minlength="4" maxlength="4" name="sucursal" id="tercero" placeholder="Sucursal">
-                  <input class="form-control" type="text" minlength="2" maxlength="2" name="dc" id="cuarto" placeholder="DC">
-                  <input class="form-control" type="text" minlength="10" maxlength="10" name="nCuenta" id="quinto"placeholder="Numero de cuenta">
+                <div id="contenedorIban" class="" style="display: none">
+                  <input
+                    class="form-control"
+                    type="text"
+                    minlength="4"
+                    maxlength="4"
+                    name="primero"
+                    id="primero"
+                    placeholder="ES00"
+                  />
+                  <input
+                    class="form-control"
+                    type="text"
+                    minlength="4"
+                    maxlength="4"
+                    name="entidad"
+                    id="segundo"
+                    placeholder="Entidad"
+                  />
+                  <input
+                    class="form-control"
+                    type="text"
+                    minlength="4"
+                    maxlength="4"
+                    name="sucursal"
+                    id="tercero"
+                    placeholder="Sucursal"
+                  />
+                  <input
+                    class="form-control"
+                    type="text"
+                    minlength="2"
+                    maxlength="2"
+                    name="dc"
+                    id="cuarto"
+                    placeholder="DC"
+                  />
+                  <input
+                    class="form-control"
+                    type="text"
+                    minlength="10"
+                    maxlength="10"
+                    name="nCuenta"
+                    id="quinto"
+                    placeholder="Numero de cuenta"
+                  />
                 </div>
-  
-                <div id="inputIban"></div>
+
+                <input type="text" id="ibanOculto" hidden />
+          
                 <br />
+
+                <div>
+                  <button type="button" onclick="firmar()">Firmar</button>
+                </div>
               </div>
             </div>
           </div>
@@ -146,9 +210,6 @@
         </div>
       </div>
     </div>
-
-
-
 
     <script>
       // Obtén el modal
@@ -208,6 +269,28 @@
           modal.style.display = "none";
         }
       };
+
+      // modal de pagos
+      document
+        .getElementById("botonPagos")
+        .addEventListener("click", function () {
+          document.getElementById("modalPagos").style.display = "block";
+        });
+
+      function mostrarIban() {
+        let contenedorIban = document.getElementById("contenedorIban");
+
+        let domiciliacionBancaria = document.getElementById(
+          "domiciliacionBancaria"
+        );
+
+        if (domiciliacionBancaria.checked) {
+          contenedorIban.style.display = "block"; // Mostrar el div
+        } else {
+          contenedorIban.style.display = "none"; // Ocultar el
+        }
+      }
+
     </script>
     <script src="funcional.js"></script>
     <script src="fijo.js"></script>
