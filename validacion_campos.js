@@ -392,43 +392,6 @@ function validarComercial(){
   }
 }
 
-//VALIDACION FROMA DE PAGO
-
-function mostrarIban() {
-   let contenedorIban = document.getElementById("contenedorIban");
-
-  let domiciliacionBancaria = document.getElementById("domiciliacionBancaria");
-
-  if (domiciliacionBancaria.checked) {
-    contenedorIban.style.display = "block"; // Mostrar el div
-  } else {
-    contenedorIban.style.display = "none"; // Ocultar el 
-  }
-}
-
-
-
-function validarIBAN(iban) {
-
-  let regexIBAN = /^ES\d{22}$/;
-
-  let contenedorIban = document.getElementById("contenedorIban");
-
-  if (!regexIBAN.test(iban)) {
-
-    contenedorIban.classList.add("has-danger");
-    document.getElementById("primero").value = "ES";
-    document.getElementById("segundo").value = "";
-    document.getElementById("tercero").value = "";
-    document.getElementById("cuarto").value = "";
-    document.getElementById("quinto").value = "";
-    return false;
-  } 
-  return true;
-}
-
-
-
 const selectComerial = document.getElementById("comercial");
 selectComerial.onchange =  function() {
   document.getElementById("formulario1").removeAttribute("hidden");

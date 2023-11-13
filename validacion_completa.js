@@ -28,6 +28,9 @@ function validarCliente(event) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
+
+  document.getElementById("apellidos").value = apellido1 + " " + apellido2;
+
   if (!validarDNI(dni)) {
     validacionCorrectaCliente = false;
     event.preventDefault();
@@ -85,6 +88,9 @@ function validarClienteFac(event) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
+
+  document.getElementById("apellidosFac").value = apellido1Fac + " " + apellido2Fac;
+
   if (!validarDNIFac(dniFac)) {
     validacionCorrectaFac = false;
     event.preventDefault();
@@ -139,6 +145,9 @@ function validarFormNotis(event) {
     validacionCorrectaNoti = false;
     event.preventDefault();
   }
+
+  document.getElementById("apellidosNoti").value = apellido1Noti + " " + apellido2Noti;
+
   if (!validarCorreoNoti(correoNoti)) {
     validacionCorrectaNoti = false;
     event.preventDefault();
@@ -156,34 +165,14 @@ function validarFormNotis(event) {
   return validacionCorrectaNoti;
 }
 
-function validarFormPago(event) {
-  let domiciliacion = document.getElementById("domiciliacionBancaria");
-
-  let validacionCorrectaIban = true;
-
-  if (domiciliacion.checked) {
-    let iban1 = document.getElementById("primero").value;
-    let iban2 = document.getElementById("segundo").value;
-    let iban3 = document.getElementById("tercero").value;
-    let iban4 = document.getElementById("cuarto").value;
-    let iban5 = document.getElementById("quinto").value;
-    let iban = iban1 + iban2 + iban3 + iban4 + iban5;
-    iban.toUpperCase();
-
-    if (!validarIBAN(iban)) {
-      validacionCorrectaIban = false;
-      event.preventDefault();
-    }
-    document.getElementById("IbanOculto").value = iban;
-  }
-  return validacionCorrectaIban;
-}
 
 function validarFormCheck(event) {
+  alert("he entrado en validarFormCheck")
   let valoresFac = [
     "nombre",
     "apellido1",
     "apellido2",
+    "apellidos",
     "sexo",
     "fechaNacimiento",
     "dni",
@@ -200,6 +189,7 @@ function validarFormCheck(event) {
     "nombre",
     "apellido1",
     "apellido2",
+    "apellidos",
     "correo",
     "telefonoMovil",
   ];
@@ -213,9 +203,6 @@ function validarFormCheck(event) {
     error_formulario.push(1);
   }
 
-  if (!validarFormPago(event)) {
-    error_formulario.push(4);
-  }
 
   valoresFac.forEach(function (e) {
     document.getElementById(e + "Fac").value = document.getElementById(e).value;
@@ -260,6 +247,8 @@ function validarFormCheck(event) {
 }
 
 function validarSinCheck(event) {
+  alert("he entrado en validarSINCheck")
+
   let error_formulario = [];
 
   if (!validarComercial()){
@@ -278,9 +267,6 @@ function validarSinCheck(event) {
     error_formulario.push(3);
   }
 
-  if (!validarFormPago(event)) {
-    error_formulario.push(4);
-  }
 
   let valor_Poblacion = document.getElementById("poblacionFacFalsa").value;
   document.getElementById("poblacionFac").value = valor_Poblacion;
@@ -314,9 +300,8 @@ function validarSinCheck(event) {
 }
 
 function validarFormulario(event) {
-  if (solo_cliente) {
+  if (document.getElementById("mismosDatosSi").checked) {
     validarFormCheck(event);
-
   } else {
     validarSinCheck(event);
   }

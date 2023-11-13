@@ -18,6 +18,3 @@ document.getElementById('enviarForm').addEventListener('click', function() {
     document.getElementById('myModal').style.display = 'none';
   });
   
-  document.getElementById('botonPagos').addEventListener('click', function() {
-    document.getElementById('modalPagos').style.display = 'block';
-  });

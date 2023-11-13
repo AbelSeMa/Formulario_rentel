@@ -99,6 +99,9 @@
                     <div class="invalid-feedback mb-3">
                       Formato del apellido erróneo.
                     </div>
+
+                    <input type="text" id="apellidos" name="apellidos" hidden/>
+
                   </div>
                 </div>
 
@@ -297,7 +300,7 @@
                   type="radio"
                   name="datos"
                   id="mismosDatosSi"
-                  checked
+                  onclick="mostrarEnviar()"
                 />
                 <label for="mismosDatosSi">Sí</label> <br />
                 <input
@@ -373,6 +376,8 @@
                     <div class="invalid-feedback mb-3">
                       Formato del nombre erróneo.
                     </div>
+
+                    <input type="text" id="apellidosFac" name="apellidosFac" hidden/>
                   </div>
                 </div>
 
@@ -581,7 +586,7 @@
               <button
                 class="btn btn-primary btn-sm"
                 type="button"
-                onclick="mostrarFormulario(3)"
+                onclick="mostrarFormulario(3); mostrarEnviar();"
               >
                 Siguiente
               </button>
@@ -638,6 +643,9 @@
                     <div class="invalid-feedback mb-3">
                       Formato del apellido erróneo.
                     </div>
+
+                    <input type="text" id="apellidosNoti" name="apellidosContacto" hidden/>
+
                   </div>
                 </div>
 
@@ -667,8 +675,8 @@
                       type="tel"
                       minlength="9"
                       maxlength="9"
-                      id="telefonofijoContacto"
-                      name="telefonoFijoNoti"
+                      id="telefonoFijoNoti"
+                      name="telefonofijoContacto"
                     />
                     <div class="invalid-feedback mb-3">
                       Formato del teléfono fijo erróneo.
@@ -684,8 +692,8 @@
                       type="tel"
                       minlength="9"
                       maxlength="9"
-                      id="telefonomovilContacto"
-                      name="telefonoMovilNoti"
+                      id="telefonoMovilNoti"
+                      name="telefonomovilContacto"
                     />
                     <div class="invalid-feedback mb-3">
                       Formato del teléfono móvil erróneo.
@@ -700,97 +708,7 @@
               >
                 Anterior
               </button>
-              <button
-                class="btn btn-primary btn-sm"
-                type="button"
-                onclick="mostrarFormulario(4)"
-              >
-                Siguiente
-              </button>
             </div>
-
-<!--             <div id="formulario4" style="display: none">
-              <h2 class="text-center font-weight-bold mb-4">Forma de pago</h2>
-              <p class="form-check-label mb-3">
-                ¿Elija que método de pago desea usar?
-              </p>
-              <input
-                class="form-check-input"
-                type="radio"
-                name="formaPago"
-                value="efectivo"
-                id="efectivo"
-                onclick="mostrarIban()"
-                required
-              />
-              <label class="form-check-label" for="efectivo">efectivo</label>
-              <br />
-
-              <input
-                class="form-check-input"
-                type="radio"
-                name="formaPago"
-                value="Transferencia_bancaria"
-                id="Transferencia"
-                onclick="mostrarIban()"
-              />
-              <label class="form-check-label" for="Transferencia"
-                >Transferencia bancaria</label
-              >
-              <br />
-
-              <input
-                class="form-check-input"
-                type="radio"
-                value="TPV"
-                name="formaPago"
-                id="tpv"
-                onclick="mostrarIban()"
-              />
-              <label class="form-check-label" for="tpv">TPV</label> <br />
-
-              <input
-                class="form-check-input"
-                type="radio"
-                name="formaPago"
-                value="Iban"
-                id="domiciliacionBancaria"
-                onclick="mostrarIban()"
-              />
-              <label class="form-check-label" for="domiciliacionBancaria"
-                >domiciliacion Bancaria</label
-              >
-              <br />
-              <br />
-              <div id="contenedorIban" class="" style ="display: none;">              
-                <input class="form-control" type="text" minlength="4" maxlength="4" name="primero" id="primero" placeholder="ES" >
-                <input class="form-control" type="text" minlength="4" maxlength="4" name="entidad" id="segundo" placeholder="Entidad">
-                <input class="form-control" type="text" minlength="4" maxlength="4" name="sucursal" id="tercero" placeholder="Sucursal">
-                <input class="form-control" type="text" minlength="2" maxlength="2" name="dc" id="cuarto" placeholder="DC">
-                <input class="form-control" type="text" minlength="10" maxlength="10" name="nCuenta" id="quinto"placeholder="Numero de cuenta">
-              </div>
-
-              <div id="inputIban"></div>
-              <br />
-
-              <button
-                class="btn btn-primary btn-sm"
-                id="botonAnterior"
-                type="button"
-                onclick="mostrarFormulario(3)"
-              >
-                Anterior
-              </button>
-              <button
-                class="btn btn-primary btn-sm"
-                id="directo1"
-                type="button"
-                onclick="mostrarFormulario(1)"
-                hidden
-              >
-                Volver
-              </button>
-            </div> -->
             <br />
             
             <input
@@ -845,7 +763,8 @@
     </div>
 
     <script>
-      var solo_cliente = false;
+      document.getElementById("enviarForm").setAttribute("hidden", "hidden");
+      var check = false;
       function mostrarFormulario(numeroFormulario) {
         var radio = document.getElementById("mismosDatosSi");
         // Oculta todos los formularios
@@ -853,35 +772,18 @@
           document.getElementById(`formulario${i}`).style.display = "none";
         }
 
-        // Muestra el formulario seleccionado
-        if (radio.checked) {
-          document.getElementById("formulario3").style.display = "block";
-          document.getElementById("botonAnterior").setAttribute("hidden", "");
-          document.getElementById("directo1").removeAttribute("hidden");
-          radio.checked = false;
-          solo_cliente = true;
-        } else {
-          document.getElementById("directo1").setAttribute("hidden", "");
-          document.getElementById("botonAnterior").removeAttribute("hidden");
-          document.getElementById(
-            `formulario${numeroFormulario}`
-          ).style.display = "block";
-          // Configura el botón de atrás para volver al formulario anterior
-          const botonAnterior = document.getElementById("botonAnterior");
-          botonAnterior.onclick = function () {
-            mostrarFormulario(numeroFormulario - 1);
-          };
+        document.getElementById(`formulario${numeroFormulario}`).style.display = "block";
 
-          solo_cliente = false;
-        }
-        // Verifica el estado de "formulario4" y muestra/oculta el botón de enviar
-        if (document.getElementById("formulario3").style.display === "block") {
-          document.getElementById("enviarForm").removeAttribute("hidden");
-        } else {
-          document.getElementById("enviarForm").setAttribute("hidden", "true");
-        }
       }
 
+      function mostrarEnviar(){
+        check = true;
+        document.getElementById("enviarForm").removeAttribute("hidden");
+      }
+
+      function cambiarCheck() {
+        var check = false;
+      }
 /*       document
         .getElementById("domiciliacionBancaria")
         .addEventListener("click", () => {
