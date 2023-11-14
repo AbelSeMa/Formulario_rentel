@@ -22,14 +22,15 @@ sessionStorage.setItem('productos', JSON.stringify(datosProducto));
 
 // Rellena la tabla de clientes
 if (datosCliente != '') {
+    let dni = 'DNI/CIF'
     let tablaClientes = document.getElementById('tabla_cliente');
     let fila = tablaClientes.insertRow(-1);
     let celdaNombre = fila.insertCell(0);
     let celdaApellido = fila.insertCell(1);
     let celdaDNI = fila.insertCell(2);
-    celdaNombre.textContent = datosCliente.nombre;
-    celdaApellido.textContent = datosCliente.apellidos;
-    celdaDNI.textContent = datosCliente.dnicif;
+    celdaNombre.textContent = datosCliente.Nombre;
+    celdaApellido.textContent = datosCliente.Apellidos;
+    celdaDNI.textContent = datosCliente['DNI/CIF'];
 } else {
     let tablaClientes = document.getElementById('tabla_cliente');
     let fila = tablaClientes.insertRow(-1);
