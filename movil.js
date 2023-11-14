@@ -60,6 +60,7 @@ function opcionesMovil() {
                         divPadre.removeChild(divPadre.firstChild);
                     }
                 }
+                titularPortabilidadMovil();
                 donanteMovil()
                 crearPortabilidad();
                 
@@ -217,6 +218,7 @@ function crearPortabilidad() {
     // Crea el título y el input para el número de móvil
     let h4Movil = document.createElement('h4');
     h4Movil.textContent = 'Número al que se le hace la portabilidad';
+    h4Movil.className = 'mt-3'
     parentElement.appendChild(h4Movil);
 
     let inputMovil = document.createElement('input');
@@ -330,4 +332,101 @@ function donanteMovil() {
 
     // Añadir el div con id "donante_fijo" al elemento padre
     parentElement.appendChild(donanteDiv);
+}
+
+function titularPortabilidadMovil() {
+    // Define los datos para los elementos de entrada
+    var datos = [
+        {
+            id: 'si_mismo_titular_fijo', value: 'si', text: 'Si, se utilizaran los datos del cliente.', onclick: () => {
+                let antiguoTitularDiv = document.getElementById('datos_antiguo_titular')
+                // Si el div ya tiene hijos, elimínalos todos
+                while (antiguoTitularDiv !== null && antiguoTitularDiv.firstChild) {
+                    antiguoTitularDiv.removeChild(antiguoTitularDiv.firstChild);
+                }
+            }
+        },
+        {
+            id: 'otro_titular_fijo', value: 'no', text: 'No, será un nuevo titular.', onclick: () => {
+                let antiguoTitularDiv = document.getElementById('datos_antiguo_titular')
+                // Si el div ya tiene hijos, elimínalos todos
+                while (antiguoTitularDiv !== null && antiguoTitularDiv.firstChild) {
+                    antiguoTitularDiv.removeChild(antiguoTitularDiv.firstChild);
+                }
+
+                antiguoTitularMovil();
+            }
+        }
+    ];
+
+    // Obtén el div con id "mismo_titular_fijo"
+    var mismoTitularDiv = document.createElement('div');
+    mismoTitularDiv.id = 'mismo_titular'
+    // Crear un elemento h4 para la pregunta
+    var preguntaH4 = document.createElement("h4");
+    preguntaH4.textContent = "¿La portabilidad se hará sobre el mismo titular?";
+    mismoTitularDiv.appendChild(preguntaH4);
+
+    // Crea los elementos de entrada
+    datos.forEach(function (dato) {
+        var radio = document.createElement("input");
+        radio.className = "form-check-input";
+        radio.type = "radio";
+        radio.name = "mismo_titular_fijo";
+        radio.id = dato.id;
+        radio.value = dato.value;
+        radio.onclick = dato.onclick;
+
+        var label = document.createElement("label");
+        label.className = "form-check-label";
+        label.setAttribute("for", dato.id);
+        label.textContent = dato.text;
+
+        mismoTitularDiv.appendChild(radio);
+        mismoTitularDiv.appendChild(label);
+        mismoTitularDiv.appendChild(document.createElement("br"));
+    });
+
+    // Añade el div al elemento con id 'contenido_fijo'
+    document.getElementById('contenido_movil').appendChild(mismoTitularDiv);
+
+    let antiguoTitularDiv = document.createElement('div');
+    antiguoTitularDiv.id = "datos_antiguo_titular";
+
+    document.getElementById('contenido_movil').appendChild(antiguoTitularDiv);
+}
+
+function antiguoTitularMovil() {
+    let antiguoTitularDiv = document.getElementById('datos_antiguo_titular')
+
+    // Si el div ya tiene hijos, elimínalos todos
+    while (antiguoTitularDiv.firstChild) {
+        antiguoTitularDiv.removeChild(antiguoTitularDiv.firstChild);
+    }
+
+    // Define los datos para los elementos de entrada
+    var datos = [
+        { titulo: 'Nombre del antiguo titular', nombre: 'nombre_antiguo_titular_fijo', placeholder: 'Nombre del antiguo titular' },
+        { titulo: 'Apellidos del antiguo titular', nombre: 'apellidos_antiguo_titular_fijo', placeholder: 'Apellidos antiguo titular' },
+        { titulo: 'DNI del antiguo titular', nombre: 'DNI_antiguo_titular_fijo', placeholder: 'DNI antiguo titular' }
+    ];
+
+    // Crea los elementos de entrada
+    datos.forEach(function (dato) {
+        var h6 = document.createElement('h6');
+        h6.textContent = dato.titulo;
+
+        var input = document.createElement('input');
+        input.classList.add('form-control', 'mb-2');
+        input.type = 'text';
+        input.name = dato.nombre;
+        input.id = dato.nombre;
+        input.placeholder = dato.placeholder;
+
+        antiguoTitularDiv.appendChild(h6);
+        antiguoTitularDiv.appendChild(input);
+    });
+
+    // Añade el div al elemento con id 'datos_fijo'
+    document.getElementById('contenido_fijo').appendChild(antiguoTitularDiv);
 }
