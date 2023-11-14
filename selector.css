@@ -6,3 +6,11 @@
     cursor: inherit;
     line-height: inherit;
 }
+
+th:first-of-type{
+    border-radius: 10px 0px 0px 0px;
+}
+
+th:last-of-type{
+    border-radius: 0px 10px 0px 0px;
+}

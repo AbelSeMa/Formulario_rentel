@@ -21,32 +21,27 @@
         <div id="pintar_tablas">
           <div class="row">
             <div class="col">
-              <table id="tabla_cliente" class="table table-striped">
-                <tr>
+              <table id="tabla_cliente" class="table">
+                <tr class="table-primary">
                   <th scope="col">Nombre</th>
                   <th scope="col">Apellidos</th>
                   <th scope="col">DNI</th>
                   <th>
-                    <select
-                    id="productSelect"
-                    class="selector"
-                    title="seleccion_producto"
-                  ></select>
                   </th>
                 </tr>
               </table>
             </div>
-<!--             <div class="col">
+            <div class="col">
                 <select
                   id="productSelect"
-                  class="form-select mb-3"
+                  class="selector mb-2"
                   title="seleccion_producto"
                 ></select>
-            </div> -->
+            </div> 
           </div>
-          <div class="table-responsive-sm">
+          <div class="table-responsive">
             <table id="tabla_productos" class="table" style="font-size: 15px">
-              <tr id="titulos_columnas">
+              <tr id="titulos_columnas" class="table-primary">
                 <th scope="col">Servicios</th>
                 <th scope="col" colspan="2"></th>
               </tr>
@@ -202,6 +197,7 @@
                 </div>
                 <input type="text" id="ibanOculto" hidden />
                 <br />
+
                 <div>
                   <button type="button" onclick="firmar()">Firmar</button>
                 </div>
