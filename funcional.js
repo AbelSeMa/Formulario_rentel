@@ -25,58 +25,6 @@ function createJson(event) {
   console.log(JSON.parse(sessionStorage.getItem('productos')))
 }
 
-
-function obtenerJson() {
-  // Recupera tus datos del sessionStorage
-  let misDatos = JSON.parse(sessionStorage.getItem("productos"));
-
-  // Inicializa tu nuevo objeto
-  let nuevoJson = {
-    "productos": {
-      "linea movil": {},
-      "Internet": {},
-      "linea fija": {}
-    }
-  };
-    
-  
-  let contadorMovil = 0;
-  let contadorInternet = 0;
-  let contadorFijo = 0;
-  let contadorOtros = 0;
-
-  // Itera sobre tus datos
-  for (let i = 0; i < misDatos.length; i++) {
-    let dato = misDatos[i];
-
-
-    // Decide a qué categoría pertenece cada producto
-    let categoria;
-    if (dato.producto === "Movil") {
-      categoria = "linea movil";
-      contadorMovil += 1;
-      // Añade el producto a la categoría correspondiente
-      nuevoJson.productos[categoria][categoria + contadorMovil] = dato;
-    } else if (dato.producto === "Internet") {
-      categoria = "Internet";
-      contadorInternet += 1
-
-      // Añade el producto a la categoría correspondiente
-      nuevoJson.productos[categoria][categoria + contadorInternet] = dato;
-    } else if (dato.producto === "Telefonía fija") {
-      categoria = "linea fija";
-      contadorFijo += 1
-
-      // Añade el producto a la categoría correspondiente
-      nuevoJson.productos[categoria][categoria + contadorFijo] = dato;
-    }
-
-  }
-
-  // Ahora, nuevoJson tiene la estructura que deseas
-  console.log(nuevoJson);
-}
-
 function limpiarContenedor() {
   // Obtén el div por su id
   let contenedor = document.getElementById('contenedor');
@@ -158,4 +106,68 @@ window.onload = function () {
 }
 
 
+function obtenerJson() {
+  // Recupera tus datos del sessionStorage
+  let misDatos = JSON.parse(sessionStorage.getItem("productos"));
 
+  // Inicializa tu nuevo objeto
+  let nuevoJson = {
+    "productos": {
+      "linea movil": {},
+      "Internet": {},
+      "linea fija": {}
+    }
+  };
+
+
+  let contadorMovil = 0;
+  let contadorInternet = 0;
+  let contadorFijo = 0;
+  let contadorOtros = 0;
+
+  // Itera sobre tus datos
+  for (let i = 0; i < misDatos.length; i++) {
+    let dato = misDatos[i];
+
+
+    // Decide a qué categoría pertenece cada producto
+    let categoria;
+    if (dato.producto === "Movil") {
+      categoria = "linea movil";
+      contadorMovil += 1;
+
+      // Inicializa el objeto antes de asignarle propiedades
+      nuevoJson.productos[categoria][categoria + contadorMovil] = {};
+
+      // Añade el producto a la categoría correspondiente
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Datos línea" + contadorMovil] = dato.servicio;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Nº.teléfono móvil que contrata línea " + contadorMovil] = dato.numero_telefono;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Nº. de la tarjeta SIM línea " + contadorMovil] = dato.sim_rentel;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Mismo titular línea" + contadorMovil + " "] = dato.mismo_titular_movil;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Nombre portabilidad línea" + contadorMovil + " "] = dato.nombre_antiguo_tiular_movil;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Apellidos portabilidad línea" + contadorMovil + " "] = dato.apellidos_antiguo_tiular_movil;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["DNI portabilidad línea" + contadorMovil + " "] = dato.DNI_antiguo_tiular_movil;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Operador donante línea" + contadorMovil] = dato.donante_movil;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Nº.tarjeta SIM donante línea1" + contadorMovil] = dato.sim_antigua;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Origen línea" + contadorMovil] = dato.tipo;
+      nuevoJson.productos[categoria][categoria + contadorMovil]["Tarifas línea " + contadorMovil] = dato.tarifa;
+      
+    } else if (dato.producto === "Internet") {
+      categoria = "Internet";
+      contadorInternet += 1
+
+      // Añade el producto a la categoría correspondiente
+      nuevoJson.productos[categoria][categoria + contadorInternet] = dato;
+    } else if (dato.producto === "Telefonía fija") {
+      categoria = "linea fija";
+      contadorFijo += 1
+
+      // Añade el producto a la categoría correspondiente
+      nuevoJson.productos[categoria][categoria + contadorFijo] = dato;
+    }
+
+  }
+
+  // Ahora, nuevoJson tiene la estructura que deseas
+  console.log(nuevoJson);
+}

@@ -49,29 +49,31 @@ for (let i = tablaProductos.rows.length - 1; i > 0; i--) {
 }
 
 datosProducto.forEach((producto, index) => {
+    console.log(producto.producto)
     let fila = tablaProductos.insertRow(-1);
     let celdaServicio = fila.insertCell(0);
     let celdaOpciones = fila.insertCell(1);
 
     if (producto.tipo !== undefined) {
-        celdaServicio.textContent = producto.servicio + ' - ' + producto.tipo;
-    } else {
-        celdaServicio.textContent = producto.servicio
+        celdaServicio.textContent = producto.numero_telefono + ' - ' + producto.servicio + ' - ' + producto.tipo;
     }
 
-    if (producto.numero_sim !== undefined) {
-        
+    if (producto.producto === "Telefonía fija") {
+        if (producto.numero_telefono !== undefined) {
+            celdaServicio.textContent = producto.numero_telefono + ' - ' + producto.servicio
+        } else {
+            celdaServicio.textContent = producto.numero_portabilidad_fijo + ' - ' + producto.servicio
+        }
     }
 
-
-/*     if (producto.producto === 'Telefonía fija' && producto.servicio === 'Portabilidad fijo') {
-        celdaDetalles.textContent = producto.numero_portabilidad_fijo;
+    if (producto.producto === "Movil") {
+        if (producto.numero_sim !== undefined) {
+            celdaServicio.textContent = producto.numero_sim + ' - ' + producto.servicio
+        } else {
+            celdaServicio.textContent = producto.sim_rentel + ' - ' + producto.servicio
+        }
     }
 
-    if (producto.servicio === 'Alta internet') {
-        celdaDetalles.textContent = producto.direccion_instalacion;
-    }
- */
     // Agrega los iconos de modificar y borrar
 /*     let iconoModificar = document.createElement('button');
     iconoModificar.href = '/productos.html'
