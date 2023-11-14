@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="selector.css">
   </head>
   <body>
     <div class="card col-md-6 text-left mx-auto bg-white shadow">
@@ -18,24 +19,30 @@
         </div>
 
         <div id="pintar_tablas">
-          <div class="col-sm-4 d-inline">
-            <table id="tabla_cliente" class="table table-striped">
-              <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">DNI</th>
-              </tr>
-            </table>
-            <br />
-            <div class="row">
-              <div class="col-sm-4 d-inline">
+          <div class="row">
+            <div class="col">
+              <table id="tabla_cliente" class="table table-striped">
+                <tr>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellidos</th>
+                  <th scope="col">DNI</th>
+                  <th>
+                    <select
+                    id="productSelect"
+                    class="selector"
+                    title="seleccion_producto"
+                  ></select>
+                  </th>
+                </tr>
+              </table>
+            </div>
+<!--             <div class="col">
                 <select
                   id="productSelect"
                   class="form-select mb-3"
                   title="seleccion_producto"
                 ></select>
-              </div>
-            </div>
+            </div> -->
           </div>
           <div class="table-responsive-sm">
             <table id="tabla_productos" class="table" style="font-size: 15px">
@@ -247,7 +254,7 @@
             modal.style.display = "block";
             break;
 
-          case "Elija producto":
+          case "Productos":
             limpiarContenedor();
             break;
         }

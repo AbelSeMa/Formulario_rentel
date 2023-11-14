@@ -93,7 +93,7 @@ function validarFormPago(event) {
 
 // rellena el select de productos
 window.onload = function () {
-  let elegirProducto = ['Elija producto', 'Telefonía fija', 'Internet', 'Movil', 'Otros']
+  let elegirProducto = ['Productos', 'Telefonía fija', 'Internet', 'Movil', 'Otros']
 
   // Rellena el select
   elegirProducto.forEach((producto) => {
