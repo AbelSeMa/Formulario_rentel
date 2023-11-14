@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.min.css" />
-    <link rel="stylesheet" href="selector.css">
+    <link rel="stylesheet" href="selector.css" />
   </head>
   <body>
-    <div class="card col-md-auto  text-left container bg-white shadow">
+    <div class="card col-md-auto text-left container bg-white shadow">
       <div class="card-body">
         <div class="col-md-7 mx-auto">
           <img
@@ -26,18 +26,17 @@
                   <th scope="col">Nombre</th>
                   <th scope="col">Apellidos</th>
                   <th scope="col">DNI</th>
-                  <th>
-                  </th>
+                  <th></th>
                 </tr>
               </table>
             </div>
-            <div class="col">
-                <select
-                  id="productSelect"
-                  class="selector mb-2"
-                  title="seleccion_producto"
-                ></select>
-            </div> 
+            <div class="col-4">
+              <select
+                id="productSelect"
+                class="form-select mb-2"
+                title="seleccion_producto"
+              ></select>
+            </div>
           </div>
           <div class="table-responsive">
             <table id="tabla_productos" class="table" style="font-size: 15px">
@@ -48,7 +47,13 @@
             </table>
 
             <button type="button" onclick="obtenerJson()">JSON</button>
-            <button type="button" id="botonPagos" class="btn btn-primary btn-sm">Contratar</button>
+            <button
+              type="button"
+              id="botonPagos"
+              class="btn btn-primary btn-sm"
+            >
+              Contratar
+            </button>
           </div>
 
           <div id="modalTablas" class="modal">
@@ -204,11 +209,9 @@
               </div>
             </div>
           </div>
-
           <br />
-          <table>
-            <tr></tr>
-          </table>
+
+          <button type="button" onclick="history.back();">Editar cliente</button>
         </div>
       </div>
     </div>
