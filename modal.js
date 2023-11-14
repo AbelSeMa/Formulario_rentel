@@ -2,6 +2,10 @@
 document.getElementById('enviarForm').addEventListener('click', function() {
     document.getElementById('myModal').style.display = 'block';
   });
+
+  document.getElementById('enviarForm1').addEventListener('click', function() {
+    document.getElementById('myModal').style.display = 'block';
+  });
   
   // Función para cerrar el modal
   document.getElementById('cerrarModal').addEventListener('click', function() {

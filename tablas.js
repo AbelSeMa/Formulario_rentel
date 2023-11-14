@@ -22,7 +22,6 @@ sessionStorage.setItem('productos', JSON.stringify(datosProducto));
 
 // Rellena la tabla de clientes
 if (datosCliente != '') {
-    let dni = 'DNI/CIF'
     let tablaClientes = document.getElementById('tabla_cliente');
     let fila = tablaClientes.insertRow(-1);
     let celdaNombre = fila.insertCell(0);

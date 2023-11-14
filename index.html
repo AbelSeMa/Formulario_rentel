@@ -318,6 +318,15 @@
                 >
                   Siguiente
                 </button>
+
+                <input
+                class="btn btn-primary btn-sm"
+                type="button"
+                id="enviarForm1"
+                value="Contratar"
+                hidden
+              />
+
               </fieldset>
             </div>
 
@@ -708,16 +717,15 @@
               >
                 Anterior
               </button>
+              <input
+                class="btn btn-primary btn-sm"
+                type="button"
+                id="enviarForm"
+                value="Contratar"
+                hidden
+              />
             </div>
-            <br />
             
-            <input
-              class="btn btn-primary btn-sm"
-              type="button"
-              id="enviarForm"
-              value="Contratar"
-              hidden
-            />
 
             <div class="modal" id="myModal">
               <div class="modal-dialog" role="document">
@@ -773,11 +781,16 @@
 
         document.getElementById(`formulario${numeroFormulario}`).style.display = "block";
 
+        if (numeroFormulario ==3){
+          document.getElementById("enviarForm").removeAttribute("hidden");
+
+        }
+
       }
 
       function mostrarEnviar(){
         check = true;
-        document.getElementById("enviarForm").removeAttribute("hidden");
+        document.getElementById("enviarForm1").removeAttribute("hidden");
       }
 
       function cambiarCheck() {
