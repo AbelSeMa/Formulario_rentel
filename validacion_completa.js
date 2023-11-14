@@ -300,7 +300,7 @@ function validarSinCheck(event) {
 }
 
 function validarFormulario(event) {
-  if (document.getElementById("mismosDatosSi").checked) {
+  if (check) {
     validarFormCheck(event);
   } else {
     validarSinCheck(event);
