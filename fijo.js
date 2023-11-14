@@ -323,7 +323,6 @@ function titularPortabilidadFijo() {
     // Obtén el div con id "mismo_titular_fijo"
     var mismoTitularDiv = document.createElement('div');
     mismoTitularDiv.id = 'mismo_titular'
-    mismoTitularDiv.className = "text-start p-3"
     // Crear un elemento h4 para la pregunta
     var preguntaH4 = document.createElement("h4");
     preguntaH4.textContent = "¿La portabilidad se hará sobre el mismo titular?";
