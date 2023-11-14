@@ -27,11 +27,9 @@ if (datosCliente != '') {
     let celdaNombre = fila.insertCell(0);
     let celdaApellido = fila.insertCell(1);
     let celdaDNI = fila.insertCell(2);
-    let celdaDire = fila.insertCell(3)
     celdaNombre.textContent = datosCliente.nombre;
-    celdaApellido.textContent = datosCliente.apellido1;
-    celdaDNI.textContent = datosCliente.dni;
-    celdaDire.textContent = datosCliente.direccion
+    celdaApellido.textContent = datosCliente.apellidos;
+    celdaDNI.textContent = datosCliente.dnicif;
 } else {
     let tablaClientes = document.getElementById('tabla_cliente');
     let fila = tablaClientes.insertRow(-1);
