@@ -17,7 +17,7 @@
   </head>
 
   <body>
-    <div class="card col-md-auto  text-left mx-auto container-sm shadow">
+    <div class="card col-md-auto text-left mx-auto container-sm shadow">
       <div class="card-body">
         <div class="col-md-7 mx-auto">
           <img
@@ -29,8 +29,10 @@
         <div id="pintar_cliente">
           <form name="formulario_Cliente" id="myForm" action="productos.html">
             <h2 class="text-center font-weight-bold">Comercial</h2>
-            <div id="divComercial">
-              <select class="form-select mb-3" id="comercial" name="comercial">
+
+
+            <div id="divComercial" class="d-flex justify-content-center">
+              <select class="form-select-sm mb-3" id="comercial" name="comercial">
                 <option value="">Seleccione un comercial</option>
                 <option value="Manuel Suarez">Manuel Suárez</option>
                 <option value="Manuel Perez">Antonio Perez</option>
@@ -100,13 +102,12 @@
                       Formato del apellido erróneo.
                     </div>
 
-                    <input type="text" id="apellidos" name="Apellidos" hidden/>
-
+                    <input type="text" id="apellidos" name="Apellidos" hidden />
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-6">
                     <label class="form-label" for="sexo">Sexo</label>
                     <select class="form-select mb-3" id="sexo" name="sexo">
                       <option value="Hombre">Hombre</option>
@@ -114,7 +115,7 @@
                     </select>
                   </div>
 
-                  <div id="divFechaNacimiento" class="col-sm-6">
+                  <div id="divFechaNacimiento" class="col-6">
                     <label
                       class="form-label"
                       for="fechaNacimiento"
@@ -133,7 +134,7 @@
                 </div>
 
                 <div class="row">
-                  <div id="divDni" class="col-sm-6">
+                  <div id="divDni" class="col-6">
                     <label class="form-label" for="dni">DNI*</label>
                     <input
                       class="form-control mb-3"
@@ -149,7 +150,7 @@
                     </div>
                   </div>
 
-                  <div id="divCorreo" class="col-sm-6">
+                  <div id="divCorreo" class="col-6">
                     <label class="form-label" for="correo"
                       >Correo electrónico</label
                     >
@@ -167,7 +168,7 @@
                 </div>
 
                 <div class="row">
-                  <div id="divTlfFijo" class="col-sm-6">
+                  <div id="divTlfFijo" class="col-6">
                     <label class="form-label" for="telefonoFijo"
                       >Teléfono Fijo</label
                     >
@@ -184,7 +185,7 @@
                     </div>
                   </div>
 
-                  <div id="divTlfMovil" class="col-sm-6">
+                  <div id="divTlfMovil" class="col-6">
                     <label class="form-label" for="telefonoMovil"
                       >Teléfono Móvil*</label
                     >
@@ -320,13 +321,12 @@
                 </button>
 
                 <input
-                class="btn btn-primary btn-sm"
-                type="button"
-                id="enviarForm1"
-                value="Contratar"
-                hidden
-              />
-
+                  class="btn btn-primary btn-sm"
+                  type="button"
+                  id="enviarForm1"
+                  value="Contratar"
+                  hidden
+                />
               </fieldset>
             </div>
 
@@ -386,7 +386,12 @@
                       Formato del nombre erróneo.
                     </div>
 
-                    <input type="text" id="apellidosFac" name="Apellidos Fac. " hidden/>
+                    <input
+                      type="text"
+                      id="apellidosFac"
+                      name="Apellidos Fac. "
+                      hidden
+                    />
                   </div>
                 </div>
 
@@ -653,8 +658,12 @@
                       Formato del apellido erróneo.
                     </div>
 
-                    <input type="text" id="apellidosNoti" name="Apellido contacto" hidden/>
-
+                    <input
+                      type="text"
+                      id="apellidosNoti"
+                      name="Apellido contacto"
+                      hidden
+                    />
                   </div>
                 </div>
 
@@ -725,7 +734,6 @@
                 hidden
               />
             </div>
-            
 
             <div class="modal" id="myModal">
               <div class="modal-dialog" role="document">
@@ -746,7 +754,7 @@
                   </div>
                   <div class="modal-footer">
                     <button
-                    type="submit"
+                      type="submit"
                       class="btn btn-primary btn-sm"
                       id=""
                       onclick="validarFormulario(event)"
@@ -779,16 +787,15 @@
           document.getElementById(`formulario${i}`).style.display = "none";
         }
 
-        document.getElementById(`formulario${numeroFormulario}`).style.display = "block";
+        document.getElementById(`formulario${numeroFormulario}`).style.display =
+          "block";
 
-        if (numeroFormulario ==3){
+        if (numeroFormulario == 3) {
           document.getElementById("enviarForm").removeAttribute("hidden");
-
         }
-
       }
 
-      function mostrarEnviar(){
+      function mostrarEnviar() {
         check = true;
         document.getElementById("enviarForm1").removeAttribute("hidden");
       }
@@ -796,7 +803,7 @@
       function cambiarCheck() {
         var check = false;
       }
-/*       document
+      /*       document
         .getElementById("domiciliacionBancaria")
         .addEventListener("click", () => {
           document.getElementById("contenedorIban").innerHTML = "";
