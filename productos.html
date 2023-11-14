@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.min.css" />
-    <link rel="stylesheet" href="selector.css">
+    <link rel="stylesheet" href="selector.css" />
   </head>
   <body>
-    <div class="card col-md-auto  text-left container bg-white shadow">
+    <div class="card col-md-auto text-left container bg-white shadow">
       <div class="card-body">
         <div class="col-md-7 mx-auto">
           <img
@@ -26,18 +26,17 @@
                   <th scope="col">Nombre</th>
                   <th scope="col">Apellidos</th>
                   <th scope="col">DNI</th>
-                  <th>
-                  </th>
+                  <th></th>
                 </tr>
               </table>
             </div>
             <div class="col">
-                <select
-                  id="productSelect"
-                  class="selector mb-2"
-                  title="seleccion_producto"
-                ></select>
-            </div> 
+              <select
+                id="productSelect"
+                class="selector mb-2"
+                title="seleccion_producto"
+              ></select>
+            </div>
           </div>
           <div class="table-responsive">
             <table id="tabla_productos" class="table" style="font-size: 15px">
@@ -48,7 +47,13 @@
             </table>
 
             <button type="button" onclick="obtenerJson()">JSON</button>
-            <button type="button" id="botonPagos" class="btn btn-primary btn-sm">Contratar</button>
+            <button
+              type="button"
+              id="botonPagos"
+              class="btn btn-primary btn-sm"
+            >
+              Contratar
+            </button>
           </div>
 
           <div id="modalTablas" class="modal">
@@ -88,7 +93,7 @@
           <div id="modalPagos" class="modal">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header text-center">
+                <div class="modal-header">
                   <h5 class="modal-title" id="titulo_modal">Forma de pago</h5>
                   <button
                     type="button"
@@ -97,109 +102,114 @@
                     id="cerrarPagos"
                   ></button>
                 </div>
+                <div class="container">
                 <p class="form-check-label mb-3">
                   ¿Elija que método de pago desea usar?
                 </p>
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="formaPago"
-                  value="efectivo"
-                  id="efectivo"
-                  onclick="mostrarIban()"
-                  required
-                />
-                <label class="form-check-label" for="efectivo">efectivo</label>
-                <br />
 
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="formaPago"
-                  value="Transferencia_bancaria"
-                  id="Transferencia"
-                  onclick="mostrarIban()"
-                />
-                <label class="form-check-label" for="Transferencia"
-                  >Transferencia bancaria</label
-                >
-                <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="formaPago"
+                    value="efectivo"
+                    id="efectivo"
+                    onclick="mostrarIban()"
+                    required
+                  />
+                  <label class="form-check-label" for="efectivo"
+                    >efectivo</label
+                  >
+                  <br />
 
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  value="TPV"
-                  name="formaPago"
-                  id="tpv"
-                  onclick="mostrarIban()"
-                />
-                <label class="form-check-label" for="tpv">TPV</label> <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="formaPago"
+                    value="Transferencia_bancaria"
+                    id="Transferencia"
+                    onclick="mostrarIban()"
+                  />
+                  <label class="form-check-label" for="Transferencia"
+                    >Transferencia bancaria</label
+                  >
+                  <br />
 
-                <input
-                  class="form-check-input"
-                  type="radio"
-                  name="formaPago"
-                  value="Iban"
-                  id="domiciliacionBancaria"
-                  onclick="mostrarIban()"
-                />
-                <label class="form-check-label" for="domiciliacionBancaria"
-                  >domiciliacion Bancaria</label
-                >
-                <br />
-                <br />
-                <div id="contenedorIban" class="" style="display: none">
                   <input
-                    class="form-control"
-                    type="text"
-                    minlength="4"
-                    maxlength="4"
-                    name="primero"
-                    id="primero"
-                    placeholder="ES00"
+                    class="form-check-input"
+                    type="radio"
+                    value="TPV"
+                    name="formaPago"
+                    id="tpv"
+                    onclick="mostrarIban()"
                   />
+                  <label class="form-check-label" for="tpv">TPV</label> <br />
+
                   <input
-                    class="form-control"
-                    type="text"
-                    minlength="4"
-                    maxlength="4"
-                    name="entidad"
-                    id="segundo"
-                    placeholder="Entidad"
+                    class="form-check-input"
+                    type="radio"
+                    name="formaPago"
+                    value="Iban"
+                    id="domiciliacionBancaria"
+                    onclick="mostrarIban()"
                   />
-                  <input
-                    class="form-control"
-                    type="text"
-                    minlength="4"
-                    maxlength="4"
-                    name="sucursal"
-                    id="tercero"
-                    placeholder="Sucursal"
-                  />
-                  <input
-                    class="form-control"
-                    type="text"
-                    minlength="2"
-                    maxlength="2"
-                    name="dc"
-                    id="cuarto"
-                    placeholder="DC"
-                  />
-                  <input
-                    class="form-control"
-                    type="text"
-                    minlength="10"
-                    maxlength="10"
-                    name="nCuenta"
-                    id="quinto"
-                    placeholder="Numero de cuenta"
-                  />
+                  <label class="form-check-label" for="domiciliacionBancaria"
+                    >domiciliacion Bancaria</label
+                  >
+                  <br />
+                  <br />
+                  <div id="contenedorIban" class="" style="display: none">
+                    <input
+                      class="form-control"
+                      type="text"
+                      minlength="4"
+                      maxlength="4"
+                      name="primero"
+                      id="primero"
+                      placeholder="ES00"
+                    />
+                    <input
+                      class="form-control"
+                      type="text"
+                      minlength="4"
+                      maxlength="4"
+                      name="entidad"
+                      id="segundo"
+                      placeholder="Entidad"
+                    />
+                    <input
+                      class="form-control"
+                      type="text"
+                      minlength="4"
+                      maxlength="4"
+                      name="sucursal"
+                      id="tercero"
+                      placeholder="Sucursal"
+                    />
+                    <input
+                      class="form-control"
+                      type="text"
+                      minlength="2"
+                      maxlength="2"
+                      name="dc"
+                      id="cuarto"
+                      placeholder="DC"
+                    />
+                    <input
+                      class="form-control"
+                      type="text"
+                      minlength="10"
+                      maxlength="10"
+                      name="nCuenta"
+                      id="quinto"
+                      placeholder="Numero de cuenta"
+                    />
+                  </div>
+                  <input type="text" id="ibanOculto" hidden />
+                  <br />
                 </div>
-                <input type="text" id="ibanOculto" hidden />
-                <br />
 
-                <div>
-                  <button type="button" onclick="firmar()">Firmar</button>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-primary btn-sm mb-3" type="button" onclick="firmar()">Firmar</button>
                 </div>
               </div>
             </div>
