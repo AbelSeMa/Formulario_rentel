@@ -18,26 +18,27 @@
         </div>
 
         <div id="pintar_tablas">
-          <table id="tabla_cliente" class="table-sm table-striped">
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Apellidos</th>
-              <th scope="col">DNI</th>
-              <th scope="col">Dirección</th>
-            </tr>
-          </table>
-          <br />
-          <div class="row">
-            <div class="col-sm-4 d-inline">
-              <select
-                id="productSelect"
-                class="form-select mb-3"
-                title="seleccion_producto"
-              ></select>
+          <div class="col-sm-4 d-inline">
+            <table id="tabla_cliente" class="table-sm table-striped">
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">DNI</th>
+              </tr>
+            </table>
+            <br />
+            <div class="row">
+              <div class="col-sm-4 d-inline">
+                <select
+                  id="productSelect"
+                  class="form-select mb-3"
+                  title="seleccion_producto"
+                ></select>
+              </div>
             </div>
           </div>
           <div class="table-responsive-sm">
-            <table id="tabla_productos" class="table">
+            <table id="tabla_productos" class="table" style="font-size: 15px">
               <tr id="titulos_columnas">
                 <th scope="col">Servicios</th>
                 <th scope="col" colspan="2"></th>
@@ -194,7 +195,7 @@
                 </div>
 
                 <input type="text" id="ibanOculto" hidden />
-          
+
                 <br />
 
                 <div>
@@ -268,23 +269,24 @@
         if (event.target == modal || event.target == modalPagos) {
           limpiarContenedor();
           modal.style.display = "none";
-          modalPagos.style.display = 'none'
+          modalPagos.style.display = "none";
         }
       };
 
       // modal de pagos
-      let modalPagos = document.getElementById('modalPagos')
+      let modalPagos = document.getElementById("modalPagos");
 
-      document.getElementById("botonPagos").addEventListener("click", function () {
+      document
+        .getElementById("botonPagos")
+        .addEventListener("click", function () {
           modalPagos.style.display = "block";
         });
 
-      let cerrarPagos = document.getElementById('cerrarPagos')
+      let cerrarPagos = document.getElementById("cerrarPagos");
 
       cerrarPagos.onclick = function () {
         modalPagos.style.display = "none";
-      }
-
+      };
 
       function mostrarIban() {
         let contenedorIban = document.getElementById("contenedorIban");
@@ -299,7 +301,6 @@
           contenedorIban.style.display = "none"; // Ocultar el
         }
       }
-
     </script>
     <script src="funcional.js"></script>
     <script src="fijo.js"></script>
