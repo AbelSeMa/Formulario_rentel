@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link
       rel="icon"
       type="image/x-icon"
@@ -778,6 +779,25 @@
       </div>
     </div>
 
+    <script>
+          // Cuando se carga la página, verifica si hay datos en sessionStorage
+    $(document).ready(function () {
+      if (sessionStorage.getItem("cliente")) {
+        var datosCliente = JSON.parse(sessionStorage.getItem("cliente"));
+        if (Object.keys(datosCliente).length !== 0) {
+          // Rellena los campos del formulario con los datos del cliente
+          $("#nombre").val(datosCliente.Nombre);
+          $("#apellido1").val(datosCliente.apellido1);
+          // Asegúrate de hacer esto para todos los campos del formulario
+        }
+      }
+
+      $("form").submit(function (e) {
+      // Redirige al usuario a la página de producto
+      window.location.href = "/productos.html";
+    });
+  });
+    </script>
     <script>
       var check = false;
       function mostrarFormulario(numeroFormulario) {

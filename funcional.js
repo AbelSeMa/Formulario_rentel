@@ -113,7 +113,14 @@ function obtenerJson() {
   // Inicializa tu nuevo objeto
   let nuevoJson = {
     "productos": {
-      "linea movil": {},
+      "linea movil": {
+        "linea movil1": {}
+        "linea movil2": {}
+        "linea movil3": {}
+        "linea movil4": {}
+        "linea movil5": {}
+
+      },
       "Internet": {},
       "linea fija": {}
     }
