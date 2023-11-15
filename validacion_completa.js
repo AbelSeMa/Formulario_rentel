@@ -202,7 +202,7 @@ function validarFormCheck(event) {
   if (!validarCliente(event)) {
     error_formulario.push(1);
   }
-
+  
 
   valoresFac.forEach(function (e) {
     document.getElementById(e + "Fac").value = document.getElementById(e).value;
@@ -256,6 +256,10 @@ function validarSinCheck(event) {
   }
 
   if (!validarCliente(event)) {
+    error_formulario.push(1);
+  }
+
+  if (!validarRadio()){
     error_formulario.push(1);
   }
 
