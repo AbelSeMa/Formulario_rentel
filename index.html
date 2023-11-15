@@ -30,7 +30,6 @@
           <form name="formulario_Cliente" id="myForm" action="productos.html">
             <h2 class="text-center font-weight-bold">Comercial</h2>
 
-
             <div id="divComercial" class="d-flex justify-content-center">
               <select class="form-select-sm" id="comercial" name="comercial">
                 <option value="">Seleccione un comercial</option>
@@ -311,6 +310,16 @@
                   id="mismosDatosNo"
                 />
                 <label for="mismosDatosNo">No</label>
+
+                <br />
+                <div
+                  id="errorDatos"
+                  class="text-danger"
+                  style="font-size: 14px"
+                  hidden
+                >
+                  Seleccione una opción por favor.
+                </div>
                 <br />
                 <button
                   class="btn btn-primary btn-sm"
@@ -600,7 +609,7 @@
               <button
                 class="btn btn-primary btn-sm"
                 type="button"
-                onclick="mostrarFormulario(3); mostrarEnviar();"
+                onclick="mostrarFormulario(3);"
               >
                 Siguiente
               </button>
@@ -792,6 +801,7 @@
 
         if (numeroFormulario == 3) {
           document.getElementById("enviarForm").removeAttribute("hidden");
+          cambiarCheck();
         }
       }
 

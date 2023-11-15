@@ -396,3 +396,18 @@ const selectComerial = document.getElementById("comercial");
 selectComerial.onchange =  function() {
   document.getElementById("formulario1").removeAttribute("hidden");
 };
+
+function validarRadio(){
+  let no = document.getElementById("mismosDatosNo");
+  let error = document.getElementById("errorDatos");
+
+  alert("entre en validarRadio");
+  alert(no.checked);
+
+
+  if (!(no.checked)){
+    error.removeAttribute("hidden");
+    return false;
+  }
+  return true;
+}
