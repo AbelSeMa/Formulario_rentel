@@ -4,11 +4,13 @@ function obtenerJson() {
 
     // Inicializa tu nuevo objeto
     let nuevoJson = {
+        "datos_clientes":{},
+        "datos_comercial":{},
         "productos": {
             "lineas moviles": {
                 "linea movil1": {
                     "datos linea1": "",
-                    "Nº teléfono móvil que contrata línea 1": "",
+                    "Nº teléfono que contrata línea 1": "",
                     "Nº. de la tarjeta SIM línea 1": "",
                     "Mismo titular línea1": "",
                     "Nombre portabilidad línea1": "",
@@ -21,7 +23,7 @@ function obtenerJson() {
                 },
                 "linea movil2": {
                     "datos linea2": "",
-                    "Nº teléfono móvil que contrata línea 2": "",
+                    "Nº teléfono que contrata línea 2": "",
                     "Nº. de la tarjeta SIM línea 2": "",
                     "Mismo titular línea2": "",
                     "Nombre portabilidad línea2": "",
@@ -34,7 +36,7 @@ function obtenerJson() {
                 },
                 "linea movil3": {
                     "datos linea3": "",
-                    "Nº teléfono móvil que contrata línea 3": "",
+                    "Nº teléfono que contrata línea 3": "",
                     "Nº. de la tarjeta SIM línea 3": "",
                     "Mismo titular línea3": "",
                     "Nombre portabilidad línea3": "",
@@ -47,7 +49,7 @@ function obtenerJson() {
                 },
                 "linea movil4": {
                     "datos linea4": "",
-                    "Nº teléfono móvil que contrata línea 4": "",
+                    "Nº teléfono que contrata línea 4": "",
                     "Nº. de la tarjeta SIM línea 4": "",
                     "Mismo titular línea4": "",
                     "Nombre portabilidad línea4": "",
@@ -60,7 +62,7 @@ function obtenerJson() {
                 },
                 "linea movil5": {
                     "datos linea5": "",
-                    "Nº teléfono móvil que contrata línea 5": "",
+                    "Nº teléfono que contrata línea 5": "",
                     "Nº. de la tarjeta SIM línea 5": "",
                     "Mismo titular línea5": "",
                     "Nombre portabilidad línea5": "",
@@ -73,7 +75,7 @@ function obtenerJson() {
                 },
                 "linea movil6": {
                     "datos linea6": "",
-                    "Nº teléfono móvil que contrata línea 6": "",
+                    "Nº teléfono que contrata línea 6": "",
                     "Nº. de la tarjeta SIM línea 6": "",
                     "Mismo titular línea6": "",
                     "Nombre portabilidad línea6": "",
@@ -83,22 +85,44 @@ function obtenerJson() {
                     "Nº.tarjeta SIM donante línea6": "",
                     "Origen línea6": "",
                     "Tarifas línea 6": ""
-                },
-                "Internet": {
-                    "tarifas internet": "",
-                    "Tipo servicio": "",
-                    "Dirección de la instalación": "",
-                    "Permanencia": ""
-                },
-                "lineas fijas": {
-                    "linea_fija1": {
-                        "Datos teléfono fijo línea 1": "",
-                        "N.º ": "",
-                    }
                 }
+            },
+            "Internet": {
+                "tarifas internet": "",
+                "Tipo servicio": "",
+                "Dirección de la instalación": "",
+                "Permanencia": ""
+            },
+            "lineas fijas": {
+                "linea_fija1": {
+                    "Datos teléfono fijo línea 1": "",
+                    "N.º teléfono fijo nuevo o portado línea 1": "",
+                    "Tarifa teléfono fijo línea 1": "",
+                    "Nombre portabilidad fijo línea 1": "",
+                    "Apellidos portabilidad fijo línea 1": "",
+                    "DNI portabilidad fijo línea 1": "",
+                    "Operador donante fijo línea 1": "",
+                    "Mismo Titular Linea Fijo 1": ""
+
+                },
+                "linea_fija2": {
+                    "Datos teléfono fijo línea 2": "",
+                    "N.º teléfono fijo nuevo o portado línea 2": "",
+                    "Tarifa teléfono fijo línea 2": "",
+                    "Nombre portabilidad fijo línea 2": "",
+                    "Apellidos portabilidad fijo línea 2": "",
+                    "DNI portabilidad fijo línea 2": "",
+                    "Operador donante fijo línea 2": "",
+                    "Mismo Titular Linea Fijo 1": ""
+                }
+            },
+            "adicionales": {
+                "Selecciona un servicio adicional": "ZAPI"
             }
         }
     }
+
+
 
     let movilCount = 1;
     for (let i = 0; i < misDatos.length; i++) {

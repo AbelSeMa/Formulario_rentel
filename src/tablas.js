@@ -38,6 +38,9 @@ if (datosCliente != '') {
     let modificarPerfil = document.createElement('button');
     modificarPerfil.id = 'editarPerfil'
     modificarPerfil.type = 'button'
+    modificarPerfil.onclick = function() {
+        window.location.href = "index.html"
+    } 
     modificarPerfil.classList.add('btn', 'btn-primary', 'pr-1', 'btn-sm')
     modificarPerfil.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
