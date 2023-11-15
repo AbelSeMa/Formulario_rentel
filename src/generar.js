@@ -84,8 +84,18 @@ function obtenerJson() {
                     "Origen línea6": "",
                     "Tarifas línea 6": ""
                 },
-                "Internet": {},
-                "linea fija": {}
+                "Internet": {
+                    "tarifas internet": "",
+                    "Tipo servicio": "",
+                    "Dirección de la instalación": "",
+                    "Permanencia": ""
+                },
+                "lineas fijas": {
+                    "linea_fija1": {
+                        "Datos teléfono fijo línea 1": "",
+                        "N.º ": "",
+                    }
+                }
             }
         }
     }
