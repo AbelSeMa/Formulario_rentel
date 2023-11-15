@@ -106,20 +106,14 @@ window.onload = function () {
 }
 
 
-/* function obtenerJson() {
+function obtenerJson() {
   // Recupera tus datos del sessionStorage
   let misDatos = JSON.parse(sessionStorage.getItem("productos"));
 
   // Inicializa tu nuevo objeto
   let nuevoJson = {
     "productos": {
-      "linea movil": {
-        "linea movil1": {"datos linea1":"", "Nº teléfono móvil que contrata línea 1":"789542668"},
-        "linea movil2": {"datos linea2":"alta", "Nº teléfono móvil que contrata línea 2":"789542668"},
-        "linea movil3": {"datos linea3":"alta", "Nº teléfono móvil que contrata línea 3":"789542668"},
-        "linea movil4": {"datos linea4":"alta", "Nº teléfono móvil que contrata línea 4":"789542668"},
-        "linea movil5": {"datos linea5":"alta", "Nº teléfono móvil que contrata línea 5":"789542668"}
-      },
+      "linea movil": {},
       "Internet": {},
       "linea fija": {}
     }
@@ -176,4 +170,5 @@ window.onload = function () {
 
   // Ahora, nuevoJson tiene la estructura que deseas
   console.log(nuevoJson);
-} */
+}
+  
