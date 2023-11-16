@@ -66,10 +66,11 @@ for (let i = tablaProductos.rows.length - 1; i > 0; i--) {
 }
 
 datosProducto.forEach((producto, index) => {
-    console.log(producto.producto)
     let fila = tablaProductos.insertRow(-1);
-    let celdaServicio = fila.insertCell(0);
-    let celdaOpciones = fila.insertCell(1);
+    let celdaDetalles = fila.insertCell(0);
+    let celdaServicio = fila.insertCell(1);
+    let celdaOpciones = fila.insertCell(2);
+    
 
 
 
@@ -78,23 +79,27 @@ datosProducto.forEach((producto, index) => {
     }
 
     if (producto.producto === "Telefonía fija") {
-        if (producto.numero_telefono !== undefined) {
-            celdaServicio.textContent = producto.numero_telefono + ' - ' + producto.servicio
+        if (producto.numero_portabilidad_fijo !== undefined) {
+            celdaDetalles.textContent=  producto.numero_portabilidad_fijo;
+            celdaServicio.textContent = producto.servicio
         } else {
-            celdaServicio.textContent = producto.numero_portabilidad_fijo + ' - ' + producto.servicio
+            celdaServicio.textContent = producto.servicio;
         }
     }
 
     if (producto.producto === "Movil") {
         if (producto.numero_sim !== undefined) {
-            celdaServicio.textContent = producto.numero_sim + ' - ' + producto.servicio
+            celdaDetalles.textContent = producto.numero_sim 
+            celdaServicio.textContent = producto.servicio
         } else {
-            celdaServicio.textContent = producto.sim_rentel + ' - ' + producto.servicio
+            celdaDetalles.textContent = producto?.sim_antigua || producto.sim_rentel + ' - '  +producto?.tipo;
+            celdaServicio.textContent = producto.servicio
         }
     }
 
     if (producto.producto === "Internet") {
-        celdaServicio.textContent = producto.servicio + ' - ' + producto.permanencia
+        celdaDetalles.textContent = producto.permanencia === '' ? 'Sin permanencia' : producto.permanencia
+        celdaServicio.textContent = producto.servicio
 
     }
 

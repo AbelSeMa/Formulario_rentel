@@ -43,7 +43,6 @@ function opcionesFijo() {
                     }
                 }
                 tarifasFijo();
-                numTlfnFijo()
 
             };
         }

@@ -4357,7 +4357,7 @@ fieldset:disabled .btn {
 }
 .card-body {
   flex: 1 1 auto;
-  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  /* padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x); */
   color: var(--bs-card-color);
 }
 .card-title {
@@ -12499,7 +12499,7 @@ fieldset[disabled] .btn-secondary:hover {
 body,
 button,
 input {
-  /* letter-spacing:.1px; */
+  letter-spacing:.0px;
 }
 p {
   margin: 0 0 1em;

@@ -88,7 +88,7 @@ function mostrarProductosInternet() {
 
     // Crea el elemento select
     let select = document.createElement("select");
-    select.name = "producto_internet";
+    select.name = "tarifa";
     select.className = "form-select mb-3";
 
     // Crea los elementos de entrada
@@ -107,7 +107,7 @@ function mostrarProductosInternet() {
 
     // Crea el elemento select
     let select2 = document.createElement("select");
-    select2.name = "tarifa";
+    select2.name = "tipo_servicio";
     select2.className = "form-select mb-3";
 
     tipos.forEach(function (dato) {
@@ -157,7 +157,7 @@ function direccionInstalacion() {
 function crearOpcionesPermanencia(permanencia) {
     return permanencia.map(function (dato) {
         var option = document.createElement("option");
-        option.value = dato.permanencia === 'Selecciona la permanencia' ? '' : dato.permanencia;
+        option.value = dato.valor;
         option.text = dato.permanencia;
         return option;
     });
@@ -169,11 +169,12 @@ function permanenciaInternet() {
     div.id = 'permanencia_internet';
 
     let permanencias = [
-        { permanencia: 'Selecciona la permanencia' },
-        { permanencia: '6 meses' },
-        { permanencia: '12 meses' },
-        { permanencia: '18 meses' },
-        { permanencia: '24 meses' }
+        { permanencia: 'Selecciona la permanencia', valor:'' },
+        { permanencia: 'Sin permanencia', valor:''},
+        { permanencia: '6 meses', valor:'6 meses' },
+        { permanencia: '12 meses', valor:'12 meses' },
+        { permanencia: '18 meses', valor: '18 meses' },
+        { permanencia: '24 meses', valor: '24 meses' }
     ]
 
     let titulo = document.createElement('h4');
@@ -186,7 +187,7 @@ function permanenciaInternet() {
     let select = document.createElement("select");
     select.name = "permanencia";
     select.className = "form-select mb-3"
-    crearOpcionesPermanencia(permanencias).forEach(option => select.appendChild(option));
+        crearOpcionesPermanencia(permanencias).forEach(option => select.appendChild(option));
     div.appendChild(select);
     parentElement.appendChild(div)
 }

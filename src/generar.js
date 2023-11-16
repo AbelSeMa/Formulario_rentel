@@ -1,14 +1,20 @@
 function obtenerJson() {
     // Recupera tus datos del sessionStorage
     let misDatos = JSON.parse(sessionStorage.getItem("productos"));
+    let datosCliente = JSON.parse(sessionStorage.getItem("cliente"));
 
     // Inicializa tu nuevo objeto
     let nuevoJson = {
-        "datos_clientes":{},
-        "datos_comercial":{},
+        "datos_clientes": {
+            ...datosCliente
+        },
+        "datos_comercial": {
+            "Comercial": datosCliente.comercial,
+            "Nombre Comercial": datosCliente.comercial
+        },
         "productos": {
-            "lineas moviles": {
-                "linea movil1": {
+            "lineas_moviles": {
+                "linea_movil1": {
                     "datos linea1": "",
                     "Nº teléfono que contrata línea 1": "",
                     "Nº. de la tarjeta SIM línea 1": "",
@@ -21,7 +27,7 @@ function obtenerJson() {
                     "Origen línea1": "",
                     "Tarifas línea 1": ""
                 },
-                "linea movil2": {
+                "linea_movil2": {
                     "datos linea2": "",
                     "Nº teléfono que contrata línea 2": "",
                     "Nº. de la tarjeta SIM línea 2": "",
@@ -34,7 +40,7 @@ function obtenerJson() {
                     "Origen línea2": "",
                     "Tarifas línea 2": ""
                 },
-                "linea movil3": {
+                "linea_movil3": {
                     "datos linea3": "",
                     "Nº teléfono que contrata línea 3": "",
                     "Nº. de la tarjeta SIM línea 3": "",
@@ -47,7 +53,7 @@ function obtenerJson() {
                     "Origen línea3": "",
                     "Tarifas línea 3": ""
                 },
-                "linea movil4": {
+                "linea_movil4": {
                     "datos linea4": "",
                     "Nº teléfono que contrata línea 4": "",
                     "Nº. de la tarjeta SIM línea 4": "",
@@ -60,7 +66,7 @@ function obtenerJson() {
                     "Origen línea4": "",
                     "Tarifas línea 4": ""
                 },
-                "linea movil5": {
+                "linea_movil5": {
                     "datos linea5": "",
                     "Nº teléfono que contrata línea 5": "",
                     "Nº. de la tarjeta SIM línea 5": "",
@@ -73,7 +79,7 @@ function obtenerJson() {
                     "Origen línea5": "",
                     "Tarifas línea 5": ""
                 },
-                "linea movil6": {
+                "linea_movil6": {
                     "datos linea6": "",
                     "Nº teléfono que contrata línea 6": "",
                     "Nº. de la tarjeta SIM línea 6": "",
@@ -93,7 +99,7 @@ function obtenerJson() {
                 "Dirección de la instalación": "",
                 "Permanencia": ""
             },
-            "lineas fijas": {
+            "lineas_fijas": {
                 "linea_fija1": {
                     "Datos teléfono fijo línea 1": "",
                     "N.º teléfono fijo nuevo o portado línea 1": "",
@@ -117,7 +123,7 @@ function obtenerJson() {
                 }
             },
             "adicionales": {
-                "Selecciona un servicio adicional": "ZAPI"
+                "Selecciona un servicio adicional": ""
             }
         }
     }
@@ -125,22 +131,59 @@ function obtenerJson() {
 
 
     let movilCount = 1;
+    let fijoCount = 1;
+    let internetCount = 1;
     for (let i = 0; i < misDatos.length; i++) {
         let dato = misDatos[i];
         if (dato.producto === "Movil" && movilCount <= 6) {
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["datos linea" + movilCount] = dato.servicio;
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Nº teléfono móvil que contrata línea " + movilCount] = dato?.numero_sim || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Nº. de la tarjeta SIM línea " + movilCount] = dato?.sim_rentel || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Mismo titular línea" + movilCount + (movilCount === 5 ? "" : " ")] = dato?.mismo_titular_movil || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Nombre portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 4 ? "" : " ")] = dato?.nombre_antiguo_tiular_movil || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Apellidos portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 3 || movilCount === 4 ? "" : " ")] = dato?.apellidos_antiguo_tiular_movil || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["DNI portabilidad línea" + movilCount + (movilCount === 5 || movilCount === 6 ? " " : "")] = dato?.DNI_antiguo_tiular_movil || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Operador donante línea" + movilCount] = dato?.donante_movil || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Nº.tarjeta SIM donante línea1" + movilCount] = dato?.sim_antigua || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Origen línea" + movilCount] = dato?.tipo || '';
-            nuevoJson.productos["lineas moviles"]["linea movil" + movilCount]["Tarifas línea " + movilCount] = dato?.tarifa || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["datos linea" + movilCount] = dato.servicio;
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº teléfono móvil que contrata línea " + movilCount] = dato?.numero_sim || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº. de la tarjeta SIM línea " + movilCount] = dato?.sim_rentel || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Mismo titular línea" + movilCount + (movilCount === 5 ? "" : " ")] = dato?.mismo_titular_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nombre portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 4 ? "" : " ")] = dato?.nombre_antiguo_tiular_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Apellidos portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 3 || movilCount === 4 ? "" : " ")] = dato?.apellidos_antiguo_tiular_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["DNI portabilidad línea" + movilCount + (movilCount === 5 || movilCount === 6 ? " " : "")] = dato?.DNI_antiguo_tiular_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Operador donante línea" + movilCount] = dato?.donante_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº.tarjeta SIM donante línea1" + movilCount] = dato?.sim_antigua || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Origen línea" + movilCount] = dato?.tipo || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Tarifas línea " + movilCount] = dato?.tarifa || '';
             movilCount++;
+        }
+
+        if (dato.producto === "Telefonía fija" && movilCount <= 2) {
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Datos teléfono fijo línea " + fijoCount] = dato?.servicio || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["N.º teléfono fijo nuevo o portado línea " + fijoCount] = dato?.numero_portabilidad_fijo || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Tarifa teléfono fijo línea " + fijoCount] = dato?.tarifa || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Nombre portabilidad fijo línea " + fijoCount] = dato?.nombre_antiguo_tiular_fijo || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Apellidos portabilidad fijo línea " + fijoCount] = dato?.apellidos_antiguo_tiular_fijo || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["DNI portabilidad fijo línea " + fijoCount] = dato?.DNI_antiguo_tiular_fijo || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Operador donante fijo línea " + fijoCount] = dato?.donante_fijo || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Mismo Titular Linea Fijo " + fijoCount] = dato?.mismo_titular_fijo | '';
+            fijoCount++;
+        }
+
+        if (dato.producto === "Internet" && internetCount <= 1) {
+            nuevoJson.productos["Internet"]["tarifas internet"] = dato?.servicio || '';
+            nuevoJson.productos["Internet"]["Tipo servicio"] = dato?.tipo_servicio || '';
+            nuevoJson.productos["Internet"]["Dirección de la instalación"] = dato?.direccion_instalacion || '';
+            nuevoJson.productos["Internet"]["Permanencia"] = dato?.permanencia || '';
+            internetCount++;
         }
     }
     console.log(nuevoJson);
+    // Convierte el objeto a una cadena JSON
+    var json = JSON.stringify(nuevoJson, null, 2); // El segundo y tercer argumento añaden formato
+
+    // Crea un nuevo blob con la cadena JSON
+    var blob = new Blob([json], { type: "application/json" });
+
+    // Crea una nueva URL para el blob
+    var url = URL.createObjectURL(blob);
+
+    // Crea un enlace temporal y haz clic en él para descargar el archivo
+    var enlaceTemporal = document.createElement('a');
+    enlaceTemporal.href = url;
+    enlaceTemporal.download = 'miArchivo.json';
+    enlaceTemporal.click();
+
 }
