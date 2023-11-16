@@ -86,12 +86,12 @@ function mostrarProductosInternet() {
         { tarifa: 'Premiun'}
     ];
 
-    // Crea el elemento select
+    // Crea el elemento select para las tarifas
     let select = document.createElement("select");
     select.name = "tarifa";
     select.className = "form-select mb-3";
 
-    // Crea los elementos de entrada
+    // Crea las opciones de tarifa para el select
     tarifas.forEach(function (dato, i) {
         let option = document.createElement("option");
         option.value = dato.tarifa;
@@ -105,11 +105,12 @@ function mostrarProductosInternet() {
         { tipo: 'Fibra' }
     ]
 
-    // Crea el elemento select
+    // Crea el elemento select para el tipo de servicio
     let select2 = document.createElement("select");
     select2.name = "tipo_servicio";
     select2.className = "form-select mb-3";
 
+    // crea las opciones para cada tipo de servicio (wifi y fibra)
     tipos.forEach(function (dato) {
         let option = document.createElement("option");
         option.value = dato.tipo;

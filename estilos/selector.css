@@ -3,8 +3,9 @@
     border: none;
     font-family: inherit;
     font-size: inherit;
-    cursor: inherit;
+    cursor: pointer;
     line-height: inherit;
+    width: 100%;
 }
 
 th:first-of-type{

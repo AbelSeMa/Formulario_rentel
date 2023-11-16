@@ -16,7 +16,7 @@ function opcionesMovil() {
 
     // Array para crear los servicios, cada elemento 
     // del array será un radio
-    let servicios = ['Alta movil', 'Portabilidad movil'];
+    let servicios = ['Línea nueva', 'Línea portada'];
     let labels = ['Alta nueva', 'Portabilidad'];
     var br = document.createElement("br");
 
@@ -34,7 +34,7 @@ function opcionesMovil() {
         label.htmlFor = servicios[i];
         label.textContent = labels[i];
 
-        if (servicios[i] === 'Alta movil') {
+        if (servicios[i] === 'Línea nueva') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_movil');
                 // Comprueba si el div padre tiene hijos
@@ -50,7 +50,7 @@ function opcionesMovil() {
             };
         }
 
-        if (servicios[i] === 'Portabilidad movil') {
+        if (servicios[i] === 'Línea portada') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_movil');
                 // Comprueba si el div padre tiene hijos
@@ -341,7 +341,7 @@ function titularPortabilidadMovil() {
     // Define los datos para los elementos de entrada
     var datos = [
         {
-            id: 'si_mismo_titular_movil', value: 'si', text: 'Si, se utilizaran los datos del cliente.', onclick: () => {
+            id: 'si_mismo_titular_movil', value: 'Si', text: 'Si, se utilizaran los datos del cliente.', onclick: () => {
                 let antiguoTitularDiv = document.getElementById('datos_antiguo_titular')
                 // Si el div ya tiene hijos, elimínalos todos
                 while (antiguoTitularDiv !== null && antiguoTitularDiv.firstChild) {

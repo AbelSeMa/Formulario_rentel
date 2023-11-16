@@ -15,7 +15,7 @@ function obtenerJson() {
         "productos": {
             "lineas_moviles": {
                 "linea_movil1": {
-                    "Datos linea1": "",
+                    "Datos línea1": "",
                     "Nº teléfono que contrata línea 1": "",
                     "Nº. de la tarjeta SIM línea 1": "",
                     "Mismo titular línea1 ": "",
@@ -28,7 +28,7 @@ function obtenerJson() {
                     "Tarifas línea 1": ""
                 },
                 "linea_movil2": {
-                    "Datos linea2": "",
+                    "Datos línea2": "",
                     "Nº teléfono que contrata línea 2": "",
                     "Nº. de la tarjeta SIM línea 2": "",
                     "Mismo titular línea2 ": "",
@@ -41,7 +41,7 @@ function obtenerJson() {
                     "Tarifas línea 2": ""
                 },
                 "linea_movil3": {
-                    "Datos linea3": "",
+                    "Datos línea3": "",
                     "Nº teléfono que contrata línea 3": "",
                     "Nº. de la tarjeta SIM línea 3": "",
                     "Mismo titular línea3": "",
@@ -54,7 +54,7 @@ function obtenerJson() {
                     "Tarifas línea 3": ""
                 },
                 "linea_movil4": {
-                    "Datos linea4": "",
+                    "Datos línea4": "",
                     "Nº teléfono que contrata línea 4": "",
                     "Nº. de la tarjeta SIM línea 4": "",
                     "Mismo titular línea4 ": "",
@@ -67,7 +67,7 @@ function obtenerJson() {
                     "Tarifas línea 4": ""
                 },
                 "linea_movil5": {
-                    "Datos linea5": "",
+                    "Datos línea5": "",
                     "Nº teléfono que contrata línea 5": "",
                     "Nº. de la tarjeta SIM línea 5": "",
                     "Mismo titular línea5": "",
@@ -80,7 +80,7 @@ function obtenerJson() {
                     "Tarifas línea 5": ""
                 },
                 "linea_movil6": {
-                    "Datos linea6": "",
+                    "Datos línea6": "",
                     "Nº teléfono que contrata línea 6": "",
                     "Nº. de la tarjeta SIM línea 6": "",
                     "Mismo titular línea6": "",
@@ -93,8 +93,8 @@ function obtenerJson() {
                     "Tarifas línea 6": ""
                 }
             },
-            "Internet": {
-                "tarifas internet": "",
+            "internet": {
+                "Tarifas internet": "",
                 "Tipo servicio": "",
                 "Dirección de la instalación": "",
                 "Permanencia": ""
@@ -108,7 +108,10 @@ function obtenerJson() {
                     "Apellidos portabilidad fijo línea 1": "",
                     "DNI portabilidad fijo línea 1": "",
                     "Operador donante fijo línea 1": "",
-                    "Mismo Titular Linea Fijo 1": ""
+                    "Mismo Titular Linea Fijo 1": "",
+                    "Saldo inferior linea fijo 1": "",
+                    "Recarga linea fijo 1":""
+
 
                 },
                 "linea_fija2": {
@@ -119,7 +122,9 @@ function obtenerJson() {
                     "Apellidos portabilidad fijo línea 2": "",
                     "DNI portabilidad fijo línea 2": "",
                     "Operador donante fijo línea 2": "",
-                    "Mismo Titular Linea Fijo 2": ""
+                    "Mismo Titular Linea Fijo 2": "",
+                    "Saldo inferior linea fijo 2": "",
+                    "Recarga linea fijo 2":""
                 }
             },
             "adicionales": {
@@ -160,11 +165,14 @@ function obtenerJson() {
             nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["DNI portabilidad fijo línea " + fijoCount] = dato?.DNI_antiguo_titular_fijo || '';
             nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Operador donante fijo línea " + fijoCount] = dato?.donante_fijo || '';
             nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Mismo Titular Linea Fijo " + fijoCount] = dato?.mismo_titular_fijo || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Saldo inferior linea fijo " + fijoCount] = dato?.saldo_inferior || '';
+            nuevoJson.productos["lineas_fijas"]["linea_fija" + fijoCount]["Recarga linea fijo " + fijoCount] = dato?.recarga_saldo || '';
+
             fijoCount++;
         }
 
         if (dato.producto === "Internet" && internetCount <= 1) {
-            nuevoJson.productos["Internet"]["tarifas internet"] = dato?.servicio || '';
+            nuevoJson.productos["Internet"]["tarifas internet"] = dato?.tarifa || '';
             nuevoJson.productos["Internet"]["Tipo servicio"] = dato?.tipo_servicio || '';
             nuevoJson.productos["Internet"]["Dirección de la instalación"] = dato?.direccion_instalacion || '';
             nuevoJson.productos["Internet"]["Permanencia"] = dato?.permanencia || '';

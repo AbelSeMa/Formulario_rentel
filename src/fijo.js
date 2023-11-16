@@ -15,7 +15,7 @@ function opcionesFijo() {
 
     // Array para crear los servicios, cada elemento 
     // del array será un radio
-    let servicios = ['Alta fijo', 'Portabilidad fijo'];
+    let servicios = ['Línea nueva', 'Línea portada'];
     let labels = ['Alta nueva', 'Portabilidad'];
 
     for (let i = 0; i < servicios.length; i++) {
@@ -32,7 +32,7 @@ function opcionesFijo() {
         label.htmlFor = servicios[i];
         label.textContent = labels[i];
 
-        if (servicios[i] === 'Alta fijo') {
+        if (servicios[i] === 'Línea nueva') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_fijo');
                 // Comprueba si el div padre tiene hijos
@@ -43,13 +43,14 @@ function opcionesFijo() {
                     }
                 }
                 tarifasFijo();
+                recarga();
 
             };
         }
 
 
 
-        if (servicios[i] === 'Portabilidad fijo') {
+        if (servicios[i] === 'Línea portada') {
             input.onclick = function () {
                 let divPadre = document.getElementById('contenido_fijo');
                 // Comprueba si el div padre tiene hijos
@@ -61,6 +62,7 @@ function opcionesFijo() {
                 }
                 donanteFijo();
                 numeroPortabilidadFijo();
+                recarga();
                 tarifasFijo();
                 titularPortabilidadFijo();
             };
@@ -118,7 +120,6 @@ function tarifasFijo() {
         option.textContent = dato.tarifa;
         select.appendChild(option);
     });
-
     tarifaFijo.appendChild(select);
     parentElement.appendChild(tarifaFijo);
 }
@@ -298,7 +299,7 @@ function titularPortabilidadFijo() {
     // Define los datos para los elementos de entrada
     var datos = [
         {
-            id: 'si_mismo_titular_fijo', value: 'si', text: 'Si, se utilizaran los datos del cliente.', onclick: () => {
+            id: 'si_mismo_titular_fijo', value: 'Si', text: 'Si, se utilizaran los datos del cliente.', onclick: () => {
                 let antiguoTitularDiv = document.getElementById('datos_antiguo_titular')
                 // Si el div ya tiene hijos, elimínalos todos
                 while (antiguoTitularDiv !== null && antiguoTitularDiv.firstChild) {
@@ -355,4 +356,47 @@ function titularPortabilidadFijo() {
     antiguoTitularDiv.id = "datos_antiguo_titular";
 
     document.getElementById('contenido_fijo').appendChild(antiguoTitularDiv);
+}
+
+function recarga() {
+    let parentElement = document.getElementById('contenido_fijo');
+
+    let recarga = document.createElement("div");
+    recarga.id = 'recarga_salgo';
+
+    // Si el div ya tiene hijos, elimínalos todos
+    while (recarga.firstChild) {
+        recarga.removeChild(recarga.firstChild);
+    }
+
+    // Crea el h5 que será el título del div
+    let h5 = document.createElement("h5");
+    h5.textContent = "Recarga automática línea fija.";
+    h5.classList.add('mt-2')
+    recarga.appendChild(h5);
+  
+
+    // crea el input de de saldo inferior
+    let saldoInferior = document.createElement('input');
+    saldoInferior.type = 'number';
+    saldoInferior.name = 'saldo_inferior';
+    saldoInferior.id = 'saldo_infe';
+    saldoInferior.placeholder = 'Saldo inferior a..'
+    saldoInferior.classList.add("form-control", "mb-2");
+
+
+    // crea el input de de saldo inferior
+    let recargaFijo = document.createElement('input');
+    recargaFijo.type = 'number';
+    recargaFijo.name = 'recarga_saldo';
+    recargaFijo.id = 'recarga_fijo';
+    recargaFijo.placeholder = 'Saldo a recargar €'
+    recargaFijo.classList.add("form-control", "mb-2")
+
+
+
+    recarga.appendChild(saldoInferior);
+    recarga.appendChild(recargaFijo);
+
+    parentElement.appendChild(recarga);
 }

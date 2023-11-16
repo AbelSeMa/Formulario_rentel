@@ -30,8 +30,11 @@ if (datosCliente != '') {
     let celdaEditar = fila.insertCell(3);
 
     celdaNombre.textContent = datosCliente.Nombre;
+    celdaNombre.classList.add('text-center')
+    celdaApellido.classList.add('text-center')
     celdaApellido.textContent = datosCliente.Apellidos;
     celdaDNI.textContent = datosCliente['DNI/CIF'];
+    celdaDNI.classList.add('text-center')
 
 
     // Agrega los iconos de modificar y borrar
