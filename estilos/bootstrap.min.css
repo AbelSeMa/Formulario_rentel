@@ -1846,7 +1846,7 @@ progress {
 }
 .table-primary {
   --bs-table-color: white;
-  --bs-table-bg: #1b8bf3;
+  --bs-table-bg: #1e70b9;
   --bs-table-border-color: #a9bbca;
   --bs-table-striped-bg: #c8def0;
   --bs-table-striped-color: #000;
@@ -2010,7 +2010,7 @@ progress {
 .form-control {
   display: block;
   width: 100%;
-  padding: 1rem 0 1rem 0;
+  padding: 0.5rem 0 0.5rem 0;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;

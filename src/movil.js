@@ -99,8 +99,9 @@ function numSim() {
     // Crea el input text
     let input = document.createElement('input');
     input.type = 'text';
-    input.name = 'numero_sim';
+    input.name = 'sim_rentel';
     input.placeholder = 'Introduce el número de la SIM nueva';
+    input.setAttribute('maxlength', '19')
     input.classList.add('form-control', 'mb-3');
     div.appendChild(input);
 
@@ -294,6 +295,8 @@ function crearPortabilidad() {
         let inputSim = document.createElement('input');
         inputSim.type = 'text';
         inputSim.name = name;
+        inputSim.setAttribute('minlength','19')
+        inputSim.setAttribute('maxlength','19')
         inputSim.className = 'input_sim form-control mb-3';
         parentElement.appendChild(inputSim);
     }
@@ -338,7 +341,7 @@ function titularPortabilidadMovil() {
     // Define los datos para los elementos de entrada
     var datos = [
         {
-            id: 'si_mismo_titular_fijo', value: 'si', text: 'Si, se utilizaran los datos del cliente.', onclick: () => {
+            id: 'si_mismo_titular_movil', value: 'si', text: 'Si, se utilizaran los datos del cliente.', onclick: () => {
                 let antiguoTitularDiv = document.getElementById('datos_antiguo_titular')
                 // Si el div ya tiene hijos, elimínalos todos
                 while (antiguoTitularDiv !== null && antiguoTitularDiv.firstChild) {
@@ -347,7 +350,7 @@ function titularPortabilidadMovil() {
             }
         },
         {
-            id: 'otro_titular_fijo', value: 'no', text: 'No, será un nuevo titular.', onclick: () => {
+            id: 'otro_titular_movil', value: 'no', text: 'No, será un nuevo titular.', onclick: () => {
                 let antiguoTitularDiv = document.getElementById('datos_antiguo_titular')
                 // Si el div ya tiene hijos, elimínalos todos
                 while (antiguoTitularDiv !== null && antiguoTitularDiv.firstChild) {
@@ -372,7 +375,7 @@ function titularPortabilidadMovil() {
         var radio = document.createElement("input");
         radio.className = "form-check-input";
         radio.type = "radio";
-        radio.name = "mismo_titular_fijo";
+        radio.name = "mismo_titular_movil";
         radio.id = dato.id;
         radio.value = dato.value;
         radio.onclick = dato.onclick;
@@ -406,9 +409,9 @@ function antiguoTitularMovil() {
 
     // Define los datos para los elementos de entrada
     var datos = [
-        { titulo: 'Nombre del antiguo titular', nombre: 'nombre_antiguo_titular_fijo', placeholder: 'Nombre del antiguo titular' },
-        { titulo: 'Apellidos del antiguo titular', nombre: 'apellidos_antiguo_titular_fijo', placeholder: 'Apellidos antiguo titular' },
-        { titulo: 'DNI del antiguo titular', nombre: 'DNI_antiguo_titular_fijo', placeholder: 'DNI antiguo titular' }
+        { titulo: 'Nombre del antiguo titular', nombre: 'nombre_antiguo_titular_movil', placeholder: 'Nombre del antiguo titular' },
+        { titulo: 'Apellidos del antiguo titular', nombre: 'apellidos_antiguo_titular_movil', placeholder: 'Apellidos antiguo titular' },
+        { titulo: 'DNI del antiguo titular', nombre: 'DNI_antiguo_titular_movil', placeholder: 'DNI antiguo titular' }
     ];
 
     // Crea los elementos de entrada

@@ -88,13 +88,8 @@ datosProducto.forEach((producto, index) => {
     }
 
     if (producto.producto === "Movil") {
-        if (producto.numero_sim !== undefined) {
-            celdaDetalles.textContent = producto.numero_sim 
-            celdaServicio.textContent = producto.servicio
-        } else {
-            celdaDetalles.textContent = producto?.sim_antigua || producto.sim_rentel + ' - '  +producto?.tipo;
-            celdaServicio.textContent = producto.servicio
-        }
+        celdaDetalles.textContent = producto?.numero_telefono || producto.sim_rentel
+        celdaServicio.textContent = producto.servicio
     }
 
     if (producto.producto === "Internet") {
