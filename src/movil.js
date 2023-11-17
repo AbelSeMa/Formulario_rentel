@@ -62,8 +62,9 @@ function opcionesMovil() {
                 }
                 titularPortabilidadMovil();
                 donanteMovil()
+                tarifaMovil();
                 crearPortabilidad();
-                
+
             };
             input.classList.add('mb-3');
         }
@@ -166,10 +167,6 @@ function tarifaMovil() {
     labelIndividual.textContent = "Tarifa individual";
     let br = document.createElement('br');
 
-    parentElement.appendChild(radioIndividual);
-    parentElement.appendChild(labelIndividual);
-    parentElement.appendChild(br);
-
     let radioPack = document.createElement("input");
     radioPack.className = "form-check-input mb-3";
     radioPack.type = "radio";
@@ -185,14 +182,31 @@ function tarifaMovil() {
     labelPack.textContent = "Pack megas compartidos";
 
 
-    parentElement.appendChild(radioPack);
-    parentElement.appendChild(labelPack);
+    let radiosTarifas = document.createElement('div');
+    radiosTarifas.id = 'indiPackMovil'
+    // Crea el elemento h4
+    
+    if (radiosTarifas.hasChildNodes()) {
+        // Si tiene hijos, elimínalos todos
+        while (radiosTarifas.firstChild) {
+            radiosTarifas.removeChild(radiosTarifas.firstChild);
+        }
+    }
+    let h4 = document.createElement('h4');
+    h4.textContent = 'Elige la tarifa de la línea';
+    radiosTarifas.appendChild(h4);
+    radiosTarifas.appendChild(radioIndividual);
+    radiosTarifas.appendChild(labelIndividual);
+    radiosTarifas.appendChild(br);
+    radiosTarifas.appendChild(radioPack)
+    radiosTarifas.appendChild(labelPack)
+    parentElement.appendChild(radiosTarifas);
 
     function crearSelect(datos) {
         // Elimina el select anterior si existe
         let oldSelect = document.getElementById('select_tarifa');
         if (oldSelect) {
-            parentElement.removeChild(oldSelect);
+            radiosTarifas.removeChild(oldSelect);
         }
 
         // Crea el elemento select
@@ -209,7 +223,8 @@ function tarifaMovil() {
             select.appendChild(option);
         });
 
-        parentElement.appendChild(select);
+
+        radiosTarifas.appendChild(select);
     }
 }
 
@@ -240,10 +255,9 @@ function crearPortabilidad() {
     radioContrato.value = 'Contrato'
     radioContrato.id = 'contrato';
     radioContrato.className = 'form-check-input';
-    radioContrato.onclick = function() {
+    radioContrato.onclick = function () {
         eliminarInputsSim();
         crearInputSim('Nº de SIM rentel', 'sim_rentel');
-        tarifaMovil();
     };
     parentElement.appendChild(radioContrato);
 
@@ -265,7 +279,6 @@ function crearPortabilidad() {
         eliminarInputsSim();
         crearInputSim('Nº de SIM rentel', 'sim_rentel');
         crearInputSim('Nº de SIM antigua', 'sim_antigua');
-        tarifaMovil();
     };
     parentElement.appendChild(radioPrepago);
 
@@ -295,12 +308,13 @@ function crearPortabilidad() {
         let inputSim = document.createElement('input');
         inputSim.type = 'text';
         inputSim.name = name;
-        inputSim.setAttribute('minlength','19')
-        inputSim.setAttribute('maxlength','19')
+        inputSim.setAttribute('minlength', '19')
+        inputSim.setAttribute('maxlength', '19')
         inputSim.className = 'input_sim form-control mb-3';
         parentElement.appendChild(inputSim);
     }
 }
+
 
 function donanteMovil() {
     // Crear un div con id "donante_fijo"

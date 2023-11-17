@@ -53,16 +53,58 @@ function actualizarCliente(numIban) {
   sessionStorage.setItem('cliente', JSON.stringify(cliente));
 }
 
+function actualizarFormaPago() {
+  let jsonCliente = JSON.parse(sessionStorage.getItem('cliente'));
+  let formaPago;
+  let opcionesPago = document.getElementsByName('formaPago')
+
+  for (var i = 0, length = opcionesPago.length; i < length; i++) {
+    if (opcionesPago[i].checked) {
+      // recoge el valor del radio seleccionado
+      formaPago = opcionesPago[i].value;
+      // rompe el bucle porque ya encontraste el radio seleccionado
+      break;
+    }
+  }
+
+  jsonCliente.FormaPago = formaPago;
+  // Guarda el objeto actualizado de nuevo en sessionStorage
+  sessionStorage.setItem('cliente', JSON.stringify(jsonCliente));
+}
+
+function enviarFormulario() {
+  let json = obtenerJson();
+
+  let url = 'https://ejemplo.com/api'; // la URL del servidor al que quieres enviar el JSON
+
+  fetch(url, {
+    method: 'POST', // o 'PUT'
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(json), // convierte el objeto JSON en una cadena
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      console.log('Éxito:', json);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+}
+
 function firmar() {
   let domiciliacionBancaria = document.getElementById("domiciliacionBancaria");
   if (domiciliacionBancaria.checked) {
     if (validarFormPago()) {
       let numIban = document.getElementById('ibanOculto').value;
       actualizarCliente(numIban);
-    } else {
-      actualizarCliente('');
     }
   }
+  actualizarCliente('');
+  actualizarFormaPago();
+
+  enviarFormulario();
 }
 
 function validarIBAN(iban) {

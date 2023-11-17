@@ -57,7 +57,7 @@ function obtenerJson() {
                     "Datos línea4": "",
                     "Nº teléfono que contrata línea 4": "",
                     "Nº. de la tarjeta SIM línea 4": "",
-                    "Mismo titular línea4 ": "",
+                    "Mismo titular línea4": "",
                     "Nombre portabilidad línea4 ": "",
                     "Apellidos portabilidad línea4 ": "",
                     "DNI portabilidad línea4 ": "",
@@ -145,9 +145,9 @@ function obtenerJson() {
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº teléfono móvil que contrata línea " + movilCount] = dato?.numero_telefono || '';
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº. de la tarjeta SIM línea " + movilCount] = dato?.sim_rentel || '';
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Mismo titular línea" + movilCount + (movilCount === 5 ? "" : " ")] = dato?.mismo_titular_movil || '';
-            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nombre portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 4 ? "" : " ")] = dato?.nombre_antiguo_titular_movil || '';
-            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Apellidos portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 3 || movilCount === 4 ? "" : " ")] = dato?.apellidos_antiguo_titular_movil || '';
-            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["DNI portabilidad línea" + movilCount + (movilCount === 5 || movilCount === 6 ? " " : "")] = dato?.DNI_antiguo_titular_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nombre portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 4  ? " " : "")] = dato?.nombre_antiguo_titular_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Apellidos portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 3 || movilCount === 4 ? " " : "")] = dato?.apellidos_antiguo_titular_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["DNI portabilidad línea" + movilCount + (movilCount === 5 || movilCount === 6 ? "" : " ")] = dato?.DNI_antiguo_titular_movil || '';
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Operador donante línea" + movilCount] = dato?.donante_movil || '';
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº.tarjeta SIM donante línea" + movilCount] = dato?.sim_antigua || '';
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Origen línea" + movilCount] = dato?.tipo || '';
@@ -172,10 +172,10 @@ function obtenerJson() {
         }
 
         if (dato.producto === "Internet" && internetCount <= 1) {
-            nuevoJson.productos["Internet"]["tarifas internet"] = dato?.tarifa || '';
-            nuevoJson.productos["Internet"]["Tipo servicio"] = dato?.tipo_servicio || '';
-            nuevoJson.productos["Internet"]["Dirección de la instalación"] = dato?.direccion_instalacion || '';
-            nuevoJson.productos["Internet"]["Permanencia"] = dato?.permanencia || '';
+            nuevoJson.productos["internet"]["Tarifas internet"] = dato?.tarifa || '';
+            nuevoJson.productos["internet"]["Tipo servicio"] = dato?.tipo_servicio || '';
+            nuevoJson.productos["internet"]["Dirección de la instalación"] = dato?.direccion_instalacion || '';
+            nuevoJson.productos["internet"]["Permanencia"] = dato?.permanencia || '';
             internetCount++;
         }
     }
@@ -195,4 +195,5 @@ function obtenerJson() {
     enlaceTemporal.download = 'miArchivo.json';
     enlaceTemporal.click();
 
+    return nuevoJson;
 }

@@ -84,15 +84,15 @@ datosProducto.forEach((producto, index) => {
     if (producto.producto === "Telefonía fija") {
         if (producto.numero_portabilidad_fijo !== undefined) {
             celdaDetalles.textContent=  producto.numero_portabilidad_fijo;
-            celdaServicio.textContent = producto.servicio
+            celdaServicio.textContent = producto.producto + ' - ' + producto.servicio;
         } else {
-            celdaServicio.textContent = producto.servicio;
+            celdaServicio.textContent = producto.producto + ' - ' + producto.servicio;
         }
     }
 
     if (producto.producto === "Movil") {
         celdaDetalles.textContent = producto?.numero_telefono || producto.sim_rentel
-        celdaServicio.textContent = producto.servicio
+        celdaServicio.textContent = producto.producto + ' - ' + producto.servicio
     }
 
     if (producto.producto === "Internet") {
