@@ -49,7 +49,7 @@ function enviarProducto() {
 
 function actualizarCliente(numIban) {
   let cliente = JSON.parse(sessionStorage.getItem('cliente'));
-  cliente.numeroCuentaIBAN = numIban;
+  cliente['Número de cuenta-IBAN '] = numIban;
   sessionStorage.setItem('cliente', JSON.stringify(cliente));
 }
 
@@ -67,7 +67,7 @@ function actualizarFormaPago() {
     }
   }
 
-  jsonCliente.FormaPago = formaPago;
+  jsonCliente['Forma de pago'] = formaPago;
   // Guarda el objeto actualizado de nuevo en sessionStorage
   sessionStorage.setItem('cliente', JSON.stringify(jsonCliente));
 }
@@ -87,6 +87,7 @@ function enviarFormulario() {
     .then((response) => response.json())
     .then((json) => {
       console.log('Éxito:', json);
+      alert('exito')
     })
     .catch((error) => {
       console.error('Error:', error);
@@ -100,8 +101,9 @@ function firmar() {
       let numIban = document.getElementById('ibanOculto').value;
       actualizarCliente(numIban);
     }
+  } else {
+    actualizarCliente('');
   }
-  actualizarCliente('');
   actualizarFormaPago();
 
   enviarFormulario();

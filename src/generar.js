@@ -17,8 +17,8 @@ function obtenerJson() {
                 "linea_movil1": {
                     "Datos línea1": "",
                     "Nº teléfono que contrata línea 1": "",
-                    "Nº. de la tarjeta SIM línea 1": "",
-                    "Mismo titular línea1 ": "",
+                    "Nº.de la tarjeta SIM línea 1": "",
+                    "Mismo titular línea 1 ": "",
                     "Nombre portabilidad línea1 ": "",
                     "Apellidos portabilidad línea1 ": "",
                     "DNI portabilidad línea1 ": "",
@@ -30,8 +30,8 @@ function obtenerJson() {
                 "linea_movil2": {
                     "Datos línea2": "",
                     "Nº teléfono que contrata línea 2": "",
-                    "Nº. de la tarjeta SIM línea 2": "",
-                    "Mismo titular línea2 ": "",
+                    "Nº.de la tarjeta SIM línea 2": "",
+                    "Mismo titular línea 2": "",
                     "Nombre portabilidad línea2": "",
                     "Apellidos portabilidad línea2": "",
                     "DNI portabilidad línea2 ": "",
@@ -43,8 +43,8 @@ function obtenerJson() {
                 "linea_movil3": {
                     "Datos línea3": "",
                     "Nº teléfono que contrata línea 3": "",
-                    "Nº. de la tarjeta SIM línea 3": "",
-                    "Mismo titular línea3": "",
+                    "Nº.de la tarjeta SIM línea 3": "",
+                    "Mismo titular línea 3": "",
                     "Nombre portabilidad línea3": "",
                     "Apellidos portabilidad línea3 ": "",
                     "DNI portabilidad línea3 ": "",
@@ -56,8 +56,8 @@ function obtenerJson() {
                 "linea_movil4": {
                     "Datos línea4": "",
                     "Nº teléfono que contrata línea 4": "",
-                    "Nº. de la tarjeta SIM línea 4": "",
-                    "Mismo titular línea4": "",
+                    "Nº.de la tarjeta SIM línea 4": "",
+                    "Mismo titular línea 4": "",
                     "Nombre portabilidad línea4 ": "",
                     "Apellidos portabilidad línea4 ": "",
                     "DNI portabilidad línea4 ": "",
@@ -69,8 +69,8 @@ function obtenerJson() {
                 "linea_movil5": {
                     "Datos línea5": "",
                     "Nº teléfono que contrata línea 5": "",
-                    "Nº. de la tarjeta SIM línea 5": "",
-                    "Mismo titular línea5": "",
+                    "Nº.de la tarjeta SIM línea 5": "",
+                    "Mismo titular línea 5": "",
                     "Nombre portabilidad línea5": "",
                     "Apellidos portabilidad línea5": "",
                     "DNI portabilidad línea5": "",
@@ -82,8 +82,8 @@ function obtenerJson() {
                 "linea_movil6": {
                     "Datos línea6": "",
                     "Nº teléfono que contrata línea 6": "",
-                    "Nº. de la tarjeta SIM línea 6": "",
-                    "Mismo titular línea6": "",
+                    "Nº.de la tarjeta SIM línea 6": "",
+                    "Mismo titular línea 6": "",
                     "Nombre portabilidad línea6": "",
                     "Apellidos portabilidad línea6": "",
                     "DNI portabilidad línea6": "",
@@ -141,10 +141,10 @@ function obtenerJson() {
     for (let i = 0; i < misDatos.length; i++) {
         let dato = misDatos[i];
         if (dato.producto === "Movil" && movilCount <= 6) {
-            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Datos linea" + movilCount] = dato.servicio;
-            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº teléfono móvil que contrata línea " + movilCount] = dato?.numero_telefono || '';
-            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº. de la tarjeta SIM línea " + movilCount] = dato?.sim_rentel || '';
-            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Mismo titular línea" + movilCount + (movilCount === 5 ? "" : " ")] = dato?.mismo_titular_movil || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Datos línea" + movilCount] = dato.servicio;
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº teléfono que contrata línea " + movilCount] = dato?.numero_telefono || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nº.de la tarjeta SIM línea " + movilCount] = dato?.sim_rentel || '';
+            nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Mismo titular línea " + movilCount + (movilCount === 1 ? " " : "")] = dato?.mismo_titular_movil || '';
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Nombre portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 4  ? " " : "")] = dato?.nombre_antiguo_titular_movil || '';
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["Apellidos portabilidad línea" + movilCount + (movilCount === 1 || movilCount === 3 || movilCount === 4 ? " " : "")] = dato?.apellidos_antiguo_titular_movil || '';
             nuevoJson.productos["lineas_moviles"]["linea_movil" + movilCount]["DNI portabilidad línea" + movilCount + (movilCount === 5 || movilCount === 6 ? "" : " ")] = dato?.DNI_antiguo_titular_movil || '';
