@@ -310,10 +310,7 @@ function validarFormulario(event) {
     validarSinCheck(event);
   }
 
-
-
   document.getElementById('myModal').style.display = 'none';
-
   /*   
   let activeForm = document.getElementById("myForm");
   const data = new FormData(activeForm);

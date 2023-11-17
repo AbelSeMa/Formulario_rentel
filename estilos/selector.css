@@ -15,3 +15,7 @@ th:first-of-type{
 th:last-of-type{
     border-radius: 0px 10px 0px 0px;
 }
+
+.resaltado {
+    background-color: rgb(248, 245, 245);
+}
