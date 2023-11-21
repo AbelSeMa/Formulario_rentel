@@ -2029,9 +2029,15 @@ progress {
     transition: none;
   }
 }
-.form-control[type="file"] {
+.form-control[type="file"]::file-selector-button {
+  color: white;
+  padding: .2em .4em;
+  border-radius: .4em;
+  background-color: #1b8bf3;
+  transition: 1s;
   overflow: hidden;
 }
+
 .form-control[type="file"]:not(:disabled):not([readonly]) {
   cursor: pointer;
 }
