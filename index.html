@@ -314,6 +314,7 @@
                   type="radio"
                   name="datos"
                   id="mismosDatosNo"
+                  onclick="mostrarSiguiente()"
                 />
                 <label for="mismosDatosNo">No</label>
 
@@ -328,9 +329,11 @@
                 </div>
                 <br />
                 <button
+                  id="siguienteForm1"
                   class="btn btn-primary btn-sm mb-3"
                   type="button"
                   onclick="mostrarFormulario(2)"
+                  hidden
                 >
                   Siguiente
                 </button>
@@ -742,7 +745,7 @@
                 class="btn btn-primary btn-sm mb-3"
                 type="button"
                 id="enviarForm"
-                value="Contratar"
+                value="Ir a productos"
                 hidden
               />
             </div>
@@ -792,6 +795,9 @@
 
     <script>
       var check = false;
+      document.getElementById("enviarForm1").setAttribute("hidden", "true");
+      document.getElementById("siguienteForm1").setAttribute("hidden", "true");
+
       function mostrarFormulario(numeroFormulario) {
         var radio = document.getElementById("mismosDatosSi");
         // Oculta todos los formularios
@@ -810,7 +816,13 @@
 
       function mostrarEnviar() {
         check = true;
+        document.getElementById("siguienteForm1").setAttribute("hidden", "true");
         document.getElementById("enviarForm1").removeAttribute("hidden");
+      }
+
+      function mostrarSiguiente(){
+        document.getElementById("enviarForm1").setAttribute("hidden", "true");
+        document.getElementById("siguienteForm1").removeAttribute("hidden");
       }
 
       function cambiarCheck() {
