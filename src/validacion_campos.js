@@ -1,7 +1,7 @@
 //VALIDACION CAMPOS DE CLIENTE
 
 function validarNombre(nombre) {
-  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("nombre");
   let div = document.getElementById("divNombre");
 
@@ -11,11 +11,13 @@ function validarNombre(nombre) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 function validarApellido1(apellidos) {
-  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("apellido1");
   let div = document.getElementById("divApellido1");
 
@@ -25,11 +27,13 @@ function validarApellido1(apellidos) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 function validarApellido2(apellidos) {
-  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("apellido2");
   let div = document.getElementById("divApellido2");
 
@@ -40,6 +44,8 @@ function validarApellido2(apellidos) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -60,35 +66,52 @@ function validarFechaNacimiento(fechaNacimiento) {
       return false;
     }
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 function validarDNI(dni) {
-  let regexDNI = /^\d{8}[A-Za-z]$/;
+  let regexDNI = /^\d{8}[A-Z]$/;
   let input = document.getElementById("dni");
   var div = document.getElementById("divDni");
 
-  if (!regexDNI.test(dni)) {
+  if (!regexDNI.test(dni) || !algoritmoDni(dni)) {
     input.value = ""; // Establecer el valor a vacío
     input.classList.add("is-invalid");
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
+}
+
+function algoritmoDni(dni) {
+  let numero = dni.slice(0, 8);
+  let letra = dni.charAt(8);
+
+  let letras = 'TRWAGMYFPDXBNJZSQVHLZKE';
+  let indice = numero % 23;
+
+  // Verfica la letra del DNI
+
+  return letra.toUpperCase() === letras.charAt(indice) ;
+
 }
 
 function validarCorreo(correo) {
   let regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   let input = document.getElementById("correo");
   var div = document.getElementById("divCorreo");
-  if (correo != "") {
     if (!regexCorreo.test(correo)) {
       input.value = ""; // Establecer el valor a
       input.classList.add("is-invalid");
       div.classList.add("has-danger");
       return false;
     }
-  }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -105,6 +128,8 @@ function validarTelefonoFijo(telefonoFijo) {
       return false;
     }
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -118,6 +143,8 @@ function validarTelefonoMovil(telefonoMovil) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -131,6 +158,8 @@ function validarCodigoPostal(codigoPostal) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -143,13 +172,15 @@ function validarDireccion(direccion) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 //VALIDACION CMAPOS FACTURACION
 
 function validarNombreFac(nombre) {
-  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("nombreFac");
   let div = document.getElementById("divNombreFac");
 
@@ -159,11 +190,13 @@ function validarNombreFac(nombre) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 function validarApellido1Fac(apellidos) {
-  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("apellido1Fac");
   let div = document.getElementById("divApellido1Fac");
 
@@ -173,11 +206,13 @@ function validarApellido1Fac(apellidos) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 function validarApellido2Fac(apellidos) {
-  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("apellido2Fac");
   let div = document.getElementById("divApellido2Fac");
 
@@ -187,20 +222,24 @@ function validarApellido2Fac(apellidos) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 function validarDNIFac(dni) {
-  let regexDNI = /^\d{8}[A-Za-z]$/;
+  let regexDNI = /^\d{8}[A-Z]$/;
   let input = document.getElementById("dniFac");
   let div = document.getElementById("divDniFac");
 
-  if (!regexDNI.test(dni)) {
+  if (!regexDNI.test(dni) || !algoritmoDni(dni)) {
     input.value = ""; // Establecer el valor a vacío
     input.classList.add("is-invalid");
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -209,14 +248,16 @@ function validarCorreoFac(correo) {
   let input = document.getElementById("correoFac");
   let div = document.getElementById("divCorreoFac");
 
-  if (correo != "") {
+  
     if (!regexCorreo.test(correo)) {
       input.value = ""; // Establecer el valor a vacío
       input.classList.add("is-invalid");
       div.classList.add("has-danger");
       return false;
-    }
+    
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -232,6 +273,8 @@ function validarTelefonoFijoFac(telefonoFijo) {
       return false;
     }
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -245,6 +288,8 @@ function validarTelefonoMovilFac(telefonoMovil) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -259,6 +304,8 @@ function validarCodigoPostalFac(codigoPostal) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -271,6 +318,8 @@ function validarDireccionFac(direccion) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -290,13 +339,15 @@ function validarFechaNacimientoFac(fechaNacimiento) {
       return false;
     }
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 //VALIDACION CAMPOS NOTIFICACIONES
 
 function validarNombreNoti(nombre) {
-  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("nombreNoti");
   let div = document.getElementById("divNombreNoti");
 
@@ -306,11 +357,13 @@ function validarNombreNoti(nombre) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 function validarApellido1Noti(apellidos) {
-  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("apellido1Noti");
   let div = document.getElementById("divApellido1Noti");
   if (!regexCaracteres.test(apellidos)) {
@@ -319,11 +372,13 @@ function validarApellido1Noti(apellidos) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
 function validarApellido2Noti(apellidos) {
-  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚ]+$/;
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("apellido2Noti");
   let div = document.getElementById("divApellido2Noti");
   if (!regexCaracteres.test(apellidos)) {
@@ -332,6 +387,8 @@ function validarApellido2Noti(apellidos) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -348,6 +405,8 @@ function validarTelefonoFijoNoti(telefonoFijo) {
       return false;
     }
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -361,6 +420,8 @@ function validarTelefonoMovilNoti(telefonoMovil) {
     div.classList.add("has-danger");
     return false;
   }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -369,14 +430,16 @@ function validarCorreoNoti(correo) {
   let input = document.getElementById("correoNoti");
   let div = document.getElementById("divCorreoNoti");
 
-  if (correo != "") {
+  
     if (!regexCorreo.test(correo)) {
       input.value = ""; // Establecer el valor a vacío
       input.classList.add("is-invalid");
       div.classList.add("has-danger");
       return false;
     }
-  }
+  
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
   return true;
 }
 
@@ -397,13 +460,11 @@ selectComerial.onchange =  function() {
   document.getElementById("formulario1").removeAttribute("hidden");
 };
 
+/* Funcion que comprueba si el radio esta seleccionado de mismos datos si mismos datos no */
+
 function validarRadio(){
   let no = document.getElementById("mismosDatosNo");
   let error = document.getElementById("errorDatos");
-
-  alert("entre en validarRadio");
-  alert(no.checked);
-
 
   if (!(no.checked)){
     error.removeAttribute("hidden");

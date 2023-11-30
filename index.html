@@ -7,15 +7,15 @@
     <link
       rel="icon"
       type="image/x-icon"
-      href="/imagenes/rentelfavicon-removebg-preview.png"
+      href="/public/img/rentelfavicon-removebg-preview.png"
     />
-    <link rel="stylesheet" href="estilos/bootstrap.min.css" />
-    <link rel="stylesheet" href="estilos/selector.css" />
+    <link rel="stylesheet" href="/public/style/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/style/selector.css" />
 
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <script src="/src/validacion_completa.js" defer></script>
-    <script src="/src/validacion_campos.js" defer></script>
-    <script src="/src/modal.js" defer></script>
+    <script src="/public/src/validacion_completa.js" defer></script>
+    <script src="/public/src/validacion_campos.js" defer></script>
+    <script src="/public/src/modal.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -26,22 +26,41 @@
       <div class="card-body">
         <div class="col-md-7 mx-auto">
           <img
-            src="/imagenes/Logo-Rentel-grande.jpg"
+            src="/public/img/Logo-Rentel-grande.jpg"
             class="img-fluid"
             alt="Responsive image"
           />
+
+          <div class="alert alert-danger alert-dismissible" id ="alertaError" hidden >  
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>ERROR!</strong> El contrato no se ha enviado.
+          </div>
+
+          <div class="alert alert-success alert-dismissible" id ="alerta" hidden >  
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Completado!</strong> El contrato ha sido registrado.
+          </div>
+
+          <div class="alert alert-danger alert-dismissible" id ="alertaErrorDni" hidden >  
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>ERROR!</strong> La imagen del DNI no tiene un formato soportado.
+          </div>
+  
         </div>
         <div id="pintar_cliente">
-          <form name="formulario_Cliente" id="myForm" action="productos.html">
+          <form name="formulario_Cliente" id="myForm" action="/uploaddni" enctype="multipart/form-data" method="post">
+            
             <h2 class="text-center font-weight-bold">Comercial</h2>
-
             <div id="divComercial" class="d-flex justify-content-center">
               <select class="form-select-sm mb-3" id="comercial" name="comercial">
                 <option value="">Seleccione un comercial</option>
-                <option value="Manuel Suarez">Manuel Suárez</option>
-                <option value="Manuel Perez">Antonio Perez</option>
+                  {% for comercial in comerciales.comerciales %}
+                  <option value="{{comercial.Nombre}}">{{comercial.Nombre}}</option>
+                  {% endfor %}
+                  <option> paco </option>
               </select>
             </div>
+
 
             <div
               id="errorComercial"
@@ -65,7 +84,6 @@
                       id="nombre"
                       name="Nombre"
                       placeholder="Nombre"
-                      onfocus="sombra(this)"
                     />
                     <span class="invalid-feedback mb-3">
                       Formato del nombre erróneo.
@@ -85,7 +103,6 @@
                       id="apellido1"
                       name="apellido1"
                       placeholder="Primer apellido"
-                      onfocus="sombra(this)"
                     />
 
                     <span class="invalid-feedback mb-3">
@@ -103,7 +120,6 @@
                       id="apellido2"
                       name="apellido2"
                       placeholder="Segundo apellido"
-                      onfocus="sombra(this)"
                     />
                     <span class="invalid-feedback mb-3">
                       Formato del apellido erróneo.
@@ -134,7 +150,6 @@
                       type="date"
                       id="fechaNacimiento"
                       name="fechaNacimiento"
-                      onfocus="sombra(this)"
                       required
                     />
                     <span class="invalid-feedback mb-3">Fecha errónea.</div>
@@ -154,13 +169,13 @@
                       maxlength="9"
                     />
                     <span class="invalid-feedback mb-3">
-                      Formato del DNI erróneo.
+                      DNI erróneo.
                     </span>
                   </div>
 
                   <div id="divCorreo" class="col-6">
                     <label class="form-label" for="correo"
-                      >Correo electrónico</label
+                      >Correo electrónico*</label
                     >
                     <input
                       class="form-control mb-3"
@@ -261,7 +276,7 @@
                       type="text"
                       name="País"
                       id="pais"
-                      value="españa"
+                      value="España"
                       hidden
                     />
                     <input
@@ -274,31 +289,28 @@
                   </div>
                 </div>
 
-                <div>
-                  <label class="btn btn-primary btn-sm" for="delanteDNI"
-                    >Subir imagen</label
-                  >
-                  <label class="form-label">DNI por delante</label>
-                  <input
-                    class="form-control mb-3"
+                <div class="row">
+                  <div class="col-sm-4 mt-3">
+                    <label class="form-label">DNI por delante</label> 
+                    <input
+                    class="form-control mb-3 "
                     type="file"
                     id="delanteDNI"
-                    name="Foto DNI cara principal"
-                    hidden
-                  />
+                    name="front"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label class="btn btn-primary btn-sm" for="detrasDNI"
-                    >Subir imagen</label
-                  >
-                  <label for="detrasDNI">DNI por detrás</label>
-                  <input
+                <div class="row">
+                  <div class="col-sm-4 mt-3">
+                    <label class="form-label">DNI por detrás</label> 
+                    <input
+                    class="form-control mb-3 "
                     type="file"
                     id="detrasDNI"
-                    name="Foto DNI reverso"
-                    hidden
-                  /><br />
+                    name="back"
+                    />
+                  </div>
                 </div>
 
                 <br />
@@ -317,6 +329,7 @@
                   type="radio"
                   name="datos"
                   id="mismosDatosNo"
+                  onclick="mostrarSiguiente()"
                 />
                 <label for="mismosDatosNo">No</label>
 
@@ -331,9 +344,11 @@
                 </div>
                 <br />
                 <button
+                  id="siguienteForm1"
                   class="btn btn-primary btn-sm mb-3"
                   type="button"
                   onclick="mostrarFormulario(2)"
+                  hidden
                 >
                   Siguiente
                 </button>
@@ -453,13 +468,13 @@
                       minlength="9"
                     />
                     <span class="invalid-feedback mb-3">
-                      Formato del DNI erróneo.
+                      DNI erróneo.
                     </span>
                   </div>
 
                   <div id="divCorreoFac" class="col-6">
                     <label class="form-label" for="correoFac"
-                      >Correo electrónico</label
+                      >Correo electrónico*</label
                     >
                     <input
                       class="form-control mb-3"
@@ -567,7 +582,7 @@
                       type="text"
                       name="paisFac"
                       id="paisFac"
-                      value="españa"
+                      value="España"
                       hidden
                     />
                     <input
@@ -580,31 +595,28 @@
                   </div>
                 </div>
 
-                <div>
-                  <label class="btn btn-primary btn-sm" for="delanteDNIFac"
-                    >Subir imagen</label
-                  >
-                  <label class="form-label mb-3">DNI por delante</label>
-                  <input
-                    class="form-control"
+                <div class="row">
+                  <div class="col-sm-4 mt-3">
+                    <label class="form-label">DNI por delante</label> 
+                    <input
+                    class="form-control mb-3 "
                     type="file"
                     id="delanteDNIFac"
-                    name="delanteDNIFac"
-                    hidden
-                  />
+                    name="front_fac"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label class="btn btn-primary btn-sm" for="detrasDNIFac"
-                    >Subir imagen</label
-                  >
-                  <label class="form-label mb-3">DNI por detrás</label>
-                  <input
+                <div class="row">
+                  <div class="col-sm-4 mt-3">
+                    <label class="form-label">DNI por detrás</label> 
+                    <input
+                    class="form-control mb-3 "
                     type="file"
                     id="detrasDNIFac"
-                    name="detrasDNIFac"
-                    hidden
-                  />
+                    name="back_fac"
+                    />
+                  </div>
                 </div>
               </fieldset>
 
@@ -688,7 +700,7 @@
                 <div class="row">
                   <div id="divCorreoNoti" class="col-sm-4">
                     <label class="form-label" for="correoNoti"
-                      >Correo electrónico</label
+                      >Correo electrónico*</label
                     >
                     <input
                       class="form-control mb-3"
@@ -748,7 +760,7 @@
                 class="btn btn-primary btn-sm mb-3"
                 type="button"
                 id="enviarForm"
-                value="Contratar"
+                value="Ir a productos"
                 hidden
               />
             </div>
@@ -798,6 +810,11 @@
 
     <script>
       var check = false;
+      document.getElementById("enviarForm1").setAttribute("hidden", "true");
+      document.getElementById("siguienteForm1").setAttribute("hidden", "true");
+
+
+      /* Función que se encarga del paginado de formularios, para ir mostrando que formulario tiene que rellenar*/
       function mostrarFormulario(numeroFormulario) {
         var radio = document.getElementById("mismosDatosSi");
         // Oculta todos los formularios
@@ -816,35 +833,45 @@
 
       function mostrarEnviar() {
         check = true;
+        document.getElementById("siguienteForm1").setAttribute("hidden", "true");
         document.getElementById("enviarForm1").removeAttribute("hidden");
+      }
+
+      function mostrarSiguiente(){
+        document.getElementById("enviarForm1").setAttribute("hidden", "true");
+        document.getElementById("siguienteForm1").removeAttribute("hidden");
       }
 
       function cambiarCheck() {
         var check = false;
       }
       
-    $(document).ready(function () {
-    $('input, select').on('focus', function () {
-      // Quitar la clase resaltado de todos los elementos
-      $('input, select').removeClass('resaltado');
 
-      // Encontrar y resaltar el siguiente campo en la misma fila
-      var siguienteElemento = $(this).closest('.col-sm-4, .col-6').nextAll('.col-sm-4, .col-6').find('input:visible, select:visible').first();
+      /*Función para resaltar el siguienet campo con un sombreado para guiar que campo debe de relllenar*/
 
-      if (!siguienteElemento.length) {
-        // Si no hay elementos visibles en la misma fila, buscar en la siguiente fila
-        siguienteElemento = $(this).closest('.row').next('.row').find('input:visible, select:visible').first();
 
-        // Si aún no hay elementos, buscar en la primera fila
-        if (!siguienteElemento.length) {
-          siguienteElemento = $('.row:first').find('input:visible, select:visible').first();
-        }
-      }
+        $(document).ready(function () {
+        $('input, select').on('focus', function () {
+          // Quitar la clase resaltado de todos los elementos
+          $('input, select').removeClass('resaltado');
 
-      // Resaltar el siguiente campo
-      siguienteElemento.addClass('resaltado');
-    });
-  });
+          // Encontrar y resaltar el siguiente campo en la misma fila
+          var siguienteElemento = $(this).closest('.col-sm-4, .col-6').nextAll('.col-sm-4, .col-6').find('input:visible, select:visible').first();
+
+          if (!siguienteElemento.length) {
+            // Si no hay elementos visibles en la misma fila, buscar en la siguiente fila
+            siguienteElemento = $(this).closest('.row').next('.row').find('input:visible, select:visible').first();
+
+            // Si aún no hay elementos, buscar en la primera fila
+            if (!siguienteElemento.length) {
+              siguienteElemento = $('.row:first').find('input:visible, select:visible').first();
+            }
+          }
+
+          // Resaltar el siguiente campo
+          siguienteElemento.addClass('resaltado');
+        });
+      });
 
 
     </script>
@@ -853,6 +880,51 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="src/editar.js"></script>
+    <script src="/public/src/editar.js"></script>
+    <script>
+
+      if (sessionStorage.getItem('alert') === 'ok'){
+        document.getElementById('alerta').removeAttribute('hidden')
+
+        setTimeout(() => {
+          sessionStorage.setItem('alert', '');
+          document.getElementById('alerta').setAttribute('hidden', 'hidden')
+
+        }, 20000)
+      }
+
+      if (sessionStorage.getItem('alert') === 'error'){
+        document.getElementById('alertaError').removeAttribute('hidden')
+
+        setTimeout(() => {
+          sessionStorage.setItem('alert', '');
+          document.getElementById('alertaError').setAttribute('hidden', 'hidden')
+
+        }, 20000)
+      }
+      // Función para obtener el valor de una cookie
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+      // Obtener el valor de la cookie 'message'
+      var message = getCookie('message');
+      if (message) {
+        document.getElementById('alertaErrorDni').removeAttribute('hidden');
+
+        setTimeout(() => {
+          document.getElementById('alertaErrorDni').setAttribute('hidden', 'hidden');
+          // Eliminar la cookie 'message'
+          document.cookie = 'message=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      }, 20000)
+    }
+    </script>
+
   </body>
 </html>

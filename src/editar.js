@@ -1,8 +1,18 @@
-// Cuando se carga la página, verifica si hay datos en sessionStorage
+/** 
+ * Cuando el usuario hace click en el botón de editar usuario, retorna al index.html
+ * y se comprueba si hay datos en el json cliente. Si los hay, iguala los campos del
+ * formulario con dichos datos, para que pueda editar los necesarios.
+*/
+
 $(document).ready(function () {
+    // recupera el json del sessionStorage
     let datosCliente = JSON.parse(sessionStorage.getItem('cliente'));
+
+    // Se comprueba si hay datos en el, por el número de keys que tiene
     if (Object.keys(datosCliente).length > 0) {
 
+        // Si en el Json hay un comercial, recupera su nombre, lo igual 
+        // y no muestra el select de comerciales.
         if (datosCliente.comercial) {
             // Establece el valor del select y muestra el formulario
             $('#comercial').val(datosCliente.comercial)

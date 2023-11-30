@@ -1,3 +1,8 @@
+/** Función que muestra el formulario del producto 'Internet'
+* @summary Cuando el usuario selecciona el producto se abre el modal donde se inserta las opciones.
+*          La función se construye dinámicamente en función de las opciones que el usuario va eligiendo.
+* @return No se devuelve nada, la función inserta los elementos en el div padre.
+*/
 function opcionesInternet() {
     // Crear un elemento div
     let div = document.createElement('div');
@@ -62,44 +67,50 @@ function opcionesInternet() {
     contenedor.appendChild(div2)
 }
 
-
-function mostrarProductosInternet() {
+/** 
+* Crea los select de tipo de internet (Wi-Fi y Fibra) y tarifas de internet.
+* @summary Función asincrona que manda una petición al servidor para que le devuelva las tarifas de internet, y a partir de ellas crea el select
+* @return No devuelve nada, sólo genera la información en el DOM.
+*/
+async function mostrarProductosInternet() {
     let parentElement = document.getElementById('contenido_internet');
     let div = document.createElement('div');
     div.id = 'tarifas_internet'
     div.className = 'row'
 
-    let divT = document.createElement('div');
-    divT.className = 'col-6'
 
+    // crea el div para los elementos de tarifa
+    let divT = document.createElement('div');
+    divT.className = 'col-9'
+
+    // Cre el div para los elementos de tipo (wifi y fibra)
     let divW = document.createElement('div');
-    divW.className = 'col-6'
+    divW.className = 'col-3'
 
 
     let titulo = document.createElement('h4');
     titulo.textContent = 'Elige un producto'
     div.appendChild(titulo);
 
-    let tarifas = [
-        { tarifa: ' Básico' },
-        { tarifa: ' Avanzado'},
-        { tarifa: 'Premiun'}
-    ];
-
+    
     // Crea el elemento select para las tarifas
     let select = document.createElement("select");
     select.name = "tarifa";
     select.className = "form-select mb-3";
+    
+    // petición al servidor para recoger las tarifas
+    let tarifas = await get_tarifas_internet();
 
-    // Crea las opciones de tarifa para el select
-    tarifas.forEach(function (dato, i) {
+    
+    // Crea lo options y los va incorporando al select con los datos recibidos.
+    tarifas.tarifas_internet.forEach(function (dato, i) {
         let option = document.createElement("option");
-        option.value = dato.tarifa;
-        option.textContent = dato.tarifa;
+        option.value = `${dato.Descripcion} ${dato.PVPConIva}€`;
+        option.textContent = `${dato.Descripcion} ${dato.PVPConIva}€`;
         select.appendChild(option);
         });
-
-
+    
+    
     let tipos = [
         { tipo: 'WiFi' },
         { tipo: 'Fibra' }
@@ -125,13 +136,19 @@ function mostrarProductosInternet() {
     parentElement.appendChild(div)
 }
 
+/** 
+*Crea el input:text para recoger los datos de 'dirección de instalación'.
+* @summary Crea dinámicamente el input:text que recoge la dirección de instalación del servicio internet.
+*/
 function direccionInstalacion() {
 
     // Obtén el div en el que quieres insertar el input
     let div = document.getElementById('contenido_internet');
+
     let div2 = document.createElement('div');
-    div2.id = 'direccion_instalacion'  // Reemplaza 'tuDiv' con el id de tu div
+    div2.id = 'direccion_instalacion' 
     div2.className = "mb-3"
+
     // Verifica si el div ya tiene contenido y, si es así, lo borra
     while (div2.firstChild) {
         div2.removeChild(div2.firstChild);
@@ -155,15 +172,29 @@ function direccionInstalacion() {
     div.appendChild(div2)
 }
 
-function crearOpcionesPermanencia(permanencia) {
-    return permanencia.map(function (dato) {
+/** 
+* Función que crea los option para el select de permanencia
+* @summary Función que recorre un array de objetos y a partir de los objetos crea un elemento option.
+           La función retorna el array creado a partir del map con todos los option.
+* @param {Array} permanencias - Array de objetos donde está la información de cada permanencia
+* @return {array} Retorna el array con todos los option creado
+*/
+function crearOpcionesPermanencia(permanencias) {
+    // Retorna el array de option creado con el map
+    return permanencias.map(function (dato) {
         var option = document.createElement("option");
         option.value = dato.valor;
         option.text = dato.permanencia;
+        // retorna el option que será añadido al array creado por el map 
         return option;
     });
 }
 
+/** 
+* Función que crea el select con las permanencias de internet
+* @summary Hace uso de la función 'crearOpcionesPermanencia' sobre el array de permanencias, que a su vez se le 
+*          pasa un foreach que añade cada option devuelto por la funcion 'crearOpcionesPermanencia'
+*/
 function permanenciaInternet() {
     let parentElement = document.getElementById('contenido_internet');
     let div = document.createElement('div');
@@ -181,14 +212,32 @@ function permanenciaInternet() {
     let titulo = document.createElement('h4');
     titulo.textContent = 'Permanencia';
     div.appendChild(titulo)
-
-
-
+    
     // Crea un select con las opciones de permanencia
     let select = document.createElement("select");
     select.name = "permanencia";
     select.className = "form-select mb-3"
-        crearOpcionesPermanencia(permanencias).forEach(option => select.appendChild(option));
+    crearOpcionesPermanencia(permanencias).forEach(option => select.appendChild(option)); // añade al select cada option devuelto por el foreach
     div.appendChild(select);
     parentElement.appendChild(div)
 }
+
+//Petición a Fast api para obtener tarifas de internet
+async function get_tarifas_internet() {
+    try {
+        const response = await fetch('/tarifas_internet');
+
+        // Verifica si la respuesta es exitosa (código de estado 200)
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
+        }
+
+        const data = await response.json();
+      
+        return data
+    } catch (error) {
+        console.error('Error al obtener los datos:', error);
+    }
+}
+
+

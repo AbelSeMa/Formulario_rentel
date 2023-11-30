@@ -1,8 +1,13 @@
+/** 
+* Genera el objeto JSON que será enviado al servidor.
+* @summary Crea la estructura del JSON y rellena los datos a partir de los sessionStorage de 'cliente' y 'productos'
+* @return {JSON} Retorna el objeto JSON
+*/
 function obtenerJson() {
     // Recupera tus datos del sessionStorage
     let misDatos = JSON.parse(sessionStorage.getItem("productos"));
     let datosCliente = JSON.parse(sessionStorage.getItem("cliente"));
-
+    
     // Inicializa tu nuevo objeto
     let nuevoJson = {
         "datos_clientes": {
@@ -130,14 +135,15 @@ function obtenerJson() {
             "adicionales": {
                 "Selecciona un servicio adicional": ""
             }
-        }
+        } 
     }
 
 
 
     let movilCount = 1;
     let fijoCount = 1;
-    let internetCount = 1;
+    let internetCount = 1; 
+
     for (let i = 0; i < misDatos.length; i++) {
         let dato = misDatos[i];
         if (dato.producto === "Movil" && movilCount <= 6) {
@@ -178,22 +184,13 @@ function obtenerJson() {
             nuevoJson.productos["internet"]["Permanencia"] = dato?.permanencia || '';
             internetCount++;
         }
+
+        if (dato.producto === "Otros") {
+            nuevoJson.productos["adicionales"]["Selecciona un servicio adicional"] += dato?.tarifa + ',' || '';
+        }
+
     }
     console.log(nuevoJson);
-    // Convierte el objeto a una cadena JSON
-    var json = JSON.stringify(nuevoJson, null, 2); // El segundo y tercer argumento añaden formato
-
-    // Crea un nuevo blob con la cadena JSON
-    var blob = new Blob([json], { type: "application/json" });
-
-    // Crea una nueva URL para el blob
-    var url = URL.createObjectURL(blob);
-
-    // Crea un enlace temporal y haz clic en él para descargar el archivo
-    var enlaceTemporal = document.createElement('a');
-    enlaceTemporal.href = url;
-    enlaceTemporal.download = 'miArchivo.json';
-    enlaceTemporal.click();
-
+ 
     return nuevoJson;
 }

@@ -2,6 +2,9 @@ if (!sessionStorage.getItem("cliente")) {
   sessionStorage.setItem("cliente", JSON.stringify({}));
 }
 
+
+/*Función que valda los datos del formulario e la parte de SOLO cliente */
+
 function validarCliente(event) {
   let nombre = document.getElementById("nombre").value;
   let apellido1 = document.getElementById("apellido1").value;
@@ -62,6 +65,8 @@ function validarCliente(event) {
   }
   return validacionCorrectaCliente;
 }
+
+/* Función que valida los datos del cliente de FACTURACION  */
 
 function validarClienteFac(event) {
   let nombreFac = document.getElementById("nombreFac").value;
@@ -124,6 +129,9 @@ function validarClienteFac(event) {
   return validacionCorrectaFac;
 }
 
+
+/*Funcion que valida los datos de notificación y solo los de notificacíon */
+
 function validarFormNotis(event) {
   let nombreNoti = document.getElementById("nombreNoti").value;
   let apellido1Noti = document.getElementById("apellido1Noti").value;
@@ -166,8 +174,11 @@ function validarFormNotis(event) {
 }
 
 
+
+/*En esta funcion lo que se hace es igualar el formulario de cliente facturacion con los datos de cliente normal, por si 
+se selecciona si tiene los mismos datos o no */
+
 function validarFormCheck(event) {
-  alert("he entrado en validarFormCheck")
   let valoresFac = [
     "nombre",
     "apellido1",
@@ -217,7 +228,6 @@ function validarFormCheck(event) {
   document.getElementById("poblacionFac").value = valor_Poblacion;
 
   if (error_formulario.length === 0) {
-    alert("Validación correcta");
     document.getElementById('myModal').style.display = 'none';
 
     let activeForm = document.getElementById("myForm");
@@ -235,7 +245,6 @@ function validarFormCheck(event) {
     sessionStorage.setItem("cliente", JSON.stringify(cliente));
 /*     excel();
  */  } else {
-    alert("Error en la validacion de datos compruebe los campos");
 
     error_formulario.sort(function (a, b) {
       return a - b;
@@ -246,8 +255,10 @@ function validarFormCheck(event) {
   }
 }
 
+
+/*En esta funcion se llama a todas als funciones creadas anteriopr meente para validar si se ha seleccionado que no quiere usar los mismos datos */
+
 function validarSinCheck(event) {
-  alert("he entrado en validarSINCheck")
 
   let error_formulario = [];
 
@@ -276,7 +287,6 @@ function validarSinCheck(event) {
   document.getElementById("poblacionFac").value = valor_Poblacion;
 
   if (error_formulario.length === 0) {
-    alert("Validación correcta");
     document.getElementById('myModal').style.display = 'none';
 
     let activeForm = document.getElementById("myForm");
@@ -289,10 +299,11 @@ function validarSinCheck(event) {
   
     // Actualiza el objeto 'cliente' con los datos del formulario
     Object.assign(cliente, formJSON);
+  
+    // Actualiza el objeto 'cliente' en sessionStorage
+    sessionStorage.setItem("cliente", JSON.stringify(cliente));
 
-/*     excel(); */
   } else {
-    alert("Error en la validacion de datos compruebe los campos");
 
     error_formulario.sort(function (a, b) {
       return a - b;
@@ -303,6 +314,8 @@ function validarSinCheck(event) {
   }
 }
 
+
+/*Esta es la funcion en la cual se elige que metodo de validación se quiere usar segun el chekc seleccionado */
 function validarFormulario(event) {
   if (check) {
     validarFormCheck(event);
@@ -311,20 +324,7 @@ function validarFormulario(event) {
   }
 
   document.getElementById('myModal').style.display = 'none';
-  /*   
-  let activeForm = document.getElementById("myForm");
-  const data = new FormData(activeForm);
-
-  // Recupera el objeto 'cliente' actual desde sessionStorage
-  const cliente = JSON.parse(sessionStorage.getItem("cliente"));
-
-  const formJSON = Object.fromEntries(data.entries());
-
-  // Actualiza el objeto 'cliente' con los datos del formulario
-  Object.assign(cliente, formJSON);
-
-  // Actualiza el objeto 'cliente' en sessionStorage
-  sessionStorage.setItem("cliente", JSON.stringify(cliente)); */
+  
 }
 
 function limpiar(nombre) {
@@ -333,24 +333,3 @@ function limpiar(nombre) {
 }
 
 
-
-/* function excel(){
-    const form = document.getElementById("myForm");
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-            const formData = new FormData(form);
-            fetch("https://script.google.com/macros/s/AKfycbyJP6B3zQRY65zTWTa_Vo_w7sBhwhUgfev--dDcK48fkZXOxkWwlsl9GJkOTqPqVBqBug/exec", {
-                method: "POST",
-                body: formData,
-            })
-                .then(response => response.text())
-                .then(data => {
-                    console.log(data);
-                    window.top.location.href = "http://127.0.0.1:5501/productos.html";
-
-                })
-                .catch(error => {
-                    console.error("Error:", error);
-                });
-        });
-} */

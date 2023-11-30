@@ -41,9 +41,9 @@ if (datosCliente != '') {
     let modificarPerfil = document.createElement('button');
     modificarPerfil.id = 'editarPerfil'
     modificarPerfil.type = 'button'
-    modificarPerfil.onclick = function() {
-        window.location.href = "index.html"
-    } 
+    modificarPerfil.onclick = function () {
+        window.location.href = "/"
+    }
     modificarPerfil.classList.add('btn', 'btn-primary', 'pr-1', 'btn-sm')
     modificarPerfil.innerHTML = `
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
@@ -73,7 +73,7 @@ datosProducto.forEach((producto, index) => {
     let celdaDetalles = fila.insertCell(0);
     let celdaServicio = fila.insertCell(1);
     let celdaOpciones = fila.insertCell(2);
-    
+
 
 
 
@@ -83,7 +83,7 @@ datosProducto.forEach((producto, index) => {
 
     if (producto.producto === "Telefonía fija") {
         if (producto.numero_portabilidad_fijo !== undefined) {
-            celdaDetalles.textContent=  producto.numero_portabilidad_fijo;
+            celdaDetalles.textContent = producto.numero_portabilidad_fijo;
             celdaServicio.textContent = producto.producto + ' - ' + producto.servicio;
         } else {
             celdaServicio.textContent = producto.producto + ' - ' + producto.servicio;
@@ -102,20 +102,12 @@ datosProducto.forEach((producto, index) => {
     }
 
     if (producto.producto === 'Otros') {
-        celdaServicio.textContent = producto.servicio
+        celdaServicio.textContent = producto.tarifa
     }
 
-    // Agrega los iconos de modificar y borrar
-    /*     let iconoModificar = document.createElement('button');
-        iconoModificar.href = '/productos.html'
-        iconoModificar.classList.add('btn', 'btn-primary', 'pr-1', 'btn-sm')
-        iconoModificar.innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-             <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-            </svg>`
-     */
+    // Añade el botón de borrar en la fila
     let iconoBorrar = document.createElement('a');
-    iconoBorrar.href = '/borrar.html?id=' + index;  // Añade el índice al final de la URL
+    iconoBorrar.href = '/borrar?id=' + index;  // Añade el índice al final de la URL
     iconoBorrar.classList.add('btn', 'btn-danger', 'btn-sm');
     iconoBorrar.innerHTML = `
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -123,8 +115,6 @@ datosProducto.forEach((producto, index) => {
                     </svg>`
 
 
-
     // Agrega los iconos a la celda de opciones
-    /* celdaOpciones.appendChild(iconoModificar); */
     celdaOpciones.appendChild(iconoBorrar);
 });
