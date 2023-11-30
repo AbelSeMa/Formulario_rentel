@@ -2,10 +2,28 @@
 
 function validarNombre(nombre) {
   let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚÑñ]+$/;
-  let input = document.getElementById("nombre");
-  let div = document.getElementById("divNombre");
+  let input = document.getElementById(nombre);
+  let div = document.getElementById("div" + nombre);
+  alert("entre en validar nombre")
+  if (!regexCaracteres.test(input.value)) {
+    alert("el nombre esta mal")
+    input.value = ""; // Establecer el valor a vacío
+    input.classList.add("is-invalid");
+    div.classList.add("has-danger");
 
-  if (!regexCaracteres.test(nombre)) {
+    return false;
+  }
+  input.classList.remove("is-invalid");
+  div.classList.remove("has-danger");
+  return true;
+}
+
+function validarApellido1(apellido1) {
+  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
+  let input = document.getElementById(apellido1);
+  let div = document.getElementById("div" + apellido1);
+
+  if (!regexCaracteres.test(input.value)) {
     input.value = ""; // Establecer el valor a vacío
     input.classList.add("is-invalid");
     div.classList.add("has-danger");
@@ -16,28 +34,12 @@ function validarNombre(nombre) {
   return true;
 }
 
-function validarApellido1(apellidos) {
+function validarApellido2(apellido2) {
   let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
-  let input = document.getElementById("apellido1");
-  let div = document.getElementById("divApellido1");
+  let input = document.getElementById(apellido2);
+  let div = document.getElementById("div" + apellido2);
 
-  if (!regexCaracteres.test(apellidos)) {
-    input.value = ""; // Establecer el valor a vacío
-    input.classList.add("is-invalid");
-    div.classList.add("has-danger");
-    return false;
-  }
-  input.classList.remove("is-invalid");
-  div.classList.remove("has-danger");
-  return true;
-}
-
-function validarApellido2(apellidos) {
-  let regexCaracteres = /^[A-Za-záéíóúÁÉÍÓÚÑñ]+$/;
-  let input = document.getElementById("apellido2");
-  let div = document.getElementById("divApellido2");
-
-  if (!regexCaracteres.test(apellidos)) {
+  if (!regexCaracteres.test(input.value)) {
     input.value = ""; // Establecer el valor a vacío
     input.classList.remove("form-control", "mb-3");
     input.classList.add("form-control", "mb-3", "is-invalid");
@@ -50,9 +52,9 @@ function validarApellido2(apellidos) {
 }
 
 function validarFechaNacimiento(fechaNacimiento) {
-  let inputFecha = new Date(fechaNacimiento);
-  let input = document.getElementById("fechaNacimiento");
-  var div = document.getElementById("divFechaNacimiento");
+  let inputFecha = new Date(fechaNacimiento.value);
+  let input = document.getElementById(fechaNacimiento);
+  var div = document.getElementById("div" + fechaNacimiento);
 
   if (isNaN(inputFecha)) {
     input.classList.add("is-invalid");
@@ -73,10 +75,10 @@ function validarFechaNacimiento(fechaNacimiento) {
 
 function validarDNI(dni) {
   let regexDNI = /^\d{8}[A-Z]$/;
-  let input = document.getElementById("dni");
-  var div = document.getElementById("divDni");
+  let input = document.getElementById(dni);
+  var div = document.getElementById("div" +dni);
 
-  if (!regexDNI.test(dni) || !algoritmoDni(dni)) {
+  if (!regexDNI.test(input.value) || !algoritmoDni(input.value)) {
     input.value = ""; // Establecer el valor a vacío
     input.classList.add("is-invalid");
     div.classList.add("has-danger");
@@ -102,18 +104,14 @@ function algoritmoDni(dni) {
 
 function validarCorreo(correo) {
   let regexCorreo = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  let input = document.getElementById("correo");
-  var div = document.getElementById("divCorreo");
-    if (!regexCorreo.test(correo)) {
+  let input = document.getElementById(correo);
+  var div = document.getElementById("div" + correo);
+    if (!regexCorreo.test(input.value)) {
       input.value = ""; // Establecer el valor a
       input.classList.add("is-invalid");
       div.classList.add("has-danger");
       return false;
     }
-<<<<<<< HEAD
-=======
-  }
->>>>>>> adb2e00bf6b9774742172cd3b49e4a453b986e62
   input.classList.remove("is-invalid");
   div.classList.remove("has-danger");
   return true;
@@ -121,11 +119,11 @@ function validarCorreo(correo) {
 
 function validarTelefonoFijo(telefonoFijo) {
   let regexTelefono = /^\d{9}$/;
-  let input = document.getElementById("telefonoFijo");
-  var div = document.getElementById("divTlfFijo");
+  let input = document.getElementById(telefonoFijo);
+  var div = document.getElementById("div" + telefonoFijo);
 
-  if (telefonoFijo != "") {
-    if (!regexTelefono.test(telefonoFijo)) {
+  if (input.value != "") {
+    if (!regexTelefono.test(input.value)) {
       input.value = ""; // Establecer el valor a vacío
       input.classList.add("is-invalid");
       div.classList.add("has-danger");
@@ -139,9 +137,9 @@ function validarTelefonoFijo(telefonoFijo) {
 
 function validarTelefonoMovil(telefonoMovil) {
   let regexTelefono = /^\d{9}$/;
-  let input = document.getElementById("telefonoMovil");
-  var div = document.getElementById("divTlfMovil");
-  if (!regexTelefono.test(telefonoMovil)) {
+  let input = document.getElementById(telefonoMovil);
+  var div = document.getElementById("div"+ telefonoMovil);
+  if (!regexTelefono.test(input.value)) {
     input.value = ""; // Establecer el valor a vacío
     input.classList.add("is-invalid");
     div.classList.add("has-danger");
@@ -154,9 +152,9 @@ function validarTelefonoMovil(telefonoMovil) {
 
 function validarCodigoPostal(codigoPostal) {
   let regexCodigoPostal = /^\d{5}$/;
-  let input = document.getElementById("codigoPostal");
-  var div = document.getElementById("divCodPostal");
-  if (!regexCodigoPostal.test(codigoPostal)) {
+  let input = document.getElementById(codigoPostal);
+  var div = document.getElementById("div" + codigoPostal);
+  if (!regexCodigoPostal.test(input.value)) {
     input.value = ""; // Establecer el valor a vacío
     input.classList.add("is-invalid");
     div.classList.add("has-danger");
@@ -168,9 +166,9 @@ function validarCodigoPostal(codigoPostal) {
 }
 
 function validarDireccion(direccion) {
-  let input = document.getElementById("direccion");
-  var div = document.getElementById("divDireccion");
-  if (direccion.length < 5) {
+  let input = document.getElementById(direccion);
+  var div = document.getElementById("div" + direccion);
+  if (input.value.length < 5) {
     input.value = ""; // Establecer el valor a vacío
     input.classList.add("is-invalid");
     div.classList.add("has-danger");
@@ -182,7 +180,7 @@ function validarDireccion(direccion) {
 }
 
 //VALIDACION CMAPOS FACTURACION
-
+/* 
 function validarNombreFac(nombre) {
   let regexCaracteres = /^[A-Za-z\sáéíóúÁÉÍÓÚÑñ]+$/;
   let input = document.getElementById("nombreFac");
@@ -441,11 +439,6 @@ function validarCorreoNoti(correo) {
       div.classList.add("has-danger");
       return false;
     }
-<<<<<<< HEAD
-  
-=======
-  }
->>>>>>> adb2e00bf6b9774742172cd3b49e4a453b986e62
   input.classList.remove("is-invalid");
   div.classList.remove("has-danger");
   return true;
@@ -467,7 +460,7 @@ const selectComerial = document.getElementById("comercial");
 selectComerial.onchange =  function() {
   document.getElementById("formulario1").removeAttribute("hidden");
 };
-
+*/
 /* Funcion que comprueba si el radio esta seleccionado de mismos datos si mismos datos no */
 
 function validarRadio(){
@@ -479,4 +472,21 @@ function validarRadio(){
     return false;
   }
   return true;
+} 
+
+function validarComercial(){
+  let input = document.getElementById("comercial");
+  let error = document.getElementById("errorComercial");
+  if (input.value === "") {
+    error.removeAttribute("hidden");
+    return false;
+  } else{
+    error.setAttribute("hidden", "");
+    return true;
+  }
 }
+
+const selectComerial = document.getElementById("comercial");
+selectComerial.onchange =  function() {
+  document.getElementById("formulario1").removeAttribute("hidden");
+};

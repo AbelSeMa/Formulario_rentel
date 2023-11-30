@@ -19,47 +19,47 @@ function validarCliente(event) {
 
   let validacionCorrectaCliente = true;
 
-  if (!validarNombre(nombre)) {
+  if (!validarNombre("nombre")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
-  if (!validarApellido1(apellido1)) {
+  if (!validarApellido1("apellido1")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
-  if (!validarApellido2(apellido2)) {
+  if (!validarApellido2("apellido2")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
 
   document.getElementById("apellidos").value = apellido1 + " " + apellido2;
 
-  if (!validarDNI(dni)) {
+  if (!validarDNI("dni")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
-  if (!validarCorreo(correo)) {
+  if (!validarCorreo("correo")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
-  if (!validarTelefonoFijo(telefonoFijo)) {
+  if (!validarTelefonoFijo("telefonoFijo")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
-  if (!validarTelefonoMovil(telefonoMovil)) {
+  if (!validarTelefonoMovil("telefonoMovil")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
-  if (!validarCodigoPostal(codigoPostal)) {
+  if (!validarCodigoPostal("codigoPostal")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
-  if (!validarDireccion(direccion)) {
+  if (!validarDireccion("direccion")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
 
-  if (!validarFechaNacimiento(fecha)) {
+  if (!validarFechaNacimiento("fechaNacimiento")) {
     validacionCorrectaCliente = false;
     event.preventDefault();
   }
@@ -81,47 +81,47 @@ function validarClienteFac(event) {
   let fecha = document.getElementById("fechaNacimientoFac").value;
   let validacionCorrectaFac = true;
 
-  if (!validarNombreFac(nombreFac)) {
+  if (!validarNombre("nombreFac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
-  if (!validarApellido1Fac(apellido1Fac)) {
+  if (!validarApellido1("apellido1Fac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
-  if (!validarApellido2Fac(apellido2Fac)) {
+  if (!validarApellido2("apellido2Fac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
 
   document.getElementById("apellidosFac").value = apellido1Fac + " " + apellido2Fac;
 
-  if (!validarDNIFac(dniFac)) {
+  if (!validarDNI("dniFac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
-  if (!validarCorreoFac(correoFac)) {
+  if (!validarCorreo("correoFac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
-  if (!validarTelefonoFijoFac(telefonoFijoFac)) {
+  if (!validarTelefonoFijo("telefonoFijoFac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
-  if (!validarTelefonoMovilFac(telefonoMovilFac)) {
+  if (!validarTelefonoMovil("telefonoMovilFac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
-  if (!validarCodigoPostalFac(codigoPostalFac)) {
+  if (!validarCodigoPostal("codigoPostalFac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
-  if (!validarDireccionFac(direccionFac)) {
+  if (!validarDireccion("direccionFac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
 
-  if (!validarFechaNacimientoFac(fecha)) {
+  if (!validarFechaNacimiento("fechaNacimientoFac")) {
     validacionCorrectaFac = false;
     event.preventDefault();
   }
@@ -141,31 +141,31 @@ function validarFormNotis(event) {
   let telefonoFijoNoti = document.getElementById("telefonoFijoNoti").value;
   let validacionCorrectaNoti = true;
 
-  if (!validarNombreNoti(nombreNoti)) {
+  if (!validarNombre("nombreNoti")) {
     validacionCorrectaNoti = false;
     event.preventDefault();
   }
-  if (!validarApellido1Noti(apellido1Noti)) {
+  if (!validarApellido1("apellido1Noti")) {
     validacionCorrectaNoti = false;
     event.preventDefault();
   }
-  if (!validarApellido2Noti(apellido2Noti)) {
+  if (!validarApellido2("apellido2Noti")) {
     validacionCorrectaNoti = false;
     event.preventDefault();
   }
 
   document.getElementById("apellidosNoti").value = apellido1Noti + " " + apellido2Noti;
 
-  if (!validarCorreoNoti(correoNoti)) {
+  if (!validarCorreo("correoNoti")) {
     validacionCorrectaNoti = false;
     event.preventDefault();
   }
 
-  if (!validarTelefonoMovilNoti(telefonoMovilNoti)) {
+  if (!validarTelefonoMovil("telefonoMovilNoti")) {
     validacionCorrectaNoti = false;
     event.preventDefault();
   }
-  if (!validarTelefonoFijoNoti(telefonoFijoNoti)) {
+  if (!validarTelefonoFijo("telefonoFijoNoti")) {
     validacionCorrectaNoti = false;
     event.preventDefault();
   }
@@ -331,5 +331,3 @@ function limpiar(nombre) {
   let limpi = document.getElementById(nombre);
   limpi.innerHTML = "";
 }
-
-
