@@ -110,6 +110,10 @@ function validarCorreo(correo) {
       div.classList.add("has-danger");
       return false;
     }
+<<<<<<< HEAD
+=======
+  }
+>>>>>>> adb2e00bf6b9774742172cd3b49e4a453b986e62
   input.classList.remove("is-invalid");
   div.classList.remove("has-danger");
   return true;
@@ -437,7 +441,11 @@ function validarCorreoNoti(correo) {
       div.classList.add("has-danger");
       return false;
     }
+<<<<<<< HEAD
   
+=======
+  }
+>>>>>>> adb2e00bf6b9774742172cd3b49e4a453b986e62
   input.classList.remove("is-invalid");
   div.classList.remove("has-danger");
   return true;
