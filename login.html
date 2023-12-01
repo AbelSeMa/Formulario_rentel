@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/imagenes/rentelfavicon-removebg-preview.png"
+    />
+    <link rel="stylesheet" href="estilos/bootstrap.min.css" />
+    <link rel="stylesheet" href="estilos/selector.css" />
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="/src/validacion_completa.js" defer></script>
+    <script src="/src/validacion_campos.js" defer></script>
+    <script src="/src/modal.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  </head>
+
+  <body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 70vh;">
+        <div class="card col-md-5 text-left mx-auto container-sm shadow">
+        <div class="card-body">
+            <div class="col-md-7 mx-auto">
+            <img
+                src="/imagenes/Logo-Rentel-grande.jpg"
+                class="img-fluid"
+                alt="Responsive image"
+            />
+            </div>
+            <div id="">
+                <form action="">
+                    <div class="col-md-6 mx-auto">
+                        <label class="form-label" for="correologin">Correo electrónico</label>
+                        <input class="form-control mb-3" type="text" id="correologin" name="correo comercial"/>
+                    </div>
+                    <div class="col-md-6 mx-auto">
+                        <label for="token">Token</label>
+                        <input class="form-control mb-3" type="password" id="token">
+                    </div>
+                        
+                    <div class="col-md-6 mx-auto">
+                        <button class="btn btn-primary btn-sm mb-3">Login</button>
+                        <button class="btn btn-primary btn-sm mb-3">Token</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+  </body>
+</html>
